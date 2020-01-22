@@ -101,11 +101,11 @@ Documentation : ```sphinx``` / ```doxygen```
 # Bonus
 2 supplementary points on the final grade of the course can be obtained for contributions improving the course material (notebooks, readme, etc.) under the following constraints :
 - only 1 point is given for a contribution
-- only the rst contribution proposed on a theme is rewarded (no point given for follo-
+- only the first contribution proposed on a theme is rewarded (no point given for follo-
 wers...)
 - documented pull-requests are expected : details are expected to help judging what the proposition improves/corrects
 - for typos at leas 5 corrections are expected to get 1 point
-- each student can only get 2 points maximum through bonuses
+- each student can only get 2 points maximum through bonuses.
 
 
 
