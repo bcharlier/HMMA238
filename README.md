@@ -11,7 +11,7 @@ HMMA 238
 
  Thursday 18h-19h, ___appointment by email only___.
 
-# Webpage
+# Web page
 
 https://github.com/bcharlier/HMMA238
 
@@ -100,11 +100,11 @@ Documentation : ```sphinx``` / ```doxygen```
 
 # Bonus
 2 supplementary points on the final grade of the course can be obtained for contributions improving the course material (notebooks, readme, etc.) under the following constraints :
-- only 1 point is given for a contribution
+- only 1 point is given for a contribution,
 - only the first contribution proposed on a theme is rewarded (no point given for follo-
-wers...)
-- documented pull-requests are expected : details are expected to help judging what the proposition improves/corrects
-- for typos at leas 5 corrections are expected to get 1 point
+wers...),
+- documented pull-requests are expected : details are expected to help judging what the proposition improves/corrects,
+- for typos at least 5 corrections are expected to receive 1 point,
 - each student can only get 2 points maximum through bonuses.
 
 
@@ -112,7 +112,7 @@ wers...)
 # Books and other resources
 
 
-The main resource for the course is available on the present github repository, with additional elements presented in the file [IntroPython.pdf](http://josephsalmon.eu/enseignement/Montpellier/HLMA310/IntroPython.pdf).
+The main resource for the course is available on the present `github` repository, with additional elements available in the file [IntroPython.pdf](http://josephsalmon.eu/enseignement/Montpellier/HLMA310/IntroPython.pdf).
 
 ## Additional resources:
 
