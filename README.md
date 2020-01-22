@@ -32,7 +32,7 @@ Beyond Pandas skills, we will also introduce modern practices for coders : (unit
 - Projects will be by predefined (at random) groups of 2 or 3.
 - The list will be available soon (TODO)
 - Expected work : a ```github``` repository where the work is available A precise description will be given with the subjects.
-The ```github``` repository will consists of a (markdown) readme file as introduction, all the code in a directory called code, as well as a short summary of the proposed work in tex/pdf.
+The ```github``` repository will consist of a (markdown) readme file as introduction, all the code in a directory called code, as well as a short summary of the proposed work in tex/pdf.
 A short presentation of the work will be asked (using beamer for instance) of about 15mn.
 Grades could be modified to reflect issues on the workload balance.
 -  Due date : April 20.
