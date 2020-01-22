@@ -51,8 +51,7 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 # (Tentative) Course schedule
 
-1. BC : (22/01)
-coding : algorithms, modules, functions, objects, variables, vectors, tables, lists, dictionaries, conditions, loops (in-line, enumerate, zip, kwarg, *, tuple, future import)
+1. BC : (22/01) [coding : algorithms, modules, functions, objects, variables, vectors, tables, lists, dictionaries, conditions, loops (in-line, enumerate, zip, kwarg, *, tuple, future import)](Intro_Python/)
 Code styling elements : pep8 / IDE/ VSCode, jupyter notebook / jupyter lab. IDE (completion with TAB, snippet)
 2. JS : (23/01)
 Python follow-up + ```mumpy / matplotlib``` (np.allclose, type : float, vectorization operation by line/columns) --- Elements for practice : numerical instabilities, conditioning,
