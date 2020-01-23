@@ -17,12 +17,12 @@ https://github.com/bcharlier/HMMA238
 
 # Prerequisite
 
-Student are expected to know basic notions of probabilities, optimization, linear algebra and statistics.
+Students are expected to know basic notions of probabilities, optimization, linear algebra and statistics.
 
 # Course description
-This course focuses on using coding practices (the language used being Python, but some element of bash and git will also be useful) for professional coding practices.
-A special focus on data processing and visualization will be enforced.
-We will focus on mostly on basic programming concepts, as well as discovering the Python scientific libraries, including ```numpy, scipy, pandas, matplotlib, seaborn```.
+This course focuses on discovering good coding practices (the language used being Python, but some element of bash and git will also be useful) for professional coding.
+A special focus on data processing and visualization will be at the heart of the course.
+We will mostly focus on basic programming concepts, as well as on discovering the Python scientific libraries, including ```numpy, scipy, pandas, matplotlib, seaborn```.
 Beyond Pandas skills, we will also introduce modern practices for coders : (unitary) tests, version control, documentation generation, etc.
 
 
@@ -32,16 +32,17 @@ Beyond Pandas skills, we will also introduce modern practices for coders : (unit
 - Projects will be by predefined (at random) groups of 2 or 3.
 - The list will be available soon (TODO)
 - Expected work : a ```github``` repository where the work is available A precise description will be given with the subjects.
-The ```github``` repository will consist of a (markdown) readme file as introduction, all the code in a directory called code, as well as a short summary of the proposed work in tex/pdf.
-A short presentation of the work will be asked (using beamer for instance) of about 15mn.
-Grades could be modified to reflect issues on the workload balance.
+The ```github``` repository will containt at least a (markdown) readme file introducing your work. All the code will be placed in a directory called */Code*, a tex/pdf or `jupyter notebook`  will be put in a */Report* directory and your final beamer/power point presentation (in an open source format) will be set in `/Beamer` directory.
+The later will be a short presentation of the work that will be orally presented during 15mn in front of a jury.
+
 -  Due date : April 20.
 The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
 
-**Warning** : the project repository must show a balanced contribution between group members.
+
+**Warning** : the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
 
 ## Mid-term project snapshot (10% of the final grade)
-- This will include the creation of the ```github``` repository how the work is split and a detailed program for the second part of the project.
+- This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the second part of the project.
 - Due date : March (TBD)
 
 ## Practical / Homework (20% of the final grade)
