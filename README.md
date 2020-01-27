@@ -11,18 +11,18 @@ HMMA 238
 
  Thursday 18h-19h, ___appointment by email only___.
 
-# Webpage
+# Web page
 
 https://github.com/bcharlier/HMMA238
 
 # Prerequisite
 
-Student are expected to know basic notions of probabilities, optimization, linear algebra and statistics.
+Students are expected to know basic notions of probabilities, optimization, linear algebra and statistics.
 
 # Course description
-This course focuses on using coding practices (the language used being Python, but some element of bash and git will also be useful) for professional coding practices.
-A special focus on data processing and visualization will be enforced.
-We will focus on mostly on basic programming concepts, as well as discovering the Python scientific libraries, including ```numpy, scipy, pandas, matplotlib, seaborn```.
+This course focuses on discovering good coding practices (the language used being Python, but some element of bash and git will also be useful) for professional coding.
+A special focus on data processing and visualization will be at the heart of the course.
+We will mostly focus on basic programming concepts, as well as on discovering the Python scientific libraries, including ```numpy, scipy, pandas, matplotlib, seaborn```.
 Beyond Pandas skills, we will also introduce modern practices for coders : (unitary) tests, version control, documentation generation, etc.
 
 
@@ -32,16 +32,17 @@ Beyond Pandas skills, we will also introduce modern practices for coders : (unit
 - Projects will be by predefined (at random) groups of 2 or 3.
 - The list will be available soon (TODO)
 - Expected work : a ```github``` repository where the work is available A precise description will be given with the subjects.
-The ```github``` repository will consists of a (markdown) readme file as introduction, all the code in a directory called code, as well as a short summary of the proposed work in tex/pdf.
-A short presentation of the work will be asked (using beamer for instance) of about 15mn.
-Grades could be modified to reflect issues on the workload balance.
+The ```github``` repository will containt at least a (markdown) readme file introducing your work. All the code will be placed in a directory called */Code*, a tex/pdf or `jupyter notebook`  will be put in a */Report* directory and your final beamer/power point presentation (in an open source format) will be set in `/Beamer` directory.
+The later will be a short presentation of the work that will be orally presented during 15mn in front of a jury.
+
 -  Due date : April 20.
 The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
 
-**Warning** : the project repository must show a balanced contribution between group members.
+
+**Warning** : the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
 
 ## Mid-term project snapshot (10% of the final grade)
-- This will include the creation of the ```github``` repository how the work is split and a detailed program for the second part of the project.
+- This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the second part of the project.
 - Due date : March (TBD)
 
 ## Practical / Homework (20% of the final grade)
@@ -51,7 +52,7 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 # (Tentative) Course schedule
 
-1. BC : (22/01) [coding : algorithms, modules, functions, objects, variables, vectors, tables, lists, dictionaries, conditions, loops (in-line, enumerate, zip, kwarg, *, tuple, future import)](Intro_Python/)
+1. BC : (22/01) [coding : algorithms, modules, functions, objects, variables, vectors, tables, lists, dictionaries, conditions, loops (in-line, enumerate, zip, kwarg, *, tuple, future import)](Intro-Python/)
 Code styling elements : pep8 / IDE/ VSCode, jupyter notebook / jupyter lab. IDE (completion with TAB, snippet)
 2. JS : (23/01)
 Python follow-up + ```mumpy / matplotlib``` (np.allclose, type : float, vectorization operation by line/columns) --- Elements for practice : numerical instabilities, conditioning,
@@ -100,19 +101,19 @@ Documentation : ```sphinx``` / ```doxygen```
 
 # Bonus
 2 supplementary points on the final grade of the course can be obtained for contributions improving the course material (notebooks, readme, etc.) under the following constraints :
-- only 1 point is given for a contribution
-- only the rst contribution proposed on a theme is rewarded (no point given for follo-
-wers...)
-- documented pull-requests are expected : details are expected to help judging what the proposition improves/corrects
-- for typos at leas 5 corrections are expected to get 1 point
-- each student can only get 2 points maximum through bonuses
+- only 1 point is given for a contribution,
+- only the first contribution proposed on a theme is rewarded (no point given for follo-
+wers...),
+- documented pull-requests are expected : details are expected to help judging what the proposition improves/corrects,
+- for typos at least 5 corrections are expected to receive 1 point,
+- each student can only get 2 points maximum through bonuses.
 
 
 
 # Books and other resources
 
 
-The main resource for the course is available on the present github repository, with additional elements presented in the file [IntroPython.pdf](http://josephsalmon.eu/enseignement/Montpellier/HLMA310/IntroPython.pdf).
+The main resource for the course is available on the present `github` repository, with additional elements available in the file [IntroPython.pdf](http://josephsalmon.eu/enseignement/Montpellier/HLMA310/IntroPython.pdf).
 
 ## Additional resources:
 
