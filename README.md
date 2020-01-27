@@ -139,4 +139,11 @@ https://jakevdp.github.io/PythonDataScienceHandbook/
 
 - SparseMatrix notebook might be split with element put in ```numba```???
 
+# Utils
 
+Some useful extensions:
+
+```
+conda install -c conda-forge jupyter_contrib_nbextensions
+conda install -c conda-forge nbstripout
+```
