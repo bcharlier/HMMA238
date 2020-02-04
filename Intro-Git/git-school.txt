@@ -31,10 +31,6 @@ git push
 git checkout branch1
 git push
 
-# git upstream change
-
-git pull
-
 
 # git revert scenario
 
@@ -44,4 +40,35 @@ git commit
 git merge feature
 
 
+# git upstream change
+
+git pull
+git checkout master
+git merge feature
+git commit
+git push
+
+
+# git upstream change (rebase exercice)
+
+git pull
+git checkout master
+git commit
+git commit
+git checkout feature
+git commit -m "message1"
+git commit -m "message2"
+git rebase master
+git checkout master
+git merge feature
+git commit -m "message3"
+git branch -d feature
+git push
+
+
+# git cherry-pick scenario
+
+git cherry-pick 8f7c801 
+# or 
+git cherry-pick release 
 
