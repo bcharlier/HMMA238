@@ -96,11 +96,14 @@ The purpose of this exercise is to learn how to the use git as a collaboration t
 
 ## Using an existing repository
 
-Browse the repository at https://github.com/HMMA238-2020/git-tutorial. Fork the repository by following these steps: 
+Browse the repository at https://github.com/HMMA238-2020/git-tutorial. What is this module able to do?
 
-1. On GitHub, click on the fork icon. 
-2. A copy is added to your GitHub space. Clone it (this copy!) to get a local repository. 
-3. In a terminal, inspect the output of the command `git remote get-url origin`
+**Exercice:**
+
+Fork the repository by following these steps: 
+  1. On GitHub, click on the fork icon. 
+  2. A copy is added to your GitHub space. Clone it (this copy!) to get a local repository. 
+  3. In a terminal, inspect the output of the command `git remote get-url origin`
 
 ## Debuging
 
@@ -108,7 +111,7 @@ A bug has appeared into the python module after some commit. An issue has been o
 
 ### Identification of the bad commit
 
-Your goal is to identify the commit that caused the bug. Use `git log`, `git diff`, `git checkout` to identify the commit responsible for the problem.
+Your goal is to identify the commit(s) that caused the bug. Use `git log`, `git diff`, `git checkout` to identify the commit responsible for the problem.
 
 ### Create a new branch to fix the problem
 
@@ -130,21 +133,18 @@ Your work about bug fixing may interest the original author of the project. On G
 
 **Exercice:**
 
-1. Checkout to the branch `NonGaussian`. Try to figure out what has changed compared to the master branch. 
-
-2. Try to merge the branch `NonGaussian` to the branch `master`. 
-3. The conflict are shown with the following decorator
+  1. Checkout to the branch `NonGaussian`. Try to figure out what has changed compared to the master branch. 
+  2. Try to merge the branch `NonGaussian` to the branch `master`. 
+  3. Where are located the conflicts? They are shown with the following decorator
 ```python
-<<<<<<< HEAD
-some code on current branch
-=======
-some code on branch to be merged
->>>>>>> NonGaussian
+      <<<<<<< HEAD
+      some code on current branch
+      =======
+      some code on branch to be merged
+      >>>>>>> NonGaussian
 ```
-
-Where are located the conflict ? 
-4. Resolve them by plotting the two histogram on a same plot. Namely produce a figure like this:
-![plot](plot.png)
+   
+  4. Resolve them by plotting the two histogram on a same plot. Namely produce a figure like this:![plot](plot.png)
 
 
 # To go further
