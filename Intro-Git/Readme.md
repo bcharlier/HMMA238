@@ -5,9 +5,9 @@ Git is a [Version Control System (VCS)](https://en.wikipedia.org/wiki/Version_co
 
 # References
 
-https://fr.slideshare.net/ThomasRausch4/git-introduction-tutorial
-https://git-school.github.io/visualizing-git/
-https://github.com/HMMA238-2020/git-tutorial
+- https://fr.slideshare.net/ThomasRausch4/git-introduction-tutorial
+- https://git-school.github.io/visualizing-git/
+- https://github.com/HMMA238-2020/git-tutorial
 
 # Objectives
 
