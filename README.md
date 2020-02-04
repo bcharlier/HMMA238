@@ -52,49 +52,68 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 # (Tentative) Course schedule
 
-1. BC : (22/01) [coding : algorithms, modules, functions, objects, variables, vectors, tables, lists, dictionaries, conditions, loops (in-line, enumerate, zip, kwarg, *, tuple, future import)](Intro-Python/)
-Code styling elements : pep8 / IDE/ VSCode, jupyter notebook / jupyter lab. IDE (completion with TAB, snippet)
+1. BC : (22/01) [coding : algorithms, modules, basic types, functions, loops](Intro-Python/)
+
 2. JS : (23/01)
-Python follow-up + ```mumpy / matplotlib``` (np.allclose, type : float, vectorization operation by line/columns) --- Elements for practice : numerical instabilities, conditioning,
-simple visualizations, elementary statistics.
+Python follow-up + ```mumpy / matplotlib``` (np.allclose, type : float, vectorization operation by line/columns) --- Elements for practice : numerical instabilities, conditioning, simple visualizations, elementary statistics.
+
 3. BC : (29/01)
-Installation : ```conda / pip```, Development stack / problems of software development. Markdown.
-Additional reading :
-https://rr-france.github.io/bookrr/booksprintrr.pdf
+[classes (__init__, __call__, etc...), operator overloading, files handling](Intro-Python/), [git](Intro-Git)
+
 4. JS : (30/01)
 Images / videos / signal / widget / (optional : Altair).
 TP : sinusoids
+
 5. BC : (05/02)
-git et github
+[github, ssh key creation, various git commands, conflict, pull request](Intro-Git/)
+
 6. JS : (06/02)
 ```pytest``` and tests, Debugging : ```ipdb```, CI : continuous architecture / code interdependently of the OS Travis as example link :
  https://rachelcarmena.github.io/2018/
 12/12/how-to-teach-git.html
  https://amueller.github.io/COMS4995-s19/
 slides/aml-02-python-git-testing/#1
+
 7. BC : (12/02)
 ```bash``` / regex (```rename, find, grep```) : Create / delete / clean dataframe / simple analysis
 (e.g. on cars, imdb, etc.)
+
 8. JS : (13/02)
 ```pandas / seaborn```
+
 9. BC : (26/02)
 ```pandas / seaborn```
+
 10. JS : (27/02)
 ```statsmodels```
+
 11. BC : (04/03)
 Classes /constructors/ ```__init__``` / ```__call__``` / Practical : TBD ; ```sklearn``` (OLS, etc.).
 Functions->classes (example : a=np.array([3,2]) and command a.sum() instead of
 np.sum(a))
+Code styling elements(in-line, enumerate, zip, kwarg, *, tuple, future import) : pep8 / IDE/ VSCode, jupyter notebook / jupyter lab. IDE (completion with TAB, snippet)
+Installation : ```conda / pip```, Development stack / problems of software development. Markdown.
+Additional reading :
+https://rr-france.github.io/bookrr/booksprintrr.pdf
+
 12. JS : (05/03)
 graph ```networkx```/ ```igraph``` / sparse/full matrices
+
 13. BC : (11/03) ```pytorch``` / ```autograd``` / formal calculation
+
 14. BC : (18/03)
+
 15. JS : (19/03) time / memory efficiency, compilation "just in time" (```numba```), profiling
 Documentation : ```sphinx``` / ```doxygen```
+
 16. JS : (26/03)
+
 17. BC : (31/03) (1.5h course only)
+
 18. JS : (02/04)
+
 19. JS+BC : (21/04) Oral examination
+
 20. JS+BC : (28/04) Oral examination
 
 
