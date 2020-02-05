@@ -54,32 +54,27 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 1. BC : (22/01) [coding : algorithms, modules, basic types, functions, loops](Intro-Python/)
 
-2. JS : (23/01)
-Python follow-up + ```mumpy / matplotlib``` (np.allclose, type : float, vectorization operation by line/columns) --- Elements for practice : numerical instabilities, conditioning, simple visualizations, elementary statistics.
+2. JS : (23/01) [coding : list, dictionnary, tuples, if statement and loops, exceptions]
 
-3. BC : (29/01)
-[classes (__init__, __call__, etc...), operator overloading, files handling](Intro-Python/), [git](Intro-Git)
+3. BC : (29/01) [classes (__init__, __call__, etc...), operator overloading, files handling](Intro-Python/), [git](Intro-Git)
 
-4. JS : (30/01)
-Images / videos / signal / widget / (optional : Altair).
-TP : sinusoids
+4. JS : (30/01) [Numpy : basics on matrices (arrays), slicing, simple linear algebra, masking; Matplotlib: basics]
 
 5. BC : (05/02)
 [github, ssh key creation, various git commands, conflict, pull request](Intro-Git/)
 
-6. JS : (06/02)
-```pytest``` and tests, Debugging : ```ipdb```, CI : continuous architecture / code interdependently of the OS Travis as example link :
- https://rachelcarmena.github.io/2018/
-12/12/how-to-teach-git.html
- https://amueller.github.io/COMS4995-s19/
-slides/aml-02-python-git-testing/#1
+6. JS : (06/02) [Numpy : casting, concatenation, imshow, meshgrid, casting, copy; Scipy: Interpolation, Optimize, Images/channel, FFT,...]
 
 7. BC : (12/02)
 ```bash``` / regex (```rename, find, grep```) : Create / delete / clean dataframe / simple analysis
 (e.g. on cars, imdb, etc.)
 
 8. JS : (13/02)
-```pandas / seaborn```
+```pytest``` and tests, Debugging : ```ipdb```, CI : continuous architecture / code interdependently of the OS Travis as example link :
+ https://rachelcarmena.github.io/2018/
+12/12/how-to-teach-git.html
+ https://amueller.github.io/COMS4995-s19/
+slides/aml-02-python-git-testing/#1
 
 9. BC : (26/02)
 ```pandas / seaborn```
