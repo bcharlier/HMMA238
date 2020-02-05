@@ -54,16 +54,17 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 1. BC : (22/01) [coding : algorithms, modules, basic types, functions, loops](Intro-Python/)
 
-2. JS : (23/01) [coding : list, dictionnary, tuples, if statement and loops, exceptions]
+2. JS : (23/01) [coding : list, dictionnary, tuples, if statement and loops, exceptions](Intro-Python/)
 
 3. BC : (29/01) [classes (__init__, __call__, etc...), operator overloading, files handling](Intro-Python/), [git](Intro-Git)
 
-4. JS : (30/01) [Numpy : basics on matrices (arrays), slicing, simple linear algebra, masking; Matplotlib: basics]
+4. JS : (30/01) [Numpy : basics on matrices (arrays), slicing, simple linear algebra, masking; Matplotlib: basics](Numpy-Matplotlib/)
 
 5. BC : (05/02)
 [github, ssh key creation, various git commands, conflict, pull request](Intro-Git/)
 
-6. JS : (06/02) [Numpy : casting, concatenation, imshow, meshgrid, casting, copy; Scipy: Interpolation, Optimize, Images/channel, FFT,...]
+6. JS : (06/02) [Numpy : casting, concatenation, imshow, meshgrid, casting, copy](Numpy-Matplotlib/)
+[Scipy: Interpolation, Optimize, Images/channel, FFT,...](Scipy/)
 
 7. BC : (12/02)
 ```bash``` / regex (```rename, find, grep```) : Create / delete / clean dataframe / simple analysis
