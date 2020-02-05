@@ -3,24 +3,24 @@
 ## Git
 
 On a terminal, specify the email address with which you will make your commits:
-```
+```bash
 $ git config --global user.email "prenom.nom@domaine.fr"
 ```
 
 ## Create a SSH key
 
 The SSH is needed to get a smooth authentification procedd to the remode repository. In a terminal:
-```
+```bash
 $ ssh-keygen -t rsa -b 4096 -C "prenom.nom@domaine.fr"
 ```
 Accept the default option (keys saved in `~/.ssh` and no passphrase)
 
-```
+```bash
 ssh-add
 ```
-Ref: https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+See the following link for more details: https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
-# Github
+# Setting up your Github account
 
 GitHub is a web hosting service for remote repositories using git. GitHub includes additional features for collaboration, such as bug tracking, requests to add features, or task management. Unfortunately GitHub do not include natively a Continuous Integration system. Note that there are other git-based hosting websites such as GitLab or BitBucket.
 
@@ -30,15 +30,15 @@ Please go to https://github.com/ and follow the instructions for creation and ac
 
 ### Add your SSH key
 
-In a terminal
-```
+To display your public key, simply type in a terminal,
+```bash
 $ cat ~/.ssh/id_rsa.pub
 ```
-copy the result into the clipboard and follow the instruction [here](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account).
+copy the result into the clipboard and add your key into your GitHub account. See https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 
-To check your installation, please follow [this](https://help.github.com/en/github/authenticating-to-github/testing-your-ssh-connection)
+To check your installation, please follow the instructions https://help.github.com/en/github/authenticating-to-github/testing-your-ssh-connection
 
-## Create a Repository
+## Create a remote repository
 
 Let's create a remote repository hosted on your GitHub account. 
 
@@ -50,7 +50,7 @@ Create a **public** repo, meaning that everyone can access to your code (read on
 Follow the instructions provided by GitHub to create your local copy of the repository:
 1. Create a new folder called `FirstRepo` in your `/home` directory and `cd` to it
 2. Then execute the following command
-```
+```bash
 echo "# FirstRepo" >> README.md
 git init
 git add README.md
