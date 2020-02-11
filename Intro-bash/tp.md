@@ -8,17 +8,18 @@ As you already know bash prompt is a `$` sign when you are a standard user. When
 # The Unix directory structure
 
 Some aliases:
+
     - `~` is an alias to your home directory. 
     - `.` is an alias to the current directory. 
     - `..` is an alias to the parent directory.
 
 For instance 
 
-```
-cd ~
-pwd
-cd ../../home/../etc/../home/
-pwd
+```bash
+$ cd ~
+$ pwd
+$ cd ../../home/../etc/../home/
+$ pwd
 ```
 
 **Exercise:**
@@ -30,14 +31,15 @@ Many details on the Unix directory structure at https://www.howtogeek.com/117435
 ## Getting help
 
 To get some help for a command, please use the `man` command. You may also use the `--help` option as in 
-``
+```bash
 $ man ls
 $ ls --help
-``
+```
 
 ## Regexp 101
 
 Some of the most common regula expression are
+
     - `^` start of line
     - `.` any single character 
     - `$`  end of line 
@@ -54,6 +56,7 @@ Regexp can be used in various places (`ls`, `grep`, `find`, etc...). For instanc
 $ ls *.txt
 ```
 **Exercise:**
+
     1. Go to `/usr/lib/R/bin/R` and list every files starting with a letter `R` and containing i
     2. Got to `/var/log/` and list every files with extension `.log`
     2. Got to `/var/log/` and list every files with a name starting with a `a` and containing a digit
@@ -62,7 +65,7 @@ $ ls *.txt
 
 To list the files in a folder use the command `ls`.
 
-**Exercice:** 
+**Exercise:** 
 
    1. describe the option `-a` 
    2. describe the option `-R`
@@ -71,12 +74,12 @@ To list the files in a folder use the command `ls`.
 
 The `file` command can be used to display the information of a file (if not given by the extension...)
 
-**Exercice:**
+**Exercise:**
   1. List all the files in the directory `/usr/lib/R/bin` and sort them by size
-  1. display the type information of the files in `/var/log/` one call to `file`
-
-
-## Users
+  2. display the type information of the files in `/var/log/` one call to `file`
+  
+  
+## Users
 
 To list the groups you belong to 
 ```bash
@@ -88,32 +91,25 @@ $ w
 $ who
 ```
 
-## File permissions
+## File permissions
 
 Each file has an **owner** (a user) and a **group** (a group of user). There is 3 types of permissions:
+
     1. read  `r`
     2. write `w`
     3. execute `x`
 
 There is three permission triads
 
--------------  -----------------------------------------
-first triad 	 what the owner can do
-------------   -----------------------------------------
-second triad 	what the group members can do
-------------   -----------------------------------------
-third triad    	what other users can do
-------------   -----------------------------------------
+1. first triad 	 what the owner can do
+2. second triad 	what the group members can do
+3. third triad    	what other users can do
 
 Each triad
 
------------------    -----------------------------------------
-first character 	    r: readable
------------------    -----------------------------------------
-second character 	    w: writable
------------------    -----------------------------------------
-third character 	    x: executable
------------------    -----------------------------------------
+1. first character 	    r: readable
+2. second character 	    w: writable
+3. third character 	    x: executable
 
 Ref: https://en.wikipedia.org/wiki/File_system_permissions
 
@@ -124,7 +120,7 @@ A paging program displays, one windowful at a time, the contents of a file on a 
 
 `more` (deprecated) `less` (best choice) `most` (default on your machine, more feature than `less`, but bad keybindings).
 
-```
+```bash
 $ man less
 $ man most
 ```
@@ -149,7 +145,7 @@ An environment variable (env or envs) is a dynamic-named value that can affect t
 $ printenv
 ```
 To display a single variable, you may use the prefix `$`. For instance, to display the content of `PATH`
-```
+```bash
 $ echo ${PATH}
 ```
 To set a new variable (in bash)
@@ -157,7 +153,7 @@ To set a new variable (in bash)
 $ export ENV_NAME=toto:tata 
 ```
 List are often separated by `:`. To append a new value at the end 
-```
+```bash
 $ export ENV_NAME=${ENV_NAME}:tutu
 $ echo ${ENV_NAME}
 ```
@@ -172,7 +168,7 @@ Some documentation: https://www.digitalocean.com/community/tutorials/how-to-read
 ## Text editor
 
 In bash, many configuration files are in fact **text file**. You may need to choose a text editor to modify them. Very powerful (and thus complicated) text editors exist: emacs, vim, ... We will focus on nano
-```
+```bash
 $ nano
 ```
 or `joe` (default on your system).
@@ -217,6 +213,7 @@ $ man grep
 ```
 
 **Exercise:**
+
   1. Display the line number of the accident occuring a wednesday of octobre 2017
   2. Count the number of accident in 2005 using the command `grep` (hint: remark that each line **starts** with the string `"YYYY` where `YYYY` is the year)
 
@@ -247,7 +244,7 @@ $ du | sort -nr | less
 **Exercise:**
   1. Display the last 15 accident occuring with `Vent fort` condition
   2. Display the type of crossing of the accident occuring with `Vent fort` in 2010. It should return
-```
+```bash
 Intersection en X
 Intersection en T
 Intersection en X
