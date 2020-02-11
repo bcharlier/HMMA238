@@ -9,9 +9,9 @@ As you already know bash prompt is a `$` sign when you are a standard user. When
 
 Some aliases:
 
-    - `~` is an alias to your home directory. 
-    - `.` is an alias to the current directory. 
-    - `..` is an alias to the parent directory.
+- `~` is an alias to your home directory. 
+- `.` is an alias to the current directory. 
+- `..` is an alias to the parent directory.
 
 For instance 
 
@@ -40,16 +40,16 @@ $ ls --help
 
 Some of the most common regula expression are
 
-    - `^` start of line
-    - `.` any single character 
-    - `$`  end of line 
-    - `x*` zero or more occurrence of character x
-    - `x+` one or more occurrences of character x
-    - `x?` zero or one occurrence of character x
-    - `x{n}` exactly n occurrence of character x
-    - `[...]` range of characters (e.g. [a-z], [A-Z], [a-zA-Z], [0-9], etc...)
-    - `[^...]` plage de caractères interdits 
-    ...
+- `^` start of line
+- `.` any single character 
+- `$`  end of line 
+- `x*` zero or more occurrence of character x
+- `x+` one or more occurrences of character x
+- `x?` zero or one occurrence of character x
+- `x{n}` exactly n occurrence of character x
+- `[...]` range of characters (e.g. [a-z], [A-Z], [a-zA-Z], [0-9], etc...)
+- `[^...]` plage de caractères interdits 
+ ...
 
 Regexp can be used in various places (`ls`, `grep`, `find`, etc...). For instance to display all the files with an extension in `txt`:
 ```bash
@@ -57,9 +57,9 @@ $ ls *.txt
 ```
 **Exercise:**
 
-    1. Go to `/usr/lib/R/bin/R` and list every files starting with a letter `R` and containing i
-    2. Got to `/var/log/` and list every files with extension `.log`
-    2. Got to `/var/log/` and list every files with a name starting with a `a` and containing a digit
+1. Go to `/usr/lib/R/bin/R` and list every files starting with a letter `R` and containing i
+2. Got to `/var/log/` and list every files with extension `.log`
+3. Got to `/var/log/` and list every files with a name starting with a `a` and containing a digit
 
 ## Listing files
 
@@ -67,16 +67,17 @@ To list the files in a folder use the command `ls`.
 
 **Exercise:** 
 
-   1. describe the option `-a` 
-   2. describe the option `-R`
-   3. describe the option `-lh` 
-   4. List all the files in the directory `/usr/lib/` without `cd` in it
+1. describe the option `-a` 
+2. describe the option `-R`
+3. describe the option `-lh` 
+4. List all the files in the directory `/usr/lib/` without `cd` in it
 
 The `file` command can be used to display the information of a file (if not given by the extension...)
 
 **Exercise:**
-  1. List all the files in the directory `/usr/lib/R/bin` and sort them by size
-  2. display the type information of the files in `/var/log/` one call to `file`
+
+1. List all the files in the directory `/usr/lib/R/bin` and sort them by size
+2. display the type information of the files in `/var/log/` one call to `file`
   
   
 ## Users
@@ -95,9 +96,9 @@ $ who
 
 Each file has an **owner** (a user) and a **group** (a group of user). There is 3 types of permissions:
 
-    1. read  `r`
-    2. write `w`
-    3. execute `x`
+1. read  `r`
+2. write `w`
+3. execute `x`
 
 There is three permission triads
 
@@ -127,11 +128,11 @@ $ man most
 
 **Useful tips:**
 
-    - to search for a word type `/`. To go to the next (resp. previous)  occurence type `n` (resp. `p`). 
-    - [less only] to go down type `j`, to go up type `k` 
-    - to go to the begining of file type `g`, to the end `G`
-    - To quit type `q`. 
-    - to change the default paging program to `less` 
+- to search for a word type `/`. To go to the next (resp. previous)  occurence type `n` (resp. `p`). 
+- [less only] to go down type `j`, to go up type `k` 
+- to go to the begining of file type `g`, to the end `G`
+- To quit type `q`. 
+- to change the default paging program to `less` 
 ```bash 
 $ export MANPAGER=less
 ```
@@ -192,17 +193,19 @@ or `joe` (default on your system).
 The dataset we are going to use is available at https://www.data.gouv.fr/fr/datasets/accidents-de-velo-en-france/. We will focus on bicycles accident in France from 2005-2017.
 
 **Exercise:**
-    1. Create a folder `data_bicycle` and `cd` to it.
-    2. Download the csv file available at the following url: https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96 as `bicycle_db.csv` (option `-o` of  `wget`)
+
+1. Create a folder `data_bicycle` and `cd` to it.
+2. Download the csv file available at the following url: https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96 as `bicycle_db.csv` (option `-o` of  `wget`)
 
 ## Tail, head, cat, wc, split
 
 Please read the manual of `tail`, `head`, `cat`, `wc` and `split`
 
 **Exercise:**
-    1. Use the word count `wc` command to display the number of lines of `bicycle_db.csv`
-    2. Display the 53 first line with the `head` command. Same with the 30 last lines (see `tail`)
-    3. Use the `split` command and its options `-d` `-l` and `--additional-suffix` to create files with a maximum number of lines of 10000 (hint you should get only 6 files) with names `bike01.csv`, ..., `bike06.csv`
+
+1. Use the word count `wc` command to display the number of lines of `bicycle_db.csv`
+2. Display the 53 first line with the `head` command. Same with the 30 last lines (see `tail`)
+3. Use the `split` command and its options `-d` `-l` and `--additional-suffix` to create files with a maximum number of lines of 10000 (hint you should get only 6 files) with names `bike01.csv`, ..., `bike06.csv`
   
   
 ## Grep
@@ -214,16 +217,16 @@ $ man grep
 
 **Exercise:**
 
-  1. Display the line number of the accident occuring a wednesday of octobre 2017
-  2. Count the number of accident in 2005 using the command `grep` (hint: remark that each line **starts** with the string `"YYYY` where `YYYY` is the year)
+1. Display the line number of the accident occuring a wednesday of octobre 2017
+2. Count the number of accident in 2005 using the command `grep` (hint: remark that each line **starts** with the string `"YYYY` where `YYYY` is the year)
 
 # Pipes and redirections
 
 The I/O of any program launch through the bash are organized in three data streams:
 
-  -  STDIN (0) - Standard input (input)
-  -  STDOUT (1) - Standard output (data output by the command and printed in the terminal)
-  -  STDERR (2) - Standard error (reserved for error messages, also printed in the terminal)
+-  STDIN (0) - Standard input (input)
+-  STDOUT (1) - Standard output (data output by the command and printed in the terminal)
+-  STDERR (2) - Standard error (reserved for error messages, also printed in the terminal)
 
 
 Piping and redirection is the process used to connect these streams between programs and files.
@@ -269,5 +272,5 @@ $ wc -l < toto.txt
 
 
 **Exercise:**
-  1. Create a single file `bike2016.csv` containing all the accident that occured in 2016.
-  2. Append the accidents of year 2017 to the previous file and then rename it `bike2016_17.csv`.
+1. Create a single file `bike2016.csv` containing all the accident that occured in 2016.
+2. Append the accidents of year 2017 to the previous file and then rename it `bike2016_17.csv`.
