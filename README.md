@@ -60,12 +60,11 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 4. JS : (30/01) [Numpy : basics on matrices (arrays), slicing, simple linear algebra, masking; Matplotlib: first plots](Numpy-Matplotlib/)
 
-5. BC : (05/02)
-[github, ssh key creation, various git commands, conflict, pull request](Intro-Git/)
+5. BC : (05/02) [github, ssh key creation, various git commands, conflict, pull request](Intro-Git/)
 
 6. JS : (06/02) [Numpy : casting, concatenation, imshow, meshgrid, casting, copy](Numpy-Matplotlib/);  [Scipy: Interpolation, Optimize, Images/channel, FFT,...](Scipy/)
 
-7. BC : (12/02)
+7. BC : (12/02) [hands on git](Intro-Git), [bash](Intro-Bash)
 ```bash``` / regex (```rename, find, grep```) : Create / delete / clean dataframe / simple analysis
 (e.g. on cars, imdb, etc.)
 
