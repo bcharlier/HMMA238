@@ -32,7 +32,7 @@ Beyond Pandas skills, we will also introduce modern practices for coders : (unit
 - Projects will be by predefined (at random) groups of 2 or 3.
 - The list will be available soon (TODO)
 - Expected work : a ```github``` repository where the work is available A precise description will be given with the subjects.
-The ```github``` repository will containt at least a (markdown) readme file introducing your work. All the code will be placed in a directory called */Code*, a tex/pdf or `jupyter notebook`  will be put in a */Report* directory and your final beamer/power point presentation (in an open source format) will be set in `/Beamer` directory.
+The ```github``` repository will contain at least a (markdown) Readme file introducing your work. All the code will be placed in a directory called */Code*, a tex/pdf or `jupyter notebook`  will be put in a */Report* directory and your final beamer/power point presentation (in an open source format) will be set in `/Beamer` directory.
 The later will be a short presentation of the work that will be orally presented during 15mn in front of a jury.
 
 -  Due date : April 20.
@@ -113,10 +113,9 @@ Documentation : ```sphinx``` / ```doxygen```
 
 
 # Bonus
-2 supplementary points on the final grade of the course can be obtained for contributions improving the course material (notebooks, readme, etc.) under the following constraints :
+2 supplementary points on the final grade of the course can be obtained for contributions improving the course material (notebooks, Readme, etc.) under the following constraints :
 - only 1 point is given for a contribution,
-- only the first contribution proposed on a theme is rewarded (no point given for follo-
-wers...),
+- only the first contribution proposed on a theme is rewarded (no point given for followers...),
 - documented pull-requests are expected : details are expected to help judging what the proposition improves/corrects,
 - for typos at least 5 corrections are expected to receive 1 point,
 - each student can only get 2 points maximum through bonuses.
