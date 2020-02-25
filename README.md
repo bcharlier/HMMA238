@@ -56,49 +56,31 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 2. JS : (23/01) [coding : list, dictionnary, tuples, if statement and loops, exceptions](Intro-Python/)
 
-3. BC : (29/01) [classes (__init__, __call__, etc...), operator overloading, files handling](Intro-Python/), [git](Intro-Git)
+3. BC : (29/01) [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Intro-Python/), [git](Git/)
 
 4. JS : (30/01) [Numpy : basics on matrices (arrays), slicing, simple linear algebra, masking; Matplotlib: first plots](Numpy-Matplotlib/)
 
-5. BC : (05/02) [github, ssh key creation, various git commands, conflict, pull request](Intro-Git/)
+5. BC : (05/02) [github, ssh key creation, various git commands, conflict, pull request](Git/)
 
-6. JS : (06/02) [Numpy : casting, concatenation, imshow, meshgrid, casting, copy](Numpy-Matplotlib/);  [Scipy: Interpolation, Optimize, Images/channel, FFT,...](Scipy/)
+6. JS : (06/02) [Numpy : casting, concatenation, imshow, meshgrid, casting, copy](Numpy-Matplotlib/);  [Scipy: EDO, Interpolation, Optimize](Scipy/)
 
-7. BC : (12/02) [hands on git](Intro-Git), [bash](Intro-Bash)
-```bash``` / regex (```rename, find, grep```) : Create / delete / clean dataframe / simple analysis
-(e.g. on cars, imdb, etc.)
+7. BC : (12/02) [hands on git](Git/), [intro to linux essentials and command line tools](Bash) 
 
-8. JS : (13/02)
-```pytest``` and tests, Debugging : ```ipdb```, CI : continuous architecture / code interdependently of the OS Travis as example link :
- https://rachelcarmena.github.io/2018/
-12/12/how-to-teach-git.html
- https://amueller.github.io/COMS4995-s19/
-slides/aml-02-python-git-testing/#1
+8. JS : (13/02) [Scipy: Images/channel, FFT](Scipy/), [Pandas: missing data](Pandas/)
 
-9. BC : (26/02)
-```pandas / seaborn```
+9. BC : (26/02) [bash, regexp, grep, find, rename](Bash/), [Python virtual environment, Anaconda](Venv/), [IDE: VScode](IDE/)
 
-10. JS : (27/02)
-```statsmodels```
+10. JS : (27/02) [Pandas](Pandas/)
 
-11. BC : (04/03)
-Classes /constructors/ ```__init__``` / ```__call__``` / Practical : TBD ; ```sklearn``` (OLS, etc.).
-Functions->classes (example : a=np.array([3,2]) and command a.sum() instead of
-np.sum(a))
-Code styling elements(in-line, enumerate, zip, kwarg, *, tuple, future import) : pep8 / IDE/ VSCode, jupyter notebook / jupyter lab. IDE (completion with TAB, snippet)
-Installation : ```conda / pip```, Development stack / problems of software development. Markdown.
-Additional reading :
-https://rr-france.github.io/bookrr/booksprintrr.pdf
+11. BC : (04/03) Create a Python Module
 
 12. JS : (05/03)
-graph ```networkx```/ ```igraph``` / sparse/full matrices
 
-13. BC : (11/03) ```pytorch``` / ```autograd``` / formal calculation
+13. BC : (11/03) 
 
 14. BC : (18/03)
 
-15. JS : (19/03) time / memory efficiency, compilation "just in time" (```numba```), profiling
-Documentation : ```sphinx``` / ```doxygen```
+15. JS : (19/03) 
 
 16. JS : (26/03)
 
