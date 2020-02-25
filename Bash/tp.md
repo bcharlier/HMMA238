@@ -23,7 +23,9 @@ $ pwd
 ```
 
 **Exercise:**
-   1. What is the difference between `cd ./toto/tata`, `cd toto/tata` `~/toto/tata` and `/toto/tata`
+   1. What is the difference between `cd ./toto/tata`, `cd toto/tata` `cd ~/toto/tata` and `cd /toto/tata`
+   2. Use the `locate` command to determine if `matlab` is installed on your system
+   2. Use the `which` command to determine which instance of python is used when you use the `python` command. Same question with `python2`.
 
 Many details on the Unix directory structure at https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/
 
@@ -57,9 +59,9 @@ $ ls *.txt
 ```
 **Exercise:**
 
-1. Go to `/usr/lib/R/bin/R` and list every files starting with a letter `R` and containing i
+1. Go to `/usr/lib/R/bin/` and list every files starting with a letter `R` and containing `i`
 2. Got to `/var/log/` and list every files with extension `.log`
-3. Got to `/var/log/` and list every files with a name starting with a `a` and containing a digit
+3. Got to `/var/log/` and list every files with a name starting with a `a` and containing at least a digit
 
 ## Listing files
 
@@ -111,6 +113,11 @@ Each triad
 1. first character 	    r: readable
 2. second character 	    w: writable
 3. third character 	    x: executable
+
+To change the permissions of of file, use the `chmod`
+```bash
+$ chmod o+x toto.txt
+```
 
 Ref: https://en.wikipedia.org/wiki/File_system_permissions
 
