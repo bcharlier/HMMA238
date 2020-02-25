@@ -45,11 +45,11 @@ Some of the most common regula expression are
 - `^` start of line
 - `.` any single character 
 - `$`  end of line 
-- `x*` zero or more occurrence of character x
-- `x+` one or more occurrences of character x
-- `x?` zero or one occurrence of character x
-- `x{n}` exactly n occurrence of character x
-- `[...]` range of characters (e.g. [a-z], [A-Z], [a-zA-Z], [0-9], etc...)
+- `x*` zero or more occurrence of character `x`
+- `x+` one or more occurrences of character `x`
+- `x?` zero or one occurrence of character `x`
+- `x{n}` exactly n occurrence of character `x`
+- `[...]` range of characters (e.g. `[a-z]`, `[A-Z]`, `[a-zA-Z]`, `[0-9]`, etc...)
 - `[^...]` plage de caractères interdits 
  ...
 
@@ -80,8 +80,25 @@ The `file` command can be used to display the information of a file (if not give
 
 1. List all the files in the directory `/usr/lib/R/bin` and sort them by size
 2. display the type information of the files in `/var/log/` one call to `file`
-  
-  
+
+
+## Symbolic link
+
+A symlink is a special file containing a reference (a link) to another file or directory. For instance try
+```bash
+ls -l /usr/bin
+```
+
+A symlink can be created with the command `ln`.
+```bash
+$  ln -s target_path link_path
+```
+
+**Exercise**
+
+1. Create a symlink called `my_python` pointing to `/usr/bin/python` in your `home` directory.  
+
+
 ## Users
 
 To list the groups you belong to 
@@ -96,7 +113,7 @@ $ who
 
 ## File permissions
 
-Each file has an **owner** (a user) and a **group** (a group of user). There is 3 types of permissions:
+Each file has an **owner** (a user) and a **group** (a group of user). To change the user that owns use `chown` and to change the group use `chgrp`. There is 3 types of permissions:
 
 1. read  `r`
 2. write `w`
@@ -104,20 +121,28 @@ Each file has an **owner** (a user) and a **group** (a group of user). There is 
 
 There is three permission triads
 
-1. first triad 	 what the owner can do
-2. second triad 	what the group members can do
-3. third triad    	what other users can do
+1. first triad 	 what the user can do (letter `u`)
+2. second triad 	what the group members can do (letter `g`)
+3. third triad    	what other users can do (letter `o`)
 
 Each triad
 
-1. first character 	    r: readable
-2. second character 	    w: writable
-3. third character 	    x: executable
+1. first character 	    `r`: readable
+2. second character 	    `w`: writable
+3. third character 	    `x`: executable
 
-To change the permissions of of file, use the `chmod`
+To change the permissions of of file, use the `chmod`. For instance, to add execution `x` right to the owner `u` 
 ```bash
-$ chmod o+x toto.txt
+$ chmod u+x toto.txt
 ```
+
+**Exercise:**
+
+1. Create an empty file called `foo.py` in the current directory
+2. Display its owner, group and permissions
+3. Change the group of `foo.py` to `pulse`
+3. Add read and write permissions to user in the group `pulse`
+
 
 Ref: https://en.wikipedia.org/wiki/File_system_permissions
 
@@ -146,7 +171,7 @@ $ export MANPAGER=less
 
 Some extra informations: https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less
 
-# Environment variables
+## Environment variables
 
 An environment variable (env or envs) is a dynamic-named value that can affect the way running processes will behave on a computer. Many option of bash may be change with envs. To print all the defined envs:
 ```bash
@@ -192,6 +217,25 @@ or `joe` (default on your system).
 - display text content: `echo`, `cat`, `head`, `tail`, `grep`, `fgrep`, `rgrep`
 - file handling: `touch`, `mv`, `cp`, `rsync`, `rename`
 - unix admin: `which`, `who`, `top`, `htop`, `kill`, `pkill`, `killall`
+
+
+# System 
+
+## Getting system information
+
+To diplay the 
+
+`uname` 
+`hostname` 
+`lscpu`
+
+
+## Process
+
+`top`
+`htop`
+`kill`
+`ps aux`
 
 # Display text content
 
@@ -281,3 +325,6 @@ $ wc -l < toto.txt
 **Exercise:**
 1. Create a single file `bike2016.csv` containing all the accident that occured in 2016.
 2. Append the accidents of year 2017 to the previous file and then rename it `bike2016_17.csv`.
+
+
+## Find
