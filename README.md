@@ -1,6 +1,7 @@
 HMMA 238
 ========
 
+(Almost) everything you need to know as a applied mathematician concerning coding and system admin.
 
 # Teachers
 
