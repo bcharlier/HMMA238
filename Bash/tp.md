@@ -32,7 +32,8 @@ Many details on the Unix directory structure at <https://www.howtogeek.com/11743
 
 ## Getting help
 
-To get some help for a command, please use the `man` command. You may also use the `--help` option as in 
+To get some help for a command, please use the `man` command. You may also use the `--help` option as in
+
 ```bash
 $ man ls
 $ ls --help
@@ -43,8 +44,8 @@ $ ls --help
 Some of the most common regula expression are
 
 - `^` start of line
-- `.` any single character 
-- `$`  end of line 
+- `.` any single character
+- `$`  end of line
 - `x*` zero or more occurrence of character `x`
 - `x+` one or more occurrences of character `x`
 - `x?` zero or one occurrence of character `x`
@@ -54,6 +55,7 @@ Some of the most common regula expression are
  ...
 
 Regexp can be used in various places (`ls`, `grep`, `find`, etc...). For instance to display all the files with an extension in `txt`:
+
 ```bash
 $ ls *.txt
 ```
@@ -148,7 +150,7 @@ $ chmod u+x toto.txt
    3. Change the group of `foo.py` to `pulse`
    4. Add read and write permissions to user in the group `pulse`
 
-Ref: https://en.wikipedia.org/wiki/File_system_permissions
+Ref: <https://en.wikipedia.org/wiki/File_system_permissions>
 
 ## Paging program
 
@@ -164,17 +166,17 @@ $ man most
 
 **Useful tips:**
 
-- to search for a word type `/`. To go to the next (resp. previous)  occurrence type `n` (resp. `p`). 
-- [less only] to go down type `j`, to go up type `k` 
-- to go to the beginning of file type `g`, to the end `G`
-- To quit type `q`. 
-- to change the default paging program to `less`
+- to search for a word type `/`. To go to the next (resp. previous)  occurrence type `n` (resp. `p`).
+- [less only] to go down type `j`, to go up type `k`.
+- to go to the beginning of file type `g`, to the end `G`.
+- To quit type `q`.
+- to change the default paging program to `less`.
 
-   ```bash 
+   ```bash
    $ export MANPAGER=less
    ```
 
-Some extra informations: https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less
+Some extra informations: <https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less>
 
 ## Environment variables
 
@@ -203,12 +205,17 @@ $ export ENV_NAME=${ENV_NAME}:tutu
 $ echo ${ENV_NAME}
 ```
 
-Some documentation: https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps
+Some documentation: <https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps>
 
 **Exercise:**
 
- 1. Display the PATH env
- 2. Is the order of the list important?
+   1. Display the PATH env
+   2. Is the order of the list important?
+
+**Useful tips:**
+
+   - To avoid setting up an env every time you open a terminal, you can append the `export MYENV=xxxxx` command to the `~/.bashrc` file.
+
 
 ## Text editor
 
@@ -222,7 +229,7 @@ or `joe` (default on your system).
 
 **Exercise:**
   
-   1. Set `nano` as your default text editor 
+   1. Set `nano` as your default text editor
 
 
 ## Some useful command
@@ -271,7 +278,7 @@ The data-set we are going to use is available at <https://www.data.gouv.fr/fr/da
 **Exercise:**
 
    1. Create a folder `data_bicycle` and `cd` to it.
-   2. Download the `.csv` file available at the following URL: <https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96> as `bicycle_db.csv` (option `-o` of  `wget`)
+   2. Download the `.csv` file available at the following URL: <https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96> as `bicycle_db.csv` (use the option `-O` of  `wget`)
 
 ## The `tail`, `head`, `cat`, `wc`, `split` commands
 
@@ -294,8 +301,8 @@ $ man grep
 
 **Exercise:**
 
-   1. Display the line number of the accident occuring a wednesday of octobre 2017
-   2. Count the number of accident in 2005 using the command `grep` (hint: remark that each line **starts** with the string `"YYYY` where `YYYY` is the year)
+   1. Count the number of accident in 2005 using the command `grep` (hint: remark that each line **starts** with the string `"YYYY` where `YYYY` is the year)
+   2. Display the line number of the accident occuring a wednesday of octobre 2017 using a regular expression.
 
 
 ## The `find` command
@@ -305,6 +312,7 @@ The `find` command search for files in a directory hierarchy. Read the manual. F
 ```bash
 $ find /usr/lib/ -name "*qt5*" -type f
 ```
+
 list all the **files** in `/usr/lib/` containing the `qt5` string in its name.
 
 **Exercise:**
@@ -319,6 +327,8 @@ Reference: <https://www.tecmint.com/35-practical-examples-of-linux-find-command/
 
 # Pipes and redirections
 
+![stream image](streams.png)
+
 The I/O of any program launch through the bash are organized in three data streams:
 
 - STDIN (0): standard input (input)
@@ -327,7 +337,7 @@ The I/O of any program launch through the bash are organized in three data strea
 
 Piping and redirection is the process used to connect these streams between programs and files.
 
-See: https://ryanstutorials.net/linuxtutorial/piping.php
+See: <https://ryanstutorials.net/linuxtutorial/piping.php>
 
 ## Pipes 
 
@@ -348,16 +358,15 @@ $ du | sort -nr | less
   1. Display the last 15 accident occuring with `Vent fort` condition
   2. Display the type of crossing of the accident occuring with `Vent fort` in 2010. It should return
 
-```bash
-Intersection en X
-Intersection en T
-Intersection en X
-
-```
+    ```bash
+    Intersection en X
+    Intersection en T
+    Intersection en X
+    ```
 
 ## Redirections
 
-The operator `>` redirect the stdout of a command (LHS) into a file (RHS). Warning! it erases the file content. The operator  `>>` append the output of the LHS to a file. 
+The operator `>` redirect the stdout of a command (LHS) into a file (RHS). Warning! it erases the file content. The operator  `>>` append the output of the LHS to a file.
 
 ```bash
 $ ls /etc > toto.txt
@@ -365,11 +374,14 @@ $ cat toto.txt
 $ wc -l toto.txt >> toto.txt
 $ cat toto.txt
 ```
+
 Finally, the operator `<` read from the file (RHS) and send the content to stdin (LHS)
+
 ```bash
 $ wc -l < toto.txt
 ```
 
 **Exercise:**
+
    1. Create a single file `bike2016.csv` containing all the accident that occured in 2016.
    2. Append the accidents of year 2017 to the previous file and then rename it `bike2016_17.csv`.
