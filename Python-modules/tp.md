@@ -164,7 +164,7 @@ $ pip search some-package-name
 
 **Exercise:**
 
-  1. Install the modules `setuptools`, `pandas`, `pygal` and `pygal_maps_fr`
+  1. Install the modules `download`, `setuptools`, `pandas`, `pygal` and `pygal_maps_fr`
   2. List all the package in your venv using pip.
 
 It is possible to install a **local** module with pip
@@ -191,6 +191,23 @@ Python module/package names should generally follow the following constraints:
 - Unique on pypi, even if you don't want to make your package publicly available (you might want to specify it privately as a dependency later)
 - Underscore-separated or no word separators at all (don't use hyphens)
 
+We are going to create a module called `biketrauma` able to visualize the `bycicle_db` used in the other lectures.
+
+### Module structure
+
+The initial directory structure for `biketrauma` should look like this:
+
+```
+packaging_tutorial/
+    biketrauma/
+        __init__.py
+    data/
+    setup.py
+    .gitignore
+```
+
+The top level directory is the root of our VCS repository `packaging_tutorial.git`. The sub-directory, `biketrauma`, is the actual Python module.
+
 **Exercise:** We are going to create a new python module that can be used to visualize the bike dataset.
 
   1. Create a new folder `~/packaging_tutorial/` and initialize a git in it
@@ -204,23 +221,9 @@ Python module/package names should generally follow the following constraints:
 
 Read also: <https://packaging.python.org/guides/single-sourcing-package-version/>.
 
-### Module structure
+### Sub-modules
 
-The initial directory structure for `biketrauma` should look like this:
-
-```
-packaging_tutorial/
-    biketrauma/
-        __init__.py
-    data/
-    setup.py
-```
-
-The top level directory is the root of our VCS repo `packaging_tutorial.git`. The sub-directory, `biketrauma`, is the actual Python module.
-
-**Exercise:**
-
-  1. Add some submodules to `biketrauma` called `io` (for input/output), `preprocess`, `vis` (for visualization). Your tree should looks like:
+The final directory structure of our module will look like:
 
 ```bash
   packaging_tutorial/
@@ -235,10 +238,13 @@ The top level directory is the root of our VCS repo `packaging_tutorial.git`. Th
       data/
       setup.py
 ```
-  
-  1. Populate the `preprocess` module with the `get_accident.py` file
-  2. Populate the `vis` module with the `plot_location.py` file
-  3. Populate the `io` submodule with the file `dl_db.py` (it downloads the bike dataset). At the loading step your submodule should create the variables
+
+**Exercise:** there is some python files in the `modules_files` folder:
+
+  1. Add some sub-folders to `biketrauma` called `io` (for input/output), `preprocess`, `vis` (for visualization).
+  2. Populate the `preprocess` sub-module with the `get_accident.py` file
+  3. Populate the `vis` sub-module with the `plot_location.py` file
+  4. Populate the `io` sub-module with the file `dl_db.py` (it downloads the bike data-set). At the loading step your sub-module should create the variables
 
 ```python
   url = "https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96"
@@ -247,10 +253,10 @@ The top level directory is the root of our VCS repo `packaging_tutorial.git`. Th
 
 ### Adding Additional Files
 
-In order to load the functions in the `io`, `preprocess` and `vis` submodules, you can add the following lines to the `~/packaging_tutorial/biketrauma/__init__.py`:
+In order to load the functions in the `io`, `preprocess` and `vis` sub-modules, you can add the following lines to the `~/packaging_tutorial/biketrauma/__init__.py`:
 
 ```python
-from .io import dl_data
+from .io import dl_db
 from .vis import get_accidents
 from .preprocess import get_accidents
 ```
@@ -267,7 +273,7 @@ df = biketrauma.dl_db()
 df_nicely_formated = biketrauma.format_date(df)
 ```
 
-### Package the module with `distutils`
+### Package the module with `setuptools`
 
 The main setup configuration file, `setup.py`, should contain a single call to `setuptools.setup()`, like so:
 
@@ -300,6 +306,8 @@ This will create `dist/biketrauma-0.0.1.tar.gz` inside the top-level directory. 
 ```bash
 $ pip install ~/packaging_tutorial/dist/biketrauma-0.0.1.tar.gz
 ```
+
+See <https://setuptools.readthedocs.io/en/latest/setuptools.html> and <https://packaging.python.org/tutorials/packaging-projects/>
 
 ### Upload on PyPi
 
