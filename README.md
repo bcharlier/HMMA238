@@ -63,7 +63,7 @@ The ```github``` repository should be completed before this date (nothing pushed
 8. JS : (13/02) [`scipy`: Images/channel, FFT](Scipy/), [Pandas: missing data](Pandas/)
 9. BC : (26/02) [bash, regexp, grep, find, rename](Bash/), [Python virtual environment](Venv/)
 10. JS : (27/02) [Pandas](Pandas/)
-11. BC : (04/03) [Anaconda](Venv/), [IDE: VScode](IDE/), [Create a Python Module](Pypi/)
+11. BC : (04/03) [Anaconda](Venv/), [IDE: VScode](IDE/), [Create a Python Module](Python-modules/)
 
 12. JS : (05/03)
 
