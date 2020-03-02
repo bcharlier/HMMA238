@@ -237,18 +237,19 @@ The final directory structure of our module will look like:
             __init__.py
       data/
       setup.py
+      script.py
 ```
 
 **Exercise:** there is some python files in the `modules_files` folder:
 
-  1. Add some sub-folders to `biketrauma` called `io` (for input/output), `preprocess`, `vis` (for visualization).
+  1. Add some sub-folders to `biketrauma` called `io` (for input/output), `preprocess`, `vis` (for visualization). Copy the `script.py` into the root folder.
   2. Populate the `preprocess` sub-module with the `get_accident.py` file
   3. Populate the `vis` sub-module with the `plot_location.py` file
   4. Populate the `io` sub-module with the file `dl_db.py` (it downloads the bike data-set). At the loading step your sub-module should create the variables
 
 ```python
-  url = "https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96"
-  path_target = os.path.join(os.path.realpath(__file__), "..", "data", "bicycle_db.csv")
+url_db = "https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96"
+path_target = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "data", "bicycle_db.csv")
 ```
 
 ### Adding Additional Files
@@ -256,20 +257,21 @@ The final directory structure of our module will look like:
 In order to load the functions in the `io`, `preprocess` and `vis` sub-modules, you can add the following lines to the `~/packaging_tutorial/biketrauma/__init__.py`:
 
 ```python
-from .io import dl_db
-from .vis import get_accidents
-from .preprocess import get_accidents
+from .io.Load_db import Load_db
+from .vis.plot_location import plot_location
+from .preprocess.get_accident import get_accident
 ```
 
 **Exercise:**
 
-  1. Create a file `format_date.py` in the `biketrauma.preprocess` module in which a function `format_date` format the date of the dataset in international format.
-  2. This function should accessible with the command 
+  1. Check that your module does work by launching the `script.py` script
+  2. Create a file `format_date.py` in the `biketrauma.preprocess` module in which a function `format_date` format the date of the data-set in international format.
+  3. This function should accessible with the command:
 
 ```python
 import biketrauma
 
-df = biketrauma.dl_db()
+df = biketrauma.Load_db().save_as_df()
 df_nicely_formated = biketrauma.format_date(df)
 ```
 
@@ -289,7 +291,7 @@ setup(
   author='xxxxxxxxxxx',
   author_email='xxxxxxxxxx@xxxxxxxxxxxxx.xxx',
   license='MIT',
-  packages=['biketrauma'],
+  packages=['biketrauma','biketrauma.io', 'biketrauma.preprocess', 'biketrauma.vis'],
   zip_safe=False
 )
 ```
