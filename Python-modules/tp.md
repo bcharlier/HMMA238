@@ -313,4 +313,33 @@ See <https://setuptools.readthedocs.io/en/latest/setuptools.html> and <https://p
 
 ### Upload on PyPi
 
-TODO
+`twine` is a utility for publishing Python packages on PyPI. We are going to use the test repository <https://test.pypi.org/>.
+
+**Exercise:**
+
+  1. Create an account on the PyPI test repository
+
+This is quite easy to upload a python module on PyPI:
+
+1. Create some distributions in the normal way:
+
+```bash
+$ python setup.py sdist bdist_wheel
+```
+
+2. Upload with twine to Test PyPI and verify things look right. Twine will automatically prompt for your username and password:
+
+```bash
+$ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+username: ...
+password: ...
+```
+3. Upload to PyPI:
+
+```bash
+    $ twine upload dist/*
+```
+
+More documentation on using `twine` to upload packages to PyPI is in the [Python Packaging User Guide](https://packaging.python.org/tutorials/distributing-packages/https://packaging.python.org/tutorials/distributing-packages/). 
+
+References: <https://pypi.org/project/twine/>
