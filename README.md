@@ -61,10 +61,10 @@ The ```github``` repository should be completed before this date (nothing pushed
 7. BC : (12/02) [hands on git](Git/), [intro to linux essentials and command line tools](Bash) 
 8. JS : (13/02) [Scipy: Images/channel, FFT](Scipy/), [Pandas: missing data](Pandas/)
 9. BC : (26/02) [bash, regexp, grep, find, rename](Bash/), [Python virtual environment](Venv/)
-10. JS : (27/02) [Pandas](Pandas/)
+10. JS : (27/02) [Pandas: first steps](Pandas/)
 11. BC : (04/03) [Anaconda](Venv/), [IDE: VScode](IDE/), [Create a Python Module](Pypi/)
 
-12. JS : (05/03)
+12. JS : (05/03) [Pandas: more on that](Pandas/)
 
 13. BC : (11/03)
 
