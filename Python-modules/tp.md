@@ -150,7 +150,7 @@ The Python Package Index, abbreviated as PyPI, is the official third-party softw
 
 **Exercise:**
 
-1. Go to <https://test.pypi.org/> and 
+1. Go to <https://test.pypi.org/> and describe the aim of this repository.
 
 ### Pip
 
@@ -164,7 +164,7 @@ $ pip search some-package-name
 
 **Exercise:**
 
-  1. Install the modules `download`, `setuptools`, `pandas`, `pygal` and `pygal_maps_fr`
+  1. Install the modules `download`, `setuptools`, `pandas`, `pygal` and `pygal_maps_fr`. Beware, you should use the option `--user` to force the installation in your home directory.
   2. List all the package in your venv using pip.
 
 It is possible to install a **local** module with pip
@@ -197,7 +197,7 @@ We are going to create a module called `biketrauma` able to visualize the `bycic
 
 The initial directory structure for `biketrauma` should look like this:
 
-```
+```bash
 packaging_tutorial/
     biketrauma/
         __init__.py
@@ -334,12 +334,13 @@ $ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 username: ...
 password: ...
 ```
+
 3. Upload to PyPI:
 
 ```bash
-    $ twine upload dist/*
+$ twine upload dist/*
 ```
 
-More documentation on using `twine` to upload packages to PyPI is in the [Python Packaging User Guide](https://packaging.python.org/tutorials/distributing-packages/https://packaging.python.org/tutorials/distributing-packages/). 
+More documentation on using `twine` to upload packages to PyPI is in the [Python Packaging User Guide](https://packaging.python.org/tutorials/distributing-packages/https://packaging.python.org/tutorials/distributing-packages/).
 
 References: <https://pypi.org/project/twine/>
