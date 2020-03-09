@@ -55,7 +55,7 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 1. BC : (22/01) [coding : algorithms, modules, basic types, functions, loops](Intro-Python/)
 2. JS : (23/01) [coding : list, dictionary, tuples, if statement and loops, exceptions](Intro-Python/)
-3. BC : (29/01) [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Intro-Python/), [git](Git/)
+3. BC : (29/01) [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Intro-Python/), [git: a first introduction](Git/)
 4. JS : (30/01) [`numpy` : basics on matrices (arrays), slicing, simple linear algebra, masking; `matplotlib`: first plots](Numpy-Matplotlib/)
 5. BC : (05/02) [`github`, ssh key creation, various git commands, conflict, pull request](Git/)
 6. JS : (06/02) [`numpy` : casting, concatenation, `imshow`, `meshgrid`, casting, copy](Numpy-Matplotlib/);  [`scipy`: EDO, Interpolation, Optimize](Scipy/)
@@ -64,11 +64,11 @@ The ```github``` repository should be completed before this date (nothing pushed
 9. BC : (26/02) [bash, regexp, grep, find, rename](Bash/), [Python virtual environment](Venv/)
 10. JS : (27/02) [Pandas: first steps](Pandas/)
 
-11. BC : (04/03) [Anaconda](Venv/), [IDE: VScode](IDE/), [Create a Python Module](Python-modules/)
+11. BC : (04/03) [Python virtual env: Anaconda](Venv/), [IDE: VScode](IDE/), [Create a Python Module](Python-modules/)
 
 12. JS : (05/03) [Pandas: more on that](Pandas/)
 
-13. BC : (11/03)
+13. BC : (11/03) [Create a Python Module](Python-modules/), [unit tests](Tests-CI/)
 
 14. BC : (18/03)
 
