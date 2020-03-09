@@ -154,7 +154,7 @@ The Python Package Index, abbreviated as PyPI, is the official third-party softw
 
 ### Pip
 
-`pip` is a *de facto* standard package-management system used to install and manage software packages from pypi.
+`pip` is a *de facto* standard package-management system used to install and manage software packages from PyPi.
 
 ```bash
 $ pip install some-package-name
@@ -201,7 +201,7 @@ The initial directory structure for `biketrauma` should look like this:
 packaging_tutorial/
     biketrauma/
         __init__.py
-    data/
+        data/
     setup.py
     .gitignore
 ```
@@ -210,14 +210,14 @@ The top level directory is the root of our VCS repository `packaging_tutorial.gi
 
 **Exercise:** We are going to create a new python module that can be used to visualize the bike dataset.
 
-  1. Create a new folder `~/packaging_tutorial/` and initialize a git in it
-  2. Create a `.gitignore` file to ignore `__pycache__` and `.vscode` files  
-  3. Push your work into a new repository on your github
-  4. Create an empty sub-folder `~/packaging_tutorial/data`. How to add it to git?
-  5. Create a sub-folder `~/packaging_tutorial/biketrauma`. This is where our python module will be stored
+  1. Create a new folder `~/packaging_tutorial/` and initialize a git in it.
+  2. Create a `.gitignore` file to ignore `__pycache__`, `.vscode` directories and files containing the string `egg-info` or `dist` in their name as well.  
+  3. Push your work into a new repository on your github.
+  4. Create an empty sub-folder `~/packaging_tutorial/biketrauma/data`. How to add it to git?
+  5. Create a sub-folder `~/packaging_tutorial/biketrauma`. This is where our python module will be stored.
   6. Create a `~/packaging_tutorial/biketrauma/__init__.py` file where a string `__version__` defined at `0.0,1`.
   7. Create **an empty** `~/packaging_tutorial/setup.py` file.
-  8. Commit and push into your repository
+  8. Commit and push into your repository.
 
 Read also: <https://packaging.python.org/guides/single-sourcing-package-version/>.
 
@@ -235,7 +235,7 @@ The final directory structure of our module will look like:
             __init__.py
           vis/
             __init__.py
-      data/
+          data/
       setup.py
       script.py
 ```
