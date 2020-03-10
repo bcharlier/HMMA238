@@ -67,7 +67,7 @@ Create a text file called `.gitignore` with the following content:
 *.pdf
 *~
 ```
-Create a commit and push it to your repo. What is the purpose of this file?
+Create a commit and push it to your repo. What is the purpose of this file? See <https://github.com/github/gitignore>!
 
 # Interact with other users
 
