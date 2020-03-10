@@ -1,6 +1,9 @@
-.ipynb_checkpoints
 *~
 *.swp
 *.idea
 .vscode
+
+.ipynb_checkpoints
+
 __pycache__
+.coverage
