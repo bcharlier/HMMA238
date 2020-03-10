@@ -311,6 +311,18 @@ $ pip install ~/packaging_tutorial/dist/biketrauma-0.0.1.tar.gz
 
 See <https://setuptools.readthedocs.io/en/latest/setuptools.html> and <https://packaging.python.org/tutorials/packaging-projects/>
 
+### Add requirement file
+
+To get a list of the installed package in your current venv, you can use the following command:
+
+```bash
+$ pip freeze > requirements.txt
+```
+
+**Exercise:**
+
+1. Create a mnimal `requirements.txt` file. Add it to the `biketrauma` module.
+
 ### Upload on PyPi
 
 `twine` is a utility for publishing Python packages on PyPI. We are going to use the test repository <https://test.pypi.org/>.
