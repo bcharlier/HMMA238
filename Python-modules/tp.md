@@ -318,10 +318,11 @@ To get a list of the installed package in your current venv, you can use the fol
 ```bash
 $ pip freeze > requirements.txt
 ```
+Unfortunately, it may generate a way too large collection of packages dependencies. To get a sparser list, you can use `pipreqs`
 
 **Exercise:**
 
-1. Create a mnimal `requirements.txt` file. Add it to the `biketrauma` module.
+1. Create a minimal `requirements.txt` file with `pipreqs`. Add it to the `biketrauma` module.
 
 ### Upload on PyPi
 
