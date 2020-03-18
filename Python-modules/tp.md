@@ -215,7 +215,7 @@ The top level directory is the root of our VCS repository `packaging_tutorial.gi
   3. Push your work into a new repository on your github.
   4. Create an empty sub-folder `~/packaging_tutorial/biketrauma/data`. How to add it to git?
   5. Create a sub-folder `~/packaging_tutorial/biketrauma`. This is where our python module will be stored.
-  6. Create a `~/packaging_tutorial/biketrauma/__init__.py` file where a string `__version__` defined at `0.0,1`.
+  6. Create a `~/packaging_tutorial/biketrauma/__init__.py` file where a string `__version__` defined at `0.0.1`.
   7. Create **an empty** `~/packaging_tutorial/setup.py` file.
   8. Commit and push into your repository.
 
