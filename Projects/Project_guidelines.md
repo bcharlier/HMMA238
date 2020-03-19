@@ -17,7 +17,7 @@ Moreover 10% of the final grade will be given for the milestone.
 
 ### Milestone
 
-The milestone is due on **March 22 (23h59)** and will represent 10% of the final grade.
+The milestone is due on **March 29 (23h59)** and will represent 10% of the final grade.
 It will consist of the following elements:
 
 - the `github` repository prepared with the structure described below.
