@@ -59,7 +59,7 @@ The ```github``` repository should be completed before this date (nothing pushed
 4. JS : (30/01) [`numpy` : basics on matrices (arrays), slicing, simple linear algebra, masking; `matplotlib`: first plots](Numpy-Matplotlib/)
 5. BC : (05/02) [`github`, ssh key creation, various git commands, conflict, pull request](Git/)
 6. JS : (06/02) [`numpy` : casting, concatenation, `imshow`, `meshgrid`, casting, copy](Numpy-Matplotlib/);  [`scipy`: EDO, Interpolation, Optimize](Scipy/)
-7. BC : (12/02) [hands on git](Git/), [intro to linux essentials and command line tools](Bash) 
+7. BC : (12/02) [hands on git](Git/), [intro to linux essentials and command line tools](Bash)
 8. JS : (13/02) [`scipy`: Images/channel, FFT](Scipy/), [Pandas: missing data](Pandas/)
 9. BC : (26/02) [bash, regexp, grep, find, rename](Bash/), [Python virtual environment](Venv/)
 10. JS : (27/02) [Pandas: first steps](Pandas/)
@@ -70,11 +70,11 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 13. BC : (11/03) [Create a Python Module](Python-modules/), [unit tests](Tests-CI/)
 
-14. BC : (18/03)
+14. BC : (18/03) 
 
 15. JS : (19/03) [Sparse Matrices and graphs and memory](TempsMemoire/)
 
-16. JS : (26/03) 
+16. JS : (26/03)
 
 17. BC : (31/03) (1.5h course only)
 
