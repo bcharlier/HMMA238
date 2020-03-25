@@ -70,7 +70,7 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 13. BC : (11/03) [Create a Python Module](Python-modules/), [unit tests](Tests-CI/)
 
-14. BC : (18/03) 
+14. BC : (18/03) [unit test](Tests-CI/)
 
 15. JS : (19/03) [Sparse Matrices and graphs and memory](TempsMemoire/)
 
