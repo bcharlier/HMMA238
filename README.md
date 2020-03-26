@@ -74,7 +74,7 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 15. JS : (19/03) [Sparse Matrices and graphs and memory](TempsMemoire/)
 
-16. JS : (26/03)
+16. JS : (26/03) [Numba](Numba/), [Statsmodels](Statsmodels/)
 
 17. BC : (31/03) (1.5h course only)
 
