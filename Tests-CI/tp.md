@@ -48,7 +48,7 @@ def inc2(x):
 Thence, content of `test_sample.py`
 
 ```python
-from inc import inc1
+from inc import inc1, inc2
 
 # This test will work
 def test_inc1():
@@ -141,7 +141,7 @@ The documentation can be found at <https://pytest-cov.readthedocs.io/en/latest/>
 1. Install the `pytest`'s coverage plugin.
 2. Load the `biketrauma` package you can download at <https://github.com/HMMA238-2020/biketrauma/>
 3. Add some unit tests to `biketrauma` in a new sub-directory `biketrauma/tests/`.
-    - Create a first `test_df()` that test if the Côtes-d'or departement has 459 accidents. And a second `test_df_log()` testing that the log of the number of accident in the département 92 is close to `7.651120176`.
+    - Create a first `test_df()` that test if the Côtes-d'or département has 459 accidents. And a second `test_df_log()` testing that the log of the number of accident in the département 92 is close to `7.651120176`.
 
     - Create a `test_dl()` function that tests the `md5sum` hash of the downloaded file (a.k.a. `bicycle_db.csv`). It should be `ee8c4e0e7989bc6aac7876d7501bbf4d`. You can use this piece of code to compute the md5sum:
 
@@ -175,30 +175,65 @@ TOTAL                                      52      4    92%
 
 ## Continuous integration
 
+In software engineering, continuous integration (CI) is the practice of merging all developers' working copies to a shared mainline on a regular basis. It is often split in 3 steps:
+
+1. automate the tests: run command on each commit (or each Pull Request), typically unit tests and integration tests.
+2. automate the build: when dealing with a compiled language, compile the source to generate binaries. I can also build the documentation.
+3. automate the deployment: send the binaries to the repository.
+
+A CI pipeline runs commands on some virtual machine automatically.
+
 Reference: <https://help.github.com/en/actions/building-and-testing-code-with-continuous-integration/setting-up-continuous-integration-using-github-actions>
-
-### What is Continuous integration?
-
-- Run command on each commit (or each PR).
-- Unit testing and integration testing.
-- Can act as a build-farm (for binaries or documentation).
-- Requires clear declaration of dependencies.
-- Build matrix: Can run on many environments.
-- Standard serviced: Jenkins, TravisCI, Appveyor, Azure Pipelines, CircleCI...
 
 ### Benefits of CI
 
-- Can run on many systems
-- Can't forget to run it
-- Contributor doesn't need to know details
-- Can enforce style
-- Can provide immediate feedback
-- Protects the master branch (if run on PR)
+- Can't forget to run it and provide immediate feedback: it runs at each commit or Pull Request. A report is sent to the commit author.
+- Protects the master branch: commit or PR can be rejected if test do not pass.
+- Contributor doesn't need to know details: only project maintainer needs to know how the system works.
+- Can enforce style: a linter can run to check PEP8.
+- Can check the code on many systems: virtual machines can runs Linux, Window or MacOs systems.
 
-### What does it do?
+### What do you need ?
 
-- Triggered at each commit / push
-- Sets up a virtual machine with your configuration.
-- Pulls the current branch.
-- Runs command. Usually: install, then test.
+Many solutions exists to run CI pipelines ([Gitlab](https://docs.gitlab.com/ee/ci/), [Github](https://help.github.com/en/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration), [Jenkins](https://jenkins.io/), [TravisCI](https://travis-ci.org/), [Appveyor](https://www.appveyor.com/), [Azure Pipelines](https://azure.microsoft.com/fr-fr/services/devops/pipelines/), [CircleCI](https://circleci.com/)...). They all:
+
+- run test when a [web-hook](https://en.wikipedia.org/wiki/Webhook) is triggered (usually at each push or PR).
+- can act as a build-farm (for binaries or documentation) on a "build matrix" (i.e. run on many environments).
+- Requires clear declaration of dependencies and set-up virtual machines (that should be maintained).
 - Reports success / Failure to the CSV.
+
+### Example
+
+Github has recently developed a high-level solution of CI. Befor digging into the process, please make sure that your test file is working locally. You should have something like:
+
+```python
+$ pytest 
+============================= test session starts ==============================
+platform linux -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+rootdir: /home/bcharlier/packaging_tutorial
+plugins: cov-2.8.1
+collected 3 items
+
+biketrauma/tests/test_biketrauma.py ...                                  [100%]
+
+=============================== warnings summary ===============================
+/home/bcharlier/.local/lib/python3.7/site-packages/pygal/_compat.py:23
+  /home/bcharlier/.local/lib/python3.7/site-packages/pygal/_compat.py:23: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3,and in 3.9 it will stop working
+    from collections import Iterable
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+========================= 3 passed, 1 warning in 1.56s =========================
+
+```
+
+#### Add a `.github/workflows` file
+
+Setting up a CI is rather easy. It is sufficient to add a single text file `.github/workflows` in your project. `Github` has developed a graphical user interface to do it:
+
+1. In your github project repository: Go to Actions menu and then select `python package` workflow.
+2. Custom the `workflows` file depending on your needs. Beware: getting a correct configuration file is sometime tedious with CI system...
+3. You can add a `badge` showing the result of CI to the end-user directly in your Readme.md
+
+**Exercise:**
+
+1. Setup a CI with github on `biketrauma`
