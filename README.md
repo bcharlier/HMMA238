@@ -30,13 +30,13 @@ Beyond Pandas skills, we will also introduce modern practices for coders : (unit
 
 ### Project (70% of the final grade)
 
-- Projects will be by predefined (at random) groups of 2 or 3.
-- The list will be available soon (TODO)
+- Projects will be by predefined (at random) groups of 3.
+
 - Expected work : a ```github``` repository where the work is available A precise description will be given with the subjects.
 The ```github``` repository will contain at least a (markdown) Readme file introducing your work. All the code will be placed in a directory called */Code*, a tex/pdf or `jupyter notebook`  will be put in a */Report* directory and your final beamer/power point presentation (in an open source format) will be set in `/Beamer` directory.
 The later will be a short presentation of the work that will be orally presented during 15mn in front of a jury.
 
-- Due date : April 20.
+- Due date : **May 17th** 23h59.
 The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
 
 **Warning:** the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
