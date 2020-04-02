@@ -23,7 +23,7 @@ On the FdS-Linux box, there is a fork of `vscode` called `vscodium`. You may lau
 $ vscodium
 ```
 
-### Install an extension
+### Install an extension
 
 We will install the `python` extension. To install it:
 
