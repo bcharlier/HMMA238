@@ -34,7 +34,7 @@ To display your public key, simply type in a terminal,
 ```bash
 $ cat ~/.ssh/id_rsa.pub
 ```
-copy the result into the clipboard and add your key into your GitHub account. See https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+Copy the result into the clipboard and add your key into your GitHub account. See https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 
 To check your installation, please follow the instructions https://help.github.com/en/github/authenticating-to-github/testing-your-ssh-connection
 
@@ -67,7 +67,7 @@ Create a text file called `.gitignore` with the following content:
 *.pdf
 *~
 ```
-Create a commit and push it to your repo. What is the purpose of this file? See <https://github.com/github/gitignore>!
+Create a commit and push it to your repository. What is the purpose of this file? See <https://github.com/github/gitignore>!
 
 # Interact with other users
 
