@@ -8,7 +8,7 @@ There is many IDE for python... but few are good. There is no real "canonical" c
 
 As python is a real jackknife programming language, depending on your goal (data scientific program, web, etc...) you may choose a specific IDE for a particular task.
 
-- Scientific computing : Pyzo, Spyder 
+- Scientific computing: Pyzo, Spyder 
 - Generic: PyCharm, VScode
 
 We warmly recommend you to use an IDE.
