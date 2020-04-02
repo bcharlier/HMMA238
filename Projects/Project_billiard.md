@@ -14,7 +14,7 @@ The simple case would be a square billiard, with no friction and satisfying the 
 A game to play with this billiard would be to create words associated to trajectories:
 
 Start with an empty word.
-Then, when the ball hit the top or bottom part you add an `H` (`H` for horizontal) and when the ball it the left or right part, add a `V` (`V` for vertical).
+Then, when the ball hit the top or bottom part you add an `H` (`H` for horizontal) and when the ball hit the left or right part, add a `V` (`V` for vertical).
 Perform a statistical analysis of the words creating depending on the angle use to start the trajectory (restrict may be to words of size `<2000`).
 
 ## Flat Torus case
