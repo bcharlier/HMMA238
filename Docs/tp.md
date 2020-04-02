@@ -148,7 +148,7 @@ Answer each question asked. Be sure to say **yes** to the `autodoc` extension, a
 
 1. Install the sphinx package with pip
 2. Create a `doc` folder and `cd` into it
-3. Launch `sphix-quickstart`.
+3. Launch `sphinx-quickstart`.
 
 ## Defining documentation structure
 
@@ -181,7 +181,7 @@ This is exactly how the `toctree` for this documentation looks. The documents to
 1. Update the `index.rst`: by adding an image located at <https://aenkg.info/img/a167ed14c4655893357e586ec3d6704f.jpg> just below the title of the page
 2. Install the `read_the_doc` theme as explained [here](https://sphinx-rtd-theme.readthedocs.io/en/stable/installing.html#via-python-package). Interested people can read <http://www.sphinx-doc.org/en/stable/theming.html>.
 3. Create the corresponding directory and files in order to add a, 
-     - A `Installation` section with few sentences a code snippet that explain how to install `biketrauma`
+     - A `Installation` section with few sentences and code snippet that explain how to install `biketrauma`
      - A `Documentation` section with subsections `io` and `visu` each one containing a title and few lines of text.
 
 ## Building the doc
@@ -258,7 +258,7 @@ A list of the possible keys can be found here <https://sphinx-gallery.github.io/
 **Exercise:**
 
 1. Install the sphinx-gallery extension with pip.
-2. Update the `conf.py` of the biketrauma package with the dictionary containing the configuration of the sphunx-gallery.
+2. Update the `conf.py` of the biketrauma package with the dictionary containing the configuration of the sphinx-gallery.
 
 ### Structure your examples files
 
