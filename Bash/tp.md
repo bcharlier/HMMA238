@@ -82,7 +82,7 @@ The `file` command can be used to display the information of a file (if not give
 **Exercise:**
 
 1. List all the files in the directory `/usr/lib/R/bin` and sort them by size
-2. display the type information of the files in `/var/log/` one call to `file`
+2. Display the type information of the files in `/var/log/` one call to `file`
 
 ## Symbolic link
 
