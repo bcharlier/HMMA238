@@ -94,7 +94,7 @@ Your goal is to identify the commit(s) that caused the bug. Use `git log`, `git 
 
 ### Create a new branch to fix the problem
 
-In order to fix a complex bug or add a new feature, it is often necessary to modify several parts of the code. We create a branch, where we make all the commits dedicated to solve the bug. The idea is to maintain a stable version, in the branche `master`, separated from the developing version, which may contain bugs.
+In order to fix a complex bug or add a new feature, it is often necessary to modify several parts of the code. We create a branch, where we make all the commits dedicated to solve the bug. The idea is to maintain a stable version, in the branch `master`, separated from the developing version, which may contain bugs.
 
 **Exercice:** 
 
