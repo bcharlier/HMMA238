@@ -245,7 +245,7 @@ The final directory structure of our module will look like:
   1. Add some sub-folders to `biketrauma` called `io` (for input/output), `preprocess`, `vis` (for visualization). Copy the `script.py` into the root folder.
   2. Populate the `preprocess` sub-module with the `get_accident.py` file
   3. Populate the `vis` sub-module with the `plot_location.py` file
-  4. Populate the `io` sub-module with the file `dl_db.py` (it downloads the bike data-set). At the loading step your sub-module should create the variables
+  4. Populate the `io` sub-module with the file `Load_db.py` (it downloads the bike data-set). At the loading step your sub-module should create the variables
 
 ```python
 url_db = "https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96"
