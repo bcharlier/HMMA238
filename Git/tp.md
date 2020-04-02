@@ -86,7 +86,7 @@ Fork the repository by following these steps:
 
 ## Debuging
 
-A bug has appeared into the python module after some commit. An issue has been opened inin the bug tracking system at https://github.com/HMMA238-2020/git-tutorial/issues . Your goal is to find the problem... and then to fix it on your **forked repo**. Finally, you will be able submit a Pull Request to the original repository to share your fix.
+A bug has appeared into the python module after some commit. An issue has been opened inin the bug tracking system at https://github.com/HMMA238-2020/git-tutorial/issues . Your goal is to find the problem... and then to fix it on your **forked repo**. Finally, you will be able to submit a Pull Request to the original repository to share your fix.
 
 ### Identification of the bad commit
 
