@@ -8,7 +8,7 @@ Tests are small pieces of code ensuring that a part of a program is working as e
 
 ### Why tests are useful
 
-It is from the utterly importance to implement tests **during** the development step. It will help you to ensure:
+It is from the utter importance to implement tests **during** the development step. It will help you to ensure:
 
 - that code works correctly.
 - that changes don’t break anything.
