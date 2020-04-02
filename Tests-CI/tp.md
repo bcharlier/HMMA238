@@ -195,7 +195,7 @@ Reference: <https://help.github.com/en/actions/building-and-testing-code-with-co
 
 ### What do you need ?
 
-Many solutions exists to run CI pipelines ([Gitlab](https://docs.gitlab.com/ee/ci/), [Github](https://help.github.com/en/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration), [Jenkins](https://jenkins.io/), [TravisCI](https://travis-ci.org/), [Appveyor](https://www.appveyor.com/), [Azure Pipelines](https://azure.microsoft.com/fr-fr/services/devops/pipelines/), [CircleCI](https://circleci.com/)...). They all:
+Many solutions exist to run CI pipelines ([Gitlab](https://docs.gitlab.com/ee/ci/), [Github](https://help.github.com/en/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration), [Jenkins](https://jenkins.io/), [TravisCI](https://travis-ci.org/), [Appveyor](https://www.appveyor.com/), [Azure Pipelines](https://azure.microsoft.com/fr-fr/services/devops/pipelines/), [CircleCI](https://circleci.com/)...). They all:
 
 - run test when a [web-hook](https://en.wikipedia.org/wiki/Webhook) is triggered (usually at each push or PR).
 - can act as a build-farm (for binaries or documentation) on a "build matrix" (i.e. run on many environments).
