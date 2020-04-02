@@ -2,7 +2,7 @@
 
 ## Group affected: group 5 and 7
 
-The goal of this project is to be able to produce videos and widget representing a point/ball in a billiard with a simple shape and showing its trajectory.
+The goal of this project is to be able to produce videos and widget representing a point/ball on a billiard with a simple shape and showing its trajectory.
 
 Elements for help could be obtained here:
 <https://jakevdp.github.io/blog/2012/08/18/matplotlib-animation-tutorial/>
