@@ -139,7 +139,7 @@ In the Sphinx terminology, this `doc` folder is called the [source directory](ht
 To help you, Sphinx comes with a script called `sphinx-quickstart` that sets up a source directory and creates a default `conf.py` with the most useful configuration values from a few questions it asks you. To use this, run:
 
 ```bash
-$ sphinx-quickstart
+$ sphinx-quickstart --ext-autodoc --ext-mathjax
 ```
 
 Answer each question asked. Be sure to say **yes** to the `autodoc` extension, as we will use this later. There is also an automatic “API documentation” generator called `sphinx-apidoc`; see [`sphinx-apidoc`](http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html) for details.
