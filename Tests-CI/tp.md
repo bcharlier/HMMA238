@@ -18,7 +18,7 @@ It is from the utterly importance to implement tests **during** the development 
 
 ### Types of tests
 
-There is different kinds of tests:
+There are differents kinds of tests:
 
 1. Unit tests: test if a function does the right thing.
 2. Integration tests: test if the system / process does the right thing.
