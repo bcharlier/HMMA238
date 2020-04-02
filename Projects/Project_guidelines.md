@@ -2,7 +2,7 @@
 
 ## Grading
 
-The final project represents 70% of the final grade for the course. The due date is **April 20 (23h59)**.
+The final project represents 70% of the final grade for the course. The due date is **May 17th**, 23h59.
 The `github` repository should be completed before this date (nothing pushed later will be taken into account).
 
 The project's grade (out of 20 points) will be decomposed as follows:
