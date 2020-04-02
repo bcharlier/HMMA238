@@ -27,7 +27,7 @@ Please have a look to <https://pypi.org/>, <https://packaging.python.org/tutoria
 
 ## Anaconda
 
-Anaconda is a package manager, an environment manager coming with a Python/R data science distribution, and a large collection of open-source packages. It is cross-platform and is very popular choice in the data scientist community. Nevertheless, it suffer from a  main drawback: it is heavy. Moreover, it comes with its own package manager `conda` which allow you to install python module (like `pip`) and other program. 
+Anaconda is a package manager, an environment manager coming with a Python/R data science distribution, and a large collection of open-source packages. It is cross-platform and is very popular choice in the data scientist community. Nevertheless, it suffers from a  main drawback: it is heavy. Moreover, it comes with its own package manager `conda` which allow you to install python module (like `pip`) and other program. 
 
 On your Linux box, there is a terminal with the $PATH environment variable already configured (`/net/apps/bin/init_anaconda3`). You may launch it via the Graphical User Interface.
 
