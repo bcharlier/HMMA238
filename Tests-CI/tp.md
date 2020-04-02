@@ -191,7 +191,7 @@ Reference: <https://help.github.com/en/actions/building-and-testing-code-with-co
 - Protects the master branch: commit or PR can be rejected if test do not pass.
 - Contributor doesn't need to know details: only project maintainer needs to know how the system works.
 - Can enforce style: a linter can run to check PEP8.
-- Can check the code on many systems: virtual machines can runs Linux, Window or MacOs systems.
+- Can check the code on many systems: virtual machines can run Linux, Window or MacOs systems.
 
 ### What do you need ?
 
