@@ -7,8 +7,7 @@ This lecture what taken from <https://amueller.github.io/COMS4995-s19/slides/aml
 Tests are small pieces of code ensuring that a part of a program is working as expected.
 
 ### Why tests are useful
-
-It is from the utterly importance to implement tests **during** the development step. It will help you to ensure:
+It's why we place utter most importancing in implement tests **during** the development step. It will help you to ensure:
 
 - that code works correctly.
 - that changes don’t break anything.
