@@ -41,7 +41,7 @@ $ ls --help
 
 ## Regexp 101
 
-Some of the most common regula expression are
+Some of the most common regular expressions are
 
 - `^` start of line
 - `.` any single character
@@ -137,7 +137,7 @@ Each triad
 2. second character `w`: writable
 3. third character `x`: executable
 
-To change the permissions of of file, use the `chmod`. For instance, to add execution `x` right to the owner `u`:
+To change the permissions of file, use the `chmod`. For instance, to add execution `x` right to the owner `u`:
 
 ```bash
 $ chmod u+x toto.txt
@@ -356,7 +356,7 @@ $ du | sort -nr | less
 
 **Exercise:**
 
-  1. Display the last 15 accident occuring with `Vent fort` condition
+  1. Display the last 15 accidents occuring with `Vent fort` condition
   2. Display the type of crossing of the accident occuring with `Vent fort` in 2010. It should return
 
     ```bash
