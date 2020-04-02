@@ -9,7 +9,7 @@ $ git config --global user.email "prenom.nom@domaine.fr"
 
 ## Create a SSH key
 
-The SSH is needed to get a smooth authentification procedd to the remode repository. In a terminal:
+The SSH is needed to get a smooth authentification proceed to the remote repository. In a terminal:
 ```bash
 $ ssh-keygen -t rsa -b 4096 -C "prenom.nom@domaine.fr"
 ```
