@@ -9,7 +9,7 @@ $ git config --global user.email "prenom.nom@domaine.fr"
 
 ## Create a SSH key
 
-The SSH is needed to get a smooth authentification procedd to the remode repository. In a terminal:
+The SSH is needed to get a smooth authentification proceed to the remode repository. In a terminal:
 ```bash
 $ ssh-keygen -t rsa -b 4096 -C "prenom.nom@domaine.fr"
 ```
@@ -84,9 +84,9 @@ Fork the repository by following these steps:
   2. A copy is added to your GitHub space. Clone it (this copy!) to get a local repository. 
   3. In a terminal, inspect the output of the command `git remote get-url origin`
 
-## Debuging
+## Debugging
 
-A bug has appeared into the python module after some commit. An issue has been opened inin the bug tracking system at https://github.com/HMMA238-2020/git-tutorial/issues . Your goal is to find the problem... and then to fix it on your **forked repo**. Finally, you will be able submit a Pull Request to the original repository to share your fix.
+A bug has appeared into the python module after some commit. An issue has been opened in the bug tracking system at https://github.com/HMMA238-2020/git-tutorial/issues . Your goal is to find the problem... and then to fix it on your **forked repo**. Finally, you will be able submit a Pull Request to the original repository to share your fix.
 
 ### Identification of the bad commit
 
