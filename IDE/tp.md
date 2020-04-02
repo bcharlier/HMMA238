@@ -4,7 +4,7 @@ An integrated development environment (IDE) is a software application that provi
 
 ## Python specific IDE
 
-There is many IDE for python... but few are good. There is no real "canonical" choice as `Rstudio` is **the one** for R user.
+There are many IDE for python... but few are good. There is no real "canonical" choice as `Rstudio` is **the one** for R user.
 
 As python is a real jackknife programming language, depending on your goal (data scientific program, web, etc...) you may choose a specific IDE for a particular task.
 
