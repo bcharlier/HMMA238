@@ -22,7 +22,7 @@ See the following link for more details: https://help.github.com/en/github/authe
 
 # Setting up your Github account
 
-GitHub is a web hosting service for remote repositories using git. GitHub includes additional features for collaboration, such as bug tracking, requests to add features, or task management. Unfortunately GitHub do not include natively a Continuous Integration system. Note that there are other git-based hosting websites such as GitLab or BitBucket.
+GitHub is a web hosting service for remote repositories using git. GitHub includes additional features for collaboration, such as bug tracking, requests to add features, or task management. Unfortunately GitHub does not natively include a Continuous Integration system. Note that there are other git-based hosting websites such as GitLab or BitBucket.
 
 ### Create a GitHub account
 
