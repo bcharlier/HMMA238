@@ -41,7 +41,7 @@ or
 
 or
 
-1. Run in a terminal 
+1. Run in a terminal
 
 ```bash
 $ vscodium --install-extension ms-python.python

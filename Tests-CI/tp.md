@@ -8,25 +8,27 @@ Tests are small pieces of code ensuring that a part of a program is working as e
 
 ### Why tests are useful
 
-It is why we place utter most importance in implementing **during** the development step. It will help you to ensure:
+This is why we place utter most importance in implementing tests **along** the development step. It will help you to ensure:
 
 - that code works correctly.
-- that changes don’t break anything.
+- that changes do not break anything.
 - that bugs are not reintroduced.
 - robustness to user errors.
 - code is reachable.
 
 ### Types of tests
 
-There is different kinds of tests:
+There are different kinds of tests:
 
-1. Unit tests: test if a function does the right thing.
-2. Integration tests: test if the system / process does the right thing.
-3. Non-regression tests: test if a bug got removed (and will not be reintroduced).
+1. Unit tests: they test whether a function does the right thing.
+2. Integration tests: they test whether the system / process does the right thing.
+3. Non-regression tests: they test whether a bug got removed (and will not be reintroduced).
 
 ### How to test?
 
-Many coding languages come with their own test framework. In python, we will focus on [`pytest`](http://doc.pytest.org). It is simple though powerful. `pytest` searches for all `test*.py` files and runs all `test*` methods in it. It outputs a nice errors report.
+Many coding languages come with their own test framework.
+In python, we will focus on [`pytest`](http://doc.pytest.org).
+It is simple though powerful. `pytest` searches for all `test*.py` files and runs all `test*` methods found. It outputs a nice errors report.
 
 **Exercise:**
 
@@ -35,7 +37,7 @@ Many coding languages come with their own test framework. In python, we will foc
 
 ### Example
 
-Let's assume we have the file `inc.py` contains
+Let us assume we have a file `inc.py` containing
 
 ```python
 def inc1(x):
@@ -45,7 +47,7 @@ def inc2(x):
     return x + 2
 ```
 
-Thence, content of `test_sample.py`
+Thence, the content of `test_sample.py` is
 
 ```python
 from inc import inc1, inc2
@@ -68,7 +70,7 @@ $ pytest test_inc.py
 **Exercise:**
 
 1. Correct the `test_inc2` test.
-2. Determine the syntax to run any tests in a directory.
+2. Determine the syntax to run any test in a directory.
 3. Determine the syntax to run only the test called `test_inc1`.
 
 ## Code coverage
@@ -83,7 +85,7 @@ To install the coverage plugin simply run
 $ pip install pytest-cov
 ```
 
-Assuming the `inc_cov.py` contains: 
+Assuming the `inc_cov.py` contains:
 
 ```python
 def inc(x):
@@ -112,7 +114,7 @@ $ pytest --cov inc_cov
 platform linux -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
 rootdir: /home/bcharlier/enseignement/HMMA238/HMMA238/Tests-CI
 plugins: cov-2.8.1
-collected 3 items                                                                 
+collected 3 items
 
 test_inc.py ..                                                              [ 66%]
 test_inc_cov.py .                                                           [100%]
@@ -187,7 +189,7 @@ Reference: <https://help.github.com/en/actions/building-and-testing-code-with-co
 
 ### Benefits of CI
 
-- Can't forget to run it and provide immediate feedback: it runs at each commit or Pull Request. A report is sent to the commit author.
+- One can not forget to run tests and immediate feedback is provided: it runs at each commit or Pull Request. A report is sent to the commit author.
 - Protects the master branch: commit or PR can be rejected if test do not pass.
 - Contributor doesn't need to know details: only project maintainer needs to know how the system works.
 - Can enforce style: a linter can run to check PEP8.
@@ -207,7 +209,7 @@ Many solutions exist to run CI pipelines ([Gitlab](https://docs.gitlab.com/ee/ci
 Github has recently developed a high-level solution of CI. Befor digging into the process, please make sure that your test file is working locally. You should have something like:
 
 ```python
-$ pytest 
+$ pytest
 ============================= test session starts ==============================
 platform linux -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
 rootdir: /home/bcharlier/packaging_tutorial
