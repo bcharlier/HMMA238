@@ -202,7 +202,7 @@ Many solutions exist to run CI pipelines ([Gitlab](https://docs.gitlab.com/ee/ci
 - run test when a [web-hook](https://en.wikipedia.org/wiki/Webhook) is triggered (usually at each push or PR).
 - can act as a build-farm (for binaries or documentation) on a "build matrix" (i.e. run on many environments).
 - Requires clear declaration of dependencies and set-up virtual machines (that should be maintained).
-- Reports success / Failure to the CSV.
+- Reports success/Failure to the CSV.
 
 ### Example
 
