@@ -125,7 +125,7 @@ Each file has an **owner** (a user) and a **group** (a group of users). To chang
 2. write `w`
 3. execute `x`
 
-There is three permission triads
+There are three permissions triads
 
 1. first triad: what the user can do (letter `u`)
 2. second triad: what the group members can do (letter `g`)
