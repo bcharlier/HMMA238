@@ -16,7 +16,7 @@ You will also display an analysis of the time computing when the size of the mat
 
 ## QR algorithm
 
-In this section you have to implement the QR algorithm to diagonalize a symmetric matrix. The details is provided here: <https://en.wikipedia.org/wiki/QR_algorithm>, and perform a similar work as for the Jacobi case.
+In this section you have to implement the QR algorithm to diagonalize a symmetric matrix. The details are provided here: <https://en.wikipedia.org/wiki/QR_algorithm>, and perform a similar work as for the Jacobi case.
 
 ## Alternative method
 
