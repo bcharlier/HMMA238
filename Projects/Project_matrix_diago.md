@@ -8,7 +8,7 @@ The goal of this project is to be able to produce videos and widget representing
 
 ## Rotation and diagonalization for symmetric matrices
 
-In this section you have to implement the Jacobi algorithm to diagonalize a symmetric matrix. The details is provided here: <https://en.wikipedia.org/wiki/Jacobi_eigenvalue_algorithm>.
+In this section you have to implement the Jacobi algorithm to diagonalize a symmetric matrix. The details are provided here: <https://en.wikipedia.org/wiki/Jacobi_eigenvalue_algorithm>.
 
 You will illustrate your algorithm by proposing a video that illustrate on a `20 x 20` matrix the evolution of the algorithm on a random symmetric matrix (explain how you propose to randomly sample symmetric matrices).
 
