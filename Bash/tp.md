@@ -180,7 +180,7 @@ Some extra informations: <https://unix.stackexchange.com/questions/81129/what-ar
 
 ## Environment variables
 
-An environment variable (in short env or envs) is a dynamic-named value that can affect the way running processes will behave on a computer. Many option of bash may be change with envs. To print all the defined envs:
+An environment variable (in short env or envs) is a dynamic-named value that can affect the way running processes will behave on a computer. Many options of bash may be change with envs. To print all the defined envs:
 
 ```bash
 $ printenv
