@@ -102,7 +102,7 @@ In order to fix a complex bug or add a new feature, it is often necessary to mod
 2. Push this local branch to your remote repo.
 3. Checkout to the `Fix_EOL_Error` branch, fix the bugs. The branch `master` will not be affected.
 4. Merge the fix into the branch `master`
-5. suppress the local branch `Fix_EOL_Error` and the remote `origin/Fix_EOL_Error` branch
+5. suppress the local branch `Fix_EOL_Error` and the remote `origin/Fix_EOL_Error` branch.
 
 ### Pull request
 
