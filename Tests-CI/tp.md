@@ -179,7 +179,7 @@ TOTAL                                      52      4    92%
 
 In software engineering, continuous integration (CI) is the practice of merging all developers' working copies to a shared mainline on a regular basis. It is often split in 3 steps:
 
-1. automate the tests: run command on each commit (or each Pull Request), typically unit tests and integration tests.
+1. automate the tests: run command on each commit (or each Pull Request) , typically unit tests and integration tests.
 2. automate the build: when dealing with a compiled language, compile the source to generate binaries. I can also build the documentation.
 3. automate the deployment: send the binaries to the repository.
 
