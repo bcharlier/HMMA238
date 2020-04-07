@@ -1,6 +1,6 @@
 # How to create a python module
 
-## What it a python module
+## What is a python module
 
 You already know it: this is a set of python functions and statements.
 
