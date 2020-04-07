@@ -114,7 +114,7 @@ Your work about bug fixing may interest the original author of the project. On G
 
   1. Checkout to the branch `NonGaussian`. Try to figure out what has changed compared to the master branch. 
   2. Try to merge the branch `NonGaussian` to the branch `master`. 
-  3. Where are located the conflicts? They are shown with the following decorator
+  3. Where are located the conflicts? They are shown with the following decorator.
 ```python
       <<<<<<< HEAD
       some code on current branch
