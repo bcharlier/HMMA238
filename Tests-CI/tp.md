@@ -21,7 +21,7 @@ This is why we place utter most importance in implementing tests **along** the d
 There are different kinds of tests:
 
 1. Unit tests: they test whether a function does the right thing.
-2. Integration tests: they test whether the system / process does the right thing.
+2. Integration tests: they test whether the system/process does the right thing.
 3. Non-regression tests: they test whether a bug got removed (and will not be reintroduced).
 
 ### How to test?
