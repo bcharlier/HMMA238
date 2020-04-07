@@ -119,7 +119,7 @@ $ who
 
 ## File permissions
 
-Each file has an **owner** (a user) and a **group** (a group of user). To change the user that owns use `chown` and to change the group use `chgrp`. There are 3 types of permissions:
+Each file has an **owner** (a user) and a **group** (a group of users). To change the user that owns use `chown` and to change the group use `chgrp`. There are 3 types of permissions:
 
 1. read  `r`
 2. write `w`
