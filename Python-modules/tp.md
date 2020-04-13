@@ -191,7 +191,7 @@ Python module/package names should generally follow the following constraints:
 - Unique on pypi, even if you don't want to make your package publicly available (you might want to specify it privately as a dependency later)
 - Underscore-separated or no word separators at all (don't use hyphens)
 
-We are going to create a module called `biketrauma` able to visualize the `bycicle_db` used in the other lectures.
+We are going to create a module called `biketrauma` able to visualize the `bicycle_db` used in the other lectures.
 
 ### Module structure
 
