@@ -24,7 +24,7 @@ Students are expected to know basic notions of probabilities, optimization, line
 This course focuses on discovering good coding practices (the language used being Python, but some element of bash and git will also be useful) for professional coding.
 A special focus on data processing and visualization will be at the heart of the course.
 We will mostly focus on basic programming concepts, as well as on discovering the Python scientific libraries, including ```numpy, scipy, pandas, matplotlib, seaborn```.
-Beyond Pandas skills, we will also introduce modern practices for coders : (unitary) tests, version control, documentation generation, etc.
+Beyond `pandas` ninja skills, we will also introduce modern practices for coders : (unitary) tests, version control, documentation generation, etc.
 
 ## Grading
 
@@ -74,11 +74,11 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 15. JS : (19/03) [Sparse Matrices and graphs and memory](TempsMemoire/)
 
-16. JS : (26/03) [Numba](Numba/), [Statsmodels](Statsmodels/)
+16. JS : (26/03) [Numba](Numba/)
 
 17. BC : (31/03) [Documentation with Sphinx](Docs/)
 
-18. JS : (02/04)
+18. JS : (02/04) [Statsmodels](Statsmodels/)
 
 19. JS+BC : (21/04) Oral examination
 
