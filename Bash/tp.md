@@ -1,11 +1,11 @@
-Introduction to bash
-====================
+# Introduction to bash
 
-# Preambule
+
+## Preamble
 
 As you already know bash prompt is a `$` sign when you are a standard user. When you are an administrator (often called `root` user) the prompt is a `#`.  
 
-# The Unix directory structure
+## The Unix directory structure
 
 Some aliases:
 
@@ -30,7 +30,7 @@ $ pwd
 
 Many details on the Unix directory structure at <https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/>
 
-## Getting help
+### Getting help
 
 To get some help for a command, please use the `man` command. You may also use the `--help` option as in
 
@@ -39,7 +39,7 @@ $ man ls
 $ ls --help
 ```
 
-## Regexp 101
+### Regexp 101
 
 Some of the most common regular expressions are
 
@@ -62,11 +62,11 @@ $ ls *.txt
 
 **Exercise:**
 
-   1. Go to `/usr/lib/R/bin/` and list every files starting with a letter `R` and containing `i`
+   1. Go to `/usr/lib/R/bin/` and list every file starting with a letter `R` and containing `i`
    2. Got to `/var/log/` and list every files with extension `.log`
    3. Got to `/var/log/` and list every files with a name starting with a `a` and containing at least a digit
 
-## Listing files
+### Listing files
 
 To list the files in a folder use the command `ls`.
 
@@ -84,7 +84,7 @@ The `file` command can be used to display the information of a file (if not give
 1. List all the files in the directory `/usr/lib/R/bin` and sort them by size
 2. Display the type information of the files in `/var/log/` one call to `file`
 
-## Symbolic link
+### Symbolic links
 
 A symlink is a special file containing a reference (a link) to another file or directory. For instance try
 
@@ -102,7 +102,7 @@ $ ln -s target_path link_path
 
 1. Create a symlink called `my_python` pointing to `/usr/bin/python` in your `home` directory.  
 
-## Users
+### Users
 
 To list the groups you belong to, in a terminal use the command
 
@@ -117,7 +117,7 @@ $ w
 $ who
 ```
 
-## File permissions
+### File permissions
 
 Each file has an **owner** (a user) and a **group** (a group of users). To change the user that owns use `chown` and to change the group use `chgrp`. There are 3 types of permissions:
 
@@ -152,10 +152,10 @@ $ chmod u+x toto.txt
 
 Ref: <https://en.wikipedia.org/wiki/File_system_permissions>
 
-## Paging program
+### Paging programs
 
-A paging program displays, one windowful at a time, the contents of a file on a terminal. It pauses after each windowful and prints on the window status line the
-       screen the file name, current line number, and the percentage of the file so far displayed. This is not an editor (no modification of the file can be done)
+A paging program displays, one windowful at a time, the contents of a file on a terminal.
+It pauses after each windowful and prints on the window status line the screen the file name, current line number, and the percentage of the file so far displayed.This is not an editor (no modification of the file can be done)
 
 `more` (deprecated) `less` (best choice) `most` (default on your machine, more feature than `less`, but bad keybindings).
 
@@ -176,9 +176,9 @@ $ man most
    $ export MANPAGER=less
    ```
 
-Some extra informations: <https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less>
+More resources: <https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less>
 
-## Environment variables
+### Environment variables
 
 An environment variable (in short env or envs) is a dynamic-named value that can affect the way running processes will behave on a computer. Many options of bash may be change with envs. To print all the defined envs:
 
@@ -217,9 +217,9 @@ Some documentation: <https://www.digitalocean.com/community/tutorials/how-to-rea
    - To avoid setting up an env every time you open a terminal, you can append the `export MYENV=xxxxx` command to the `~/.bashrc` file.
 
 
-## Text editor
+### Text editor
 
-In bash, many configuration files are in fact **text file**. You may need to choose a text editor to modify them. Very powerful (and thus complicated) text editors exist: `emacs`, `vim`, ... We will focus on `nano`
+In bash, many configuration files are in fact **text file**. You may need to choose a text editor to modify them. Very powerful (and thus complicated) text editors exist: `emacs`, `vim`, but we will focus on `nano` (`gedit` is another alternative):
 
 ```bash
 $ nano
@@ -232,7 +232,7 @@ or `joe` (default on your system).
    1. Set `nano` as your default text editor
 
 
-## Some useful command
+### Useful `unix` commands
 
 - list files and get informations: `ls`, `file`, `find` 
 - display text content: `echo`, `cat`, `head`, `tail`, `grep`, `fgrep`, `rgrep`
@@ -240,9 +240,9 @@ or `joe` (default on your system).
 - unix admin: `which`, `who`, `top`, `htop`, `kill`, `pkill`, `killall`
 
 
-# System 
+## System 
 
-## Getting system information
+### Getting system information
 
 To display the system information
 
@@ -259,7 +259,7 @@ To show information about your processor use `lscpu` and to list the devices con
    1. Determine how many physical core you have on your machine.
    2. Determine the vendor of the network card of your machine.
 
-## Process
+### Process
 
 Learn how to use `ps`, `top`, `htop`, `kill`, `pkill`, ... reading <https://www.tutorialspoint.com/unix/unix-processes.htm>
 
@@ -269,18 +269,18 @@ Learn how to use `ps`, `top`, `htop`, `kill`, `pkill`, ... reading <https://www.
    2. Describe the effect of `Ctrl+Z` in a terminal
    3. Describe the effect of `Ctrl+D` in a terminal
 
-# Display text content
+## Display text content
 
-## Get the data
+### Get the data
 
-The data-set we are going to use is available at <https://www.data.gouv.fr/fr/datasets/accidents-de-velo-en-france/>. We will focus on bicycles accident in France from 2005-2017.
+The dataset we are going to use is available at <https://www.data.gouv.fr/fr/datasets/accidents-de-velo-en-france/>. We will focus on bicycles accident in France from 2005-2017.
 
 **Exercise:**
 
    1. Create a folder `data_bicycle` and `cd` to it.
    2. Download the `.csv` file available at the following URL: <https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96> as `bicycle_db.csv` (use the option `-O` of  `wget`)
 
-## The `tail`, `head`, `cat`, `wc`, `split` commands
+### Text commands: `tail`, `head`, `cat`, `wc` and `split` 
 
 Please read the manual of `tail`, `head`, `cat`, `wc` and `split`
 
@@ -291,7 +291,7 @@ Please read the manual of `tail`, `head`, `cat`, `wc` and `split`
    3. Use the `split` command and its options `-d` `-l` and `--additional-suffix` to create files with a maximum number of lines of 10000 (hint you should get only 6 files) with names `bike01.csv`, ..., `bike06.csv`
   
   
-## The `grep` command
+### The `grep` command
 
 Grep print lines of a file  matching a pattern (regex).
 
@@ -305,7 +305,7 @@ $ man grep
    2. Display the line number of the accident occuring a wednesday of octobre 2017 using a regular expression.
 
 
-## The `find` command
+### The `find` command
 
 The `find` command search for files in a directory hierarchy. Read the manual. For instance:
 
@@ -322,11 +322,11 @@ list all the **files** in `/usr/lib/` containing the `qt5` string in its name.
 
 Reference: <https://www.tecmint.com/35-practical-examples-of-linux-find-command/>
 
-## The `args` command
+### The `args` command
 
 TODO
 
-# Pipes and redirections
+## Pipes and redirections
 
 ![stream image](streams.png)
 
@@ -340,9 +340,9 @@ Piping and redirection is the process used to connect these streams between prog
 
 See: <https://ryanstutorials.net/linuxtutorial/piping.php>
 
-## Pipes 
+### Pipes 
 
-In bash the pipe operator is denoted `|`. It allows to compose (mathematically) the ouput of a program as an input of another one. For instance to display the 10 largest file given by `du` (disk use)
+In bash the pipe operator is denoted `|`. It allows to compose (mathematically) the output of a program as an input of another one. For instance to display the 10 largest file given by `du` (disk use)
 
 ```bash
 $ du | sort -nr | head
@@ -356,8 +356,8 @@ $ du | sort -nr | less
 
 **Exercise:**
 
-  1. Display the last 15 accidents occuring with `Vent fort` condition
-  2. Display the type of crossing of the accident occuring with `Vent fort` in 2010. It should return
+  1. Display the last 15 accidents occurring with `Vent fort` condition
+  2. Display the type of crossing of the accident occurring with `Vent fort` in 2010. It should return
 
     ```bash
     Intersection en X
@@ -365,9 +365,9 @@ $ du | sort -nr | less
     Intersection en X
     ```
 
-## Redirections
+### Redirections
 
-The operator `>` redirect the stdout of a command (LHS) into a file (RHS). Warning! it erases the file content. The operator  `>>` append the output of the LHS to a file.
+The operator `>` redirect the `stdout` of a command (LHS) into a file (RHS). Warning! it erases the file content. The operator  `>>` append the output of the LHS to a file.
 
 ```bash
 $ ls /etc > toto.txt
@@ -384,5 +384,5 @@ $ wc -l < toto.txt
 
 **Exercise:**
 
-   1. Create a single file `bike2016.csv` containing all the accident that occured in 2016.
+   1. Create a single file `bike2016.csv` containing all the accident that occurred in 2016.
    2. Append the accidents of year 2017 to the previous file and then rename it `bike2016_17.csv`.
