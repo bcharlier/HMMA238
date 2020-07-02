@@ -1,18 +1,19 @@
-# How to create a python module
+# Creating a `python` module
 
-## What it a python module
+## What is a `python` module?
 
-You already know it: this is a set of python functions and statements.
+You already know it: this is a set of `python` functions and statements, and this is what you import at the beginning of your `python` functions.
 
-### A file
+### A module could be a single file
 
-A module can be a single file:
+Indeed, a module can simply be a single file:
 
 ```python
 >>> import fibo
 ```
 
-This does not enter the names of the functions defined in `fibo` directly in the current symbol table; it only enters the module name `fibo` there. Using the module name you can access the functions:
+This does not enter the names of the functions defined in `fibo` directly in the current symbol table though; it only enters the module name `fibo` there.
+Using the module name you can access the functions:
 
 ```python
 >>> fibo.fib(1000)
@@ -28,7 +29,8 @@ This does not enter the names of the functions defined in `fibo` directly in the
 [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 ```
 
-When importing a module, several methods/members are (automatically) defined. Their names are usually prefixed and suffixed by `__`. E.g.
+When importing a module, several methods are (automatically) defined.
+Their names are usually prefixed and suffixed by the symbol `__`, e.g.,
 
 ```python
 >>> fibo.__name__
@@ -37,13 +39,18 @@ When importing a module, several methods/members are (automatically) defined. Th
 '/home/.../HMMA238/Python-modules/fibo.py'
 ```
 
-### ... or a directory
+### ... or a module could be a directory
 
-You can also import a full directory (containing many python files stored in sub-folder)... You have already imported the `numpy` module
+You can also import a full directory (containing many `python` files stored in sub-folder).
+You have already imported the `numpy` module, for numerical analysis with `python`:
 
 ```python
 >>> import numpy as np
->>> np.array([0, 1, 2, 3]).rehape(2, 2)
+>>> np.array([0, 1, 2, 3]).reshape(2, 2)
+array([[0, 1],
+       [2, 3]])
+>>> np.array([0, 1, 2, 3]).mean()
+1.5
 ```
 
 In fact, you have imported the following folder:
@@ -52,33 +59,54 @@ In fact, you have imported the following folder:
 >>> np.__path__
 ['/usr/lib/python3/dist-packages/numpy']
 ```
+or possibly if you used anaconda to install `python`:
+```python
+>>> np.__path__
+['/home/username/anaconda3/lib/python3.7/site-packages/numpy']
+```
 
-... and more precisely **this** file
+More precisely **this** file
 
 ```python
 >>> np.__file__
 '/usr/lib/python3/dist-packages/numpy/__init__.py'
 ```
 
-Any (sub-)directory of your python module should contains a `__init__.py` file!
+or
+
+```python
+>>> np.__file__
+['/home/username/anaconda3/lib/python3.7/site-packages/numpy/__init__.py']
+```
+
+
+Any (sub-)directory of your python module should contain an `__init__.py` file!
 
 **Useful tips:**
 
-- The `__init__.py` can contain a list of function to be loaded when the module is imported. It can allows you to expose functions to user in a concise way.
+- The `__init__.py` file can contain a list of function to be loaded when the module is imported.
+It allows to expose functions to user in a concise way.
 
-- you can import module with relative path. See: <https://realpython.com/absolute-vs-relative-python-imports/>
+- You can also import modules with relative path, using `.`, `..`, `...`, etc.
+See: <https://realpython.com/absolute-vs-relative-python-imports/>
 
-### The `dir()` Function
+### The `dir()` function
 
-The built-in function `dir()` is used to find out which names a module defines. It returns a sorted list of strings:
+The built-in function `dir()` is used to find out which names a module defines.
+It returns a sorted list of strings:
 
 ```python
 >>> import fibo, numpy
 >>> dir(fibo)
+['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'fib', 'fib2']
 >>> fibo.__dir__
+<built-in function __dir__>
 >>> dir(numpy)
+['ALLOW_THREADS',...,'zeros_like']
 >>> numpy.__dir__
+<function __dir__ at 0x7fe0a25e81e0>
 ```
+XXX TODO: explaining the 0x7fe0a25e81e0 might be helpful.
 
 To list every element in your symbol table simply call `dir()`.
 
@@ -86,9 +114,10 @@ Reference: <https://docs.python.org/3/tutorial/modules.html#the-dir-function>
 
 ### Namespaces
 
-A namespace is a set of names (functions, variables, etc...). Different namespaces can co-exist at a given time but are completely isolated. In this way you can control which function you are using.
+A namespace is a set of names (functions, variables, etc.).
+Different namespaces can co-exist at a given time but are completely isolated. In this way you can control which function you are using.
 
- A namespace containing all the built-in names is created when we start the Python interpreter and exists as long we don't exit.
+A namespace containing all the built-in names is created when we start the Python interpreter and exists as long we don't exit.
 
 ```python
 >>> cos(3)
@@ -106,7 +135,8 @@ References: <https://www.programiz.com/python-programming/namespace>
 
 ### The Module Search Path
 
-When a module named `spam` is imported, the interpreter first searches for a built-in module with that name. If not found, it then searches for a file named `spam.py` in a list of directories given by the variable `sys.path`. `sys.path` is initialized from these locations:
+When a module named `spam` is imported, the interpreter first searches for a built-in module with that name.
+If not found, it then searches for a file named `spam.py` in a list of directories given by the variable `sys.path`. The variable `sys.path` is initialized from these locations:
 
 - The directory containing the input script (or the current directory when no file is specified).
 
@@ -123,30 +153,47 @@ Find the loader for a module, optionally within the specified path.
 >>> spam_spec = importlib.util.find_spec("spam")
 >>> found = spam_spec is not None
 ```
+XXX TODO: may be update before (does not output anything most likely.)
+now 
+
+```python
+>>> import numpy
+>>> spam_spec = importlib.util.find_spec("numpy")
+>>> spam_spec
+```
+should return more information and where the loader is .
+
 
 See <https://docs.python.org/3/library/importlib.html#importlib.find_loader> an <https://stackoverflow.com/questions/14050281/how-to-check-if-a-python-module-exists-without-importing-it>
 
 ### Lazy import
 
-A module can contain executable statements as well as function definitions. These statements are intended to initialize the module. They are executed only the **first time** the module name is encountered in an `import` statement.
+A module can contain executable statements as well as function definitions.
+These statements are intended to initialize the module.
+They are executed only the **first time** the module name is encountered in an `import` statement.
 
 To force a module to be reloaded, you can use `importlib.reload()`.
 
 See: <https://docs.python.org/3/library/importlib.html#importlib.reload>
 
-### “Compiled” Python files
+Remark: when using `ipython` (interactive `python`, an ancestor of the `jupyter notebook`), one can use the "magic" command
+`%autoreload 2`, cf. <https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html?highlight=autoreload>
 
-To speed up loading modules, Python caches the compiled version of each module in the  `__pycache__` directory under the name `module.version.pyc`, where the version encodes the format of the compiled file; it generally contains the Python version number. 
+### "Compiled" `python` files
 
-For example, in CPython release 3.3 the compiled version of spam.py would be cached as `__pycache__/spam.cpython-33.pyc`. This naming convention allows compiled modules from different releases and different versions of Python to coexist.
+To speed up loading modules, `python` caches the compiled version of each module in the  `__pycache__` directory under the name `module.version.pyc`, where the version encodes the format of the compiled file; it generally contains the `python` version number. 
 
-**Useful tips:**
+For example, in `CPython` release 3.3 the compiled version of spam.py would be cached as `__pycache__/spam.cpython-33.pyc`.
+This naming convention allows compiled modules from different releases and different versions of `python` to coexist.
 
-- You should add `__pycache__` entry in your `.gitignore` file to avoid to add compiled python file to your project.
+**Useful git tip:**
+
+- you should add `__pycache__` entry in your `.gitignore` file to avoid to add compiled `python` file to your project.
 
 ## The Python Package Index (Pypi) repository
 
-The Python Package Index, abbreviated as PyPI, is the official third-party software repository for Python. PyPI primarily hosts Python packages in the form of archives called `sdists` (source distributions) or pre-compiled "wheels."
+The `python` Package Index, abbreviated as PyPI, is the official third-party software repository for `python`.
+PyPI primarily hosts `python` packages in the form of archives called `sdists` (source distributions) or pre-compiled "wheels".
 
 **Exercise:**
 
@@ -173,13 +220,16 @@ It is possible to install a **local** module with pip
 $ pip install /path/to/my/local/module
 ```
 
-where `/path/to/my/local/module` is the path to the module. But if some change occurs in the `/path/to/my/local/module` folder, the module will not be reloaded... Not very useful during the development step. To force python to reload the module at each change use the `-e` option:
+where `/path/to/my/local/module` is the path to the module.
+But if some change occurs in the `/path/to/my/local/module` folder, the module will not be reloaded.
+This might be annoying during the development stage.
+To force `python` to reload the module at each change call, consider the `-e` option:
 
 ```bash
 $ pip install -e /path/to/my/local/module
 ```
 
-## Creating a Python module
+## Creating a `python` module
 
 References: <https://python-packaging.readthedocs.io/en/latest/>
 
@@ -188,10 +238,11 @@ References: <https://python-packaging.readthedocs.io/en/latest/>
 Python module/package names should generally follow the following constraints:
 
 - All lowercase
-- Unique on pypi, even if you don't want to make your package publicly available (you might want to specify it privately as a dependency later)
-- Underscore-separated or no word separators at all (don't use hyphens)
+- Unique on PyPI, even if you do not want to make your package publicly available (you might want to specify it privately as a dependency later)
+- Underscore-separated or no word separators at all, and do not use hyphens (i.e., use _ not -).
 
-We are going to create a module called `biketrauma` able to visualize the `bicycle_db` used in the other lectures.
+We are going to create a module called `biketrauma` to visualize the `bicycle_db` used in the the following lectures.
+XXX TODO (reconnect with where this is downloaded)
 
 ### Module structure
 
@@ -206,15 +257,17 @@ packaging_tutorial/
     .gitignore
 ```
 
-The top level directory is the root of our VCS repository `packaging_tutorial.git`. The sub-directory, `biketrauma`, is the actual Python module.
+The top level directory is the root of our VCS repository `packaging_tutorial.git`. The sub-directory, `biketrauma`, is the actual Python module. XXX TODO : what is VCS here, is it VSCode?
 
-**Exercise:** We are going to create a new python module that can be used to visualize the bike dataset.
+**Exercise:** We are going to create a new `python` module that can be used to visualize the bike dataset.
 
   1. Create a new folder `~/packaging_tutorial/` and initialize a git in it.
   2. Create a `.gitignore` file to ignore `__pycache__`, `.vscode` directories and files containing the string `egg-info` or `dist` in their name as well.  
   3. Push your work into a new repository on your github.
-  4. Create an empty sub-folder `~/packaging_tutorial/biketrauma/data`. How to add it to git?
-  5. Create a sub-folder `~/packaging_tutorial/biketrauma`. This is where our python module will be stored.
+  4. Create an empty sub-folder `~/packaging_tutorial/biketrauma/data` locally on your computer/session.
+  How to add it to git? 
+  XXX TODO: question unanswered
+  5. Create a sub-folder `~/packaging_tutorial/biketrauma`. This is where our `python` module will be stored.
   6. Create a `~/packaging_tutorial/biketrauma/__init__.py` file where a string `__version__` defined at `0.0.1`.
   7. Create **an empty** `~/packaging_tutorial/setup.py` file.
   8. Commit and push into your repository.
@@ -240,10 +293,10 @@ The final directory structure of our module will look like:
       script.py
 ```
 
-**Exercise:** there is some python files in the `modules_files` folder:
+**Exercise:** Add some `python` files in the `modules_files` folder:
 
   1. Add some sub-folders to `biketrauma` called `io` (for input/output), `preprocess`, `vis` (for visualization). Copy the `script.py` into the root folder.
-  2. Populate the `preprocess` sub-module with the `get_accident.py` file
+  2. Populate the `preprocess` sub-module with the `get_accident.py` file (XXX TODO: where is this get_accident.py located? link should be given here same for what is next.)
   3. Populate the `vis` sub-module with the `plot_location.py` file
   4. Populate the `io` sub-module with the file `Load_db.py` (it downloads the bike data-set). At the loading step your sub-module should create the variables
 
@@ -252,7 +305,7 @@ url_db = "https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2
 path_target = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "data", "bicycle_db.csv")
 ```
 
-### Adding Additional Files
+### Adding additional files
 
 In order to load the functions in the `io`, `preprocess` and `vis` sub-modules, you can add the following lines to the `~/packaging_tutorial/biketrauma/__init__.py`:
 
@@ -324,7 +377,7 @@ Unfortunately, it may generate a way too large collection of packages dependenci
 
 1. Create a minimal `requirements.txt` file with `pipreqs`. Add it to the `biketrauma` module.
 
-### Upload on PyPi
+### Upload on PyPI
 
 `twine` is a utility for publishing Python packages on PyPI. We are going to use the test repository <https://test.pypi.org/>.
 
@@ -340,7 +393,8 @@ This is quite easy to upload a python module on PyPI:
 $ python setup.py sdist bdist_wheel
 ```
 
-2. Upload with twine to Test PyPI and verify things look right. Twine will automatically prompt for your username and password:
+2. Upload with twine to Test PyPI and verify things look right.
+Twine will automatically prompt for your username and password:
 
 ```bash
 $ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
