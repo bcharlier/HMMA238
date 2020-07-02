@@ -21,7 +21,7 @@ The principle is the following
 - Go to on your Github account and find the HMMA238 repository. In what follows you should substitute my_github_id by your github identification; in the screenshots the examples are with **my_github_id=josephsalmon** and they should be adapted according to yours.
 The url is hence https://github.com/my_github_id/HMMA238 
 
-- Get the cloning repository  by clicking clone ![plot](github_clone.png) and choose either the https or ssh protocol (recommended to avoid typing your password at each git pull/push).
+- Get the cloning repository by clicking the "clone" button and choose either the `https` or `ssh` protocol (the later being recommended to avoid typing your password at each git pull/push):  ![plot](github_clone.png) .
 
 - Clone the repository on your local machine. On Linux this consists in typing the following line in a terminal:
 
@@ -43,18 +43,21 @@ The url is hence https://github.com/my_github_id/HMMA238
 
 ```git commit -am "I edited some typos"```
 
-```git push --set-upstream origin new-branch```
+```git push --set-upstream origin improving_git```
 
-- `git fetch upstream`
 
 - Create Pull Request: go back in your browser to https://github.com/my_github_id/HMMA238 and click on Pull Request.
 
 
-- To keep your fork up to date 
+- To keep your fork up to date / sync:
 
 ```git fetch upstream```
 
+- To come back to the `master` branch:
+
 ```git checkout master```
+
+- To merge the upstream version (the one you see at https://github.com/bcharlier/HMMA238.git)
 
 ```git merge upstream/master```
 
