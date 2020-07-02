@@ -4,9 +4,13 @@
 
 ### Introduction
 
-Sphinx is an  extension of [reStructuredText](https://docutils.sourceforge.io/rst.html). reStructuredText (RST, ReST, or reST) is a file format for textual data used primarily in the Python programming language community for technical documentation.
+Sphinx is an  extension of [reStructuredText](https://docutils.sourceforge.io/rst.html). reStructuredText (`.RST`, `.ReST`, or `.reST`) is a file format for textual data used primarily in the Python programming language community for technical documentation, and similar to the Mardkown format (`.md`) you are currently reading.
 
-It is part of the [`Docutils`](https://docutils.sourceforge.io/) project of the Python Doc-SIG (Documentation Special Interest Group), aimed at creating a set of tools for Python similar to Javadoc for Java or Plain Old Documentation (pod) for Perl. `Docutils` can extract comments and information from Python programs, and format them into various forms of program documentation.
+It is part of the [`Docutils`](https://docutils.sourceforge.io/) project of the Python Doc-SIG (Documentation Special Interest Group), aimed at creating a set of tools for Python similar to Javadoc for Java or Plain Old Documentation (pod) for Perl.
+
+XXX TODO: R tools also to be mentioned.
+
+`Docutils` can extract comments and information from Python programs, and format them into various forms of program documentation.
 
 In this sense, reStructuredText is a lightweight markup language designed to be both:
 
@@ -35,7 +39,7 @@ Subsection Header
 - A bullet list item
 - Second item
 
-  - A sub item
+  - A sub item (indentation matters!)
 
 - Spacing between items creates separate lists
 
@@ -116,7 +120,8 @@ This may also be used inline at the end of a paragraph, like so::
 
 Reference: this part is mainly from the Sphinx documentation <http://www.sphinx-doc.org/en/stable/>.
 
-The documentation is usually located in a `docs` or `doc` folder located at the root of a project. For instance in the `biketrauma` module we have:
+The documentation is usually located in a `docs` or `doc` folder located at the root of a project.
+For instance in the `biketrauma` module we have:
 
 ```bash
 packaging_tutorial/
@@ -133,7 +138,8 @@ packaging_tutorial/
 
 In the Sphinx terminology, this `doc` folder is called the [source directory](http://www.sphinx-doc.org/en/stable/glossary.html#term-source-directory). It contains:
 
-1. a configuration file `conf.py` with all the information needed to read the sources and build the doc. By building, I mean the process of generating the doc (usually in `html`, `pdf`, etc...) from the ReST files.
+1. a configuration file `conf.py` with all the information needed to read the sources and build the doc.
+By building, it is meant the process of generating the doc (usually in `html`, `pdf`, etc.) from the ReST files.
 2. a directory structure containing `.md` or `.rst` files with the doc.
 
 To help you, Sphinx comes with a script called `sphinx-quickstart` that sets up a source directory and creates a default `conf.py` with the most useful configuration values from a few questions it asks you. To use this, run:
@@ -142,19 +148,23 @@ To help you, Sphinx comes with a script called `sphinx-quickstart` that sets up 
 $ sphinx-quickstart
 ```
 
-Answer each question asked. Be sure to say **yes** to the `autodoc` extension, as we will use this later. There is also an automatic “API documentation” generator called `sphinx-apidoc`; see [`sphinx-apidoc`](http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html) for details.
+Answer each question asked.
+Be sure to say **yes** to the `autodoc` extension, as we will use this later.
+There is also an automatic API documentation (API: Application Programming Interface) generator called `sphinx-apidoc`; see [`sphinx-apidoc`](http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html) for details.
 
 **Exercise:** Set up the documentation for `biketrauma`
 
-1. Install the sphinx package with pip
+1. Install the sphinx package with `pip`
 2. Create a `doc` folder and `cd` into it
 3. Launch `sphinx-quickstart`.
 
 ## Defining documentation structure
 
-Let’s assume you’ve run `sphinx-quickstart`. It created a source directory with `conf.py` and a master document, `index.rst` (if you accepted the defaults).
+Let us assume you have run `sphinx-quickstart`.
+It has created a source directory with `conf.py` and a master document, `index.rst` (if you accepted the defaults parameters).
 
-The main function of the master document is to serve as a welcome page, and to contain the root of the “table of contents tree” (or `toctree`). This is one of the main things that Sphinx adds to reStructuredText, a way to connect multiple files to a single hierarchy of documents.
+The main function of the master document is to serve as a welcome page, and to contain the root of the "table of contents tree" (or `toctree`).
+This is one of the main things that Sphinx adds to reStructuredText, a way to connect multiple files to a single hierarchy of documents.
 
 The `toctree` directive initially is empty, and looks like so:
 
@@ -174,19 +184,20 @@ You add documents listing them in the content of the directive:
    ...
 ```
 
-This is exactly how the `toctree` for this documentation looks. The documents to include are given as document names, which in short means that you leave off the file name extension and use forward slashes (/) as directory separators.
+This is exactly how the `toctree` for this documentation looks.
+The documents to include are given as document names, which in short means that you leave off the file name extension and use forward slashes (/) as directory separators.
 
 **Exercise:**
 
 1. Update the `index.rst`: by adding an image located at <https://aenkg.info/img/a167ed14c4655893357e586ec3d6704f.jpg> just below the title of the page
 2. Install the `read_the_doc` theme as explained [here](https://sphinx-rtd-theme.readthedocs.io/en/stable/installing.html#via-python-package). Interested people can read <http://www.sphinx-doc.org/en/stable/theming.html>.
-3. Create the corresponding directory and files in order to add a, 
-     - A `Installation` section with few sentences and code snippet that explain how to install `biketrauma`
+3. Create the corresponding directory and files in order to add: 
+     - An `Installation` section with few sentences and code snippet that explain how to install `biketrauma`
      - A `Documentation` section with subsections `io` and `visu` each one containing a title and few lines of text.
 
 ## Building the doc
 
-During the configuration of Sphinx, a text file called `MakeFile` has been created: In software development, `Make` is a build automation tool that automatically builds executable programs and libraries from source code by reading files called `Makefiles` which specify how to derive the target program. 
+During the configuration of Sphinx, a text file called `MakeFile` has been created: in software development, `Make` is a build automation tool that automatically builds executable programs and libraries from source code by reading files called `Makefiles` which specify how to derive the target program. 
 
 Reference: <https://en.wikipedia.org/wiki/Make_(software)>
 
@@ -209,9 +220,11 @@ N.B.: there is also a [sphinx-build](http://www.sphinx-doc.org/en/stable/man/sph
 
 ## API doc (autodoc)
 
-When documenting Python code, it is common to put a lot of documentation in the source files, in documentation strings. Sphinx supports the inclusion of [`docstrings`](https://www.python.org/dev/peps/pep-0257/) from your modules with an extension (an extension is a Python module that provides additional features for Sphinx projects) called `autodoc`.
+When documenting Python code, it is common to put a lot of documentation in the source files, in documentation strings.
+Sphinx supports the inclusion of [`docstrings`](https://www.python.org/dev/peps/pep-0257/) from your modules with an extension (an extension is a Python module that provides additional features for Sphinx projects) called `autodoc`.
 
-In order to use `autodoc`, you need to activate it in `conf.py` by putting the string `'sphinx.ext.autodoc'` into the list assigned to the extensions config value. Then, you have a few additional directives at your disposal.
+In order to use `autodoc`, you need to activate it in `conf.py` by putting the string `'sphinx.ext.autodoc'` into the list assigned to the extensions config value.
+Then, you have a few additional directives at your disposal.
 
 For example, to document the function `io.open()`, reading its signature and docstring from the source file, you’d write this:
 
@@ -235,11 +248,12 @@ You can also document whole classes or even modules automatically, using member 
 
 ## Sphinx-Gallery
 
-Sphinx-Gallery is an extension able to create galleries of example in the `html` documentation directly from the scripts files of your project. See e.g. <https://sphinx-gallery.github.io/stable/auto_examples/index.html>
+Sphinx-Gallery is an extension able to create galleries of example in the `html` documentation directly from the scripts files of your project. See e.g., <https://sphinx-gallery.github.io/stable/auto_examples/index.html>
 
 ### Configuration
 
-Configuration and customization of sphinx-gallery is done primarily with a dictionary specified in your `conf.py` file. A typical sample 
+Configuration and customization of sphinx-gallery is done primarily with a dictionary specified in your `conf.py` file.
+A typical sample 
 
 ```bash
 from sphinx_gallery.sorting import FileNameSortKey
@@ -258,7 +272,7 @@ A list of the possible keys can be found here <https://sphinx-gallery.github.io/
 **Exercise:**
 
 1. Install the sphinx-gallery extension with pip.
-2. Update the `conf.py` of the biketrauma package with the dictionary containing the configuration of the sphinx-gallery.
+2. Update the `conf.py` of the `biketrauma` package with the dictionary containing the configuration of the sphinx-gallery.
 
 ### Structure your examples files
 
@@ -275,10 +289,15 @@ Sphinx-Gallery parse the folder listed in the key `examples_dirs`. It expects ea
     """
 ```
 
-2. Python code. This can be any valid Python code that you wish. Any Matplotlib images that are generated will be saved to disk, and the rST generated will display these images with the built examples. By default only images generated by Matplotlib, or packages based on Matplotlib (e.g., Seaborn or Yellowbrick) are saved and displayed. However, you can change this to include other packages, see Image scrapers.
+2. Python code.
+This can be any valid Python code that you wish.
+Any ``matplotlib`` images that are generated will be saved to disk, and the rST generated will display these images with the built examples.
+By default only images generated by `matplotlib`, or packages based on `matplotlib` (e.g., `seaborn` or `yellowbrick`) are saved and displayed.
+However, you can change this to include other packages, see for instance Image scrapers (XXX TODO: add details on Image scrapers).
+
 
 **Warning:** with default options, Sphinx-Gallery only execute the script files with a filename starting by `plot_`.
-**Warning:**  Sphinx-Gallery is looking for `Readme.txt` or `Readme.rst` files in every folders containing examples.
+**Warning:**  Sphinx-Gallery is looking for `README.txt` or `README.rst` files in every folders containing examples.
 
 ### Include examples in your toctree
 

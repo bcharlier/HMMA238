@@ -26,7 +26,7 @@ The url is hence https://github.com/my_github_id/HMMA238
 - Clone the repository on your local machine. On Linux this consists in typing the following line in a terminal:
 
 ```bash
-git clone git@github.com:my_github_id/HMMA238.git
+$ git clone git@github.com:my_github_id/HMMA238.git
 ```
 
 - Adding a remote : you need to configure a remote that points to the upstream repository. Before you can sync your fork with an upstream repository, you must do this step 
@@ -36,20 +36,20 @@ git clone git@github.com:my_github_id/HMMA238.git
 - you can check the remote available (yours and the class one) by typing:
 
 ```bash
-git remote -v
+$ git remote -v
 ```
 
 - Create a new branch for instance called `improving_git`, and move to it
 
 ```bash
-git checkout -b improving_git
+$ git checkout -b improving_git
 ```
 
 - Make local edit on some of the files in the project, and then commit and push the new branch `improving_git`:
 
 ```bash
-git commit -am "I edited some typos"
-git push --set-upstream origin improving_git
+$ git commit -am "I edited some typos"
+$ git push --set-upstream origin improving_git
 ```
 
 
@@ -59,19 +59,19 @@ git push --set-upstream origin improving_git
 - To keep your fork up to date / sync:
 
 ```bash
-git fetch upstream
+$ git fetch upstream
 ```
 
 - To come back to the `master` branch:
 
 ```bash
-git checkout master
+$ git checkout master
 ```
 
 - To merge the upstream version (the one you see at https://github.com/bcharlier/HMMA238.git)
 
 ```bash 
-git merge upstream/master
+$ git merge upstream/master
 ```
 
 
