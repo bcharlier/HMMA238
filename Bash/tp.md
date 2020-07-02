@@ -62,7 +62,7 @@ $ ls *.txt
 
 **Exercise:**
 
-   1. Go to `/usr/lib/R/bin/` and list every file starting with a letter `R` and containing `i`
+   1. Go to `/usr/lib/R/bin/` and list every file starting with a letter `R` and containing `i`
    2. Got to `/var/log/` and list every files with extension `.log`
    3. Got to `/var/log/` and list every files with a name starting with a `a` and containing at least a digit
 
@@ -77,16 +77,16 @@ To list the files in a folder use the command `ls`.
    3. describe the option `-lh`.
    4. List all the files in the directory `/usr/lib/` without `cd` in it.
 
-The `file` command can be used to display the information of a file (if not given by the extension...)
+The `file` command can be used to display the information of a file (if not given by the extension itself).
 
 **Exercise:**
 
-1. List all the files in the directory `/usr/lib/R/bin` and sort them by size
-2. Display the type information of the files in `/var/log/` one call to `file`
+1. List all the files in the directory `/usr/lib/R/bin` and sort them by size.
+2. Display the type information of the files in `/var/log/` one call to `file`.
 
 ### Symbolic links
 
-A symlink is a special file containing a reference (a link) to another file or directory. For instance try
+A symbolic link or **symlink** is a special file containing a reference (a link) to another file or directory. For instance try
 
 ```bash
 $ ls -l /usr/bin
@@ -155,7 +155,8 @@ Ref: <https://en.wikipedia.org/wiki/File_system_permissions>
 ### Paging programs
 
 A paging program displays, one windowful at a time, the contents of a file on a terminal.
-It pauses after each windowful and prints on the window status line the screen the file name, current line number, and the percentage of the file so far displayed.This is not an editor (no modification of the file can be done)
+It pauses after each windowful and prints on the window status line the screen the file name, current line number, and the percentage of the file so far displayed.
+This is not an editor (no modification of the file can be done)
 
 `more` (deprecated) `less` (best choice) `most` (default on your machine, more feature than `less`, but bad keybindings).
 
@@ -180,7 +181,9 @@ More resources: <https://unix.stackexchange.com/questions/81129/what-are-the-dif
 
 ### Environment variables
 
-An environment variable (in short env or envs) is a dynamic-named value that can affect the way running processes will behave on a computer. Many options of bash may be change with envs. To print all the defined envs:
+An environment variable (in short env or envs) is a dynamic-named value that can affect the way running processes will behave on a computer.
+Many options of bash may be change with envs.
+To print all the defined envs:
 
 ```bash
 $ printenv
@@ -219,7 +222,8 @@ Some documentation: <https://www.digitalocean.com/community/tutorials/how-to-rea
 
 ### Text editor
 
-In bash, many configuration files are in fact **text file**. You may need to choose a text editor to modify them. Very powerful (and thus complicated) text editors exist: `emacs`, `vim`, but we will focus on `nano` (`gedit` is another alternative):
+In bash, many configuration files are in fact **text file**. You may need to choose a text editor to modify them.
+Very powerful (and thus complicated) text editors exist: `emacs`, `vim`, but we will focus on `nano` (`gedit` is another alternative):
 
 ```bash
 $ nano
@@ -293,7 +297,7 @@ Please read the manual of `tail`, `head`, `cat`, `wc` and `split`
   
 ### The `grep` command
 
-Grep print lines of a file  matching a pattern (regex).
+`grep` prints lines of a file matching a pattern (regex).
 
 ```bash
 $ man grep
@@ -302,7 +306,7 @@ $ man grep
 **Exercise:**
 
    1. Count the number of accident in 2005 using the command `grep` (hint: remark that each line **starts** with the string `"YYYY` where `YYYY` is the year)
-   2. Display the line number of the accident occuring a wednesday of octobre 2017 using a regular expression.
+   2. Display the line number of the accident occurring on a Wednesday, in October 2017 using a regular expression.
 
 
 ### The `find` command
@@ -342,7 +346,8 @@ See: <https://ryanstutorials.net/linuxtutorial/piping.php>
 
 ### Pipes 
 
-In bash the pipe operator is denoted `|`. It allows to compose (mathematically) the output of a program as an input of another one. For instance to display the 10 largest file given by `du` (disk use)
+In bash the pipe operator is denoted `|`. It allows to compose (mathematically) the output of a program as an input of another one.
+For instance to display the 10 largest file given by `du` (disk use)
 
 ```bash
 $ du | sort -nr | head
