@@ -1,6 +1,6 @@
 # Integrated Development Environment
 
-An [Integrated development environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment) is an essential component in the development process.
+An [Integrated development environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment) is an essential component in the (software) development process.
 
 ## References
 
@@ -11,8 +11,8 @@ An [Integrated development environment (IDE)](https://en.wikipedia.org/wiki/Inte
 
 ## Objectives
 
-During this session you will learn how to:
+During this session you will mostly learn about VSCode and how to:
 
-1. Install an extension in VScode
-2. Use some advanced feature of the editor
-3. Set Up the python extension to run python code during development
+1. Install an extension in VSCode.
+2. Use some advanced feature VSCode.
+3. Set up the `python` extension to run python code during development.
