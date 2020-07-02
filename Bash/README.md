@@ -1,4 +1,4 @@
-# Introduction to Command line tool
+# Introduction to command line tools
 
 This lecture gives an idea of the most useful commands you may need when dealing with a Unix-like system (including Linux and Mac OS in particular).
 
