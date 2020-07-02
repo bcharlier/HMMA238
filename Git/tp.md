@@ -60,7 +60,7 @@ git push -u origin master
 ```
 
 
-**Exercice:** 
+**Exercise:** 
 
 Create a text file called `.gitignore` with the following content:
 ```
@@ -77,7 +77,7 @@ The purpose of this exercise is to learn how to the use git as a collaboration t
 
 Browse the repository at https://github.com/HMMA238-2020/git-tutorial. What is this module able to do?
 
-**Exercice:**
+**Exercise:**
 
 Fork the repository by following these steps: 
   1. On GitHub, click on the fork icon. 
@@ -96,7 +96,7 @@ Your goal is to identify the commit(s) that caused the bug. Use `git log`, `git 
 
 In order to fix a complex bug or add a new feature, it is often necessary to modify several parts of the code. We create a branch, where we make all the commits dedicated to solve the bug. The idea is to maintain a stable version, in the branch `master`, separated from the developing version, which may contain bugs.
 
-**Exercice:** 
+**Exercise:** 
 
 1. Create a local branch `Fix_EOL_Error`
 2. Push this local branch to your remote repo.
@@ -110,7 +110,7 @@ Your work about bug fixing may interest the original author of the project. On G
 
 ## Branch Merging and Solving conflict
 
-**Exercice:**
+**Exercise:**
 
   1. Checkout to the branch `NonGaussian`. Try to figure out what has changed compared to the master branch. 
   2. Try to merge the branch `NonGaussian` to the branch `master`. 
