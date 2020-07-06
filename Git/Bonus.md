@@ -71,7 +71,7 @@ $ git checkout master
 - To merge the upstream version (the one you see at https://github.com/bcharlier/HMMA238.git)
 
 ```bash 
-$ git merge upstream/master
+$ git pull upstream master
 ```
 
 
