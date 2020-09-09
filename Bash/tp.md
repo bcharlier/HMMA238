@@ -3,7 +3,7 @@
 
 ## Preamble
 
-As you already know bash prompt is a `$` sign when you are a standard user. When you are an administrator (often called `root` user) the prompt is a `#`.  
+As you already know bash prompt is a `$` sign when you are a standard user. When you are an administrator (often called `root` user) the prompt is a `#`.
 
 ## The Unix directory structure
 
@@ -54,7 +54,7 @@ Some of the most common regular expressions are
 - `[^...]` forbidden characters range
  ...
 
-Regexp can be used in various places (`ls`, `grep`, `find`, etc...). For instance to display all the files with an extension in `txt`:
+Regexp can be used in various places (`ls`, `grep`, `find`, etc...). For instance to display all the files with an extension in `.txt`:
 
 ```bash
 $ ls *.txt
@@ -100,7 +100,7 @@ $ ln -s target_path link_path
 
 **Exercise:**
 
-1. Create a symlink called `my_python` pointing to `/usr/bin/python` in your `home` directory.  
+1. Create a symlink called `my_python` pointing to `/usr/bin/python` in your `home` directory.
 
 ### Users
 
@@ -110,7 +110,7 @@ To list the groups you belong to, in a terminal use the command
 $ groups
 ```
 
-To list the connected user on your machine 
+To list the connected user on your machine
 
 ```bash
 $ w
@@ -201,7 +201,7 @@ To set a new variable (in bash)
 $ export ENV_NAME=toto:tata
 ```
 
-List are often separated by `:`. To append a new value at the end 
+List are often separated by `:`. To append a new value at the end
 
 ```bash
 $ export ENV_NAME=${ENV_NAME}:tutu
@@ -232,19 +232,19 @@ $ nano
 or `joe` (default on your system).
 
 **Exercise:**
-  
+
    1. Set `nano` as your default text editor
 
 
 ### Useful `unix` commands
 
-- list files and get informations: `ls`, `file`, `find` 
+- list files and get informations: `ls`, `file`, `find`
 - display text content: `echo`, `cat`, `head`, `tail`, `grep`, `fgrep`, `rgrep`
 - file handling: `touch`, `mv`, `cp`, `rsync`, `rename`
 - unix admin: `which`, `who`, `top`, `htop`, `kill`, `pkill`, `killall`
 
 
-## System 
+## System
 
 ### Getting system information
 
@@ -254,7 +254,7 @@ To display the system information
 $ uname -a
 ```
 
-To show the system hostname you may use `hostname` command. 
+To show the system hostname you may use `hostname` command.
 
 To show information about your processor use `lscpu` and to list the devices connected to your machine use `lspci`.
 
@@ -282,9 +282,9 @@ The dataset we are going to use is available at <https://www.data.gouv.fr/fr/dat
 **Exercise:**
 
    1. Create a folder `data_bicycle` and `cd` to it.
-   2. Download the `.csv` file available at the following URL: <https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96> as `bicycle_db.csv` (use the option `-O` of  `wget`)
+   2. Download the `.csv` file available at the following URL: <https://www.data.gouv.fr/fr/datasets/r/3d5f2317-5afd-4a9f-a9c5-bd4fe0113f39> as `bicycle_db.csv` (use the option `-O` of  `wget`). Details (in French) on the dataset are available here: <https://www.data.gouv.fr/fr/datasets/accidents-de-velo/>
 
-### Text commands: `tail`, `head`, `cat`, `wc` and `split` 
+### Text commands: `tail`, `head`, `cat`, `wc` and `split`
 
 Please read the manual of `tail`, `head`, `cat`, `wc` and `split`
 
@@ -293,8 +293,8 @@ Please read the manual of `tail`, `head`, `cat`, `wc` and `split`
    1. Use the word count `wc` command to display the number of lines of `bicycle_db.csv`
    2. Display the 53 first line with the `head` command. Same with the 30 last lines (see `tail`)
    3. Use the `split` command and its options `-d` `-l` and `--additional-suffix` to create files with a maximum number of lines of 10000 (hint you should get only 6 files) with names `bike01.csv`, ..., `bike06.csv`
-  
-  
+
+
 ### The `grep` command
 
 `grep` prints lines of a file matching a pattern (regex).
@@ -344,7 +344,7 @@ Piping and redirection is the process used to connect these streams between prog
 
 See: <https://ryanstutorials.net/linuxtutorial/piping.php>
 
-### Pipes 
+### Pipes
 
 In bash the pipe operator is denoted `|`. It allows to compose (mathematically) the output of a program as an input of another one.
 For instance to display the 10 largest file given by `du` (disk use)
