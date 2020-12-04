@@ -53,37 +53,45 @@ The ```github``` repository should be completed before this date (nothing pushed
 
 ## (Tentative) Course schedule
 
-1. BC : (22/01) [coding : algorithms, modules, basic types, functions, loops](Intro-Python/)
-2. JS : (23/01) [coding : list, dictionary, tuples, if statement and loops, exceptions](Intro-Python/)
-3. BC : (29/01) [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Intro-Python/), [git: a first introduction](Git/)
-4. JS : (30/01) [`numpy` : basics on matrices (arrays), slicing, simple linear algebra, masking; `matplotlib`: first plots](Numpy-Matplotlib/)
-5. BC : (05/02) [`github`, ssh key creation, various git commands, conflict, pull request](Git/)
-6. JS : (06/02) [`numpy` : casting, concatenation, `imshow`, `meshgrid`, casting, copy](Numpy-Matplotlib/);  [`scipy`: EDO, Interpolation, Optimize](Scipy/)
-7. BC : (12/02) [hands on git](Git/), [intro to linux essentials and command line tools](Bash)
-8. JS : (13/02) [`scipy`: Images/channel, FFT](Scipy/), [Pandas: missing data](Pandas/)
-9. BC : (26/02) [bash, regexp, grep, find, rename](Bash/), [Python virtual environment](Venv/)
-10. JS : (27/02) [Pandas: first steps](Pandas/)
+1. BC : (20/01) [intro to linux essentials and command line tools: bash, regexp, grep, find, rename](Bash/),
 
-11. BC : (04/03) [Python virtual env: Anaconda](Venv/), [IDE: VScode](IDE/), [Create a Python Module](Python-modules/)
+2. BC : (21/01) [Python virtual env: Anaconda](Venv/), [Python virtual environment](Venv/), [IDE: VScode](IDE/),
 
-12. JS : (05/03) [Pandas: more on that](Pandas/)
+3. BC : (27/01) [git: a first introduction, `github`, ssh key creation, various git commands, conflict, pull request](Git/)
 
-13. BC : (11/03) [Create a Python Module](Python-modules/), [unit tests](Tests-CI/)
+4. JS : (28/01) [coding : algorithms, modules, basic types, functions, loops](Intro-Python/) [coding : list, dictionary, tuples, if statement and loops, exceptions](Intro-Python/)
 
-14. BC : (18/03) [unit test](Tests-CI/)
+5. BC : (03/02) [hands on git](Git/), [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Intro-Python/)
 
-15. JS : (19/03) [Sparse Matrices and graphs and memory](TempsMemoire/)
+6. JS : (04/02) [`numpy` : basics on matrices (arrays), slicing, simple linear algebra, masking; `matplotlib`: first plots](Numpy-Matplotlib/)
 
-16. JS : (26/03) [Numba](Numba/)
+7. BC : (10/02) [Create a Python Module](Python-modules/)
 
-17. BC : (31/03) [Documentation with Sphinx](Docs/)
+8. JS : (11/02) [`numpy` : casting, concatenation, `imshow`, `meshgrid`, casting, copy](Numpy-Matplotlib/);  [`scipy`: EDO, Interpolation, Optimize](Scipy/)
 
-18. JS : (02/04) [Statsmodels](Statsmodels/)
+9. JS : (17/02) [`scipy`: Images/channel, FFT](Scipy/), [Pandas: missing data](Pandas/)
 
-19. JS+BC : (21/04) Oral examination
+10. JS : (18/02) [Pandas: first steps](Pandas/)
 
-20. JS+BC : (28/04) Oral examination
+11. BC : (03/03) [Create a Python Module](Python-modules/), [unit tests](Tests-CI/)
 
+12. JS : (04/03) [Pandas: more on that](Pandas/)
+
+13. BC : (10/03) [unit test](Tests-CI/)
+
+14. BC : (17/03) [Documentation with Sphinx](Docs/)
+
+15. JS : (18/03) [Sparse Matrices and graphs and memory](TempsMemoire/)
+
+16. BC : (31/03) pytorch? 
+
+17. JS : (01/04) [Numba](Numba/)
+
+18. JS : (08/04) [Statsmodels](Statsmodels/)
+
+19. JS : (19/04) Oral examination
+
+20. BC : (20/04) Oral examination
 ## Bonus
 
 2 supplementary points on the final grade of the course can be obtained for contributions improving the course material (notebooks, Readme, etc.) under the following constraints :
