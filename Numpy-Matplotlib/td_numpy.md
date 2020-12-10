@@ -54,3 +54,6 @@ Corrected Version :
         trunc_ = (x**k/fact).sum()
         return(trunc_)
 
+# TO DO :
+1. build the same function replacing sum by cumsum
+2. produce a graph to compare to the real values

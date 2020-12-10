@@ -44,6 +44,9 @@ Corrected version :
         return(sum_)
 
 
-
-
 ## Exercices
+
+# TO DO : Caesar Cipher
+1. Write a function which encrypt knowing the code
+2. Write a function which de-encrypt (in english ?) knowing the code
+3. Cryptanalysis : spell frequency ? brut-force ? A way to include likelihood ?
