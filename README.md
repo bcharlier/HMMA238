@@ -125,7 +125,7 @@ The main resource for the course is available on the present `github` repository
 - possibly set a shared file for graphics
 - Un-merge ```numpy/matplotlib``` notebooks
 - SparseMatrix notebook might be split with element put in ```numba```???
-- Exceptions to move from main -> specific notebook; see also information in https://fabienmaussion.info/scipro_ss2018/html/09-Exceptions.html
+- Exceptions to move from main -> specific notebook;
 
 ## Utils
 
