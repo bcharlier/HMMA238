@@ -6,6 +6,7 @@
 
 - Joseph Salmon : joseph.salmon@umontpellier.fr,
 - Benjamin Charlier : benjamin.charlier@umontpellier.fr
+- Florent Bascou : florent.bascou@umontpellier.fr
 
 ## Office hours
 
@@ -14,6 +15,7 @@
 ## Web page
 
 <https://github.com/bcharlier/HMMA238>
+<https://github.com/HMMA238-2021/>
 
 ## Prerequisite
 
@@ -28,34 +30,46 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 ## Grading
 
-### Project (70% of the final grade)
+### Project (60% of the final grade)
 
 - Projects will be by predefined (at random) groups of 3.
 
-- Expected work : a ```github``` repository where the work is available A precise description will be given with the subjects.
+- Expected work : a ```github``` repository where the work is available. A precise description will be given with the subjects.
 The ```github``` repository will contain at least a (markdown) Readme file introducing your work. All the code will be placed in a directory called */Code*, a tex/pdf or `jupyter notebook`  will be put in a */Report* directory and your final beamer/power point presentation (in an open source format) will be set in `/Beamer` directory.
 The later will be a short presentation of the work that will be orally presented during 15mn in front of a jury.
 
-- Due date : **May 17th** 23h59.
-The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
+- Due date (mid-term project snapshot) : TBD. This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the second part of the project.
+
+- Due date (final project) : Week 16. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
 
 **Warning:** the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
 
-### Mid-term project snapshot (10% of the final grade)
+### Practical / Homework (25% of the final grade)
 
-- This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the second part of the project.
-- Due date : March (TBD)
+- A small challenge based on a real dataset. This will be a personal work.
 
-### Practical / Homework (20% of the final grade)
+- Due date : Week 13.
 
-- This is a classical homework, where a ```jupyter notebook``` will be graded. This will be a personal work.
-- Due date : March (TBD)
+### Tests (15% of the final grade)
+
+- Thre short tests of 15 min each (on moodle). This will be a personal work.
+- Due date : Week 6, 9 and 12.
+
+## Bonus
+
+1 supplementary point on the final grade of the course can be obtained for contributions improving the course material (Practicaks, Readme, etc...) under the following constraints :
+
+- only .5 point is given for a contribution,
+- only the first contribution proposed on a theme is rewarded (no point given for followers!),
+- documented pull-requests (PR) are expected : details are expected to help judging what the proposition improves/corrects,
+- for typos at least 5 corrections are expected to receive .5 point. The corrections should be gathered in **single PR**.
+- each student can only get 1 point maximum through bonuses.
 
 ## (Tentative) Course schedule
 
 1. BC : (20/01) [intro to linux essentials and command line tools: bash, regexp, grep, find, rename](Bash/),
 
-2. BC : (21/01) [Python virtual env: Anaconda](Venv/), [Python virtual environment](Venv/), [IDE: VScode](IDE/),
+2. BC : (21/01) [python virtual env: Anaconda](Venv/), [Python virtual environment](Venv/), [IDE: VScode](IDE/),
 
 3. BC : (27/01) [git: a first introduction, `github`, ssh key creation, various git commands, conflict, pull request](Git/)
 
@@ -92,15 +106,6 @@ The ```github``` repository should be completed before this date (nothing pushed
 19. JS : (19/04) Oral examination
 
 20. BC : (20/04) Oral examination
-## Bonus
-
-2 supplementary points on the final grade of the course can be obtained for contributions improving the course material (notebooks, Readme, etc.) under the following constraints :
-
-- only 1 point is given for a contribution,
-- only the first contribution proposed on a theme is rewarded (no point given for followers!),
-- documented pull-requests (the details could be found ) are expected : details are expected to help judging what the proposition improves/corrects,
-- for typos at least 5 corrections are expected to receive 1 point,
-- each student can only get 2 points maximum through bonuses.
 
 ## Books and other resources
 
