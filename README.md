@@ -8,10 +8,6 @@
 - Benjamin Charlier : benjamin.charlier@umontpellier.fr
 - Florent Bascou : florent.bascou@umontpellier.fr
 
-## Office hours
-
- Thursday 18h-19h, ___appointment by email only___.
-
 ## Web page
 
 <https://github.com/bcharlier/HMMA238>
