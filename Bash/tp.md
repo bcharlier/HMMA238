@@ -3,9 +3,23 @@
 
 ## Preamble
 
+### Shell, terminal and console
+
+The **shell** is the program which actually processes commands and returns output, e.g., Bash, zsh, etc... 
+
+A **terminal** refers to a wrapper program which runs a shell.
+
+The **console** is a special sort of terminal (low level).
+
+Reference: https://superuser.com/questions/144666/what-is-the-difference-between-shell-console-and-terminal
+
+### Prompt
+
 As you already know bash prompt is a `$` sign when you are a standard user. When you are an administrator (often called `root` user) the prompt is a `#`.
 
 ## The Unix directory structure
+
+Many details on the Unix directory structure at <https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/>
 
 Some aliases:
 
@@ -28,9 +42,8 @@ $ pwd
    2. Use the `locate` command to determine if `matlab` is installed on your system
    3. Use the `which` command to determine which instance of python is used when you use the `python` command. Same question with `python2`.
 
-Many details on the Unix directory structure at <https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/>
 
-### Getting help
+## Getting help
 
 To get some help for a command, please use the `man` command. You may also use the `--help` option as in
 
@@ -39,34 +52,61 @@ $ man ls
 $ ls --help
 ```
 
-### Regexp 101
+## Paging programs
 
-Some of the most common regular expressions are
+A paging program displays, one windowful at a time, the contents of a file on a terminal.
+It pauses after each windowful and prints on the window status line the screen the file name, current line number, and the percentage of the file so far displayed.
+This is not an editor (no modification of the file can be done)
 
-- `^` start of line
-- `.` any single character
-- `$`  end of line
-- `x*` zero or more occurrence of character `x`
-- `x+` one or more occurrences of character `x`
-- `x?` zero or one occurrence of character `x`
-- `x{n}` exactly n occurrence of character `x`
-- `[...]` range of characters (e.g. `[a-z]`, `[A-Z]`, `[a-zA-Z]`, `[0-9]`, etc...)
-- `[^...]` forbidden characters range
- ...
+`more` (deprecated) `less` (best choice) `most` (default on your machine, more feature than `less`, but bad keybindings).
 
-Regexp can be used in various places (`ls`, `grep`, `find`, etc...). For instance to display all the files with an extension in `.txt`:
+```bash
+$ man less
+$ man most
+```
+
+**Useful tips:**
+
+- to search for a word type `/`. To go to the next (resp. previous)  occurrence type `n` (resp. `p`).
+- [less only] to go down type `j`, to go up type `k`.
+- to go to the beginning of file type `g`, to the end `G`.
+- To quit type `q`.
+- to change the default paging program to `less`.
+
+   ```bash
+   $ export MANPAGER=less
+   ```
+
+More resources: <https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less>
+
+## Pattern matching (part I): Pathname expansion (a.k.a. globbing)
+
+It is often very useful to select some files which filename contains (or not!) a specific pattern. Shells (bash, zsh, etc...) comes with a "pattern matching" syntax allowing us to express such constraints on the filenames. 
+
+This syntax is commonly called `globs` and is quite simple (more advance syntaxes called `regexp` will be introduced later on). `globs` are **shell commands** and can be transmitted to various program (`ls`, `grep`, `find`, etc...). For instance to display all the files with an extension in `.txt` in the current directory:
 
 ```bash
 $ ls *.txt
 ```
 
+Most shells have similar glob rules, and they usually consist of:
+
+   - A marker for zero-or-more characters: `*`
+   - A marker for exactly one character: `?`
+   - A way to express one of a certain set of characters: `[...]`
+   - A way to express a choice of one or more strings: `{...,...}`
+   - A way to escape any of the above special characters: `\`
+
+
+
 **Exercise:**
 
    1. Go to `/usr/lib/R/bin/` and list every file starting with a letter `R` and containing `i`
-   2. Got to `/var/log/` and list every files with extension `.log`
-   3. Got to `/var/log/` and list every files with a name starting with a `a` and containing at least a digit
+   2. Go to `/usr/lib/R/bin/` and list every file containing the letter `c`, then any character, and then a `n` (e.g. `config` or `javareconf`)
+   3. Got to `/var/log/` and list every files with a double extension: the former one is a dot followed by a number, the last one is `.log` (e.g. `Xorg.3.log` or  `Xorg.0.log`)
+   4. Got to `/var/log/` and list every files with a name starting with a `a` and containing at least a digit
 
-### Listing files
+## Listing files
 
 To list the files in a folder use the command `ls`.
 
@@ -84,7 +124,7 @@ The `file` command can be used to display the information of a file (if not give
 1. List all the files in the directory `/usr/lib/R/bin` and sort them by size.
 2. Display the type information of the files in `/var/log/` one call to `file`.
 
-### Symbolic links
+## Symbolic links
 
 A symbolic link or **symlink** is a special file containing a reference (a link) to another file or directory. For instance try
 
@@ -102,7 +142,7 @@ $ ln -s target_path link_path
 
 1. Create a symlink called `my_python` pointing to `/usr/bin/python` in your `home` directory.
 
-### Users
+## Users
 
 To list the groups you belong to, in a terminal use the command
 
@@ -117,7 +157,7 @@ $ w
 $ who
 ```
 
-### File permissions
+## File permissions
 
 Each file has an **owner** (a user) and a **group** (a group of users). To change the user that owns use `chown` and to change the group use `chgrp`. There are 3 types of permissions:
 
@@ -152,34 +192,7 @@ $ chmod u+x toto.txt
 
 Ref: <https://en.wikipedia.org/wiki/File_system_permissions>
 
-### Paging programs
-
-A paging program displays, one windowful at a time, the contents of a file on a terminal.
-It pauses after each windowful and prints on the window status line the screen the file name, current line number, and the percentage of the file so far displayed.
-This is not an editor (no modification of the file can be done)
-
-`more` (deprecated) `less` (best choice) `most` (default on your machine, more feature than `less`, but bad keybindings).
-
-```bash
-$ man less
-$ man most
-```
-
-**Useful tips:**
-
-- to search for a word type `/`. To go to the next (resp. previous)  occurrence type `n` (resp. `p`).
-- [less only] to go down type `j`, to go up type `k`.
-- to go to the beginning of file type `g`, to the end `G`.
-- To quit type `q`.
-- to change the default paging program to `less`.
-
-   ```bash
-   $ export MANPAGER=less
-   ```
-
-More resources: <https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less>
-
-### Environment variables
+## Environment variables
 
 An environment variable (in short env or envs) is a dynamic-named value that can affect the way running processes will behave on a computer.
 Many options of bash may be change with envs.
@@ -391,3 +404,6 @@ $ wc -l < toto.txt
 
    1. Create a single file `bike2016.csv` containing all the accident that occurred in 2016.
    2. Append the accidents of year 2017 to the previous file and then rename it `bike2016_17.csv`.
+
+## ## Pattern matching (part II):  Regexp
+
