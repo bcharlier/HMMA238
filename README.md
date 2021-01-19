@@ -42,18 +42,18 @@ The later will be a short presentation of the work that will be orally presented
 
 ### Practical / Homework (25% of the final grade)
 
-- A small challenge based on a real dataset. This will be a personal work.
+- A small challenge based on a real datasets. This will be a personal work.
 
 - Due date : Week 13.
 
 ### Tests (15% of the final grade)
 
-- Thre short tests of 15 min each (on moodle). This will be a personal work.
+- Three short tests of 15 min each (on Moodle). This will be a personal work.
 - Due date : Week 6, 9 and 12.
 
 ## Bonus
 
-1 supplementary point on the final grade of the course can be obtained for contributions improving the course material (Practicaks, Readme, etc...) under the following constraints :
+1 supplementary point on the final grade of the course can be obtained for contributions improving the course material (practicals, Readme, etc.) under the following constraints :
 
 - only .5 point is given for a contribution,
 - only the first contribution proposed on a theme is rewarded (no point given for followers!),
