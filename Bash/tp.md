@@ -295,7 +295,7 @@ The dataset we are going to use is available at <https://www.data.gouv.fr/fr/dat
 **Exercise:**
 
    1. Create a folder `data_bicycle` and `cd` to it.
-   2. Download the `.csv` file available at the following URL: <https://www.data.gouv.fr/fr/datasets/r/3d5f2317-5afd-4a9f-a9c5-bd4fe0113f39> as `bicycle_db.csv` (use the option `-O` of  `wget`). Details (in French) on the dataset are available here: <https://www.data.gouv.fr/fr/datasets/accidents-de-velo/>
+   2. Download the `.csv` file available at the following URL: <https://koumoul.com/s/data-fair/api/v1/datasets/accidents-velos/raw> as `bicycle_db.csv` (use the option `-O` of  `wget` or redirect the output of `curl` with `>` operator described below). Details (in French) on the dataset are available here: <https://www.data.gouv.fr/fr/datasets/accidents-de-velo/>
 
 ### Text commands: `tail`, `head`, `cat`, `wc` and `split`
 
@@ -405,5 +405,51 @@ $ wc -l < toto.txt
    1. Create a single file `bike2016.csv` containing all the accident that occurred in 2016.
    2. Append the accidents of year 2017 to the previous file and then rename it `bike2016_17.csv`.
 
-## ## Pattern matching (part II):  Regexp
+## Pattern matching (part II):  Regexp
 
+A regular expression (shortened as `regex` or `regexp`; also referred to as `rational expression`) is a sequence of characters that define a search pattern. Many language implement such syntaxes (beware, there may be some differences!). Some of the most common regular expressions (share by almost all implementations) are
+
+- `\` escape character
+- `^` start of line
+- `.` any single character
+- `$`  end of line
+- `x*` zero or more occurrence of character `x`
+- `x+` one or more occurrences of character `x`
+- `x?` zero or one occurrence of character `x`
+- `x{n}` exactly n occurrence of character `x`
+- `[...]` range of characters (e.g. `[a-z]`, `[A-Z]`, `[a-zA-Z]`, `[0-9]`, etc...)
+- `[^...]` forbidden characters range
+- `(...)` marked subexpression. The string matched within the parentheses can be recalled later (see the next entry, \n). A marked subexpression is also called a block or capturing group.
+ ...
+
+ For instance, to capture all the word starting with a capital letter in a text, you may use the regexp:
+
+ ```
+ ([A-Z][a-zA-Z0-9_]*)+
+ ```
+See <https://regexr.com/>. See also the doc of the `sed`, `awk` programs and the `perl` language. Reference: <https://en.wikipedia.org/wiki/Regular_expression>
+
+**Exercice:**
+
+   1. Go to <https://regex101.com/> and copy/paste the following list (in the `TEST STRING` frame):
+      ```
+      '01 !!!!!!!.flac'
+      '02 bad guy.flac'
+      '03 xanny.flac'
+      '04 you should see me in a crown.flac'
+      '05 all the good girls go to hell.flac'
+      '06 wish you were gay.flac'
+      "07 when the party's over.flac"
+      '08 8.flac'
+      '09 my strange addiction.flac'
+      '10 bury a friend.flac'
+      '11 ilomilo.flac'
+      '12 listen before i go.flac'
+      '13 i love you.flac'
+      '14 goodbye.flac'
+      ```
+   2. Why the name of the 7th song is double quoted (" instead of ') ?
+
+   3. Capture with a regexp all the song names (between the track number and the extension). You should get this in the `MATCH INFORMATION` frame on the right:
+
+   ![result of regexp capture](regexp.png)
