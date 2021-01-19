@@ -26,30 +26,40 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 ## Grading
 
-### Project (60% of the final grade)
-
-- Projects will be by predefined (at random) groups of 3.
-
-- Expected work : a ```github``` repository where the work is available. A precise description will be given with the subjects.
-The ```github``` repository will contain at least a (markdown) Readme file introducing your work. All the code will be placed in a directory called */Code*, a tex/pdf or `jupyter notebook`  will be put in a */Report* directory and your final beamer/power point presentation (in an open source format) will be set in `/Beamer` directory.
-The later will be a short presentation of the work that will be orally presented during 15mn in front of a jury.
-
-- Due date (mid-term project snapshot) : TBD. This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the second part of the project.
-
-- Due date (final project) : Week 16. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
-
-**Warning:** the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
-
 ### Practical / Homework (25% of the final grade)
 
 - A small challenge based on a real datasets. This will be a personal work.
 
-- Due date : Week 13.
+- Due date : **Week 13**.
 
 ### Tests (15% of the final grade)
+Three short tests of 15 min each (on Moodle). This will be a personal work.
 
-- Three short tests of 15 min each (on Moodle). This will be a personal work.
-- Due date : Week 6, 9 and 12.
+- Quiz 1 (**Week 6**)
+- Quiz 2 (**Week 9**)
+- Quiz 3 (**Week 12**)
+
+### Project (60% of the final grade)
+
+**Warning:** the precise details of the projects might evolve before the allocation phase
+
+**Warning:** the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
+
+- You will work by groups of 4/5 students.  Groups will be assigned at random early .
+
+- Expected work : a ```github``` repository where the work is available.
+    A precise description will be given with the subjects.
+    The ```github``` repository will contain mandatory element :
+    - a (markdown) Readme file introducing your work.
+    - all the code will be placed in a directory called */Code*, a tex file (producing a report .pdf) will be put in a */Report* directory. It will respect continuous integration and unit testing.
+    - your final beamer/power point presentation (in an open source format) will be set in `/Beamer` directory.
+    - A short video presenting your work (duration < 15mn) in a */Video* directory
+
+- Due date (mid-term project snapshot, **Week 12**). This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the project including how the task are attributed (coding).
+
+- Due date (final project) : **Week 16**. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
+
+
 
 ## Bonus
 
@@ -120,15 +130,7 @@ The main resource for the course is available on the present `github` repository
 - (Python) <http://www.scipy-lectures.org/>
 - (Visualization) <http://openclimatedata.net/>
 
-## TODOS (for teachers only)
-
-- change language (FR->EN) for all notebooks
-- possibly set a shared file for graphics
-- Un-merge ```numpy/matplotlib``` notebooks
-- SparseMatrix notebook might be split with element put in ```numba```???
-- Exceptions to move from main -> specific notebook;
-
-## Utils
+## Utils (for jupyter extensions)
 
 Some useful extensions:
 
