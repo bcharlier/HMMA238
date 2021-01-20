@@ -29,13 +29,13 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 ## (Tentative) Course schedule
 
-1. BC : (20/01) [intro to linux essentials and command line tools: bash, regexp, grep, find, rename](Bash/),
+1. BC : (20/01) [Introduction to linux essentials and command line tools: bash, regexp, grep, find, rename](Bash/),
 
-2. BC : (21/01) [python virtual env: Anaconda](Venv/), [Python virtual environment](Venv/), [IDE: VScode](IDE/),
+2. BC : (21/01) [Python virtual env: Anaconda](Venv/), [Python virtual environment](Venv/), [IDE: VScode](IDE/),
 
-3. BC : (27/01) [git: a first introduction, `github`, ssh key creation, various git commands, conflict, pull request](Git/)
+3. BC : (27/01) [Git: a first introduction, `github`, ssh key creation, various git commands, conflict, pull request](Git/); see also [Bonus/](Bonus/)
 
-4. JS : (28/01) [coding : algorithms, modules, basic types, functions, loops](Intro-Python/) [coding : list, dictionary, tuples, if statement and loops, exceptions](Intro-Python/)
+4. JS : (28/01) [Coding : algorithms, modules, basic types, functions, loops](Intro-Python/) [coding : list, dictionary, tuples, if statement and loops, exceptions](Intro-Python/)
 
 5. BC : (03/02) [hands on git](Git/), [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Intro-Python/)
 
@@ -53,11 +53,11 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 12. JS : (04/03) [Pandas: more on that](Pandas/)
 
-13. BC : (10/03) [unit test](Tests-CI/)
+13. BC : (10/03) [Unit test](Tests-CI/)
 
 14. BC : (17/03) [Documentation with Sphinx](Docs/)
 
-15. JS : (18/03) [Sparse Matrices and graphs and memory](TempsMemoire/)
+15. JS : (18/03) [Sparse natrices, graphs and memory](TempsMemoire/)
 
 16. BC : (31/03) pytorch? 
 
@@ -65,9 +65,9 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 18. JS : (08/04) [Statsmodels](Statsmodels/)
 
-19. JS : (19/04) Oral examination
+19. JS-BC : (19/04) Oral examination
 
-20. BC : (20/04) Oral examination
+20. JS-BC : (20/04) Oral examination
 
 ## Grading
 
@@ -99,7 +99,7 @@ See the [Bonus](Bonus/) section for more details on how to proceed.
 
 ## Books and other resources
 
-The main resource for the course is available on the present `github` repository, with additional elements available in the file [IntroPython.pdf](http://josephsalmon.eu/enseignement/Montpellier/HLMA310/IntroPython.pdf).
+The resources for the course are available on the present `github` repository. Additional elementary elements (**in French**) on Python are available in the course [HLMA310](http://josephsalmon.eu/HLMA310.html) and the associated lectures notes [IntroPython.pdf](http://josephsalmon.eu/enseignement/Montpellier/HLMA310/IntroPython.pdf).
 
 ### Additional resources
 
@@ -113,7 +113,7 @@ The main resource for the course is available on the present `github` repository
     Associated videos: <http://jakevdp.githubio/blog/2017/03/03/reproducible-data-analysis-in-jupyter/>
 
 - (Code and style) Boswell et Foucher, *The Art of Readable Code*, 2011
-- (Python) <http://www.scipy-lectures.org/>
+- (Scientific computing tools for Python) <http://www.scipy-lectures.org/>
 - (Visualization) <http://openclimatedata.net/>
 
 
