@@ -29,41 +29,41 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 ## (Tentative) Course schedule
 
-1. BC : (20/01) [Introduction to linux essentials and command line tools: bash, regexp, grep, find, rename](Bash/),
+1. BC : (20/01) [Introduction to linux essentials and command line tools: bash, regexp, grep, find, rename](Courses/Bash/),
 
-2. BC : (21/01) [Python virtual env: Anaconda](Venv/), [Python virtual environment](Venv/), [IDE: VScode](IDE/),
+2. BC : (21/01) [Python virtual env: Anaconda](Courses/Venv/), [Python virtual environment](Courses/Venv/), [IDE: VScode](Courses/IDE/),
 
-3. BC : (27/01) [Git: a first introduction, `github`, ssh key creation, various git commands, conflict, pull request](Git/); see also [Bonus/](Bonus/)
+3. BC : (27/01) [Git: a first introduction, `github`, ssh key creation, various git commands, conflict, pull request](Courses/Git/); see also [Bonus/](Courses/Bonus/)
 
-4. JS : (28/01) [Coding : algorithms, modules, basic types, functions, loops](Intro-Python/) [coding : list, dictionary, tuples, if statement and loops, exceptions](Intro-Python/)
+4. JS : (28/01) [Coding : algorithms, modules, basic types, functions, loops](Courses/Intro-Python/) [coding : list, dictionary, tuples, if statement and loops, exceptions](Courses/Intro-Python/)
 
-5. BC : (03/02) [hands on git](Git/), [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Intro-Python/)
+5. BC : (03/02) [hands on git](Courses/Git/), [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Courses/Intro-Python/)
 
-6. JS : (04/02) [`numpy` : basics on matrices (arrays), slicing, simple linear algebra, masking; `matplotlib`: first plots](Numpy-Matplotlib/)
+6. JS : (04/02) [`numpy` : basics on matrices (arrays), slicing, simple linear algebra, masking; `matplotlib`: first plots](Courses/Numpy-Matplotlib/)
 
-7. BC : (10/02) [Create a Python Module](Python-modules/)
+7. BC : (10/02) [Create a Python Module](Courses/Python-modules/)
 
-8. JS : (11/02) [`numpy` : casting, concatenation, `imshow`, `meshgrid`, casting, copy](Numpy-Matplotlib/);  [`scipy`: EDO, Interpolation, Optimize](Scipy/)
+8. JS : (11/02) [`numpy` : casting, concatenation, `imshow`, `meshgrid`, casting, copy](Courses/Numpy-Matplotlib/);  [`scipy`: EDO, Interpolation, Optimize](Courses/Scipy/)
 
-9. JS : (17/02) [`scipy`: Images/channel, FFT](Scipy/), [Pandas: missing data](Pandas/)
+9. JS : (17/02) [`scipy`: Images/channel, FFT](Courses/Scipy/), [Pandas: missing data](Courses/Pandas/)
 
-10. JS : (18/02) [Pandas: first steps](Pandas/)
+10. JS : (18/02) [Pandas: first steps](Courses/Pandas/)
 
-11. BC : (03/03) [Create a Python Module](Python-modules/), [unit tests](Tests-CI/)
+11. BC : (03/03) [Create a Python Module](Courses/Python-modules/), [unit tests](Courses/Tests-CI/)
 
-12. JS : (04/03) [Pandas: more on that](Pandas/)
+12. JS : (04/03) [Pandas: more on that](Courses/Pandas/)
 
-13. BC : (10/03) [Unit test](Tests-CI/)
+13. BC : (10/03) [Unit test](Courses/Tests-CI/)
 
 14. BC : (17/03) [Documentation with Sphinx](Docs/)
 
-15. JS : (18/03) [Sparse natrices, graphs and memory](TempsMemoire/)
+15. JS : (18/03) [Sparse natrices, graphs and memory](Courses/TempsMemoire/)
 
 16. BC : (31/03) pytorch? 
 
-17. JS : (01/04) [Numba](Numba/)
+17. JS : (01/04) [Numba](Courses/Numba/)
 
-18. JS : (08/04) [Statsmodels](Statsmodels/)
+18. JS : (08/04) [Statsmodels](Courses/Statsmodels/)
 
 19. JS-BC : (19/04) Oral examination
 
