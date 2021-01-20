@@ -24,33 +24,6 @@ A special focus on data processing and visualization will be at the heart of the
 We will mostly focus on basic programming concepts, as well as on discovering the Python scientific libraries, including ```numpy, scipy, pandas, matplotlib, seaborn```.
 Beyond `pandas` ninja skills, we will also introduce modern practices for coders : (unitary) tests, version control, documentation generation, etc.
 
-## Grading
-
-### Practical / Homework (25% of the final grade)
-
-- A small challenge based on a real datasets. This will be a personal work.
-
-- Due date : **Week 13**.
-
-### Tests (15% of the final grade)
-Three short tests of 15 min each (on Moodle). This will be a personal work.
-
-- Quiz 1 (**Week 6**)
-- Quiz 2 (**Week 9**)
-- Quiz 3 (**Week 12**)
-
-### Project (60% of the final grade)
-
-**Warning:** the precise details of the projects might evolve before the allocation phase, and a precise grid will be given in the project section.
-
-**Warning:** the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
-
-
-## Bonus
-
-**1 supplementary point** on the final grade of the course can be obtained for contributions improving the course material (practicals, Readme, etc.).
-See the [Bonus](Bonus/) section for more details on how to proceed.
-
 
 ## (Tentative) Course schedule
 
@@ -94,6 +67,34 @@ See the [Bonus](Bonus/) section for more details on how to proceed.
 
 20. BC : (20/04) Oral examination
 
+## Grading
+
+### Challenge (25% of the final grade)
+
+- A small challenge based on a real datasets. This will be a personal work, and includes an aesthetic part and prediction part. 
+
+- Due date : **Week 13**.
+
+### Tests (15% of the final grade)
+Three short tests of 15 min each (on Moodle). This will be a personal work.
+
+- Quiz 1 (**Week 6**)
+- Quiz 2 (**Week 9**)
+- Quiz 3 (**Week 12**)
+
+### Project (60% of the final grade)
+
+**Warning:** the precise details of the projects might evolve before the allocation phase, and a precise grid will be given in the project section.
+
+**Warning:** the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
+
+
+## Bonus
+
+**1 supplementary point** on the final grade of the course can be obtained for contributions improving the course material (practicals, Readme, etc.).
+See the [Bonus](Bonus/) section for more details on how to proceed.
+
+
 ## Books and other resources
 
 The main resource for the course is available on the present `github` repository, with additional elements available in the file [IntroPython.pdf](http://josephsalmon.eu/enseignement/Montpellier/HLMA310/IntroPython.pdf).
@@ -105,13 +106,16 @@ The main resource for the course is available on the present `github` repository
 2013, (french)
 - (General/data science) Guttag, *Introduction to Computation and Programming*,
 2016
-- (Data Science) : J. Van DerPlas, *Python Data Science Handbook, With Application to Understanding Data*, 2016
-<https://jakevdp.github.io/PythonDataScienceHandbook/>
+- (Data Science) : J. Van DerPlas, *Python Data Science Handbook, With Application to Understanding Data*, 2016<https://jakevdp.github.io/PythonDataScienceHandbook/>
+    
+    Associated videos: <http://jakevdp.githubio/blog/2017/03/03/reproducible-data-analysis-in-jupyter/>
+
 - (Code and style) Boswell et Foucher, *The Art of Readable Code*, 2011
 - (Python) <http://www.scipy-lectures.org/>
 - (Visualization) <http://openclimatedata.net/>
 
-## Utils (for jupyter extensions)
+
+## Oldies (for jupyter notebook extensions)
 
 Some useful extensions:
 
