@@ -45,21 +45,6 @@ Three short tests of 15 min each (on Moodle). This will be a personal work.
 
 **Warning:** the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
 
-- You will work by groups of 4/5 students.  Groups will be assigned at random early .
-
-- Expected work : a ```github``` repository where the work is available.
-    A precise description will be given with the subjects.
-    The ```github``` repository will contain mandatory element :
-    - a (markdown) Readme file introducing your work.
-    - all the code will be placed in a directory called */Code*, a tex file (producing a report .pdf) will be put in a */Report* directory. It will respect continuous integration and unit testing.
-    - your final beamer/power point presentation (in an open source format) will be set in `/Beamer` directory.
-    - A short video presenting your work (duration < 15mn) in a */Video* directory
-
-- Due date (mid-term project snapshot, **Week 12**). This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the project including how the task are attributed (coding).
-
-- Due date (final project) : **Week 16**. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
-
-
 
 ## Bonus
 
