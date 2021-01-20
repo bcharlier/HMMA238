@@ -1,6 +1,6 @@
 # HMMA 238
 
-(Almost) everything you need to know as an applied mathematician concerning coding and system admin.
+(Almost) everything you need to know as an applied mathematician / statistician concerning coding and system administration.
 
 ## Teachers
 
@@ -11,11 +11,13 @@
 ## Web page
 
 <https://github.com/bcharlier/HMMA238>
+
 <https://github.com/HMMA238-2021/>
 
 ## Prerequisite
 
-Students are expected to know basic notions of probabilities, optimization, linear algebra and statistics.
+Students are expected to know basic notions of probabilities, optimization, linear algebra and statistics for this course.
+Some rudiments on coding is also expected (if, for, while, functions) but not mandatory. 
 
 ## Course description
 
