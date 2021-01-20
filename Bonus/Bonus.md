@@ -15,7 +15,7 @@ The pull request system is a standard way of proposing improvement and modificat
 
 The principle is the following
 
-- Fork: Connect to your Github account (see [./Git/tp.md](tp.md) for details) and fork the repository by clicking on the "Fork" icon:
+- Fork: Connect to your Github account (see [../Git/tp.md](tp.md) for details) and fork the repository by clicking on the "Fork" icon:
 ![plot](fork.png)
 
 - Go to on your Github account and find the HMMA238 repository. In what follows you should substitute my_github_id by your github identification; in the screenshots the examples are with **my_github_id=josephsalmon** and they should be adapted according to yours.
