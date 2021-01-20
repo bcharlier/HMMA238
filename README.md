@@ -41,7 +41,7 @@ Three short tests of 15 min each (on Moodle). This will be a personal work.
 
 ### Project (60% of the final grade)
 
-**Warning:** the precise details of the projects might evolve before the allocation phase
+**Warning:** the precise details of the projects might evolve before the allocation phase, and a precise grid will be given in the project section.
 
 **Warning:** the project repository must show a balanced contribution between group members and intra-group grades variation could be made to reflect issues on the intra-group workload balance.
 
@@ -63,13 +63,9 @@ Three short tests of 15 min each (on Moodle). This will be a personal work.
 
 ## Bonus
 
-1 supplementary point on the final grade of the course can be obtained for contributions improving the course material (practicals, Readme, etc.) under the following constraints :
+**1 supplementary point** on the final grade of the course can be obtained for contributions improving the course material (practicals, Readme, etc.).
+See the [Bonus](Bonus/) section for more details on how to proceed.
 
-- only .5 point is given for a contribution,
-- only the first contribution proposed on a theme is rewarded (no point given for followers!),
-- documented pull-requests (PR) are expected : details are expected to help judging what the proposition improves/corrects,
-- for typos at least 5 corrections are expected to receive .5 point. The corrections should be gathered in **single PR**.
-- each student can only get 1 point maximum through bonuses.
 
 ## (Tentative) Course schedule
 
