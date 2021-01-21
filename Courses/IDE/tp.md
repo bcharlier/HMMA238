@@ -25,7 +25,7 @@ You may launch it via the GUI or through the following command line
 $ vscodium
 ```
 
-### Install a VSCode extension
+### Install a VSCode extension
 
 We will install the `python` extension.
 To install it:

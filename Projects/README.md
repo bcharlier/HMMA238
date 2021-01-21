@@ -1,39 +1,20 @@
 # Project guidelines
 
-## Grading
+- Work by groups of 4/5 students, assigned at random (list TBA).
 
-The final project represents 70% of the final grade for the course. The due date is **May 17th**, 23h59.
-The `github` repository should be completed before this date (nothing pushed later will be taken into account).
 
-The project's grade (out of 20 points) will be decomposed as follows:
+## Timing
+- Mid-term project snapshot: Due date **Week 12**. This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the project including how the task are attributed (coding).
 
-- 15 points for the code/notebook
+- Due date (final project) : **Week 16 (TBA)**. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
 
-- 5 points for the final defense.
 
-Projects will be by predefined (at random) groups of 2 or 3. The list will be available on Moodle.
 
-Moreover 10% of the final grade will be given for the milestone.
 
-### Milestone
-
-The milestone is due on **March 29 (23h59)** and will represent 10% of the final grade.
-It will consist of the following elements:
-
-- the `github` repository prepared with the structure described below.
-
-- at least a creation and a branch merged in the `github` history.
-
-- a `readme.md` file with the elements described below.
-
-- a `work_organization.md` file describing in details the repartition of the task expected for the whole project between the team members.
-
-- a test function that will allow you to test the (main) functions you will create for the project.
-
-## Elements expected
+## Elements expected /  Grading
 
 - The ultimate goal is to provide a Python module that can be imported with `pip` and containing your work.
-A description of the procedure will be needed (imagine you are addressing to a user not aware of your package).
+A description of the procedure will be needed (imagine you are addressing to a user not aware of your package). Last year project are available in the sub-folder `2020` and a good example of what we expect is <https://github.com/tanglef/chaoseverywhere>.
 
 - The project is stored on a `github` repository.
 

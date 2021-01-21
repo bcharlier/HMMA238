@@ -3,9 +3,23 @@
 
 ## Preamble
 
+### Shell, terminal and console
+
+The **shell** is the program which actually processes commands and returns output, e.g., Bash, zsh, etc... 
+
+A **terminal** refers to a wrapper program which runs a shell.
+
+The **console** is a special sort of terminal (low level).
+
+Reference: https://superuser.com/questions/144666/what-is-the-difference-between-shell-console-and-terminal
+
+### Prompt
+
 As you already know bash prompt is a `$` sign when you are a standard user. When you are an administrator (often called `root` user) the prompt is a `#`.
 
 ## The Unix directory structure
+
+Many details on the Unix directory structure at <https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/>
 
 Some aliases:
 
@@ -28,9 +42,8 @@ $ pwd
    2. Use the `locate` command to determine if `matlab` is installed on your system
    3. Use the `which` command to determine which instance of python is used when you use the `python` command. Same question with `python2`.
 
-Many details on the Unix directory structure at <https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/>
 
-### Getting help
+## Getting help
 
 To get some help for a command, please use the `man` command. You may also use the `--help` option as in
 
@@ -39,34 +52,61 @@ $ man ls
 $ ls --help
 ```
 
-### Regexp 101
+## Paging programs
 
-Some of the most common regular expressions are
+A paging program displays, one windowful at a time, the contents of a file on a terminal.
+It pauses after each windowful and prints on the window status line the screen the file name, current line number, and the percentage of the file so far displayed.
+This is not an editor (no modification of the file can be done)
 
-- `^` start of line
-- `.` any single character
-- `$`  end of line
-- `x*` zero or more occurrence of character `x`
-- `x+` one or more occurrences of character `x`
-- `x?` zero or one occurrence of character `x`
-- `x{n}` exactly n occurrence of character `x`
-- `[...]` range of characters (e.g. `[a-z]`, `[A-Z]`, `[a-zA-Z]`, `[0-9]`, etc...)
-- `[^...]` forbidden characters range
- ...
+`more` (deprecated) `less` (best choice) `most` (default on your machine, more feature than `less`, but bad keybindings).
 
-Regexp can be used in various places (`ls`, `grep`, `find`, etc...). For instance to display all the files with an extension in `.txt`:
+```bash
+$ man less
+$ man most
+```
+
+**Useful tips:**
+
+- to search for a word type `/`. To go to the next (resp. previous)  occurrence type `n` (resp. `p`).
+- [less only] to go down type `j`, to go up type `k`.
+- to go to the beginning of file type `g`, to the end `G`.
+- To quit type `q`.
+- to change the default paging program to `less`.
+
+   ```bash
+   $ export MANPAGER=less
+   ```
+
+More resources: <https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less>
+
+## Pattern matching (part I): Pathname expansion (a.k.a. globbing)
+
+It is often very useful to select some files which filename contains (or not!) a specific pattern. Shells (bash, zsh, etc...) comes with a "pattern matching" syntax allowing us to express such constraints on the filenames. 
+
+This syntax is commonly called `globs` and is quite simple (more advance syntaxes called `regexp` will be introduced later on). `globs` are **shell commands** and can be transmitted to various program (`ls`, `grep`, `find`, etc...). For instance to display all the files with an extension in `.txt` in the current directory:
 
 ```bash
 $ ls *.txt
 ```
 
+Most shells have similar glob rules, and they usually consist of:
+
+   - A marker for zero-or-more characters: `*`
+   - A marker for exactly one character: `?`
+   - A way to express one of a certain set of characters: `[...]`
+   - A way to express a choice of one or more strings: `{...,...}`
+   - A way to escape any of the above special characters: `\`
+
+
+
 **Exercise:**
 
    1. Go to `/usr/lib/R/bin/` and list every file starting with a letter `R` and containing `i`
-   2. Got to `/var/log/` and list every files with extension `.log`
-   3. Got to `/var/log/` and list every files with a name starting with a `a` and containing at least a digit
+   2. Go to `/usr/lib/R/bin/` and list every file containing the letter `c`, then any character, and then a `n` (e.g. `config` or `javareconf`)
+   3. Got to `/var/log/` and list every files with a double extension: the former one is a dot followed by a number, the last one is `.log` (e.g. `Xorg.3.log` or  `Xorg.0.log`)
+   4. Got to `/var/log/` and list every files with a name starting with a `a` and containing at least a digit
 
-### Listing files
+## Listing files
 
 To list the files in a folder use the command `ls`.
 
@@ -84,7 +124,7 @@ The `file` command can be used to display the information of a file (if not give
 1. List all the files in the directory `/usr/lib/R/bin` and sort them by size.
 2. Display the type information of the files in `/var/log/` one call to `file`.
 
-### Symbolic links
+## Symbolic links
 
 A symbolic link or **symlink** is a special file containing a reference (a link) to another file or directory. For instance try
 
@@ -102,7 +142,7 @@ $ ln -s target_path link_path
 
 1. Create a symlink called `my_python` pointing to `/usr/bin/python` in your `home` directory.
 
-### Users
+## Users
 
 To list the groups you belong to, in a terminal use the command
 
@@ -117,7 +157,7 @@ $ w
 $ who
 ```
 
-### File permissions
+## File permissions
 
 Each file has an **owner** (a user) and a **group** (a group of users). To change the user that owns use `chown` and to change the group use `chgrp`. There are 3 types of permissions:
 
@@ -150,36 +190,9 @@ $ chmod u+x toto.txt
    3. Change the group of `foo.py` to `pulse`
    4. Add read and write permissions to user in the group `pulse`
 
-Ref: <https://en.wikipedia.org/wiki/File_system_permissions>
+Ref: <https://en.wikipedia.org/wiki/File_system_permissions>. See also `chown` and `chgrp`
 
-### Paging programs
-
-A paging program displays, one windowful at a time, the contents of a file on a terminal.
-It pauses after each windowful and prints on the window status line the screen the file name, current line number, and the percentage of the file so far displayed.
-This is not an editor (no modification of the file can be done)
-
-`more` (deprecated) `less` (best choice) `most` (default on your machine, more feature than `less`, but bad keybindings).
-
-```bash
-$ man less
-$ man most
-```
-
-**Useful tips:**
-
-- to search for a word type `/`. To go to the next (resp. previous)  occurrence type `n` (resp. `p`).
-- [less only] to go down type `j`, to go up type `k`.
-- to go to the beginning of file type `g`, to the end `G`.
-- To quit type `q`.
-- to change the default paging program to `less`.
-
-   ```bash
-   $ export MANPAGER=less
-   ```
-
-More resources: <https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less>
-
-### Environment variables
+## Environment variables
 
 An environment variable (in short env or envs) is a dynamic-named value that can affect the way running processes will behave on a computer.
 Many options of bash may be change with envs.
@@ -282,7 +295,7 @@ The dataset we are going to use is available at <https://www.data.gouv.fr/fr/dat
 **Exercise:**
 
    1. Create a folder `data_bicycle` and `cd` to it.
-   2. Download the `.csv` file available at the following URL: <https://www.data.gouv.fr/fr/datasets/r/3d5f2317-5afd-4a9f-a9c5-bd4fe0113f39> as `bicycle_db.csv` (use the option `-O` of  `wget`). Details (in French) on the dataset are available here: <https://www.data.gouv.fr/fr/datasets/accidents-de-velo/>
+   2. Download the `.csv` file available at the following URL: <https://koumoul.com/s/data-fair/api/v1/datasets/accidents-velos/raw> as `bicycle_db.csv` (use the option `-O` of  `wget` or redirect the output of `curl` with `-o` operator described below). Details (in French) on the dataset are available here: <https://www.data.gouv.fr/fr/datasets/accidents-de-velo/>
 
 ### Text commands: `tail`, `head`, `cat`, `wc` and `split`
 
@@ -391,3 +404,52 @@ $ wc -l < toto.txt
 
    1. Create a single file `bike2016.csv` containing all the accident that occurred in 2016.
    2. Append the accidents of year 2017 to the previous file and then rename it `bike2016_17.csv`.
+
+## Pattern matching (part II):  Regexp
+
+A regular expression (shortened as `regex` or `regexp`; also referred to as `rational expression`) is a sequence of characters that define a search pattern. Many language implement such syntaxes (beware, there may be some differences!). Some of the most common regular expressions (share by almost all implementations) are
+
+- `\` escape character
+- `^` start of line
+- `.` any single character
+- `$`  end of line
+- `x*` zero or more occurrence of character `x`
+- `x+` one or more occurrences of character `x`
+- `x?` zero or one occurrence of character `x`
+- `x{n}` exactly n occurrence of character `x`
+- `[...]` range of characters (e.g. `[a-z]`, `[A-Z]`, `[a-zA-Z]`, `[0-9]`, etc...)
+- `[^...]` forbidden characters range
+- `(...)` marked subexpression. The string matched within the parentheses can be recalled later (see the next entry, \n). A marked subexpression is also called a block or capturing group.
+ ...
+
+ For instance, to capture all the word starting with a capital letter in a text, you may use the regexp:
+
+ ```
+ ([A-Z][a-zA-Z0-9_]*)+
+ ```
+See <https://regexr.com/>. See also the doc of the `sed`, `awk` programs and the `perl` language. Reference: <https://en.wikipedia.org/wiki/Regular_expression>
+
+**Exercice:**
+
+   1. Go to <https://regex101.com/> and copy/paste the following list (in the `TEST STRING` frame):
+      ```
+      '01 !!!!!!!.flac'
+      '02 bad guy.flac'
+      '03 xanny.flac'
+      '04 you should see me in a crown.flac'
+      '05 all the good girls go to hell.flac'
+      '06 wish you were gay.flac'
+      "07 when the party's over.flac"
+      '08 8.flac'
+      '09 my strange addiction.flac'
+      '10 bury a friend.flac'
+      '11 ilomilo.flac'
+      '12 listen before i go.flac'
+      '13 i love you.flac'
+      '14 goodbye.flac'
+      ```
+   2. Why the name of the 7th song is double quoted (" instead of ') ?
+
+   3. Capture with a regexp all the song names (between the track number and the extension). You should get this in the `MATCH INFORMATION` frame on the right:
+
+   ![result of regexp capture](regexp.png)

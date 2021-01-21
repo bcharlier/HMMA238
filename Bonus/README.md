@@ -1,21 +1,22 @@
 # Bonus
-2 supplementary points on the final grade of the course can be obtained for contributions improving the course material (notebooks, Readme, etc.) under the following constraints.
+**1 supplementary point** on the final grade of the course can be obtained for contributions improving the course material (practicals, Readme, etc.).
 
 
 ## Bonus conditions
 
-- only 1 point is given for a contribution,
+- only .5 point is given for a contribution,
 - only the first contribution proposed on a theme is rewarded (no point given for followers!),
-- documented pull-requests, or PR, (the details could be found below) are expected : details are expected to help judging what the proposition improves/corrects.
-- For typos PR at least 5 corrections are expected to receive 1 point (5 PR with one typos will not be rewarded).
-- The maximum bonus is 2 point per student.
+- documented pull-requests (PR) are expected : details are expected to help judging what the proposition improves/corrects,
+- for typos at least 5 corrections are expected to receive .5 point. The corrections should be gathered in **single PR**.
+- each student can only get 1 point maximum through bonuses.
+
 
 ## Pull Request (PR)
 The pull request system is a standard way of proposing improvement and modifications in open source project. Here we use it for the opportunity to improve the course material.
 
 The principle is the following
 
-- Fork: Connect to your Github account (see [tp.md](tp.md) for details) and fork the repository by clicking on the "Fork" icon:
+- Fork: Connect to your Github account (see [(tp.md]../Git/tp.md) for details) and fork the repository by clicking on the "Fork" icon:
 ![plot](fork.png)
 
 - Go to on your Github account and find the HMMA238 repository. In what follows you should substitute my_github_id by your github identification; in the screenshots the examples are with **my_github_id=josephsalmon** and they should be adapted according to yours.

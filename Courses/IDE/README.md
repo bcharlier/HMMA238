@@ -4,7 +4,7 @@ An [Integrated development environment (IDE)](https://en.wikipedia.org/wiki/Inte
 
 ## References
 
-- <https://code.visualstudio.com/>
+- <https://code.visualstudio.com/> or <https://vscodium.com/>
 - <https://www.jetbrains.com/pycharm/>
 - <https://pyzo.org/>
 - <https://www.spyder-ide.org/>
