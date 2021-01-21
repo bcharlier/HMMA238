@@ -190,7 +190,7 @@ $ chmod u+x toto.txt
    3. Change the group of `foo.py` to `pulse`
    4. Add read and write permissions to user in the group `pulse`
 
-Ref: <https://en.wikipedia.org/wiki/File_system_permissions>
+Ref: <https://en.wikipedia.org/wiki/File_system_permissions>. See also `chown` and `chgrp`
 
 ## Environment variables
 
@@ -295,7 +295,7 @@ The dataset we are going to use is available at <https://www.data.gouv.fr/fr/dat
 **Exercise:**
 
    1. Create a folder `data_bicycle` and `cd` to it.
-   2. Download the `.csv` file available at the following URL: <https://koumoul.com/s/data-fair/api/v1/datasets/accidents-velos/raw> as `bicycle_db.csv` (use the option `-O` of  `wget` or redirect the output of `curl` with `>` operator described below). Details (in French) on the dataset are available here: <https://www.data.gouv.fr/fr/datasets/accidents-de-velo/>
+   2. Download the `.csv` file available at the following URL: <https://koumoul.com/s/data-fair/api/v1/datasets/accidents-velos/raw> as `bicycle_db.csv` (use the option `-O` of  `wget` or redirect the output of `curl` with `-o` operator described below). Details (in French) on the dataset are available here: <https://www.data.gouv.fr/fr/datasets/accidents-de-velo/>
 
 ### Text commands: `tail`, `head`, `cat`, `wc` and `split`
 
