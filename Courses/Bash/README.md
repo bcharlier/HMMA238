@@ -14,5 +14,5 @@ During this session you will learn the very basics of:
 1. The Unix directory structure
 2. Regexp
 3. The most useful Unix command
-4. Command-line pager (a computer program used to view (but not modify) the contents of a text file), text editor (mostly VSCode), etc.
+4. Command-line pager (a computer program used to view (but not modify) the contents of a text file), text editor (nano, vi, emacs...), etc.
 5. Batch command (rename, find, etc.)
