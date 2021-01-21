@@ -1,6 +1,17 @@
 # Project guidelines
 
-## Elements expected
+- Work by groups of 4/5 students, assigned at random (list TBA).
+
+
+## Timing
+- Mid-term project snapshot: Due date **Week 12**. This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the project including how the task are attributed (coding).
+
+- Due date (final project) : **Week 16 (TBA)**. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
+
+
+
+
+## Elements expected /  Grading
 
 - The ultimate goal is to provide a Python module that can be imported with `pip` and containing your work.
 A description of the procedure will be needed (imagine you are addressing to a user not aware of your package). Last year project are available in the sub-folder `2020` and a good example of what we expect is <https://github.com/tanglef/chaoseverywhere>.
