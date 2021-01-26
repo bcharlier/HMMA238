@@ -9,7 +9,7 @@ $ git config --global user.email "prenom.nom@domaine.fr"
 
 ## Create a SSH key
 
-The SSH is needed to get a smooth authentification proceed to the remote repository. In a terminal:
+The SSH is needed to get a smooth authentication proceed to the remote repository. In a terminal:
 ```bash
 $ ssh-keygen -t rsa -b 4096 -C "prenom.nom@domaine.fr"
 ```
@@ -40,11 +40,11 @@ To check your installation, please follow the instructions https://help.github.c
 
 ## Create a remote repository
 
-Let's create a remote repository hosted on your GitHub account. 
+Let us create a remote repository hosted on your GitHub account. 
 
 On GitHub, click on the `+` symbol at the top right of the page, then `New repository`. Give the name `FirstRepo` to your new project and a short description. 
 
-Create a **public** repo, meaning that everyone can access to your code (read only). Finish by clicking on `Create repository`. 
+Create a **public** repository, meaning that everyone can access to your code (read only). Finish by clicking on `Create repository`. 
 
 
 Follow the instructions provided by GitHub to create your local copy of the repository:
@@ -59,8 +59,8 @@ git remote add origin git@github.com:XXXXXXXXXXXXXXXXXX/FirstRepo.git
 git push -u origin master
 ```
 
-
-**Exercise:** 
+---
+### <font color='red'> Exercise: </font>
 
 Create a text file called `.gitignore` with the following content:
 ```
@@ -69,24 +69,29 @@ Create a text file called `.gitignore` with the following content:
 ```
 Create a commit and push it to your repository. What is the purpose of this file? See <https://github.com/github/gitignore>!
 
+---
+
 # Interact with other users
 
 The purpose of this exercise is to learn how to the use git as a collaboration tool for software development.
 
-## Using an existing repository
+## Using an existing repository
 
-Browse the repository at https://github.com/HMMA238-2020/git-tutorial. What is this module able to do?
+Browse the repository at https://github.com/HMMA238-2021/git-tutorial. What is this module able to do?
 
-**Exercise:**
+
+---
+### <font color='red'> Exercise: </font>
 
 Fork the repository by following these steps: 
   1. On GitHub, click on the fork icon. 
   2. A copy is added to your GitHub space. Clone it (this copy!) to get a local repository. 
   3. In a terminal, inspect the output of the command `git remote get-url origin`
+---
 
-## Debuging
+## Debugging
 
-A bug has appeared into the python module after some commit. An issue has been opened inin the bug tracking system at https://github.com/HMMA238-2020/git-tutorial/issues . Your goal is to find the problem... and then to fix it on your **forked repo**. Finally, you will be able to submit a Pull Request to the original repository to share your fix.
+A bug has appeared into the python module after some commit. An issue has been opened in the bug tracking system at https://github.com/HMMA238-2020/git-tutorial/issues . Your goal is to find the problem... and then to fix it on your **forked repository**. Finally, you will be able to submit a Pull Request to the original repository to share your fix.
 
 ### Identification of the bad commit
 
@@ -94,15 +99,19 @@ Your goal is to identify the commit(s) that caused the bug. Use `git log`, `git 
 
 ### Create a new branch to fix the problem
 
-In order to fix a complex bug or add a new feature, it is often necessary to modify several parts of the code. We create a branch, where we make all the commits dedicated to solve the bug. The idea is to maintain a stable version, in the branch `master`, separated from the developing version, which may contain bugs.
+In order to fix a complex bug or add a new feature, it is often necessary to modify several parts of the code.
+We create a branch, where we make all the commits dedicated to solve the bug. The idea is to maintain a stable version, in the branch `master`, separated from the developing version, which may contain bugs.
 
-**Exercise:** 
+---
+### <font color='red'> Exercise: </font>
 
 1. Create a local branch `Fix_EOL_Error`
 2. Push this local branch to your remote repo.
 3. Checkout to the `Fix_EOL_Error` branch, fix the bugs. The branch `master` will not be affected.
 4. Merge the fix into the branch `master`
 5. suppress the local branch `Fix_EOL_Error` and the remote `origin/Fix_EOL_Error` branch
+---
+
 
 ### Pull request
 
