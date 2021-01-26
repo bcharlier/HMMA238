@@ -29,11 +29,11 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 ## (Tentative) Course schedule
 
-1. BC : (20/01) [Introduction to linux essentials and command line tools: bash, regexp, grep, find, rename](Courses/Bash/),
+1. BC : (20/01) [Introduction to linux essentials and command line tools: bash](Courses/Bash/),
 
-2. BC : (21/01) [Python virtual env: Anaconda](Courses/Venv/), [Python virtual environment](Courses/Venv/), [IDE: VScode](Courses/IDE/),
+2. BC : (21/01) [Introduction to linux essentials and command line tools: regexp, grep, find, rename](Courses/Bash/),
 
-3. BC : (27/01) [Git: a first introduction, `github`, ssh key creation, various git commands, conflict, pull request](Courses/Git/); see also [Bonus/](Courses/Bonus/)
+3. BC : (27/01) [IDE: VScode](Courses/IDE/), [Python virtual env: Anaconda](Courses/Venv/), [Python virtual environment](Courses/Venv/), [Git: a first introduction, `github`, ssh key creation, various git commands, conflict, pull request](Courses/Git/); see also [Bonus/](Courses/Bonus/)
 
 4. JS : (28/01) [Coding : algorithms, modules, basic types, functions, loops](Courses/Intro-Python/) [coding : list, dictionary, tuples, if statement and loops, exceptions](Courses/Intro-Python/)
 
