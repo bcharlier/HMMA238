@@ -92,7 +92,7 @@ This part is from the tutorial <https://code.visualstudio.com/docs/python/python
     
     From within VS Code, select a Python 3 interpreter by opening the Command Palette (`Ctrl+Shift+P`), start typing the `Python: Select Interpreter` command to search, then select the command. You can also use the `Select Python Environment` option on the Status Bar if available
 
-3. Open the terminal in VS Code and download `test_python.py`. Run it through the IDE.
+3. Open the terminal in VS Code and download with `wget` or `curl` the file `test_python.py` at <https://raw.githubusercontent.com/bcharlier/HMMA238/master/Courses/IDE/test_python.py>. Run it through the IDE.
 
 
 4. Next, you have to learn how to debug a simple `python` script <https://code.visualstudio.com/docs/python/debugging>.
