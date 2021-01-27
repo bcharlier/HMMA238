@@ -19,22 +19,26 @@ $ pip install numpy
 
 Please have a look to <https://pypi.org/>, <https://packaging.python.org/tutorials/installing-packages/> to solve the following 
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Determine which python version there is on your system using `locate` and `which`
 2. Determine which version of python is used by the `pip` command
 3. List all the python modules installed with the `pip` command
+----
 
 ## Anaconda
 
 Anaconda is a package manager, an environment manager coming with a Python/R data science distribution, and a large collection of open-source packages. It is cross-platform and is very popular choice in the data scientist community. Nevertheless, it suffer from a  main drawback: it is heavy. Moreover, it comes with its own package manager `conda` which allow you to install python module (like `pip`) and other program. 
 
-On your Linux box, there is a terminal with the $PATH environment variable already configured (`/net/apps/bin/init_anaconda3`). You may launch it via the Graphical User Interface.
+On the Linux box provided by the FdS, there is a terminal with the $PATH environment variable already configured (`/net/apps/bin/init_anaconda3`). You may launch it via the Graphical User Interface.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Display the $PATH variable in the `Anaconda_init` terminal
 2. Type `conda deactivate` and (re)-display the $PATH variable
+----
 
 ### Creating an environment
 
@@ -68,7 +72,7 @@ Use the terminal or an Anaconda Prompt for the following steps:
     $ conda create -n myenv scipy
     ```
 
-   OR:
+   or:
 
     ```bash
     $ conda create -n myenv python
@@ -96,10 +100,12 @@ Use the terminal or an Anaconda Prompt for the following steps:
 
 See: <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands>
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Create a new environment called `toto` with `python3.5` and `pandas` version 0.23
 2. Create another environment called `tata` with `python3.7` and `pandas` version 1.0
+----
 
 ### Switch environment
 
@@ -113,20 +119,24 @@ Change `myenv` with the name on your environment.
 
 See: <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment>
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Activate the `toto` environment. Launch `python` and check the version of `pandas`
 2. Activate the `tata` environment. Launch `python` and check the version of `pandas`
 3. List all the available environment (look in the documentation by yourself)
 4. Come back to the `base` environment
+----
 
 ### Save and export an environment
 
 Have a look at <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#building-identical-conda-environments> and do the following
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Imagine that you are coding a python module and a user is not able to run your code due to some missing dependencies. How can you help him to set up his python venv?
+----
 
 ### Remove environment and clean
 
@@ -142,7 +152,10 @@ To remove all cache and package run
 $ conda clean --all
 ```
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
-1. remove **all** the environment create during this session
-2. Clean the `conda` caches
+1. Remove **all** the environment create during this session
+2. Create an environment called `hmma238_env` with `matplotlib` (this venv will be used in the next courses)
+3. Clean the `conda` caches to free disk space.
+----

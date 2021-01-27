@@ -6,8 +6,11 @@ On a terminal, specify the email address with which you will make your commits:
 ```bash
 $ git config --global user.email "prenom.nom@domaine.fr"
 ```
+**Adapt the email address** prenom.nom@domaine.fr **to your case!**
 
 ## Create a SSH key
+
+### On Unix system
 
 The SSH is needed to get a smooth authentication proceed to the remote repository. In a terminal:
 ```bash
@@ -18,7 +21,11 @@ Accept the default option (keys saved in `~/.ssh` and no passphrase)
 ```bash
 ssh-add
 ```
-See the following link for more details: https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+See the following link for more details: <https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>
+
+### On Windows
+
+Please see the tutorial at <https://vladmihalcea.com/tutorials/git/windows-git-ssh-authentication-to-github/>
 
 # Setting up your Github account
 
@@ -26,7 +33,7 @@ GitHub is a web hosting service for remote repositories using git. GitHub includ
 
 ### Create a GitHub account
 
-Please go to https://github.com/ and follow the instructions for creation and activation for your account.
+Please go to <https://github.com/> and follow the instructions for creation and activation for your account.
 
 ### Add your SSH key
 
@@ -34,9 +41,9 @@ To display your public key, simply type in a terminal,
 ```bash
 $ cat ~/.ssh/id_rsa.pub
 ```
-Copy the result into the clipboard and add your key into your GitHub account. See https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+Copy the result into the clipboard and add your key into your GitHub account. See <https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account>
 
-To check your installation, please follow the instructions https://help.github.com/en/github/authenticating-to-github/testing-your-ssh-connection
+To check your installation, please follow the instructions <https://help.github.com/en/github/authenticating-to-github/testing-your-ssh-connection>
 
 ## Create a remote repository
 
@@ -62,12 +69,12 @@ git push -u origin master
 ---
 ### <font color='red'> Exercise: </font>
 
-Create a text file called `.gitignore` with the following content:
+1. Create a text file called `.gitignore` with the following content:
 ```
 *.pdf
 *~
 ```
-Create a commit and push it to your repository. What is the purpose of this file? See <https://github.com/github/gitignore>!
+2. Create a commit and push it to your repository. What is the purpose of this file? See <https://github.com/github/gitignore>
 
 ---
 
@@ -119,7 +126,8 @@ Your work about bug fixing may interest the original author of the project. On G
 
 ## Branch Merging and Solving conflict
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
   1. Checkout to the branch `NonGaussian`. Try to figure out what has changed compared to the master branch. 
   2. Try to merge the branch `NonGaussian` to the branch `master`. 
@@ -133,9 +141,9 @@ Your work about bug fixing may interest the original author of the project. On G
 ```
    
   4. Resolve them by plotting the two histogram on a same plot. Namely produce a figure like this:![plot](plot.png)
-
+----
 
 # To go further
 
-Please visit https://learngitbranching.js.org/ 
+Please visit <https://learngitbranching.js.org/>
 
