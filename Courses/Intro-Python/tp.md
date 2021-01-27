@@ -767,12 +767,10 @@ Print the real number $e=\exp(1)$ with 1, 10, 20 and 50 digits (one number by li
 print("val = {0:1.15f},val2={1:1.15f}".format(a, b))
 ```
 
-
 ```python
-s = "Le nombre {0:s} est égal à {1:1.111}"
+s = "The number {0:s} is approximately {1:1.111}"
 print(s.format("pi", math.pi))
 ```
-
 
 ```python
 # Accessing arguments by name:
@@ -782,6 +780,7 @@ print(s.format("pi", math.pi))
 
 More info: <https://docs.python.org/3/tutorial/floatingpoint.html>
 
+
 ### Lists
 
 Lists are similar to `strings` except that can blend any type of object (so a `string` is a kind of `list`)
@@ -789,15 +788,13 @@ This is the simplest structure at hand.
 
 A possible syntax to create a list is `[..., ..., ...]` 
 
-
 ```python
 l = [1, 2, 3, 4]
 print(type(l))
 print(l)
 ```
 
-Slicing example:
-
+A slicing example:
 
 ```python
 print(l[1:3])
@@ -805,7 +802,6 @@ print(l[::2])
 ```
 
 **Warning:** indexing starts at 0!
-
 
 ```python
 l[0]
@@ -818,7 +814,7 @@ k = l       # k is a pointer on l, i.e., l and k share the same memory space
 k += [14]   
 print("l has been modified :", l)
 ```
-Note: Why is the command failing above if you use `k += 14` instead?
+**Question**: Why is the command failing above if you use `k += 14` instead?
 
 
 ```python
@@ -830,7 +826,6 @@ print(k)
 
 On can mix types in a single list:
 
-
 ```python
 l = [1, 'a', 1.0, 1-1j]
 print(l)
@@ -838,12 +833,12 @@ print(l)
 
 Lists of lists are possible (e.g., to create trees, etc.):
 
-
 ```python
 list_of_list = [1, [2, [3, [4, [5]]]]]
-list_of_list
+print(list_of_list)
 ```
 
+or 
 
 ```python
 tree = [1, [2, 3]]
@@ -892,7 +887,7 @@ print(l2)
 print(l2[::-1])
 ```
 
-**Warning:** l2.sort() works **inplace** and outputs nothing, or rather `None`
+**Warning:** l2.sort() works **in place** and outputs nothing, or rather `None`
 
 
 ```python
@@ -934,7 +929,7 @@ Concatenate lists with "+":
 ```python
 lll = [1, 2, 3]
 mmm = [4, 5, 6]
-print (lll + mmm)  
+print(lll + mmm)  
 ```
 
 **Warning:** this is different from `lll.append(mmm)` (try it yourself!)
@@ -1014,9 +1009,9 @@ print(l)
 ### Map and zip
 
 ```python
-name = [ "Manjeet", "Nikhil", "Shambhavi", "Astha" ] 
-roll_no = [ 4, 1, 3, 2 ] 
-marks = [ 40, 50, 60, 70 ] 
+name = [ "Manjeet", "Nikhil", "Shambhavi", "Astha"] 
+roll_no = [ 4, 1, 3, 2] 
+marks = [ 40, 50, 60, 70] 
   
 # using zip() to map values 
 mapped = zip(name, roll_no, marks) # return iterable
@@ -1026,22 +1021,21 @@ print(mapped_disp)
 
 ```python  
 # unzipping values 
-namz, roll_noz, marksz = zip(*mapped_disp) 
+name_post, roll_no_post, marks_post = zip(*mapped_disp) 
   
-print ("The unzipped result: \n",end="") 
+print("The unzipped result: \n",end="") 
 # printing initial lists 
-print ("The name list is : ",end="") 
-print (namz) 
+print("The name list is : ", end="") 
+print(name_post) 
   
-print ("The roll_no list is : ",end="") 
-print (roll_noz) 
+print("The roll_no list is : ", end="") 
+print(roll_no_post) 
   
-print ("The marks list is : ",end="") 
-print (marksz) 
+print("The marks list is : ", end="") 
+print(marks_post) 
 ```
 
 Use : `help(list)` for more on lists.
-
 
 ```python
 help(list)
@@ -1049,9 +1043,9 @@ help(list)
 
 ### Tuples
 
- * Les *tuples* (n-uplets) ressemblent aux listes mais ils sont *immuables* : ils ne peuvent plus être modifiés une fois créés.
+ * *tuples*  are similar to lists but are immutable* : they cannot be modified once created (so they are close to `strings` in a way). They are often used as output of function (see below).
  
- * On les crée avec la syntaxe `(..., ..., ...)` ou simplement `..., ...`:
+ * You can create them with a command like  `(..., ..., ...)` or simply `..., ...`:
 
 
 ```python
@@ -1064,103 +1058,111 @@ print(point, type(point))
 point[0]
 ```
 
-Un *tuple* peut être dépilé par assignation à une liste de variables séparées par des virgules :
+A *tuple* can be unpacked with the following structure :
 
 
 ```python
 x, y = point
 
-print("Coordonnée x : ", x)
-print("Coordonnée y : ", y)
+print("x-coordinate: ", x)
+print("y-coordinate: ", y)
 ```
 
-On ne peut pas exécuter la commande suivante sans obtenir un message d'erreur:
-
+Yet, you will face an error if you type the following command:
 
 ```python
 point[0] = 20
 ```
 
-### Dictionnaires
+### Dictionary
 
-Ils servent à stocker des données de la forme *clé-valeur*.
+They are similar to your day-to-day dictionary, and use a system of *key* and *values*: the *key* is the name of the attribute, and the *value* describes the key.
 
-La syntaxe pour les dictionnaires est `{key1 : value1, ...}`:
+The syntax for dictionaries is: `{key1 : value1, ...}`:
 
 
 ```python
-params = {"parameter1": 1.0,
+params_bracket = {"parameter1": 1.0,
           "parameter2": 2.0,
           "parameter3": 3.0}
 
 # Alternatively:
 
-params = dict(parameter1=1.0, parameter2=2.0, parameter3=3.0)
+params_dict = dict(parameter1=1.0,
+              parameter2=2.0,
+              parameter3=3.0)
 
-print(type(params))
-print(params)
+print(type(params_dict))
+print(params_dict)
+```
+
+```python
+print("p1 =", params_bracket["parameter1"])
+print("p2 =", params_bracket["parameter2"])
+print("p3 =", params_bracket["parameter3"])
 ```
 
 
 ```python
-print("p1 =", params["parameter1"])
-print("p2 =", params["parameter2"])
-print("p3 =", params["parameter3"])
+# Substitutions
+params_bracket["parameter1"] = "A"
+params_bracket["parameter2"] = "B"
+
+# Add a key with a specific value
+params_bracket["parameter4"] = "D"
+
+print("p1 =", params_bracket["parameter1"])
+print("p2 =", params_bracket["parameter2"])
+print("p3 =", params_bracket["parameter3"])
+print("p4 =", params_bracket["parameter4"])
 ```
+
+Remove a key from the dictionary:
+
+```python
+del params_bracket["parameter4"]
+print(params_bracket)
+```
+
+Test the existence of a key
+
+```python
+print("parameter1" in params_bracket)
+print("parameter6" in params_bracket)
+```
+
+```python
+params_bracket["parameter6"]
+```
+
+**Note:** you should get used to errors messages. They are helpful, and will help you debug your code.
+Here the message raised is clear and explains that the key does not exist, so you cannot access it)
 
 
 ```python
-# substitution de valeur
-params["parameter1"] = "A"
-params["parameter2"] = "B"
-
-# ajout d'une entrée
-params["parameter4"] = "D"
-
-print("p1 =", params["parameter1"])
-print("p2 =", params["parameter2"])
-print("p3 =", params["parameter3"])
-print("p4 =", params["parameter4"])
+print(params_bracket.items())
+print(params_bracket.values())
+print(params_bracket.keys())
 ```
 
-Suppression d'une clé:
-
+**Note**: you obtained a *view* with the previous syntax.
+If you want a list, type the following for instance
 
 ```python
-del params["parameter4"]
-print(params)
+print(list(params_bracket.values()))
+print([*params_bracket.values()])  #  equivalent
 ```
 
-Test de présence d'une clé
+## Conditions, `if`/`elif`/`else` and loops
 
+### `if`, `elif`, `else`
 
-```python
-"parameter1" in params
-```
-
-
-```python
-"parameter6" in params
-```
-
-
-```python
-params["parameter6"]
-```
-
-**Remarque:** il est bon de s'habituer aux messages d'erreurs (ici le message est clair et montre que la clef n'existe pas)
-
-## Conditions, branchements et boucles
-
-### Branchements: if, elif, else
-(noter le symbole ":" à la fin de la ligne)
+**WARNING**: do not forget the symbol ":" at the end of a line with `if`), and `tab` (4 spaces) for indenting: there are not {} or () in Python, only the indentation makes it clear what level of hierarchy you are in.
 
 
 ```python
 statement1 = False
 statement2 = False
-# statement2 = True
-
 
 if statement1:
     print("statement1 is True")
@@ -1170,10 +1172,21 @@ else:
     print("statement1 and statement2 are False")
 ```
 
-En Python **l'indentation est obligatoire** car elle influence l'exécution du code
+**Common errors**
 
-**Examples:**
+- Forgotten ":" at the end of the line
 
+```python
+if statement1
+    print("statement1 is True")
+```
+- No indentation
+```python
+if statement1:
+print("statement1 is True")
+```
+
+**Nesting tests**
 
 ```python
 statement1 = statement2 = True
@@ -1183,21 +1196,16 @@ if statement1:
         print("both statement1 and statement2 are True")
 ```
 
+**Common errors with nesting**
 
-```python
-# Mauvaise indentation!
-if statement1:
-    if statement2:
-    print "both statement1 and statement2 are True"
-```
-
+- Errors with the tab levels: think about the following two examples
 
 ```python
 statement1 = True 
 
 if statement1:
     print("printed if statement1 is True")
-    print("still inside the if block")
+    print("still inside the 'if' block")
 ```
 
 
@@ -1206,14 +1214,14 @@ statement1 = False
 
 if statement1:
     print("printed if statement1 is True")
-print("still inside the if block")
+print("no more in the 'if' block")
 ```
 
-## Boucles
+## Loops
 
-Boucles **`for`**:
+### `for` loop:
 
-(noter le symbole ":" à la fin de la ligne)
+** Note**: again use ":" at the end of line
 
 
 ```python
@@ -1221,21 +1229,24 @@ for x in [1, 2, 3]:
     print(x)
 ```
 
-La boucle `for` itère sur les éléments de la list fournie. Par exemple:
+The `for` loop iterates over elements in the list.
+For instance:
 
 
 ```python
-for x in range(4): # par défault range commence à 0 et permet de créer le tutple (0,1,2,...,n-1)
+for x in range(4): # range starts at 0 and create an iterator (0, 1, 2,..., n-1)
     print(x)
 ```
 
-Attention `range(4)` n'inclut pas 4 !
+**Warning** `range(4)` does not include 4 (get used to that) !!!
 
 
 ```python
 for x in range(-3,3):
     print(x)
 ```
+
+**Warning** `range(-3,3)` does include -3 (get used to that also) !!!
 
 
 ```python
@@ -1249,69 +1260,65 @@ for letter in "calcul":
     print(letter)
 ```
 
+To iterate over a dictionary things are bit different, since there is no natural ordering in Python dictionaries (it is a bit different of good old dictionaries, where the lexicographic order is natural):
+
+
+**VS Code** tip useful here: `ctrl + d` (select next) / `ctrl + u` (unselect the last) 
 
 ```python
-
-```
-
-Pour itérer sur un dictionnaire::
-
-
-```python
-print(params)
-for key, value in params.items():
+print(params_bracket)
+for key, value in params_bracket.items():
     print(key, " = ", value)
 ```
 
-
 ```python
-params.items()
+params_bracket.items()
 ```
 
-
 ```python
-for key in params:
+for key in params_bracket:
     print(key)
+    print(params_bracket[key])
+    print('------')
 ```
 
-
 ```python
-for key in params:
-    print(params[key])
-```
-
-
-```python
-# initializing list of players. 
-players = [ "Sachin", "Sehwag", "Gambhir", "Dravid", "Raina" ] 
+# initializing list of players
+players = [ "Sachin", "Sehwag", "Gambhir", "Dravid", "Raina"] 
   
 # initializing their scores 
-scores = [100, 15, 17, 28, 43 ] 
+scores = [100, 15, 17, 28, 43]  
   
-# printing players and scores. 
+# printing players and scores 
 for pl, sc in zip(players, scores): 
-    print ("Player :  %s     Score : %d" %(pl, sc))
+    print("Player :  {0: <10}     Score : {1: <10}".format(pl, sc))
 ```
 
-Il est souvent utile d'accéder à la fois à la **valeur** et à l'**index** de l'élément.
-Il faut alors utiliser `enumerate`:
+---
+### <font color='red'>Exercise : Align display</font>
+Can you make the previous loop display the score in an align way? This is a stackoverflow question!
+*Hint*: use '<'
+---
+
+VERY often, when you iterate over a list (or a similar object) you also need to recover the index associated to its elements. In Python `enumerate` makes it easy to read:
 
 
 ```python
-for idx, x in enumerate(l):
-    print(idx, x)
+for player_idx, player_name in enumerate(players):
+    print("Player index: {0}, Player name: {1}".format(player_idx, player_name))
 ```
 
 ### <font color='red'>Exercise : counting letters</font>
-Compter le nombre d'occurences de chaque charactère dans la chaîne de caractères "HelLo WorLd!!".   
-On renverra un dictionaire qui à la lettre associe son nombre d'occurences.
+Count the number of occurrences of each letter in the string `"HelLo WorLd!!"`.   
+The output will be a dictionary `freq_dict` with keys the elements in the string, and as values the number of time they appear, hence the solution should be something similar to dict(h=1, e=1, l=3, o=2, w=1, r=1, d=1, !=2)
+ without making a difference between lower and upper cases.
 
-
+**hint**
 ```python
-s = "HelLo WorLd!!"   # use lower() to get lowercase letters.
+s = "HelLo WorLd!!"  # use lower() to get lowercase letters.
 
 # XXX
-# solution c = dict(h=1, e=1, l=3, o=2, w=1, r=1, d=1, !=2) , up to permutation
+# solution c =  , up to permutation
 ```
 
 ### <font color='red'>Exercise : Caesar cipher </font>
@@ -1466,7 +1473,7 @@ print(t, type(t))
 
 ```python
 x2, x3, x4 = powers(3)
-print x3
+printx3
 ```
 
 ### Arguments par défault
@@ -1560,12 +1567,12 @@ print(multiple_argout(1, 2))
 
 
 ```python
-varargin(multiple_argout(1, 2)) # print a single tuple
+varargin(multiple_argout(1, 2)) # printa single tuple
 ```
 
 
 ```python
-varargin(*multiple_argout(1, 2)) # print each element separately
+varargin(*multiple_argout(1, 2)) # printeach element separately
 ```
 
 The double star `**` does the same, only using a dictionary and thus named arguments:
@@ -1626,7 +1633,7 @@ class Point(object):
         return "Point: [{0:1.3f}, {1:1.3f}]".format(self.x, self.y)
     
     def __call__(self):
-        """At call print itself"""
+        """At call printitself"""
         print(self.__str__())
 ```
 
@@ -1799,7 +1806,7 @@ except:
 
 ### <font color='red'>Exercise : Gaussians (again)</font>
 
-Update the constructor of the `Gaussian` class to check if the user has provided the right type of inputs (see also `assert` and `isinstance` routines). Print a custom explicit error message if it is not the case.
+Update the constructor of the `Gaussian` class to check if the user has provided the right type of inputs (see also `assert` and `isinstance` routines). Printa custom explicit error message if it is not the case.
 
 
 ```python
