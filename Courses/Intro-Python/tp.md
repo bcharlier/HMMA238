@@ -1219,7 +1219,7 @@ print("no more in the 'if' block")
 
 ## Loops
 
-### `for` loop:
+### `for` loop
 
 ** Note**: again use ":" at the end of line
 
@@ -1283,10 +1283,10 @@ for key in params_bracket:
 ```
 
 ```python
-# initializing list of players
+# Initialize list of players
 players = [ "Sachin", "Sehwag", "Gambhir", "Dravid", "Raina"] 
   
-# initializing their scores 
+# Initialize their scores 
 scores = [100, 15, 17, 28, 43]  
   
 # printing players and scores 
@@ -1296,7 +1296,7 @@ for pl, sc in zip(players, scores):
 
 ---
 ### <font color='red'>Exercise : Align display</font>
-Can you make the previous loop display the score in an align way? This is a stackoverflow question!
+Can you make the previous loop display the score in an align way? This is a StackOverflow question!
 *Hint*: use '<'
 ---
 
@@ -1308,39 +1308,41 @@ for player_idx, player_name in enumerate(players):
     print("Player index: {0}, Player name: {1}".format(player_idx, player_name))
 ```
 
+---
 ### <font color='red'>Exercise : counting letters</font>
 Count the number of occurrences of each letter in the string `"HelLo WorLd!!"`.   
-The output will be a dictionary `freq_dict` with keys the elements in the string, and as values the number of time they appear, hence the solution should be something similar to dict(h=1, e=1, l=3, o=2, w=1, r=1, d=1, !=2)
- without making a difference between lower and upper cases.
+The output will be a dictionary `freq_dict` with keys the elements in the string, and as values the number of time they appear. Hence, the solution should be `dict(h=1, e=1, l=3, o=2, w=1, r=1, d=1, !=2)`, without making a difference between lower and upper cases.
 
 **hint**
 ```python
 s = "HelLo WorLd!!"  # use lower() to get lowercase letters.
 
-# XXX
-# solution c =  , up to permutation
+# XXX TODO
 ```
+---
 
+---
 ### <font color='red'>Exercise : Caesar cipher </font>
 
-Proposer une manipulation qui permet de faire le codage et le décodage avec le code fournit dessous, en suivant la méthode de César, ou code par inversion de lettres (aussi appelé [code de César](https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage))
+Propose a way to code and decode a message with the Caesar cipher or [Caesar shift](https://en.wikipedia.org/wiki/Caesar_cipher).
 
 
 ```python
 code = {'e': 'a', 'l': 'm', 'o': 'e'}
-# REM: on pourra utiliser par exemple le symbole +=, qui permet l'increment sur place...
+# REM: possibly use +=1 that allow incrementing in place...
 s = 'Hello world!'
 s_code = ''
 
-# XXX
+# XXX TODO
 # solution: s_code = 'Hamme wermd!'
 
 my_inverted_code = {value: key for key, value in code.items()}
 s_decoded = ''
 
-# XXX
+# XXX TODO
 # solution: s_decoded = 'Hello world!'
 ```
+---
 
 **List comprehension:**
 
@@ -1352,51 +1354,57 @@ ll = [x ** 2 for x in range(0,5)]
 
 print(ll)
 
-# Une version plus courte de :
+# This is an alternative to
 ll = list()
 for x in range(0, 5):
     ll.append(x ** 2)
 
 print(ll)
 
-# pour les gens qui font du caml, ou d'autre langages fonctionnels (en anglais map = function)
+# And for  `caml` fluent users, a map point of view
 print(map(lambda x: x ** 2, range(5)))
 ```
 
-Boucles `while`:
-
+### `while` loop
 
 ```python
 i = 0
-
 while i < 5:
     print(i)
-    i = i + 1
+    i += 1
 
-print("OK")
+print("OK, it stopped at i={}".format(i-1))
 ```
 
+---
 ### <font color='red'>Exercise: An old $\pi$ approximation</font>
     
-Compute an approximation of $\pi$ thanks to the Wallis formula (hing: use a `for` loop)
-\begin{align}
-    \text{Formule de Wallis:}\quad \pi&= 2 \cdot\prod_{n=1}^{\infty }\left({\frac{4 n^{2}}{4 n^{2} - 1}}\right)
-\end{align}
+Compute an approximation of $\pi$ thanks to the Wallis formula (*hint*: use a `for` loop)
+
+(to visualize TeX in VS Code: install the extension from <https://marketplace.visualstudio.com/items?itemName=goessner.mdmath>)
+
+$$
+    \text{Formule de Wallis:}\quad
+    \pi = 2 \cdot\prod_{n=1}^{\infty}
+    \left({\frac{4 n^{2}}{4 n^{2} - 1}}\right)
+$$
+
 
 More details here:
-(fr) https://fr.wikipedia.org/wiki/Produit_de_Wallis
-(en) https://en.wikipedia.org/wiki/Wallis_product
+(fr) <https://fr.wikipedia.org/wiki/Produit_de_Wallis>
+(en) <https://en.wikipedia.org/wiki/Wallis_product>
 
 
 ```python
-# XXX
+# XXX TODO
 ```
+---
 
 ## Functions
 
-Une fonction en Python est définie avec le mot clé `def`, suivi par le nom de la fonction, la signature entre parenthèses `()`, et un `:` en fin de ligne
+A Python function is defined by starting with the keyword `def`, followd by the name of the function, the signature in between `()`, and `:` at the end of the line.
 
-**Exemples:**
+**Examples:**
 
 
 ```python
@@ -1409,32 +1417,32 @@ def func0():
 func0()
 ```
 
-Ajout d'une documentation (docstring):
+**ALWAYS** add docstrings!
 
 
 ```python
 def func1(s):
-    """Affichage d'une chaine et de sa longueur."""
+    """Display a string and its length."""
     print(s, "est de longueur", len(s))
 ```
 
+Now you can leverage the help function:
 
 ```python
 help(func1)
 ```
-
 
 ```python
 print(func1("test"))
 print(func1([1, 2, 3]))
 ```
 
-Il est bien sûr généralement utile de **retourner** une valeur, on utilise alors `return`:
+In general it is useful to add an **output**, using the `return` keyword:
 
 
 ```python
 def square(x):
-    """ Retourne le carré de x."""
+    """Compute x**2."""
     return x * x
 ```
 
@@ -1443,12 +1451,12 @@ def square(x):
 print(square(4))
 ```
 
-Retourner plusieurs valeurs:
+It is possible to output several values, and tuples are useful for that:
 
 
 ```python
 def powers(x):
-    """Retourne les premières puissances de x."""
+    """Compute the first power of x up to x**4."""
     return x * x, x * x * x, x * x * x * x
 ```
 
@@ -1473,22 +1481,22 @@ print(t, type(t))
 
 ```python
 x2, x3, x4 = powers(3)
-printx3
+print(x3)
 ```
 
-### Arguments par défault
+### Arguments by default
 
-Il est possible de fournir des valeurs par défaut aux paramètres:
+It is possible to have optional arguments that are assigned to a fixed values if the user do not provide an alternative:
 
 
 ```python
 def myfunc(x, p=2, verbose=False):
     if verbose:
-        print("evalue myfunc avec x =", x, "et l'exposant p =", p)
+        print("evaluate myfunc with x =", x, "and exponent p =", p)
     return x**p
 ```
 
-Le paramètre `verbose` peut être omis:
+The parameter `verbose` can now be omitted:
 
 
 ```python
@@ -1505,17 +1513,17 @@ myfunc(5, 3)
 myfunc(5, verbose=True)
 ```
 
-On peut expliciter les noms de variables et alors l'ordre n'importe plus:
+Moreover, if the user provides all the values, they can be provided in any order, check for instance:
 
 
 ```python
 myfunc(p=3, verbose=True, x=7)
 ```
 
+---
 ### <font color='red'>Exercise: *quicksort*</font>
 
-La [page wikipedia](http://en.wikipedia.org/wiki/Quicksort)
- décrivant l’algorithme de tri *quicksort* donne le pseudo-code suivant:
+The [Wikipedia page](http://en.wikipedia.org/wiki/Quicksort)  of the *quicksort* algorithm provide the following code to sort a list:
 
     function quicksort('array')
        if length('array') <= 1
@@ -1527,25 +1535,23 @@ La [page wikipedia](http://en.wikipedia.org/wiki/Quicksort)
            else append 'x' to 'greater'
        return concatenate(quicksort('less'), 'pivot', quicksort('greater'))
 
-Transformer ce pseudo-code en code valide Python.
+Transform this code in valid Python.
 
-**Des indices**:
+**Hints**:
 
- * la longueur d’une liste est donnée par  `len(l)`
- * deux listes peuvent être concaténées avec `l1 + l2`
- * `l.pop()` retire le dernier élément d’une liste
+ * recall that the length of a list `l` is given by  `len(l)`
+ * two lists can be concatenated with `l1 + l2`
+ * `l.pop()` remove the last element of the list `l`
 
-**Attention**: une liste est mutable...
-
-Il vous suffit de compléter cette ébauche:
-
+**WARNING**: a list is mutable...
 
 ```python
 def quicksort(ll):
-    #XXX
-
-quicksort([-2, 3, 5, 1, 3])
+    # XXX TODO
+    return # XXX TODO
 ```
+Test: quicksort([-2, 3, 5, 1, 3]) should output [-2, 1, 3, 3, 5, 1]
+
 
 ### Variable number of arguments
 
@@ -1560,19 +1566,19 @@ def varargin(*args):
 varargin(3,4,5)
 
 def multiple_argout(x, y):
-    return((y, x))
+    return ((y, x))
 
 print(multiple_argout(1, 2))
 ```
 
 
 ```python
-varargin(multiple_argout(1, 2)) # printa single tuple
+varargin(multiple_argout(1, 2)) # print a single tuple
 ```
 
 
 ```python
-varargin(*multiple_argout(1, 2)) # printeach element separately
+varargin(*multiple_argout(1, 2)) # print each element separately
 ```
 
 The double star `**` does the same, only using a dictionary and thus named arguments:
@@ -1592,59 +1598,58 @@ def varargin_kwargs(**kwargs):
     print("\n")
     
 varargin_kwargs(**values)
-varargin_kwargs(values) # error
+varargin_kwargs(values)  # raise an error
 ```
 
 More to read: https://stackoverflow.com/questions/2921847/what-does-the-star-operator-mean-in-a-function-call
 
-## Classes
 
- * Les *classes* sont les éléments centraux de la *programmation orientée objet*
+## Classes (to be investigated more later on)
 
- * Classe: structure qui sert à représenter un objet et l'ensemble des opérations qui peuvent êtres effectuées sur ce dernier.
+ * *classes* are central elements for  *Object-oriented programming (OOP)*
 
-Dans Python une classe contient des *attributs* (variables) et des *méthodes* (fonctions). Elle est définie de manière analogue aux fonctions mais en utilisant le mot clé `class`. La définition d'une classe contient généralement un certain nombre de méthodes de classe (des fonctions dans la classe).
+ * Class: structure that represent an object, its properties, and all the operations one can apply to it.
 
-* Le premier argument d'un méthode doit être `self`: argument obligatoire. Cet objet `self` est une auto-référence.
-* Certains noms de méthodes ont un sens particulier, par exemple : 
-   * `__init__`: nom de la méthode invoquée à la création de l'objet
-   * `__str__` : méthode invoquée lorsque une représentation de la classe sous forme de chaîne de caractères est demandée, par exemple quand la classe est passée à `print`
-   * voir http://docs.python.org/3/reference/datamodel.html#special-method-names pour les autres noms spéciaux
+In Python a class contains *attributes* (variables) and *methods* (functions).
+It is defined similarly to a function, with replacing the `def` keyword by `class`.
+Usually a class contains some class methods(functions inside the class).
+
+* The first argument of a method must be `self`:  it is a mandatory element.
+This `self` object is for self reference .
+* Some method names have a specific meaning, for instance : 
+   * `__init__`:  name of the method invoked when creating the object
+   * `__str__` : method invoked when a class has a representation as a string, e.g., for when passing it to the `print` function
+   * see <http://docs.python.org/3/reference/datamodel.html#special-method-names> for more special names
 
 ### Example
-  
 
 
 ```python
 class Point(object):
-    """Classe pour représenter un point dans le plan."""
+    """A class to represent planar points."""
 
     def __init__(self, x, y):
-        """Creation d'un nouveau point en position x, y."""
+        """Create a new point (x, y)."""
         self.x = x
         self.y = y
 
     def translate(self, dx, dy):
-        """Translate le point de dx and dy."""
+        """Translate the point by dx and dy."""
         self.x += dx
         self.y += dy
 
     def __str__(self):
         return "Point: [{0:1.3f}, {1:1.3f}]".format(self.x, self.y)
     
-    def __call__(self):
-        """At call printitself"""
-        print(self.__str__())
 ```
 
 To create a new instance of the class `Point`:
 
-
 ```python
-p1 = Point(x=0, y=0)  # appel à __init__ ;
+p1 = Point(x=0, y=0)  # call __init__ ;
 print(p1.x)
 print(p1.y)
-print("{0}".format(p1))  # appel à la méthode __str__
+print("{0}".format(p1))  # call __str__
 p1()
 ```
 
@@ -1668,25 +1673,44 @@ print(p1)
 print(p2)
 ```
 
+About __call__: my_class(arg1, arg2, ...) is a shorthand for my_class.__call__(arg1, arg2, ...)
+```python
+class Sum: 
+    def __init__(self): 
+        print("Instance Created") 
+  
+    # Defining __call__ method 
+    def __call__(self, a, b): 
+        print(a + b) 
+
+# Instance created 
+ans = Sum() 
+  
+# __call__ method will be called 
+ans(10, 20) 
+```
+
+
 ### Remarks
 
- * A method of a class is able to modify the state of a particular instance. This does not alter the other instantiations of the class.
- * method that do not depend of a particular instantiation can be decorated with the @staticmethod keyword.
+ * A method of a class is able to modify the state of a particular instance.
+ This does not alter the other instantiations of the class.
+ * Methods that do not depend on a particular instantiation can be decorated with the @staticmethod keyword.
 
-### <font color='red'>Exercise : Gaussians </font>
+### <font color='red'>Exercise : Gaussian class </font>
 
 Implement a class `Gaussian` with attributes `mean` and `std` with a method 
    - `__str__` returning a string with the expression of the density
    - `__eq__`  testing the equality of two instances.
-   - `__add__` implementing the addition of independant Gaussian 
+   - `__add__` implementing the addition of independent Gaussian, or more precisely their pdfs (probability density functions)
 
 
 ```python
 class Gaussian:
-    #XXX
+    # XXX TODO
 
-q1 = Gaussian(0, 1)
-q2 = Gaussian(1, 2)
+q1 = Gaussian(0., 1.)
+q2 = Gaussian(1., 2.)
  
 print(q1)
 print(q2)
@@ -1700,15 +1724,13 @@ print(q1 + q2)
 # True
 # False
 # The density function is: exp(-(x - 1)^2 / (2*2.6457513110645907^2)) / sqrt(2 * pi 2.6457513110645907^2)
-
-
 ```
 
 ## Exceptions
 Sources: see https://fabienmaussion.info/scipro_ss2018/html/09-Exceptions.html
  * In Python errors are handled through `Exceptions`
  * An error throw an `Exception` interrupting the normal code execution
- * L'exécution peut éventuellement reprendre à l'intérieur d'un bloc de code `try` - `except`
+ * Execution can overpass such an issue inside a bloc with `try` - `except`
 
 
 * A typical use case: stop the program when an error occurs:
@@ -1717,7 +1739,7 @@ Sources: see https://fabienmaussion.info/scipro_ss2018/html/09-Exceptions.html
 def my_function(arguments):
 
     if not verify(arguments):
-        raise Expection("Invalid arguments")
+        raise Exception("Invalid arguments")
 
     # keep continuing
 ```
@@ -1745,7 +1767,7 @@ try:
     e = 4 
     print(test_var) # raise an error: the test_var variable is not defined
 except:
-    print("Caught an expection")
+    print("Caught an exception")
 finally:
     print("This code is executed every time")
 
@@ -1753,24 +1775,36 @@ print("The program keep continuing... it does not freeze!")
 print('Beware! the variable ', 'e =', e, 'is still defined.')
 ```
 
-To obtain some informations on the error: it is possible to access the intance of the `Exception` class thrown by the program through the syntax:
+To obtain some information on the error: it is possible to access the instance of the `Exception` class thrown by the program through the syntax:
 
 
 ```python
 try:
     print("test")
-    print(testtt)       # error: the variable testtt is not defined
+    print(testtt)  # error: the variable testtt is not defined
 except Exception as e:
-    print("Caught an expection:", e)
+    print("Caught an exception:", e)
 ```
+
+**Note** a common use case is to test if the import of a package was successful or not
+
+```python
+try:
+    import ddownload
+except Exception as e:
+    print(e)
+```   
+
+Other common exceptions: <https://docs.python.org/3/library/exceptions.html>
 
 ### The `with` statement
 
+**Warning**: you to run the following lines with a directory `scripts/` containing a function `hello-world.py`
 
 ```python
-fname = "scripts/hello-world.py"
+fname = "scripts/hello-world_do_not_exist.py"
 try:
-    # 1/0
+    # 1/0  # uncomment at some point and run
     file = open(fname)
     data = file.read()
     print(data)
@@ -1789,33 +1823,23 @@ finally:
 with open(fname) as file: # Use file to refer to the file object
     data = file.read()
     print(data)
-    # at the end of the code chunk, the file.__exit__() method is called (ie file.close() is done automatically)
+    # at the end of the code chunk, the file.__exit__() method is called (i.e., file.close() is done automatically)
 ```
 
+---
+### <font color='red'>Exercise : Gaussian  (again)</font>
 
-```python
-try:
-    with open("scripts/hello-world2.py") as file: # Use file to refer to the file object
-        data = file.read()
-        print(data)
-        # at the end of the code chunk, the file.__exit__() method is called (ie file.close() is done automatically)
-except:
-    print("Ooooooops, the file does not exists...")  
-
-```
-
-### <font color='red'>Exercise : Gaussians (again)</font>
-
-Update the constructor of the `Gaussian` class to check if the user has provided the right type of inputs (see also `assert` and `isinstance` routines). Printa custom explicit error message if it is not the case.
-
+Update the constructor of the `Gaussian` class to check if the user has provided the right type of inputs (see also `assert` and `isinstance` routines).
+Print a custom explicit error message if it is not the case.
 
 ```python
 class Gaussian:
-    #XXX
+    # XXX TODO
 ```
+---
+
 
 ## Scope
-
 
 ```python
 e = 0
@@ -1830,37 +1854,46 @@ print(e)
 def f():
     e = 2
 
-
 print(e)
 ```
 
-## Manipuler des noms de fichiers sur le disque
+## Manipulate file name on disk across platforms.
+
+The following would avoid naming conflict due to each OS (Linux / Windows /Mac) syntax.
 
 
 ```python
 import os
-# permet de fonctionner sur Linux / Windows /Mac
+# 
 print(os.path.join('~', 'work', 'src'))
 print(os.path.join(os.getcwd(), 'new_directory'))
 os.path.expanduser?
 print(os.path.expanduser(os.path.join('~', 'work', 'src')))
 ```
 
+---
 ### <font color='red'>Exercise : Create a bunch of files</font>
 
-Write a simple script that creates, in the sub-directory `scripts`, the following text files: `myDb_0.txt`, `myDb_001.txt`, `myDb_002.txt`, ..., `myDb_049.txt`. The `i`-th file should contains a single line with the `i` first digits of pi.
+Write a simple script that creates, in the sub-directory `scripts`, the following text files: `myDb_0.txt`, `myDb_001.txt`, `myDb_002.txt`, ..., `myDb_049.txt`. The `i`-th file should contains a single line with the average of the `i` first digits of pi.
 
+
+**Hint**: you can check what the following command does 
+```python
+file = open("copy.txt", "w") 
+file.write("Your text goes here") 
+file.close() 
+```
 
 ```python
 import os
 import math
 
-# XXX
+# XXX TODO
 ```
 
 ## More links
 
-* http://www.python.org - Python official webpage
+* http://www.python.org - Python official web page
 * http://www.python.org/dev/peps/pep-0008 - Style and writing recommendation
 * http://www.greenteapress.com/thinkpython/ - A free book on python
 * [Python Essential Reference](http://www.amazon.com/Python-Essential-Reference-4th-Edition/dp/0672329786) - a good reference for general Python coding 
