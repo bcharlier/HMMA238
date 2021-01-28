@@ -1,6 +1,5 @@
 # Time Series
 
-
 ## Resources
 
 
