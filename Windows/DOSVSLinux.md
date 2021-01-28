@@ -35,6 +35,6 @@
 
 ***
 
-This documentis neither exhaustive nor perfect, anyone who wants to help improve it is welcome. 
+This document is neither exhaustive nor perfect, anyone who wants to help improve it is welcome. 
 
 
