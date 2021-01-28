@@ -188,18 +188,17 @@ a = 4
 print(a)
 print(type(a))
 ```
-
+**Note** int for integer.
 
 ```python
 int a = 1;  # code C ... leads to an error in Python
 ```
 
-
 ```python
-c = 2.1  # float (floating point number)
+c = 1.0  # float (floating point number)
+print(c)
 print(type(c))
 ```
-
 
 ```python
 a = 1.5 + 1j  # complex number
@@ -213,19 +212,18 @@ print(type(a))
 ```
 
 ```python
-True + True # Boolean number
+type(1j * 1j)
+```
+
+```python
+True + False # Boolean number
 ```
 
 Note: `True` and `False` can usually be perceived as 1 and 0. 
 
 
 ```python
-type(1j * 1j)
-```
-
-
-```python
-3 < 4  # bool
+3 < 4  # Boolean
 ```
 
 
@@ -249,12 +247,10 @@ print(test)
 type(test)
 ```
 
-
 ```python
 print(7 * 3.)  # int x float -> float
 print(type(7 * 3.))
 ```
-
 
 ```python
 2 ** 10  # exponent, do not use `^` in Python
@@ -271,7 +267,6 @@ print(type(7 * 3.))
 ```python
 3 / 2  # float by default
 ```
-
 
 ```python
 3 // 2
@@ -362,11 +357,9 @@ math.log?
 math.log(10) 
 ```
 
-
 ```python
 math.log(10, 2)
 ```
-
 
 ```python
 math.ceil(2.5)
@@ -384,7 +377,7 @@ Note: you can use the previous function to check where is the library on your di
 
  * Useful modules : `os`, `sys`, `math`, etc.
 
- * For an exhaustive list see :  http://docs.python.org/3/library/
+ * For an exhaustive list see :  <http://docs.python.org/3/library/>
 
 ---
 ### <font color='red'> Exercise : log </font>
@@ -397,7 +390,6 @@ n = 12345
 ---
 
 ### Fractions (To read on your own, skipped in course)
-
 
 ```python
 import fractions
@@ -458,7 +450,6 @@ print(x, type(x))
 ```
 
 ## Operators and comparisons
-
 
 ```python
 1 + 2, 1 - 2, 1 * 2, 1 / 2  # + - / * integers
@@ -538,11 +529,6 @@ Display with a `for` loop all the possibilities (Boolean tables) for the Boolean
 not 2 == 3  # negation
 ```
 
-
-```python
-2 is not None
-```
-
 ```python
 n1 = 600
 n2 = 600
@@ -551,6 +537,10 @@ n3 = n1
 print(n1 == n2)
 print(n1 is n2)
 print(n3 is n1)
+```
+
+```python
+2 is None
 ```
 
 ## Containers
@@ -562,20 +552,22 @@ s = 'Ciao Ciao!'
 # or use " "
 s1 = "Ciao Ciao!"
 # or use """ """
-s2 = """Ciao Ciao"""
+s2 = """Ciao Ciao!"""
 print(s, s1, s2)
 print(type(s))
 ```
 
 ---
 ### <font color='red'>Exercise : quotes and double quotes</font>
-Create the following string: "Hello! How's it going?"
+Create the following string:
+Toto said: "Hello! How's it going?"
 
 ```python
 # TODO XXX
 ```
-
 ---
+
+See also caracters: \t, \n, etc.
 
 To extract a sub-string between indices `start`  (**included**) `stop` (**excluded**): use the syntax `[start:stop]`
 
