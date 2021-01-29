@@ -99,3 +99,10 @@ This part is from the tutorial <https://code.visualstudio.com/docs/python/python
 
 ----
 
+## Recommended extensions for VS Code
+
+- Markdown visualizer (extension with TeX rendering even better : [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath))
+- linter/flake8 stuff
+- [SpellChecker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- LaTeX compiler
+- etc.
