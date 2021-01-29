@@ -103,12 +103,13 @@ The resources for the course are available on the present `github` repository. A
 
 ### Additional resources
 
+- (General) : [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)
+- (Data Science) : J. Van DerPlas, *Python Data Science Handbook, With Application to Understanding Data*, 2016<https://jakevdp.github.io/PythonDataScienceHandbook/>
 - (General) Skiena, *The algorithm design manual*, 1998
 - (General) Courant et al. , *Informatique pour tous en classes préparatoires aux grandes écoles : Manuel d'algorithmique et programmation structurée avec Python*,
 2013, (french)
 - (General/data science) Guttag, *Introduction to Computation and Programming*,
 2016
-- (Data Science) : J. Van DerPlas, *Python Data Science Handbook, With Application to Understanding Data*, 2016<https://jakevdp.github.io/PythonDataScienceHandbook/>
     
     Associated videos: <http://jakevdp.githubio/blog/2017/03/03/reproducible-data-analysis-in-jupyter/>
 

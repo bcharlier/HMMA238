@@ -102,7 +102,9 @@ This part is from the tutorial <https://code.visualstudio.com/docs/python/python
 ## Recommended extensions for VS Code
 
 - Markdown visualizer (extension with TeX rendering even better : [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath))
-- linter/flake8 stuff
-- [SpellChecker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
-- LaTeX compiler
-- etc.
+- linter/flake8: [cornflakes](https://marketplace.visualstudio.com/items?itemName=kevinglasson.cornflakes-linter)
+- Spell check for less typos: [SpellChecker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- LaTeX compiler: XXX TODO
+- [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)  to collaboratively edit and debug with others in real time, regardless of your programming language.
+
+
