@@ -562,11 +562,13 @@ Toto said: "Hello! How's it going?"
 ```python
 # TODO XXX
 ```
----
 
 See also string: `\t`, `\n`, etc.
+---
+
 
 To extract a sub-string between indices `start`  (**included**) `stop` (**excluded**): use the syntax `[start:stop]`
+
 
 
 ```python
