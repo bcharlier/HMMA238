@@ -62,9 +62,9 @@ The `keyboard shortcuts Reference guide` is available in the `help` menu (or wit
 It can be very useful to learn some shortcuts.
 For instance:
 
-- Learn how **multicursors** work (e.g., search for an occurrence with  `Ctrl+d`)
+- Learn how **multicursors** work (e.g., search for an occurrence with `Ctrl+d`)
 - Create aligned **multicursors** with `Ctrl+Shift`
-- Learn how to move an entire line  with `Alt+up`
+- Learn how to move an entire line with `Alt+up`
 - etc.
 
 ### Using VSCode as a `python` IDE
