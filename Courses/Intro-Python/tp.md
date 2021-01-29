@@ -539,9 +539,6 @@ print(n1 is n2)
 print(n3 is n1)
 ```
 
-```python
-2 is None
-```
 
 ## Containers
 
@@ -567,7 +564,7 @@ Toto said: "Hello! How's it going?"
 ```
 ---
 
-See also caracters: \t, \n, etc.
+See also string: \t, \n, etc.
 
 To extract a sub-string between indices `start`  (**included**) `stop` (**excluded**): use the syntax `[start:stop]`
 
@@ -1544,6 +1541,16 @@ def quicksort(ll):
 ```
 Test: quicksort([-2, 3, 5, 1, 3]) should output [-2, 1, 3, 3, 5, 1]
 
+
+A common structure is to have an optional argument, and testing whether it exists or not using `None`:
+
+
+```python
+def spam(arg1=None):
+    if arg1 is not None:
+        print(arg1)
+        # arg1 was specified, do something clever!
+```
 
 ### Variable number of arguments
 
