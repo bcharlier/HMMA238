@@ -19,13 +19,9 @@ During this session you will learn the very basics of:
 
 2. Types, data types
 
-3. Python syntax, functions, classes
+3. Python syntax, functions
 
-4. Exception, warnings
-
-    Resources: <https://fabienmaussion.info/scipro_ss2018/html/09-Exceptions.html>
-
-5. input/Output (I/O)
+4. XXX TODO (to double check) input/Output (I/O)
 
 
 
