@@ -21,5 +21,5 @@ Write the following commands :
 
 ### Step 3 : Check if it works
 
-Try to lunch in VsCode the file test_python.py (located in the git repository HMMA238 (Courses-IDE))
+Try to launch in VsCode the file test_python.py (located in the git repository HMMA238 (Courses-IDE))
 
