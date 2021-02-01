@@ -69,7 +69,7 @@ So we want to add those changes to the staging area and do a commit explaining w
   * add & commit
 ```
 $ git add -A
-$ git commit -m "explain your contribs"
+$ git commit -am "explain your contribs"
 ```
  
 By now we successfully commited the changes to the local 'my_new_branch' branch. This had no effect on the master branch and no effect on the remote repository.  
