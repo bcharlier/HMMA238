@@ -1,9 +1,9 @@
 # Common workflow
  
-Let's say we are working with a team on a new project and we want to use git as a team work tool.  
+Let us say we are working with a team on a new project and we want to use git as a team work tool.  
 
-##  1) configuration phase 
-First of all, we go to a directory of our choice and open a terminal from it.  
+##  1) Configuration phase 
+First of all, go to a directory of our choice and open a terminal from it.  
 Now we want our teammates to be able to identify who made each contribution.  
 For this purpose, we need to set up a name and an e-mail :  
 ```
@@ -23,7 +23,7 @@ $ git clone <url> .
 # https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 ```
 
-##  2) working phase
+##  2) Working phase
 
 Assuming we are in the corresponding directory, we can perform an `ls -la` to see the cloned files.  
 We want now to create a new branch and start working off from it  
@@ -53,18 +53,18 @@ anas@sakhr:~/studies/practicals$ git branch
   
 **We are now ready to start working on the code, files. The changes will be local changes and will not affect other branches.**
 
-##  3) commiting changes, merging & cleaning
-### commiting changes
+##  3) Commiting changes, merging & cleaning
+### Commiting changes
 
-By now, let's say we finished working on the  task and want to share the results with the team.  
+By now, let us say we are done working on the task and want to share the results with the team.  
 While working on the code, git was tracking the changes.  
 
   * check status
 ```
 $ git status
 ```
-It will say  that there are changes not staged for commits and will show  what changes have occured.  
-So we want to  add those changes to the staging area and do a commit explaining what changes have been made using the following :  
+It will say that there are changes not staged for commits and will show what changes have occured.  
+So we want to add those changes to the staging area and do a commit explaining what changes have been made using the following :  
 
   * add & commit
 ```
@@ -79,14 +79,14 @@ After the commit, we  want to push the branch to the remote directory:
 $ git push -u origin my_new_branch
 ```
 
-Remember, we already configured our name at the start. and we pushed our branch to remote.  
-This means our team can now see the new branch and check if the code runs well before it's merged into master.
+Remember, we already configured our name at the start and we pushed our branch to remote.  
+This means our team can now see the new branch and check if the code runs well before it is merged into the master branch.
 
 
 
-### merging & cleaning
+### Merging & cleaning
 
-Let's say our team reviewed the code and validates it and the branch is ready to be merged into the `master` branch.
+Let us say our team reviewed the code and validates it and the branch is ready to be merged into the `master` branch.
 The roadmap is the following
 select `master` branch ==> pull  ==> merge (local) ==> push (remote) ==> delete (local) ==> delete (remote).  
 
@@ -112,9 +112,9 @@ git push origin --delete my_new_branch
 ```
 
 
-## essentials
+## Essentials
 
-Let's wrap up the whole thing and recap important steps :
+Let us wrap up the whole thing and recap important steps :
 
 clone ==> create branch  ==> work on it ==> check status ==> add & commit ==> push to remote ==> select `master` ==> pull ==> merge local ==> push ==> delete local ==> delete remote
 
