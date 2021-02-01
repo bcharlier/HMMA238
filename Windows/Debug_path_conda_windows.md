@@ -1,6 +1,6 @@
 # How to fix "Le terme «conda» n'est pas reconnu comme nom d'applet de commande...".
 
-### Step 1 : Uninstall anaconda, then install again.
+## Step 1 : Uninstall anaconda, then install again.
 
 When this window appear : 
 <!-- <img src="files/images/python-screenshot.jpg" width="600"> -->
@@ -9,9 +9,9 @@ When this window appear :
 
 Check the box "Add Anaconda to my Path environment variable"
 
-### step 2 : Create your environment 
+## step 2 : Create your environment 
 
-#### Open Anaconda Prompt
+### Open Anaconda Prompt
 
 Write the following commands :
 
@@ -19,7 +19,7 @@ Write the following commands :
 
     conda activate hmma238
 
-### Step 3 : Check if it works
+## Step 3 : Check if it works
 
-Try to launch in VsCode the file test_python.py (located in the git repository HMMA238 (Courses-IDE))
+Try to launch in VsCode the file test_python.py (../HMMA238/Courses/IDE)
 
