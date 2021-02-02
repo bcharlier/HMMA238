@@ -69,12 +69,12 @@ git push -u origin master
 ---
 ### <font color='red'> Exercise: </font>
 
-1. Create a text file called `.gitignore` with the following content:
+  1. Create a text file called `.gitignore` with the following content:
 ```
 *.pdf
 *~
 ```
-2. Create a commit and push it to your repository. What is the purpose of this file? See <https://github.com/github/gitignore>
+  2. Create a commit and push it to your repository. What is the purpose of this file? See <https://github.com/github/gitignore>
 
 ---
 
@@ -112,11 +112,11 @@ We create a branch, where we make all the commits dedicated to solve the bug. Th
 ---
 ### <font color='red'> Exercise: </font>
 
-1. Create a local branch `Fix_EOL_Error`
-2. Push this local branch to your remote repo.
-3. Checkout to the `Fix_EOL_Error` branch, fix the bugs. The branch `master` will not be affected.
-4. Merge the fix into the branch `master`
-5. suppress the local branch `Fix_EOL_Error` and the remote `origin/Fix_EOL_Error` branch
+  1. Create a local branch `Fix_EOL_Error`
+  2. Push this local branch to your remote repo.
+  3. Checkout to the `Fix_EOL_Error` branch, fix the bugs. The branch `master` will not be affected.
+  4. Merge the fix into the branch `master`
+  5. suppress the local branch `Fix_EOL_Error` and the remote `origin/Fix_EOL_Error` branch
 ---
 
 
