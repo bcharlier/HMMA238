@@ -26,7 +26,7 @@
 ***
 ## Notes
 
-- Using Unix, if you want to, say, change directory to a directory whose name contains a space, you must include a `\` before the space, othewise it wont be recognized. You don't have to do that if you're using Windows.
+- Using Unix, if you want to, say, change directory to a directory whose name contains a space, you must include a `\` before the space, otherwise it wont be recognized. You don't have to do that if you're using Windows.
 
 - Pattern matching works pretty much the same under Windows, but someone who would run into trouble could take a look [here](https://docs.microsoft.com/en-us/windows-server/networking/technologies/nps/nps-crp-reg-expressions) for more information.
 
