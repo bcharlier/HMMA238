@@ -2,7 +2,7 @@
  
 Let us say we are working with a team on a new project and we want to use git as a team work tool.  
 
-##  1) Configuration phase 
+## Configuration phase 
 First of all, go to a directory of our choice and open a terminal from it.  
 Now we want our teammates to be able to identify who made each contribution.  
 For this purpose, we need to set up a name and an e-mail :  
@@ -23,7 +23,7 @@ $ git clone <url> .
 # https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 ```
 
-##  2) Working phase
+## Working phase
 
 Assuming we are in the corresponding directory, we can perform an `ls -la` to see the cloned files.  
 We want now to create a new branch and start working off from it  
@@ -42,7 +42,7 @@ The branch we just created is the branch we want to work with.
 ```
 $ git checkout my_new_branch
 ```
-We can type `git branch` , we will see that the new branch has been selected. (highlited and marked by a *)
+We can type `git branch` , we will see that the new branch has been selected. (highlighted and marked by a symbold `*`)
 
 ```
 anas@sakhr:~/studies/practicals$ git branch
@@ -53,8 +53,8 @@ anas@sakhr:~/studies/practicals$ git branch
   
 **We are now ready to start working on the code, files. The changes will be local changes and will not affect other branches.**
 
-##  3) Commiting changes, merging & cleaning
-### Commiting changes
+## Committing changes, merging & cleaning
+### Committing changes
 
 By now, let us say we are done working on the task and want to share the results with the team.  
 While working on the code, git was tracking the changes.  
@@ -72,7 +72,7 @@ $ git add -A
 $ git commit -am "explain your contribs"
 ```
  
-By now we successfully commited the changes to the local 'my_new_branch' branch. This had no effect on the master branch and no effect on the remote repository.  
+By now we successfully committed the changes to the local 'my_new_branch' branch. This had no effect on the master branch and no effect on the remote repository.  
 After the commit, we  want to push the branch to the remote directory:  
   * push to remote
 ```
@@ -95,7 +95,7 @@ select `master` branch ==> pull  ==> merge (local) ==> push (remote) ==> delete 
 ```
 $ git checkout master
 
-# always pull in case any changes were made while working localy
+# always pull in case any changes were made while working locally
 $ git pull origin master
 
 $ git merge my_new_branch
@@ -121,7 +121,7 @@ clone ==> create branch  ==> work on it ==> check status ==> add & commit ==> pu
 
 
 
-# sources
+# Resources
 https://git-scm.com/book/en/v2
 https://www.youtube.com/c/Coreyms/playlists
 
