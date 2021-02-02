@@ -56,7 +56,7 @@ python ./scripts/hello-world.py
 
 ### Python interpreter (interactive mode)
 
-The Python interpretor can be launched with the command ``python``.
+The Python interpreter can be launched with the command ``python``.
 
 <!-- <img src="files/images/python-screenshot.jpg" width="600"> -->
 <img src="https://raw.github.com/jrjohansson/scientific-python-lectures/master/images/python-screenshot.jpg" width="600">
@@ -86,14 +86,14 @@ One can:
 
 **Note**: running ```ipython --pylab``` will help opening several images. 
 
-### Rendering with VSCODE
+### Rendering with VS Code
 
 **Sources**: https://code.visualstudio.com/docs/languages/python
 
-- linter
+- linter (`Ctrl` + `shift` + `p`, linter, Flake8)
 - debugger
 - Spell checker (e.g., Code Spell Checker)
-
+- shortcuts <https://code.visualstudio.com/docs/getstarted/keybindings>
 ---
 <font color='red'> **Exercise**: </font>
 
@@ -101,24 +101,8 @@ Use the code from <https://www.algorithm-archive.org/contents/euclidean_algorith
 
 ---
 
-### Jupyter notebook
 
-**Warning**: not recommended anymore for this course (in particular to avoid versioning overload), hence to read on your own.
-
-[Jupyter notebook](https://jupyter.org/) is similar to Mathematica, Matlab or Maple, in a web browser.
-
-<!-- <img src="files/images/ipython-notebook-screenshot.jpg" width="800"> -->
-<img src="https://jupyter.org/assets/jupyterpreview.png" width="800">
-
-Launch it with the command `jupyter notebook`
-
-in a directory where your notebooks are/will be stored (files with extension *.ipynb); or in a parent directory .
-
-For practical rooms at Université de Montpellier, cf.
-http://josephsalmon.eu/enseignement/Montpellier/HLMA310/IntroPython.pdf , page 13
-
-
-## Run shell command from python
+### Run shell command from python
 
 It is possible to run a system command from a python interpreter.
 In a **jupyter notebook** or in an **ipython** instance, its sufficient to start the line with a `!`:
@@ -160,19 +144,25 @@ In a **jupyter notebook** or in an **ipython** instance, its sufficient to start
 run ./scripts/hello-world.py
 ```
 
-## Numbers
+### Jupyter notebook (not recommended anymore)
+
+**Warning**: not recommended anymore for this course (in particular to avoid versioning overload), hence to read on your own.
+
+[Jupyter notebook](https://jupyter.org/) is similar to Mathematica, Matlab or Maple, in a web browser.
+
+<!-- <img src="files/images/ipython-notebook-screenshot.jpg" width="800"> -->
+<img src="https://jupyter.org/assets/jupyterpreview.png" width="800">
+
+Launch it with the command `jupyter notebook`
+
+in a directory where your notebooks are/will be stored (files with extension *.ipynb); or in a parent directory .
+
+For practical rooms at Université de Montpellier, cf.
+http://josephsalmon.eu/enseignement/Montpellier/HLMA310/IntroPython.pdf , page 13
 
 
-```python
-2 + 2 + 1 # a comment 
-```
+## Variable names
 
-
-```python
-a = 4
-print(a)
-print(type(a))
-```
 
 Variable names can contain letters `a-z`, `A-Z`, numbers `0-9`and a few special characters such as `_` they **ALWAYS** must start by a letter. 
 
@@ -185,16 +175,30 @@ Some variables names are forbidden since they are already defined by Python:
     pass, print, raise, return, try, while, with, yield
 
 
+
+## Numbers
+
+```python
+2 + 2 + 1  # a comment 
+```
+
+
+```python
+a = 4
+print(a)
+print(type(a))
+```
+**Note** int for integer.
+
 ```python
 int a = 1;  # code C ... leads to an error in Python
 ```
 
-
 ```python
-c = 2.1  # float (floating point number)
+c = 1.0  # float (floating point number)
+print(c)
 print(type(c))
 ```
-
 
 ```python
 a = 1.5 + 1j  # complex number
@@ -207,14 +211,19 @@ print(1j * 1j)
 print(type(a))
 ```
 
-
 ```python
 type(1j * 1j)
 ```
 
+```python
+True + False # Boolean number
+```
+
+Note: `True` and `False` can usually be perceived as 1 and 0. 
+
 
 ```python
-3 < 4  # bool
+3 < 4  # Boolean
 ```
 
 
@@ -238,15 +247,13 @@ print(test)
 type(test)
 ```
 
-
 ```python
 print(7 * 3.)  # int x float -> float
 print(type(7 * 3.))
 ```
 
-
 ```python
-2 ** 10  # exponant, do not use `^` in Python
+2 ** 10  # exponent, do not use `^` in Python
 ```
 
 
@@ -261,7 +268,6 @@ print(type(7 * 3.))
 3 / 2  # float by default
 ```
 
-
 ```python
 3 // 2
 ```
@@ -269,7 +275,8 @@ print(type(7 * 3.))
 ## The standard libraries and its packages
 
  * Python functions are organized by *modules*
- * Python Standard Library : package collection  to access standard functions (low level), such as call the OS (operating system), file management, string management, web interface, etc.
+ * Python Standard Library : package collection to access standard functions (low level), such as call to the OS (operating system), file management, string management, web interface, etc.
+
 
 ### References
  
@@ -279,7 +286,7 @@ print(type(7 * 3.))
 ### Using packages
 
 * A package must be *imported* before it can be used:
-
+* Ordering: load the package in the order of complexity (first lower level function as `os`, etc.) then numerical packages (e.g., `scipy`, `numpy`), display ones (`matplotlib`, `seaborn`, etc.)
 
 ```python
 import math
@@ -302,7 +309,7 @@ x = cos(2 * pi)
 print(x)
 ```
 
-**Warning**: do not load all functions from a package, there is a risk that you redefine some existing functions without noticing.
+**Warning**: NEVER load all functions from a package, there is a risk that you redefine some existing functions without noticing.
 
 
 ```python
@@ -310,7 +317,14 @@ from math import *  # NEVER DO THAT, EVER!!!
 tanh(1)
 ```
 
-Popular method: use a standard nickname for a package (we will see classical ones like: `np, pd, sns, plt, skl,` etc.)
+Instead load the function you need:
+
+```python
+from math import tanh
+tanh(1)
+```
+
+Popular method: use a standard nickname for a package (we will see classical ones: `np, pd, sns, plt, skl,` etc.)
 
 
 ```python
@@ -322,7 +336,6 @@ print(m.cos(1.))
 
  * Once a package is imported it is possible to list the functions available with `dir`:
 
-
 ```python
 import math
 print(dir(math))
@@ -330,48 +343,45 @@ print(dir(math))
 
 * To access the documentation use `help`
 
-
 ```python
 help(math.log)
 ```
 
  * In IPython or Jupyter one can also use:
 
-
 ```python
 math.log?
 ```
-
 
 ```python
 math.log(10) 
 ```
 
-
 ```python
 math.log(10, 2)
 ```
-
 
 ```python
 math.ceil(2.5)
 ```
 
-* `help` can be called for modules :  :
+* `help` can be called for modules :
 
 
 ```python
 help(math)
 ```
 
- * Useful modules of common libraries Modules : `os`, `sys`, `math`, etc.
+Note: you can use the previous function to check where is the library on your disk (see at bottom)
 
- * For an exhaustive list see :  http://docs.python.org/3/library/
+
+ * Useful modules : `os`, `sys`, `math`, etc.
+
+ * For an exhaustive list see :  <http://docs.python.org/3/library/>
 
 ---
 ### <font color='red'> Exercise : log </font>
 Write a code that computes the first power of 2 above a given number $n$.
-
 
 ```python
 n = 12345
@@ -380,7 +390,6 @@ n = 12345
 ---
 
 ### Fractions (To read on your own, skipped in course)
-
 
 ```python
 import fractions
@@ -423,7 +432,16 @@ z = complex(x)
 print(z, type(z))
 ```
 
-**Warning:**
+* We can use `isinstance` to test variables types :
+
+
+```python
+print(type(z))
+print(isinstance(z, complex))
+print(isinstance(z, type(z)))
+```
+
+**Warning:** conversion from `complex` to `float` is ambiguous
 
 
 ```python
@@ -433,25 +451,26 @@ print(x, type(x))
 
 ## Operators and comparisons
 
-
 ```python
-1 + 2, 1 - 2, 1 * 2, 1 / 2  # + - / * sur des entiers
+1 + 2, 1 - 2, 1 * 2, 1 / 2  # + - / * integers
 ```
 
 
 ```python
-1.0 + 2.0, 1.0 - 2.0, 1.0 * 2.0, 1.0 / 2.0  # + - / * sur des flottants
+1.0 + 2.0, 1.0 - 2.0, 1.0 * 2.0, 1.0 / 2.0  # + - / * floats
 ```
+
+More on the 0.1 + 0.2 craziness: <https://0.30000000000000004.com/>
 
 
 ```python
-# Division entière
+# Euclidean division
 3.0 // 2.0
 ```
 
 
 ```python
-# Warning **, not  ^ as in some other languages
+# Warning: use `**`, not `^` as in most languages
 2 ** 2
 ```
 
@@ -459,18 +478,29 @@ print(x, type(x))
 
 
 ```python
-True and False
+True and False  # see also (1 * 0) % 2 
 ```
 
+```python
+True or False 
+```
 
 ```python
 not False
 ```
 
-
 ```python
-True or False
+True ^ True  #XOR , see also (1+1) % 2
 ```
+
+Operations cheat sheet:
+<https://docs.python.org/fr/3.9/library/operator.html#mapping-operators-to-functions>
+
+---
+### <font color='red'>Exercise : quotes and double quotes</font>
+Display with a `for` loop all the possibilities (Boolean tables) for the Boolean operations: *, +, ^ (i.e., and, or, xor).
+---
+
 
 * Comparisons `>`, `<`, `>=` greater or equal, `<=` less or equal, `==` equal (content are the same), `is` object identity.
 
@@ -499,53 +529,60 @@ True or False
 not 2 == 3  # negation
 ```
 
-
 ```python
-2 is not None
+n1 = 600
+n2 = 600
+n3 = n1
+ 
+print(n1 == n2)
+print(n1 is n2)
+print(n3 is n1)
 ```
+
 
 ## Containers
 
 ### Strings
-
 
 ```python
 s = 'Ciao Ciao!'
 # or use " "
 s1 = "Ciao Ciao!"
 # or use """ """
-s2 = """Ciao Ciao"""
+s2 = """Ciao Ciao!"""
 print(s, s1, s2)
 print(type(s))
 ```
 
 ---
 ### <font color='red'>Exercise : quotes and double quotes</font>
-Create the following string: "Hello! how's it going?"
+Create the following string:
+Toto said: "Hello! How's it going?"
 
 ```python
 # TODO XXX
 ```
-**Beware:** indices start at 0!
+
+See also string: `\t`, `\n`, etc.
 ---
+
 
 To extract a sub-string between indices `start`  (**included**) `stop` (**excluded**): use the syntax `[start:stop]`
 
 
-```python
-s[0]  # first char
-```
-
 
 ```python
-s[-1]  # last char
+s[0]  # first character
 ```
+**Beware:** indices start at 0!
 
+```python
+s[-1]  # last character
+```
 
 ```python
 s[1:5]
 ```
-
 
 ```python
 start, stop = 1, 5
@@ -564,32 +601,32 @@ print(start)
 print(stop)
 ```
 
-**Remark:** especially for french word (containing é,è, à, ç, etc.), you should check which character encoding system is used. See: unicode, utf8, etc... at http://sametmax.com/lencoding-en-python-une-bonne-fois-pour-toute/
+**Remark:** especially for french word (containing é, è, à, ç, etc.), you should check which character encoding system is used. See: unicode, utf8, etc. at <http://sametmax.com/lencoding-en-python-une-bonne-fois-pour-toute/>
 
 It is possible to omit `start` or `stop`: in this case the default values are 0 or the length of the string respectively.
 
 
 ```python
-s[:5]  # 5 first chars
+s[:5]  # 5 first characters
 ```
 
 
 ```python
-s[2:]  # from the third char to the end of the string
+s[2:]  # from the third char. to the end
 ```
 
 
 ```python
-print(len(s[5:]))  # len means 'length'
+print(len(s[5:]))  # len: shortcut for 'length'
 print(len(s) - 5)
 ```
 
 
 ```python
-s[-3:]  # 3 last chars
+s[-3:]  # 3 last characters
 ```
 
-It is possible to define a `step` with the syntax `[start:stop:step]` (default value of `step` is 1):
+It is possible to define a `step` with the syntax `[start: stop: step]` (default value of `step` is 1):
 
 
 ```python
@@ -597,7 +634,8 @@ print(s[1::2])
 print(s[0::2])
 ```
 
-This is called *slicing*. See: https://docs.python.org/3/library/functions.html?highlight=slice#slice et https://docs.python.org/3/library/string.html
+This is called **slicing**.
+See: <https://docs.python.org/3/library/functions.html?highlight=slice#slice> et <https://docs.python.org/3/library/string.html>
 
 ---
 ### <font color='red'>Exercise : slicing and strings</font>
@@ -616,55 +654,52 @@ print(alphabet)
 ```
 ---
 
-Some operators may be used to handle strings (this is called overloading).
+Some operators may be used to handle strings (this is called **overloading/polymorphism**).
 
 
 ```python
-print("aldkfdf" < 'alkfdg') # ordre lexicographique
+print("aldkfdf" < 'alkfdg') #  lexicographic (dictionary) order
 print("zz" + 'z')
 print("z" == 'z')
 ```
 
 #### Display strings
 
-
 ```python
-print("str1", "str2", "str3")  # print ajoute des espaces entre les chaînes
+print("str1", "str2", "str3")
 ```
 
 
 ```python
-print("str1", 1.0, False, -1j)  # print convertit toutes les variables en chaînes
+print("str1", 1.0, False, -1j)  # convert all variables in strings
 ```
 
 
 ```python
-print("str1" + "str2" + "str3") # pour concatener ("coller ensemble") utiliser le symbole +
+print("str1" + "str2" + "str3") # concatenate ("gluing") with `+` operand
 ```
 
 
 ```python
-print("str1" * 3)  # répétition
+print("str1" * 3)  # repeat
 ```
 
 Strings are classes that have methods to format them.
 
 
 ```python
-print("abc,def,ghi".replace(',',' '))
+print("abc, def, ghi".replace(',', ' '))
 ```
-
 
 ```python
 print("ssEslk".upper())
 print("kljlj, dsfsdf".capitalize())
 print(":".join("Python"))
-print(":".join(["Pyt", "hon"]))          # take a list 
-print("guru99 career guru99".split(' ')) # return a list
+print(":".join(["Pyt", "hon"]))  # take a list (see list section just below)
+print("guru99 career guru99".split(' '))  # return a list 
 ```
 
 **Important note:** In Python, Strings are immutable. Consider the following code:
-
 
 ```python
 x = "Guru99"
@@ -676,20 +711,25 @@ print(y)
 This is because `x.replace("Guru99", "Python")` returns a copy of X with replacements made.You will need to use the following code to observe changes.
 
 
-
 ```python
 x = "Guru99"
 x = x.replace("Guru99","Python")
 print(x)
 ```
 
-### Affichage des flottants : https://docs.python.org/3/tutorial/floatingpoint.html
+More information on `strings`:
 
+- <https://mkaz.blog/code/python-string-format-cookbook/>
+
+- <https://docs.python.org/3/library/string.html>
+
+
+### Floats display
 
 ```python
 a = 1.0000000002
 b = 1.00031e2
-c= 136869689
+c = 136869689
 print("val = {}".format(a))
 print("val = {}".format(b))
 
@@ -713,23 +753,15 @@ Print the real number $e=\exp(1)$ with 1, 10, 20 and 50 digits (one number by li
 ```
 ---
 
-More info on the formats:
-
-- https://mkaz.blog/code/python-string-format-cookbook/
-- https://docs.python.org/3/library/string.html
-
-
 ```python
-# More advance
+# More advanced
 print("val = {0:1.15f},val2={1:1.15f}".format(a, b))
 ```
 
-
 ```python
-s = "Le nombre {0:s} est égal à {1:1.111}"
+s = "The number {0:s} is approximately {1:1.111}"
 print(s.format("pi", math.pi))
 ```
-
 
 ```python
 # Accessing arguments by name:
@@ -737,12 +769,15 @@ print(s.format("pi", math.pi))
 'Coordinates: 37.24N, -115.81W'
 ```
 
+More info: <https://docs.python.org/3/tutorial/floatingpoint.html>
+
+
 ### Lists
 
-List are similar to string except that can blend any type of object. This is the simplest structure at hand.
+Lists are similar to `strings` except that can blend any type of object (so a `string` is a kind of `list`)
+This is the simplest structure at hand.
 
-A possible syntax to create a list listes is `[..., ..., ...]` 
-
+A possible syntax to create a list is `[..., ..., ...]` 
 
 ```python
 l = [1, 2, 3, 4]
@@ -750,8 +785,7 @@ print(type(l))
 print(l)
 ```
 
-Slicing example:
-
+A slicing example:
 
 ```python
 print(l[1:3])
@@ -760,20 +794,18 @@ print(l[::2])
 
 **Warning:** indexing starts at 0!
 
-
 ```python
 l[0]
 ```
-
 **Warning:** pointer addressing!
 
-
 ```python
-print("l est :", l)
+print("l is :", l)
 k = l       # k is a pointer on l, i.e., l and k share the same memory space 
 k += [14]   
-print("l a été modifié :", l)
+print("l has been modified :", l)
 ```
+**Question**: Why is the command failing above if you use `k += 14` instead?
 
 
 ```python
@@ -783,29 +815,28 @@ print(l)
 print(k)
 ```
 
-On can mix types:
-
+On can mix types in a single list:
 
 ```python
 l = [1, 'a', 1.0, 1-1j]
 print(l)
 ```
 
-Lists of lists is possible (e.g., to create trees, etc.):
-
+Lists of lists are possible (e.g., to create trees, etc.):
 
 ```python
 list_of_list = [1, [2, [3, [4, [5]]]]]
-list_of_list
+print(list_of_list)
 ```
 
+or 
 
 ```python
-arbre = [1, [2, 3]]
-print(arbre)
+tree = [1, [2, 3]]
+print(tree)
 ```
 
-The  `range` function generates an enumerator, but you can create list of integer easily from that.
+The `range` function generates an enumerator, but you can create a list of integers easily from that.
 More details: <https://www.geeksforgeeks.org/python-range-function/>
 
 ```python
@@ -830,7 +861,7 @@ range(-10, 10)
 
 
 ```python
-# convertir une chaine de caractère en liste
+# convert a string in list
 s = "zabcda"
 l2 = list(s)
 print(l2)
@@ -838,15 +869,16 @@ print(l2)
 
 
 ```python
-# tri (en anglais ce dit "sort")
+# sorting (in french "trier")
 l2.sort()
 print(l2)
+print(l2.sort())
 l2.sort(reverse=True)
 print(l2)
 print(l2[::-1])
 ```
 
-**Warning:** l2.sort() fait la modification **inplace** et ne renvoie rien, c'est-à-dire que l'on renvoie `None`
+**Warning:** l2.sort() works **in place** and outputs nothing, or rather `None`
 
 
 ```python
@@ -856,7 +888,7 @@ print(out)
 print(l2)
 ```
 
-Pour renvoyer une nouvelle liste triée:
+To output a sorted copy (if you need to keep the original intact):
 
 
 ```python
@@ -866,14 +898,14 @@ out2 = sorted(l2, reverse=True)
 print(out2)
 ```
 
-#### Ajout, insertion, modifier, et enlever des éléments d'une liste:
+#### Append, insert, modify and remove elements in a list
 
 
 ```python
-# Création d'une liste vide
-l = []  # ou encore: l = list()
+# Create an empty list
+l = []  # or use: l = list()
 
-# Ajout d'éléments par la droite avec `append`
+# Append elements on the right with `append`
 m = l.append("A")
 l.append("d")
 l.append("d")
@@ -882,17 +914,16 @@ print(m)
 print(l)
 ```
 
-Concatenation de listes avec l'opérateur "+" (performance?)
+Concatenate lists with "+":
 
 
 ```python
 lll = [1, 2, 3]
 mmm = [4, 5, 6]
-print (lll + mmm)  
+print(lll + mmm)  
 ```
 
-**Attention:** différent de `lll.append(mmm)`
-
+**Warning:** this is different from `lll.append(mmm)` (try it yourself!)
 
 ```python
 lll.append(mmm)
@@ -904,7 +935,7 @@ print(lll)
 print(mmm * 3)
 ```
 
-On peut modifier une liste par assignation:
+You can modify a list by assignation (it is then different from `strings`!):
 
 
 ```python
@@ -913,13 +944,12 @@ l[2] = "p"
 print(l)
 ```
 
-
 ```python
 l[1:3] = ["d", "d"]
 print(l)
 ```
 
-Insertion à un index donné avec `insert`
+Insert an element with `insert`
 
 
 ```python
@@ -933,7 +963,7 @@ l.insert(5, "t")
 print(l)
 ```
 
-Suppression d'un élément avec `remove`
+Remove an element by value: `remove`
 
 
 ```python
@@ -958,7 +988,7 @@ print(l.index('r'))
 print(l.index('t'))
 ```
 
-Suppression d'un élément à une position donnée avec `del`:
+Remove an element by indexing: `del`:
 
 
 ```python
@@ -969,11 +999,10 @@ print(l)
 
 ### Map and zip
 
-
 ```python
-name = [ "Manjeet", "Nikhil", "Shambhavi", "Astha" ] 
-roll_no = [ 4, 1, 3, 2 ] 
-marks = [ 40, 50, 60, 70 ] 
+name = [ "Manjeet", "Nikhil", "Shambhavi", "Astha"] 
+roll_no = [ 4, 1, 3, 2] 
+marks = [ 40, 50, 60, 70] 
   
 # using zip() to map values 
 mapped = zip(name, roll_no, marks) # return iterable
@@ -981,34 +1010,23 @@ mapped_disp = list(mapped)
 print(mapped_disp)
 ```
 
-
-```python
-# converting values to print as list 
-mapped = list(zip(name, roll_no, marks))
-  
-# printing resultant values  
-print ("The zipped result is : ",end="") 
-print (mapped) 
-  
-print("\n") 
-  
+```python  
 # unzipping values 
-namz, roll_noz, marksz = zip(*mapped) 
+name_post, roll_no_post, marks_post = zip(*mapped_disp) 
   
-print ("The unzipped result: \n",end="") 
+print("The unzipped result: \n",end="") 
 # printing initial lists 
-print ("The name list is : ",end="") 
-print (namz) 
+print("The name list is : ", end="") 
+print(name_post) 
   
-print ("The roll_no list is : ",end="") 
-print (roll_noz) 
+print("The roll_no list is : ", end="") 
+print(roll_no_post) 
   
-print ("The marks list is : ",end="") 
-print (marksz) 
+print("The marks list is : ", end="") 
+print(marks_post) 
 ```
 
-`help(list)` pour en savoir plus.
-
+Use : `help(list)` for more on lists.
 
 ```python
 help(list)
@@ -1016,9 +1034,9 @@ help(list)
 
 ### Tuples
 
- * Les *tuples* (n-uplets) ressemblent aux listes mais ils sont *immuables* : ils ne peuvent plus être modifiés une fois créés.
+ * *tuples*  are similar to lists but are immutable* : they cannot be modified once created (so they are close to `strings` in a way). They are often used as output of function (see below).
  
- * On les crée avec la syntaxe `(..., ..., ...)` ou simplement `..., ...`:
+ * You can create them with a command like  `(..., ..., ...)` or simply `..., ...`:
 
 
 ```python
@@ -1031,103 +1049,111 @@ print(point, type(point))
 point[0]
 ```
 
-Un *tuple* peut être dépilé par assignation à une liste de variables séparées par des virgules :
+A *tuple* can be unpacked with the following structure :
 
 
 ```python
 x, y = point
 
-print("Coordonnée x : ", x)
-print("Coordonnée y : ", y)
+print("x-coordinate: ", x)
+print("y-coordinate: ", y)
 ```
 
-On ne peut pas exécuter la commande suivante sans obtenir un message d'erreur:
-
+Yet, you will face an error if you type the following command:
 
 ```python
 point[0] = 20
 ```
 
-### Dictionnaires
+### Dictionary
 
-Ils servent à stocker des données de la forme *clé-valeur*.
+They are similar to your day-to-day dictionary, and use a system of *key* and *values*: the *key* is the name of the attribute, and the *value* describes the key.
 
-La syntaxe pour les dictionnaires est `{key1 : value1, ...}`:
+The syntax for dictionaries is: `{key1 : value1, ...}`:
 
 
 ```python
-params = {"parameter1": 1.0,
+params_bracket = {"parameter1": 1.0,
           "parameter2": 2.0,
           "parameter3": 3.0}
 
 # Alternatively:
 
-params = dict(parameter1=1.0, parameter2=2.0, parameter3=3.0)
+params_dict = dict(parameter1=1.0,
+              parameter2=2.0,
+              parameter3=3.0)
 
-print(type(params))
-print(params)
+print(type(params_dict))
+print(params_dict)
+```
+
+```python
+print("p1 =", params_bracket["parameter1"])
+print("p2 =", params_bracket["parameter2"])
+print("p3 =", params_bracket["parameter3"])
 ```
 
 
 ```python
-print("p1 =", params["parameter1"])
-print("p2 =", params["parameter2"])
-print("p3 =", params["parameter3"])
+# Substitutions
+params_bracket["parameter1"] = "A"
+params_bracket["parameter2"] = "B"
+
+# Add a key with a specific value
+params_bracket["parameter4"] = "D"
+
+print("p1 =", params_bracket["parameter1"])
+print("p2 =", params_bracket["parameter2"])
+print("p3 =", params_bracket["parameter3"])
+print("p4 =", params_bracket["parameter4"])
 ```
+
+Remove a key from the dictionary:
+
+```python
+del params_bracket["parameter4"]
+print(params_bracket)
+```
+
+Test the existence of a key
+
+```python
+print("parameter1" in params_bracket)
+print("parameter6" in params_bracket)
+```
+
+```python
+params_bracket["parameter6"]
+```
+
+**Note:** you should get used to errors messages. They are helpful, and will help you debug your code.
+Here the message raised is clear and explains that the key does not exist, so you cannot access it)
 
 
 ```python
-# substitution de valeur
-params["parameter1"] = "A"
-params["parameter2"] = "B"
-
-# ajout d'une entrée
-params["parameter4"] = "D"
-
-print("p1 =", params["parameter1"])
-print("p2 =", params["parameter2"])
-print("p3 =", params["parameter3"])
-print("p4 =", params["parameter4"])
+print(params_bracket.items())
+print(params_bracket.values())
+print(params_bracket.keys())
 ```
 
-Suppression d'une clé:
-
+**Note**: you obtained a *view* with the previous syntax.
+If you want a list, type the following for instance
 
 ```python
-del params["parameter4"]
-print(params)
+print(list(params_bracket.values()))
+print([*params_bracket.values()])  #  equivalent
 ```
 
-Test de présence d'une clé
+## Conditions, `if`/`elif`/`else` and loops
 
+### `if`, `elif`, `else`
 
-```python
-"parameter1" in params
-```
-
-
-```python
-"parameter6" in params
-```
-
-
-```python
-params["parameter6"]
-```
-
-**Remarque:** il est bon de s'habituer aux messages d'erreurs (ici le message est clair et montre que la clef n'existe pas)
-
-## Conditions, branchements et boucles
-
-### Branchements: if, elif, else
-(noter le symbole ":" à la fin de la ligne)
+**WARNING**: do not forget the symbol ":" at the end of a line with `if`), and `tab` (4 spaces) for indenting: there are not {} or () in Python, only the indentation makes it clear what level of hierarchy you are in.
 
 
 ```python
 statement1 = False
 statement2 = False
-# statement2 = True
-
 
 if statement1:
     print("statement1 is True")
@@ -1137,10 +1163,21 @@ else:
     print("statement1 and statement2 are False")
 ```
 
-En Python **l'indentation est obligatoire** car elle influence l'exécution du code
+**Common errors**
 
-**Examples:**
+- Forgotten ":" at the end of the line
 
+```python
+if statement1
+    print("statement1 is True")
+```
+- No indentation
+```python
+if statement1:
+print("statement1 is True")
+```
+
+**Nesting tests**
 
 ```python
 statement1 = statement2 = True
@@ -1150,21 +1187,16 @@ if statement1:
         print("both statement1 and statement2 are True")
 ```
 
+**Common errors with nesting**
 
-```python
-# Mauvaise indentation!
-if statement1:
-    if statement2:
-    print "both statement1 and statement2 are True"
-```
-
+- Errors with the tab levels: think about the following two examples
 
 ```python
 statement1 = True 
 
 if statement1:
     print("printed if statement1 is True")
-    print("still inside the if block")
+    print("still inside the 'if' block")
 ```
 
 
@@ -1173,14 +1205,14 @@ statement1 = False
 
 if statement1:
     print("printed if statement1 is True")
-print("still inside the if block")
+print("no more in the 'if' block")
 ```
 
-## Boucles
+## Loops
 
-Boucles **`for`**:
+### `for` loop
 
-(noter le symbole ":" à la fin de la ligne)
+** Note**: again use ":" at the end of line
 
 
 ```python
@@ -1188,21 +1220,24 @@ for x in [1, 2, 3]:
     print(x)
 ```
 
-La boucle `for` itère sur les éléments de la list fournie. Par exemple:
+The `for` loop iterates over elements in the list.
+For instance:
 
 
 ```python
-for x in range(4): # par défault range commence à 0 et permet de créer le tutple (0,1,2,...,n-1)
+for x in range(4): # range starts at 0 and create an iterator (0, 1, 2,..., n-1)
     print(x)
 ```
 
-Attention `range(4)` n'inclut pas 4 !
+**Warning** `range(4)` does not include 4 (get used to that) !!!
 
 
 ```python
 for x in range(-3,3):
     print(x)
 ```
+
+**Warning** `range(-3,3)` does include -3 (get used to that also) !!!
 
 
 ```python
@@ -1216,96 +1251,89 @@ for letter in "calcul":
     print(letter)
 ```
 
+To iterate over a dictionary things are bit different, since there is no natural ordering in Python dictionaries (it is a bit different of good old dictionaries, where the lexicographic order is natural):
+
+
+**VS Code** tip useful here: `ctrl + d` (select next) / `ctrl + u` (unselect the last) 
 
 ```python
-
-```
-
-Pour itérer sur un dictionnaire::
-
-
-```python
-print(params)
-for key, value in params.items():
+print(params_bracket)
+for key, value in params_bracket.items():
     print(key, " = ", value)
 ```
 
-
 ```python
-params.items()
+params_bracket.items()
 ```
 
-
 ```python
-for key in params:
+for key in params_bracket:
     print(key)
+    print(params_bracket[key])
+    print('------')
 ```
 
-
 ```python
-for key in params:
-    print(params[key])
-```
-
-
-```python
-# initializing list of players. 
-players = [ "Sachin", "Sehwag", "Gambhir", "Dravid", "Raina" ] 
+# Initialize list of players
+players = [ "Sachin", "Sehwag", "Gambhir", "Dravid", "Raina"] 
   
-# initializing their scores 
-scores = [100, 15, 17, 28, 43 ] 
+# Initialize their scores 
+scores = [100, 15, 17, 28, 43]  
   
-# printing players and scores. 
+# printing players and scores 
 for pl, sc in zip(players, scores): 
-    print ("Player :  %s     Score : %d" %(pl, sc))
+    print("Player :  {0: <10}     Score : {1: <10}".format(pl, sc))
 ```
 
-Il est souvent utile d'accéder à la fois à la **valeur** et à l'**index** de l'élément.
-Il faut alors utiliser `enumerate`:
+---
+### <font color='red'>Exercise : Align display</font>
+Can you make the previous loop display the score in an align way? This is a StackOverflow question!
+*Hint*: use '<'
+---
+
+VERY often, when you iterate over a list (or a similar object) you also need to recover the index associated to its elements. In Python `enumerate` makes it easy to read:
 
 
 ```python
-for idx, x in enumerate(l):
-    print(idx, x)
+for player_idx, player_name in enumerate(players):
+    print("Player index: {0}, Player name: {1}".format(player_idx, player_name))
 ```
 
+---
 ### <font color='red'>Exercise : counting letters</font>
-Compter le nombre d'occurences de chaque charactère dans la chaîne de caractères "HelLo WorLd!!".   
-On renverra un dictionaire qui à la lettre associe son nombre d'occurences.
+Count the number of occurrences of each letter in the string `"HelLo WorLd!!"`.   
+The output will be a dictionary `freq_dict` with keys the elements in the string, and as values the number of time they appear. Hence, the solution should be `dict(h=1, e=1, l=3, o=2, w=1, r=1, d=1, !=2)`, without making a difference between lower and upper cases.
 
-
+**hint**
 ```python
-s = "HelLo WorLd!!"   # on pourra utiliser la fonction lower() pour obtenir les lettres en miniscules
+s = "HelLo WorLd!!"  # use lower() to get lowercase letters.
 
-# XXX
-# solution c = dict(h=1, e=1, l=3, o=2, w=1, r=1, d=1, !=2) , à permutation prête
+# XXX TODO
 ```
+---
 
+---
 ### <font color='red'>Exercise : Caesar cipher </font>
 
-Proposer une manipulation qui permet de faire le codage et le décodage avec le code fournit dessous, en suivant la méthode de César, ou code par inversion de lettres (aussi appelé [code de César](https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage))
-
-
-```python
-
-```
+Propose a way to code and decode a message with the Caesar cipher or [Caesar shift](https://en.wikipedia.org/wiki/Caesar_cipher).
 
 
 ```python
 code = {'e': 'a', 'l': 'm', 'o': 'e'}
-# REM: on pourra utiliser par exemple le symbole +=, qui permet l'increment sur place...
+# REM: possibly use +=1 that allow incrementing in place...
 s = 'Hello world!'
 s_code = ''
 
-# XXX
+# XXX TODO
 # solution: s_code = 'Hamme wermd!'
 
 my_inverted_code = {value: key for key, value in code.items()}
 s_decoded = ''
 
-# XXX
+# XXX TODO
 # solution: s_decoded = 'Hello world!'
 ```
+---
 
 **List comprehension:**
 
@@ -1317,51 +1345,57 @@ ll = [x ** 2 for x in range(0,5)]
 
 print(ll)
 
-# Une version plus courte de :
+# This is an alternative to
 ll = list()
 for x in range(0, 5):
     ll.append(x ** 2)
 
 print(ll)
 
-# pour les gens qui font du caml, ou d'autre langages fonctionnels (en anglais map = function)
+# And for  `caml` fluent users, a map point of view
 print(map(lambda x: x ** 2, range(5)))
 ```
 
-Boucles `while`:
-
+### `while` loop
 
 ```python
 i = 0
-
 while i < 5:
     print(i)
-    i = i + 1
+    i += 1
 
-print("OK")
+print("OK, it stopped at i={}".format(i-1))
 ```
 
+---
 ### <font color='red'>Exercise: An old $\pi$ approximation</font>
     
-Compute an approximation of $\pi$ thanks to the Wallis formula (hing: use a `for` loop)
-\begin{align}
-    \text{Formule de Wallis:}\quad \pi&= 2 \cdot\prod_{n=1}^{\infty }\left({\frac{4 n^{2}}{4 n^{2} - 1}}\right)
-\end{align}
+Compute an approximation of $\pi$ thanks to the Wallis formula (*hint*: use a `for` loop)
+
+(to visualize TeX in VS Code: install the extension from <https://marketplace.visualstudio.com/items?itemName=goessner.mdmath>)
+
+$$
+    \text{Formule de Wallis:}\quad
+    \pi = 2 \cdot\prod_{n=1}^{\infty}
+    \left({\frac{4 n^{2}}{4 n^{2} - 1}}\right)
+$$
+
 
 More details here:
-(fr) https://fr.wikipedia.org/wiki/Produit_de_Wallis
-(en) https://en.wikipedia.org/wiki/Wallis_product
+(fr) <https://fr.wikipedia.org/wiki/Produit_de_Wallis>
+(en) <https://en.wikipedia.org/wiki/Wallis_product>
 
 
 ```python
-# XXX
+# XXX TODO
 ```
+---
 
 ## Functions
 
-Une fonction en Python est définie avec le mot clé `def`, suivi par le nom de la fonction, la signature entre parenthèses `()`, et un `:` en fin de ligne
+A Python function is defined by starting with the keyword `def`, followd by the name of the function, the signature in between `()`, and `:` at the end of the line.
 
-**Exemples:**
+**Examples:**
 
 
 ```python
@@ -1374,32 +1408,32 @@ def func0():
 func0()
 ```
 
-Ajout d'une documentation (docstring):
+**ALWAYS** add docstrings!
 
 
 ```python
 def func1(s):
-    """Affichage d'une chaine et de sa longueur."""
+    """Display a string and its length."""
     print(s, "est de longueur", len(s))
 ```
 
+Now you can leverage the help function:
 
 ```python
 help(func1)
 ```
-
 
 ```python
 print(func1("test"))
 print(func1([1, 2, 3]))
 ```
 
-Il est bien sûr généralement utile de **retourner** une valeur, on utilise alors `return`:
+In general it is useful to add an **output**, using the `return` keyword:
 
 
 ```python
 def square(x):
-    """ Retourne le carré de x."""
+    """Compute x**2."""
     return x * x
 ```
 
@@ -1408,12 +1442,12 @@ def square(x):
 print(square(4))
 ```
 
-Retourner plusieurs valeurs:
+It is possible to output several values, and tuples are useful for that:
 
 
 ```python
 def powers(x):
-    """Retourne les premières puissances de x."""
+    """Compute the first power of x up to x**4."""
     return x * x, x * x * x, x * x * x * x
 ```
 
@@ -1438,22 +1472,22 @@ print(t, type(t))
 
 ```python
 x2, x3, x4 = powers(3)
-print x3
+print(x3)
 ```
 
-### Arguments par défault
+### Arguments by default
 
-Il est possible de fournir des valeurs par défaut aux paramètres:
+It is possible to have optional arguments that are assigned to a fixed values if the user do not provide an alternative:
 
 
 ```python
 def myfunc(x, p=2, verbose=False):
     if verbose:
-        print("evalue myfunc avec x =", x, "et l'exposant p =", p)
+        print("evaluate myfunc with x =", x, "and exponent p =", p)
     return x**p
 ```
 
-Le paramètre `verbose` peut être omis:
+The parameter `verbose` can now be omitted:
 
 
 ```python
@@ -1470,17 +1504,17 @@ myfunc(5, 3)
 myfunc(5, verbose=True)
 ```
 
-On peut expliciter les noms de variables et alors l'ordre n'importe plus:
+Moreover, if the user provides all the values, they can be provided in any order, check for instance:
 
 
 ```python
 myfunc(p=3, verbose=True, x=7)
 ```
 
+---
 ### <font color='red'>Exercise: *quicksort*</font>
 
-La [page wikipedia](http://en.wikipedia.org/wiki/Quicksort)
- décrivant l’algorithme de tri *quicksort* donne le pseudo-code suivant:
+The [Wikipedia page](http://en.wikipedia.org/wiki/Quicksort)  of the *quicksort* algorithm provide the following code to sort a list:
 
     function quicksort('array')
        if length('array') <= 1
@@ -1492,24 +1526,32 @@ La [page wikipedia](http://en.wikipedia.org/wiki/Quicksort)
            else append 'x' to 'greater'
        return concatenate(quicksort('less'), 'pivot', quicksort('greater'))
 
-Transformer ce pseudo-code en code valide Python.
+Transform this code in valid Python.
 
-**Des indices**:
+**Hints**:
 
- * la longueur d’une liste est donnée par  `len(l)`
- * deux listes peuvent être concaténées avec `l1 + l2`
- * `l.pop()` retire le dernier élément d’une liste
+ * recall that the length of a list `l` is given by  `len(l)`
+ * two lists can be concatenated with `l1 + l2`
+ * `l.pop()` remove the last element of the list `l`
 
-**Attention**: une liste est mutable...
-
-Il vous suffit de compléter cette ébauche:
-
+**WARNING**: a list is mutable...
 
 ```python
 def quicksort(ll):
-    #XXX
+    # XXX TODO
+    return # XXX TODO
+```
+Test: quicksort([-2, 3, 5, 1, 3]) should output [-2, 1, 3, 3, 5, 1]
 
-quicksort([-2, 3, 5, 1, 3])
+
+A common structure is to have an optional argument, and testing whether it exists or not using `None`:
+
+
+```python
+def spam(arg1=None):
+    if arg1 is not None:
+        print(arg1)
+        # arg1 was specified, do something clever!
 ```
 
 ### Variable number of arguments
@@ -1525,7 +1567,7 @@ def varargin(*args):
 varargin(3,4,5)
 
 def multiple_argout(x, y):
-    return((y, x))
+    return ((y, x))
 
 print(multiple_argout(1, 2))
 ```
@@ -1557,276 +1599,7 @@ def varargin_kwargs(**kwargs):
     print("\n")
     
 varargin_kwargs(**values)
-varargin_kwargs(values) # error
+varargin_kwargs(values)  # raise an error
 ```
 
 More to read: https://stackoverflow.com/questions/2921847/what-does-the-star-operator-mean-in-a-function-call
-
-## Classes
-
- * Les *classes* sont les éléments centraux de la *programmation orientée objet*
-
- * Classe: structure qui sert à représenter un objet et l'ensemble des opérations qui peuvent êtres effectuées sur ce dernier.
-
-Dans Python une classe contient des *attributs* (variables) et des *méthodes* (fonctions). Elle est définie de manière analogue aux fonctions mais en utilisant le mot clé `class`. La définition d'une classe contient généralement un certain nombre de méthodes de classe (des fonctions dans la classe).
-
-* Le premier argument d'un méthode doit être `self`: argument obligatoire. Cet objet `self` est une auto-référence.
-* Certains noms de méthodes ont un sens particulier, par exemple : 
-   * `__init__`: nom de la méthode invoquée à la création de l'objet
-   * `__str__` : méthode invoquée lorsque une représentation de la classe sous forme de chaîne de caractères est demandée, par exemple quand la classe est passée à `print`
-   * voir http://docs.python.org/3/reference/datamodel.html#special-method-names pour les autres noms spéciaux
-
-### Example
-  
-
-
-```python
-class Point(object):
-    """Classe pour représenter un point dans le plan."""
-
-    def __init__(self, x, y):
-        """Creation d'un nouveau point en position x, y."""
-        self.x = x
-        self.y = y
-
-    def translate(self, dx, dy):
-        """Translate le point de dx and dy."""
-        self.x += dx
-        self.y += dy
-
-    def __str__(self):
-        return "Point: [{0:1.3f}, {1:1.3f}]".format(self.x, self.y)
-    
-    def __call__(self):
-        """At call print itself"""
-        print(self.__str__())
-```
-
-To create a new instance of the class `Point`:
-
-
-```python
-p1 = Point(x=0, y=0)  # appel à __init__ ;
-print(p1.x)
-print(p1.y)
-print("{0}".format(p1))  # appel à la méthode __str__
-p1()
-```
-
-
-```python
-p1.translate(dx=1, dy=1)
-print(p1.translate)
-print(p1)
-print(type(p1))
-```
-
-To run a method of the object `p1` (which is an instance of `Point`) simply use the dot:
-
-
-```python
-p2 = Point(1, 1)
-
-p1.translate(0.25, 1.5)
-
-print(p1)
-print(p2)
-```
-
-### Remarks
-
- * A method of a class is able to modify the state of a particular instance. This does not alter the other instantiations of the class.
- * method that do not depend of a particular instantiation can be decorated with the @staticmethod keyword.
-
-### <font color='red'>Exercise : Gaussians </font>
-
-Implement a class `Gaussian` with attributes `mean` and `std` with a method 
-   - `__str__` returning a string with the expression of the density
-   - `__eq__`  testing the equality of two instances.
-   - `__add__` implementing the addition of independant Gaussian 
-
-
-```python
-class Gaussian:
-    #XXX
-
-q1 = Gaussian(0, 1)
-q2 = Gaussian(1, 2)
- 
-print(q1)
-print(q2)
-print(q1 == q1)
-print(q1 == q2)
-print(q1 + q2)
-
-# should display
-# The density function is: exp(-(x - 0)^2 / (2*1^2)) / sqrt(2 * pi 1^2)
-# The density function is: exp(-(x - 1)^2 / (2*2^2)) / sqrt(2 * pi 2^2)
-# True
-# False
-# The density function is: exp(-(x - 1)^2 / (2*2.6457513110645907^2)) / sqrt(2 * pi 2.6457513110645907^2)
-
-
-```
-
-## Exceptions
-Sources: see https://fabienmaussion.info/scipro_ss2018/html/09-Exceptions.html
- * In Python errors are handled through `Exceptions`
- * An error throw an `Exception` interrupting the normal code execution
- * L'exécution peut éventuellement reprendre à l'intérieur d'un bloc de code `try` - `except`
-
-
-* A typical use case: stop the program when an error occurs:
-
-```python
-def my_function(arguments):
-
-    if not verify(arguments):
-        raise Expection("Invalid arguments")
-
-    # keep continuing
-```
-
-One may use `try`, `except`, `finally` to prevent errors to stop the program:
-
-```python
-try:
-    # normal code 1 goes here
-except:
-    # code for error handling goes here
-    # this code 2 is not executed unless the code 1
-    # above generated an error
-finally:
-    # optional. This clause is executed no matter what,
-    # and is generally used to release external resources.
-```
-
-### Example
-
-
-```python
-try:
-    print("test_var")
-    e = 4 
-    print(test_var) # raise an error: the test_var variable is not defined
-except:
-    print("Caught an expection")
-finally:
-    print("This code is executed every time")
-
-print("The program keep continuing... it does not freeze!")
-print('Beware! the variable ', 'e =', e, 'is still defined.')
-```
-
-To obtain some informations on the error: it is possible to access the intance of the `Exception` class thrown by the program through the syntax:
-
-
-```python
-try:
-    print("test")
-    print(testtt)       # error: the variable testtt is not defined
-except Exception as e:
-    print("Caught an expection:", e)
-```
-
-### The `with` statement
-
-
-```python
-fname = "scripts/hello-world.py"
-try:
-    # 1/0
-    file = open(fname)
-    data = file.read()
-    print(data)
-except FileNotFoundError:
-    print("File not found!")
-except (RuntimeError, TypeError, NameError, ZeroDivisionError):
-    print("Specific Error message 2")
-except:
-    print("Generic error message")
-finally:
-    file.close()  # important to release the access to the file !
-```
-
-
-```python
-with open(fname) as file: # Use file to refer to the file object
-    data = file.read()
-    print(data)
-    # at the end of the code chunk, the file.__exit__() method is called (ie file.close() is done automatically)
-```
-
-
-```python
-try:
-    with open("scripts/hello-world2.py") as file: # Use file to refer to the file object
-        data = file.read()
-        print(data)
-        # at the end of the code chunk, the file.__exit__() method is called (ie file.close() is done automatically)
-except:
-    print("Ooooooops, the file does not exists...")  
-
-```
-
-### <font color='red'>Exercise : Gaussians (again)</font>
-
-Update the constructor of the `Gaussian` class to check if the user has provided the right type of inputs (see also `assert` and `isinstance` routines). Print a custom explicit error message if it is not the case.
-
-
-```python
-class Gaussian:
-    #XXX
-```
-
-## Scope
-
-
-```python
-e = 0
-print(e)
-
-for i in range(1):
-    e = 1
-    
-print(e)
-
-
-def f():
-    e = 2
-
-
-print(e)
-```
-
-## Manipuler des noms de fichiers sur le disque
-
-
-```python
-import os
-# permet de fonctionner sur Linux / Windows /Mac
-print(os.path.join('~', 'work', 'src'))
-print(os.path.join(os.getcwd(), 'new_directory'))
-os.path.expanduser?
-print(os.path.expanduser(os.path.join('~', 'work', 'src')))
-```
-
-### <font color='red'>Exercise : Create a bunch of files</font>
-
-Write a simple script that creates, in the sub-directory `scripts`, the following text files: `myDb_0.txt`, `myDb_001.txt`, `myDb_002.txt`, ..., `myDb_049.txt`. The `i`-th file should contains a single line with the `i` first digits of pi.
-
-
-```python
-import os
-import math
-
-# XXX
-```
-
-## More links
-
-* http://www.python.org - Python official webpage
-* http://www.python.org/dev/peps/pep-0008 - Style and writing recommendation
-* http://www.greenteapress.com/thinkpython/ - A free book on python
-* [Python Essential Reference](http://www.amazon.com/Python-Essential-Reference-4th-Edition/dp/0672329786) - a good reference for general Python coding 
-* [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) - an excellent book for data science in Python
