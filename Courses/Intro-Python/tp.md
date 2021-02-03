@@ -601,7 +601,7 @@ print(start)
 print(stop)
 ```
 
-**Remark:** especially for french word (containing é, è, à, ç, etc.), you should check which character encoding system is used. See: unicode, utf8, etc. at <http://sametmax.com/lencoding-en-python-une-bonne-fois-pour-toute/>
+**Remark:** especially for french word (containing é, è, à, ç, etc.), you should check which character encoding system is used. See: unicode, utf8, etc. at <http://sametmax.com/lencoding-en-python-une-bonne-fois-pour-toute/> (fr).
 
 It is possible to omit `start` or `stop`: in this case the default values are 0 or the length of the string respectively.
 
@@ -617,7 +617,7 @@ s[2:]  # from the third char. to the end
 
 
 ```python
-print(len(s[5:]))  # len: shortcut for 'length'
+print(len(s[5:]))  # len: short for 'length'
 print(len(s) - 5)
 ```
 
@@ -1393,7 +1393,7 @@ More details here:
 
 ## Functions
 
-A Python function is defined by starting with the keyword `def`, followd by the name of the function, the signature in between `()`, and `:` at the end of the line.
+A Python function is defined by starting with the keyword `def`, followed by the name of the function, the signature in between `()`, and `:` at the end of the line.
 
 **Examples:**
 
