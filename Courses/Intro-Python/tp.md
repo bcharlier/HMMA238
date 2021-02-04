@@ -563,7 +563,7 @@ Toto said: "Hello! How's it going?"
 # TODO XXX
 ```
 
-See also string: `\t`, `\n`, etc.
+See also string: `\t` (tabulation), `\n` (chariot) , etc.
 ---
 
 
@@ -750,6 +750,8 @@ Print the real number $e=\exp(1)$ with 1, 10, 20 and 50 digits (one number by li
 
 ```python
 # TODO XXX
+# for i in [1, 10, 20]:
+    print(f"{math.e:1.{i}f}")
 ```
 ---
 
@@ -880,23 +882,6 @@ print(l2[::-1])
 
 **Warning:** l2.sort() works **in place** and outputs nothing, or rather `None`
 
-
-```python
-l2 = ['e', 'a', "b"]
-out = l2.sort()
-print(out)
-print(l2)
-```
-
-To output a sorted copy (if you need to keep the original intact):
-
-
-```python
-out = sorted(l2)
-print(out)
-out2 = sorted(l2, reverse=True)
-print(out2)
-```
 
 #### Append, insert, modify and remove elements in a list
 
@@ -1065,23 +1050,25 @@ Yet, you will face an error if you type the following command:
 point[0] = 20
 ```
 
+Usage: mostly output of functions.
+
 ### Dictionary
 
-They are similar to your day-to-day dictionary, and use a system of *key* and *values*: the *key* is the name of the attribute, and the *value* describes the key.
+They are similar to your day-to-day dictionary, and use a system of *keys* and *values*: the *key* is the name of the attribute, and the *value* describes the key.
 
 The syntax for dictionaries is: `{key1 : value1, ...}`:
 
 
 ```python
 params_bracket = {"parameter1": 1.0,
-          "parameter2": 2.0,
-          "parameter3": 3.0}
+                  "parameter2": 2.0,
+                  "parameter3": 3.0}
 
 # Alternatively:
 
 params_dict = dict(parameter1=1.0,
-              parameter2=2.0,
-              parameter3=3.0)
+                   parameter2=2.0,
+                   parameter3=3.0)
 
 print(type(params_dict))
 print(params_dict)
@@ -1090,7 +1077,7 @@ print(params_dict)
 ```python
 print("p1 =", params_bracket["parameter1"])
 print("p2 =", params_bracket["parameter2"])
-print("p3 =", params_bracket["parameter3"])
+print("p3 =", params_dict["parameter3"])
 ```
 
 
