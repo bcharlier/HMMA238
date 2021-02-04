@@ -750,15 +750,19 @@ Print the real number $e=\exp(1)$ with 1, 10, 20 and 50 digits (one number by li
 
 ```python
 # TODO XXX
-# for i in [1, 10, 20]:
+for i in [1, 10, 20]:
     print(f"{math.e:1.{i}f}")
 ```
 ---
 
 ```python
 # More advanced
-print("val = {0:1.15f},val2={1:1.15f}".format(a, b))
+print("val = {0:1.15f},val2={0:1.{2}f}".format(a, b, 4))
+
 ```
+
+New (XXX TODO): f-strings 
+<https://docs.python.org/3/reference/lexical_analysis.html#grammar-token-digit>
 
 ```python
 s = "The number {0:s} is approximately {1:1.111}"
