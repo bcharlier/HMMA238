@@ -761,8 +761,7 @@ print("val = {0:1.15f},val2={0:1.{2}f}".format(a, b, 4))
 
 ```
 
-New (XXX TODO): f-strings 
-<https://docs.python.org/3/reference/lexical_analysis.html#grammar-token-digit>
+New (XXX TODO): f-strings et <https://docs.python.org/3/reference/lexical_analysis.html#grammar-token-digit>
 
 ```python
 s = "The number {0:s} is approximately {1:1.111}"
