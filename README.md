@@ -8,6 +8,10 @@
 - Benjamin Charlier : benjamin.charlier@umontpellier.fr
 - Florent Bascou : florent.bascou@umontpellier.fr
 
+with the help of many students including:
+- Amelie Vernay
+- ...
+
 ## Web page
 
 <https://github.com/bcharlier/HMMA238>
