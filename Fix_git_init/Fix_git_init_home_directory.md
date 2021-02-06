@@ -7,7 +7,6 @@ No worries dude :)
 ![](paulo1.png)
 
 
-
 #### For UNIX-like users
 
 If you have added/committed the files, you may :
