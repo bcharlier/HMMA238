@@ -8,7 +8,6 @@ No worries dude :)
 
 
 
-
 #### For UNIX-like users
 
 If you have added/committed the files, you may :
