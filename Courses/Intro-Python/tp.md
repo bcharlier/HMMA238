@@ -1272,13 +1272,14 @@ scores = [100, 15, 17, 28, 43]
   
 # printing players and scores 
 for pl, sc in zip(players, scores): 
-    print("Player :  {0: <10}     Score : {1: <10}".format(pl, sc))
+    print(f"Player :  {pl}     Score : {sc}")
 ```
 
 ---
 ### <font color='red'>Exercise : Align display</font>
 Can you make the previous loop display the score in an align way? This is a StackOverflow question!
 *Hint*: use '<'
+
 ---
 
 VERY often, when you iterate over a list (or a similar object) you also need to recover the index associated to its elements. In Python `enumerate` makes it easy to read:
@@ -1504,7 +1505,7 @@ myfunc(p=3, verbose=True, x=7)
 ---
 ### <font color='red'>Exercise: *quicksort*</font>
 
-The [Wikipedia page](http://en.wikipedia.org/wiki/Quicksort)  of the *quicksort* algorithm provide the following code to sort a list:
+The [Wikipedia page](http://en.wikipedia.org/wiki/Quicksort)  of the *quicksort* algorithm provides the following code to sort a list:
 
     function quicksort('array')
        if length('array') <= 1
