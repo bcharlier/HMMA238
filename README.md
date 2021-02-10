@@ -41,11 +41,11 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 4. JS : (28/01) [Coding : algorithms, modules, basic types, functions, loops](Courses/Intro-Python/) [coding : list, dictionary, tuples, if statement and loops, exceptions](Courses/Intro-Python/)
 
-5. BC : (03/02) [hands on git](Courses/Git/), [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Courses/Intro-Python/)
+5. BC : (03/02) [hands on git](Courses/Git/)
 
 6. JS : (04/02) [`numpy` : basics on matrices (arrays), slicing, simple linear algebra, masking; `matplotlib`: first plots](Courses/Numpy-Matplotlib/)
 
-7. BC : (10/02) [Create a Python Module](Courses/Python-modules/)
+7. BC : (10/02) [Some git again](Courses/Git/), [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Courses/Classes_n_Exceptions/), [Create a Python Module](Courses/Python-modules/)
 
 8. JS : (11/02) [`numpy` : casting, concatenation, `imshow`, `meshgrid`, casting, copy](Courses/Numpy-Matplotlib/);  [`scipy`: EDO, Interpolation, Optimize](Courses/Scipy/)
 
