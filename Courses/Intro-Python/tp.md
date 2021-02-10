@@ -1505,7 +1505,7 @@ myfunc(p=3, verbose=True, x=7)
 ---
 ### <font color='red'>Exercise: *quicksort*</font>
 
-The [Wikipedia page](http://en.wikipedia.org/wiki/Quicksort)  of the *quicksort* algorithm provide the following code to sort a list:
+The [Wikipedia page](http://en.wikipedia.org/wiki/Quicksort)  of the *quicksort* algorithm provides the following code to sort a list:
 
     function quicksort('array')
        if length('array') <= 1
