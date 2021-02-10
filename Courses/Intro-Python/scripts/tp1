@@ -1,0 +1,29 @@
+def euclide(a,b):
+
+    a = abs(a)
+    b = abs(b)
+
+    if a == 0:
+        return b 
+
+    elif b == 0:
+        return a
+
+    while a != b:
+
+        if a > b :
+            a -= b 
+        else:
+            b -= a
+
+    return a
+
+print(euclide(4,3))
+
+print(3 < 4)#Booléen
+print(3*7.)
+print(type(3*7.))#Type 
+print(2**10)
+print(8%3) #Modulo 
+print(8/3)#Division renvoie un float
+print(8//3)#Modulo aussi

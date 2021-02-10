@@ -1,7 +1,7 @@
-#!/usr/bin/env python
+import math
+import string
+from math import exp
+alphabet = string.ascii_lowercase
+print(alphabet)
 
-# See meaning of the previous line here:
-# https://tinyurl.com/y2oup3pn
-
-"""First function ever."""
-print("Ciao World!")
+print(exp(1))
