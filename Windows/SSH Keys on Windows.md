@@ -24,11 +24,12 @@
 - Confirm your GitHub password.
 - ... You're done !
 
+
 Else, you can try another tutorial at <https://vladmihalcea.com/tutorials/git/windows-git-ssh-authentication-to-github/>.
 You can do this tutorial with Git Bash too, it is not necessary to load Git Setup.
 Tips:
 - When you are creating the ssh key with puttygen, enter the email adress associated to your GitHub account in the "Key_comment" field.
-- If your computer is in French, this path `C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
+- If your operating system's language is French, this path `C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
 does not necessary exist.
 You have to use this path `C:\Utilisateurs\%USERNAME%\AppData\Roaming\Microsoft\Windows\Menu Démarrer\Programmes\Démarrage` .
 (AppData is an hidden file, click on "Affichage" then "Éléments cachés" to see it.)
@@ -36,6 +37,7 @@ You have to use this path `C:\Utilisateurs\%USERNAME%\AppData\Roaming\Microsoft\
   Type `cd ..` twice then `cd ./Putty`. You are in the good directory.
   Now, type `plink.exe -v git@github.com`. Press `Enter`.
   You are done !
+  
 ----
 
 ## Testing your SSH key
