@@ -26,7 +26,7 @@
 # * `matplotlib` is a powerful module for generating 2D and 3D graphics.
 # * syntax very close to Matlab
 # * supports text and $\LaTeX$ labels
-# * quality outputs for various formats (.png, .pdf, .svg, .gif,etc.)
+# * quality outputs for various formats (.png, .pdf, .svg, .gif, etc.)
 # * interactive graphical user interface to explore the figures (using widget,
 #   possibly with notebooks)
 
@@ -93,7 +93,7 @@ M = np.array([[1, 2], [3, 4]])
 print(M)
 print(M[0, 1])
 
-# The objecs `v` and `M` are of type `ndarray` (the `numpy` standard format)
+# The objects `v` and `M` are of type `ndarray` (the `numpy` standard format)
 
 # %%
 
@@ -339,7 +339,7 @@ np.random.randn(5, 5)  # n stands for normal here
 
 
 # #### Random seed
-# It is ofent useful to "fix" the way the randomness is generated:
+# It is often useful to "fix" the way the randomness is generated:
 # https://fr.wikipedia.org/wiki/Graine_al%C3%A9atoire
 
 # %%
@@ -370,7 +370,7 @@ plt.ylabel('Sample size')
 plt.subplot(1, 2, 2)
 
 plt.hist(a + 10, bins=40, density=True)
-plt.title('Histrogram (Density)')
+plt.title('Histogram (Density)')
 plt.ylabel('Density')
 
 plt.tight_layout()  # avoid axes display issues...matplotlib might be tricky
@@ -397,7 +397,7 @@ axes[1].set_title('Histogram (Density)')
 plt.tight_layout()
 
 
-# ##  Input/Ouput files
+# ##  Input/Output files
 
 
 # ### `numpy` default/recommended storing format  (`.npy`)
@@ -412,7 +412,7 @@ np.save("random-matrix.npy", M)
 !cat random-matrix.npy
 
 
-# ### CSV
+# ### CSV`
 # You can use CSV (Comma-Separated Values), but this is rather uncommon, with
 # `numpy`, it is way more common with pandas `though`
 
@@ -544,7 +544,7 @@ print(M.shape)
 print(M[1, :].shape, M[:, 1].shape)
 
 
-# Uptade a matrix entry
+# Update a matrix entry
 
 # %%
 
@@ -586,7 +586,7 @@ A[1:3] = [-2, -3]
 A
 
 
-# You can ommit any of the start/stop/step argument in `M[start:stop:step]`:
+# You can omit any of the start/stop/step argument in `M[start:stop:step]`:
 
 # %%
 
@@ -595,7 +595,7 @@ A[:]
 
 # %%
 
-A[::2]  # stepsise = 2
+A[::2]  # stepsize = 2
 
 
 # %%
@@ -605,7 +605,7 @@ A[:3]  # the first 3 elements
 
 # %%
 
-A[3:]  # that last elemnts, starting from the 4th
+A[3:]  # that last elements, starting from the 4th
 
 # %%
 
@@ -1473,3 +1473,5 @@ get_ipython().run_line_magic('pinfo2', 'np.linalg.norm')
 # * http://scipy.github.io/old-wiki/pages/Tentative_NumPy_Tutorial.html
 # * http://scipy-lectures.org/ - for advanced features (e.g., sparse matrices)
 # * http://scipy.org/NumPy_for_Matlab_Users - guide migrating MATLAB users
+
+# %%
