@@ -36,12 +36,13 @@ $ cd ../../home/../etc/../home/
 $ pwd
 ```
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. What is the difference between `cd ./toto/tata`, `cd toto/tata` `cd ~/toto/tata` and `cd /toto/tata`
    2. Use the `locate` command to determine if `matlab` is installed on your system
    3. Use the `which` command to determine which instance of python is used when you use the `python` command. Same question with `python2`.
-
+----
 
 ## Getting help
 
@@ -99,30 +100,36 @@ Most shells have similar glob rules, and they usually consist of:
 
 
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Go to `/usr/lib/R/bin/` and list every file starting with a letter `R` and containing `i`
    2. Go to `/usr/lib/R/bin/` and list every file containing the letter `c`, then any character, and then a `n` (e.g. `config` or `javareconf`)
    3. Got to `/var/log/` and list every files with a double extension: the former one is a dot followed by a number, the last one is `.log` (e.g. `Xorg.3.log` or  `Xorg.0.log`)
    4. Got to `/var/log/` and list every files with a name starting with a `a` and containing at least a digit
+----
 
 ## Listing files
 
 To list the files in a folder use the command `ls`.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. describe the option `-a`.
    2. describe the option `-R`.
    3. describe the option `-lh`.
    4. List all the files in the directory `/usr/lib/` without `cd` in it.
+----
 
 The `file` command can be used to display the information of a file (if not given by the extension itself).
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. List all the files in the directory `/usr/lib/R/bin` and sort them by size.
 2. Display the type information of the files in `/var/log/` one call to `file`.
+----
 
 ## Symbolic links
 
@@ -138,9 +145,11 @@ A symlink can be created with the command `ln`.
 $ ln -s target_path link_path
 ```
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Create a symlink called `my_python` pointing to `/usr/bin/python` in your `home` directory.
+----
 
 ## Users
 
@@ -183,12 +192,14 @@ To change the permissions of file, use the `chmod`. For instance, to add executi
 $ chmod u+x toto.txt
 ```
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Create an empty file called `foo.py` in the current directory
    2. Display its owner, group and permissions
    3. Change the group of `foo.py` to `pulse`
    4. Add read and write permissions to user in the group `pulse`
+----
 
 Ref: <https://en.wikipedia.org/wiki/File_system_permissions>. See also `chown` and `chgrp`
 
@@ -223,10 +234,12 @@ $ echo ${ENV_NAME}
 
 Some documentation: <https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps>
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Display the PATH env
    2. Is the order of the list important?
+----
 
 **Useful tips:**
 
@@ -244,10 +257,11 @@ $ nano
 
 or `joe` (default on your system).
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Set `nano` as your default text editor
-
+----
 
 ### Useful `unix` commands
 
@@ -271,20 +285,24 @@ To show the system hostname you may use `hostname` command.
 
 To show information about your processor use `lscpu` and to list the devices connected to your machine use `lspci`.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Determine how many physical core you have on your machine.
    2. Determine the vendor of the network card of your machine.
+----
 
 ### Process
 
 Learn how to use `ps`, `top`, `htop`, `kill`, `pkill`, ... reading <https://www.tutorialspoint.com/unix/unix-processes.htm>
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Describe the effect of `Ctrl+C` in a terminal
    2. Describe the effect of `Ctrl+Z` in a terminal
    3. Describe the effect of `Ctrl+D` in a terminal
+----
 
 ## Display text content
 
@@ -292,21 +310,24 @@ Learn how to use `ps`, `top`, `htop`, `kill`, `pkill`, ... reading <https://www.
 
 The dataset we are going to use is available at <https://www.data.gouv.fr/fr/datasets/accidents-de-velo-en-france/>. We will focus on bicycles accident in France from 2005-2017.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Create a folder `data_bicycle` and `cd` to it.
    2. Download the `.csv` file available at the following URL: <https://koumoul.com/s/data-fair/api/v1/datasets/accidents-velos/raw> as `bicycle_db.csv` (use the option `-O` of  `wget` or redirect the output of `curl` with `-o` operator described below). Details (in French) on the dataset are available here: <https://www.data.gouv.fr/fr/datasets/accidents-de-velo/>
+----
 
 ### Text commands: `tail`, `head`, `cat`, `wc` and `split`
 
 Please read the manual of `tail`, `head`, `cat`, `wc` and `split`
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Use the word count `wc` command to display the number of lines of `bicycle_db.csv`
    2. Display the 53 first line with the `head` command. Same with the 30 last lines (see `tail`)
    3. Use the `split` command and its options `-d` `-l` and `--additional-suffix` to create files with a maximum number of lines of 10000 (hint you should get only 6 files) with names `bike01.csv`, ..., `bike06.csv`
-
+----
 
 ### The `grep` command
 
@@ -316,11 +337,12 @@ Please read the manual of `tail`, `head`, `cat`, `wc` and `split`
 $ man grep
 ```
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Count the number of accident in 2005 using the command `grep` (hint: remark that each line **starts** with the string `"YYYY` where `YYYY` is the year)
    2. Display the line number of the accident occurring on a Wednesday, in October 2017 using a regular expression.
-
+----
 
 ### The `find` command
 
@@ -332,10 +354,12 @@ $ find /usr/lib/ -name "*qt5*" -type f
 
 list all the **files** in `/usr/lib/` containing the `qt5` string in its name.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. What is the aim of the `-exec` option?
    2. Change the permissions of any file with extension `.csv` in your `home` to `777`
+----
 
 Reference: <https://www.tecmint.com/35-practical-examples-of-linux-find-command/>
 
@@ -372,7 +396,8 @@ or display it in a pager
 $ du | sort -nr | less
 ```
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
   1. Display the last 15 accidents occurring with `Vent fort` condition
   2. Display the type of crossing of the accident occurring with `Vent fort` in 2010. It should return
@@ -382,8 +407,9 @@ $ du | sort -nr | less
     Intersection en T
     Intersection en X
     ```
+----
 
-### Redirections
+### Redirection
 
 The operator `>` redirect the `stdout` of a command (LHS) into a file (RHS). Warning! it erases the file content. The operator  `>>` append the output of the LHS to a file.
 
@@ -400,10 +426,12 @@ Finally, the operator `<` read from the file (RHS) and send the content to stdin
 $ wc -l < toto.txt
 ```
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Create a single file `bike2016.csv` containing all the accident that occurred in 2016.
    2. Append the accidents of year 2017 to the previous file and then rename it `bike2016_17.csv`.
+----
 
 ## Pattern matching (part II):  Regexp
 
@@ -429,7 +457,8 @@ A regular expression (shortened as `regex` or `regexp`; also referred to as `rat
  ```
 See <https://regexr.com/>. See also the doc of the `sed`, `awk` programs and the `perl` language. Reference: <https://en.wikipedia.org/wiki/Regular_expression>
 
-**Exercice:**
+----
+### <font color='red'>Exercise:</font>
 
    1. Go to <https://regex101.com/> and copy/paste the following list (in the `TEST STRING` frame):
       ```
@@ -453,3 +482,5 @@ See <https://regexr.com/>. See also the doc of the `sed`, `awk` programs and the
    3. Capture with a regexp all the song names (between the track number and the extension). You should get this in the `MATCH INFORMATION` frame on the right:
 
    ![result of regexp capture](regexp.png)
+
+----

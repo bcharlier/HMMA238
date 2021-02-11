@@ -62,9 +62,9 @@ The `keyboard shortcuts Reference guide` is available in the `help` menu (or wit
 It can be very useful to learn some shortcuts.
 For instance:
 
-- Learn how **multicursors** work (e.g., search for an occurrence with  `Ctrl+d`)
+- Learn how **multicursors** work (e.g., search for an occurrence with `Ctrl+d`)
 - Create aligned **multicursors** with `Ctrl+Shift`
-- Learn how to move an entire line  with `Alt+up`
+- Learn how to move an entire line with `Alt+up`
 - etc.
 
 ### Using VSCode as a `python` IDE
@@ -98,4 +98,13 @@ This part is from the tutorial <https://code.visualstudio.com/docs/python/python
 4. Next, you have to learn how to debug a simple `python` script <https://code.visualstudio.com/docs/python/debugging>.
 
 ----
+
+## Recommended extensions for VS Code
+
+- Markdown visualizer (extension with TeX rendering even better : [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath))
+- linter/flake8: [cornflakes](https://marketplace.visualstudio.com/items?itemName=kevinglasson.cornflakes-linter)
+- Spell check for less typos: [SpellChecker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- LaTeX compiler: XXX TODO
+- [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)  to collaboratively edit and debug with others in real time, regardless of your programming language.
+
 
