@@ -399,6 +399,19 @@ plt.tight_layout()
 
 # ##  Input/Ouput files
 
+
+# ### `numpy` default/recommended storing format  (`.npy`)
+#
+# To save and load `numpy` *arrays* : `numpy.save` and `numpy.load` :
+
+# %%
+
+M = np.random.rand(3, 3)
+print(M)
+np.save("random-matrix.npy", M)
+!cat random-matrix.npy
+
+
 # ### CSV
 # You can use CSV (Comma-Separated Values), but this is rather uncommon, with
 # `numpy`, it is way more common with pandas `though`
@@ -407,8 +420,6 @@ plt.tight_layout()
 
 # %%
 
-M = np.random.rand(3, 3)
-print(M)
 np.savetxt("random-matrix.csv", M)
 
 
@@ -433,15 +444,6 @@ effectifs
 # *Remark*: you might loose some precision when doing the storage,
 # if not careful.
 
-
-# ### `numpy` default/recommended storing format  (`.npy`)
-#
-# To save and load `numpy` *arrays* : `numpy.save` and `numpy.load` :
-
-# %%
-
-np.save("random-matrix.npy", M)
-!cat random-matrix.npy
 
 
 # %%
