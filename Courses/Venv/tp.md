@@ -2,7 +2,7 @@
 
 ## Preamble
 
-A venv is an isolated standalone python distribution with specific version of modules. This is useful when one need to run different python version in a single system. There is various command that are able to create a venv: `venv`, `virtualenv`, `conda`... We are going to use `Anaconda` to set up various `python` virtual environment on our system. 
+A venv is an isolated standalone python distribution with specific version of modules. This is useful when one need to run different python versions in a single system. There are various commands that are able to create a venv: `venv`, `virtualenv`, `conda`... We are going to use `Anaconda` to set up various `python` virtual environments on our system. 
 
 More information are available at: <https://virtualenv.pypa.io/en/latest/>, <https://docs.python.org/3/library/venv.html>
 
@@ -29,7 +29,7 @@ Please have a look to <https://pypi.org/>, <https://packaging.python.org/tutoria
 
 ## Anaconda
 
-Anaconda is a package manager, an environment manager coming with a Python/R data science distribution, and a large collection of open-source packages. It is cross-platform and is very popular choice in the data scientist community. Nevertheless, it suffer from a  main drawback: it is heavy. Moreover, it comes with its own package manager `conda` which allow you to install python module (like `pip`) and other program. 
+Anaconda is a package manager, an environment manager coming with a Python/R data science distribution, and a large collection of open-source packages. It is cross-platform and is a very popular choice in the data scientist community. Nevertheless, it suffers from a main drawback: it is heavy. Moreover, it comes with its own package manager `conda` which allows you to install python module (like `pip`) and other programs. 
 
 On the Linux box provided by the FdS, there is a terminal with the $PATH environment variable already configured (`/net/apps/bin/init_anaconda3`). You may launch it via the Graphical User Interface.
 
@@ -155,7 +155,7 @@ $ conda clean --all
 ----
 ### <font color='red'>Exercise:</font>
 
-1. Remove **all** the environment create during this session
+1. Remove **all** the environments created during this session
 2. Create an environment called `hmma238_env` with `matplotlib` (this venv will be used in the next courses)
 3. Clean the `conda` caches to free disk space.
 ----
