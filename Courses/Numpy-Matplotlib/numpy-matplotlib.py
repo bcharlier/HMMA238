@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 # coding: utf-8
 
 # # `numpy`  multi-dim arrays) and `matplotlib` (visualization 2D / 3D)
@@ -21,7 +22,7 @@
 # It provides powerful data structures for the manipulation of more general
 # vectors, matrices and tensors.
 # * `numpy` is written in `C` and `Fortran` hence its high performance when
-# calculations are vectorized, i.e. formulated as vector/matrix operations.
+# calculations are vectorized, i.e., formulated as vector/matrix operations.
 
 # * `matplotlib` is a powerful module for generating 2D and 3D graphics.
 # * syntax very close to Matlab
@@ -70,20 +71,20 @@ print(type(v))
 
 x = np.array([0, 1, 2, 3])
 
-fig = plt.figure()
+fig = plt.figure(figsize=(5,2))
 plt.plot(x, v, 'rv--', label='v(x)')
 # r for red, v for triangle, -- for dash line
-plt.legend(loc='lower right')
+plt.legend(loc='upper left')
 plt.xlabel('x')
 plt.ylabel('v')
 
 plt.title('Mon titre')
 
 plt.xlim([-1, 4])
-plt.ylim([0, 5])
+plt.ylim([-10, 5])
 
 plt.show()  # to force the display
-# fig.savefig('toto.svg')  # uncomment to save on disk
+fig.savefig('toto.pdf')  # uncomment to save on disk
 
 
 # ###  Create matrices / 2-d `numpy` arrays from a list of lists
@@ -91,7 +92,7 @@ plt.show()  # to force the display
 # %%
 M = np.array([[1, 2], [3, 4]])
 print(M)
-print(M[0, 1])
+print(M[1, 1])
 
 # The objects `v` and `M` are of type `ndarray` (the `numpy` standard format)
 
@@ -164,8 +165,8 @@ a.dtype
 # %%
 
 a = np.array([1, 2, 3], dtype=np.int64)
-b = np.array([2, 2, 3], dtype=np.int64)
-b = b.astype(float)
+b = np.array([0, 1, 1], dtype=np.int64)
+b = b.astype(bool)
 print(a / b)
 
 
@@ -193,7 +194,7 @@ M
 # %%
 
 # Create a simple interval
-x = np.arange(0, 10, 2)  # arguments: start, stop, step
+x = np.arange(0, 9, 2)  # arguments: start, stop, step
 x
 
 
@@ -223,15 +224,6 @@ fig = plt.figure(figsize=(5, 5))
 plt.plot(xx, np.sin(xx))
 plt.show()
 
-
-# %%
-
-print(np.logspace(0, 10, 10, base=np.e))
-
-
-# ### <font color='red'> EXERCISE : log/exp </font>
-# What is the value 3.03777 corresponding to ?
-
 # %%
 
 logarray = np.logspace(1, 1000, 3)
@@ -240,12 +232,18 @@ np.log(logarray)
 
 # %%
 
-(np.logspace(1, 3, num=3))
+(np.logspace(1, 10, num=10, base=2))
 
 
 # %%
 
 np.logspace?
+# %%
+
+print(np.logspace(0, 10, num=10, base=np.e))
+
+# ### <font color='red'> EXERCISE : log/exp </font>
+# What is the value 3.03777 corresponding to ?
 
 # #### `diag`
 
@@ -271,11 +269,10 @@ my_diag = np.array([0, 0, 0])
 print(my_diag.shape)
 print(M.shape)
 np.diag(my_diag)
-np.fill_diagonal(M, my_diag)
+np.fill_diagonal(, my_diag)
 print(M)
 
 
-# #### `diag`
 #
 # This function also extract the diagonal value of an *array* :
 
@@ -287,7 +284,7 @@ print(np.diag(A))
 
 # %%
 
-np.diag(A, -1)
+np.diag(A, k=-3)
 
 
 # #### `zeros`, `ones` and  `full`
@@ -300,9 +297,10 @@ print(np.zeros((3,), dtype=int).dtype)
 
 # %%
 
-zero_mat_float = np.zeros((3, 4, 6))
+zero_mat_float = np.zeros((2, 3, 5))
 
 print(zero_mat_float.dtype)
+print(zero_mat_float)
 zero_mat_float.shape
 zero_mat_float[1, :, :]
 
@@ -338,6 +336,8 @@ np.random.rand(5, 5)
 np.random.randn(5, 5)  # n stands for normal here
 
 
+# Rem: cf. scipy.stats for more on random generators
+
 # #### Random seed
 # It is often useful to "fix" the way the randomness is generated:
 # https://fr.wikipedia.org/wiki/Graine_al%C3%A9atoire
@@ -353,24 +353,42 @@ np.random.rand(12)
 # %%
 
 np.random.seed(seed=33)
-np.random.rand(12)
+print(np.random.rand(12))
+print(np.random.rand(12))
+print(np.random.rand(12))
 
+# %%
+np.random.seed(seed=33)
+print(np.random.rand(12))
+
+np.random.seed(seed=33)
+print(np.random.rand(12))
+
+np.random.seed(seed=33)
+print(np.random.rand(12))
 
 # #### Histograms for random samples
 
 # %%
 
-a = np.random.randn(10000)
+a = np.random.normal(loc=0.0, scale=1., size=(10000,))
+b = np.random.normal(loc=0.0, scale=10., size=(10000,))  # scale =  std
+
 plt.figure(figsize=(5, 2))
-plt.subplot(1, 2, 1)
-plt.hist(a, bins=40, density=False)
-plt.title('Histogram (Sample size)')
+
+plt.subplot(1, 3, 1)
+plt.hist(a, bins=40, density=True)
+plt.title('Histogram \n (Sample size)')
 plt.ylabel('Sample size')
 
-plt.subplot(1, 2, 2)
+plt.subplot(1, 3, 2)
+plt.hist(10 * a, bins=40, density=True)
+plt.title('Histogram \n (Density)')
+plt.ylabel('Density')
 
-plt.hist(a + 10, bins=40, density=True)
-plt.title('Histogram (Density)')
+plt.subplot(1, 3, 3)
+plt.hist(b, bins=40, density=True)
+plt.title('Histogram \n (Density)')
 plt.ylabel('Density')
 
 plt.tight_layout()  # avoid axes display issues...matplotlib might be tricky
@@ -396,9 +414,20 @@ axes[1].set_title('Histogram (Density)')
 
 plt.tight_layout()
 
+# %%
+fig, axes = plt.subplots(1, 2, sharey='row')
+
+axes[0].hist(a, bins=40, density=True)
+axes[0].set_ylabel('Sample size')
+axes[0].set_title('Histogram (Sample size)')
+
+axes[1].hist(a + 10, bins=40, density=False)
+axes[1].set_title('Histogram (Density)')
+
+plt.tight_layout()
+
 
 # ##  Input/Output files
-
 
 # ### `numpy` default/recommended storing format  (`.npy`)
 #
@@ -424,10 +453,6 @@ np.savetxt("random-matrix.csv", M)
 
 
 # %%
-effectifs
-Effectifs
-Effectifs
-effectifs
 !pwd  # check the new file in your folder
 !ls
 # to read from a txt file: `numpy.genfromtxt`,
@@ -437,19 +462,15 @@ effectifs
 MM = np.genfromtxt('random-matrix.csv')  # create an array from a csv file
 print(MM)
 
-effectifs
-Effectifs
-Effectifs
-effectifs
 # *Remark*: you might loose some precision when doing the storage,
 # if not careful.
-
 
 
 # %%
 
 N = np.load("random-matrix.npy")
-N
+print(N)
+
 
 # ## Other properties of `numpy` *arrays*
 
@@ -619,13 +640,13 @@ M = np.arange(12).reshape(4, 3, order='F')  # F stands for Fortran convention
 print(M)
 M = np.arange(12).reshape(4, 3, order='C')  # F stands for C convention
 print(M)
+M = np.arange(12).reshape(4, 3)  # F stands for Fortran convention
+print(M)
 
-
-# Negative indexes :
 
 # %%
 
-A = np.array([1, 2, 3, 4, 5])
+A = np.array([1, 2, 3, 4, 50])
 
 
 # %%
@@ -634,7 +655,7 @@ A[-1]  # last index
 
 # %%
 
-A[:-1]
+A[:-1]  # negative indexes
 
 
 # %%
@@ -646,9 +667,8 @@ A[-3:]   # last 3 indexes
 # Compute the finite differencing of $A$, i.e., the vector $A[k+1]-A[k]$
 # for $k=0, \dots,n-1$ (where $n$ is the length of A).
 # Remark: this is often used to perform derivatives approximations.
-
-# *slicing* works similarly for multi-dimensionnels *array*.
 # You can check your solution with the specific `numpy` function `np.diff`.
+# *slicing* works similarly for multi-dimensionnels *array*.
 
 # %%
 
