@@ -3,12 +3,12 @@
 Let us say we are working with a team on a new project and we want to use git as a team work tool.  
 
 ## Configuration phase 
-First of all, go to a directory of our choice and open a terminal from it.  
+First of all, go to a directory of our choice and open a terminal from it. (Or open a terminal and go to a directory of your choice from it.)
 Now we want our teammates to be able to identify who made each contribution.  
 For this purpose, we need to set up a name and an e-mail :  
 ```
 $ git config --global user.name "Your Name"
-$ git config --global user.email "your@ema.il"
+$ git config --global user.email "your@email"
 ```
   
 Since we want to track a remote repository,  
@@ -21,6 +21,7 @@ $ git clone <url> .
 
 # or if you want to use SSH cloning, see
 # https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+# You can copy the url by first clicking on the "Code" button and then on the "copy-to-clipboard" icon.
 ```
 
 ## Working phase
@@ -122,6 +123,9 @@ clone ==> create branch  ==> work on it ==> check status ==> add & commit ==> pu
 
 
 # Resources
-https://git-scm.com/book/en/v2
-https://www.youtube.com/c/Coreyms/playlists
+
+- https://git-scm.com/book/en/v2
+- https://www.youtube.com/c/Coreyms/playlists
+- https://www.atlassian.com/fr/git/tutorials/learn-git-with-bitbucket-cloud (french)
+- https://docs.github.com/en
 
