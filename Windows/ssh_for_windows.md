@@ -5,7 +5,7 @@
 
 ----
 
-## Creating and setting up an SSH key
+## Creating and setting up an SSH key in Windows
 
 - Open Git BASH
 - Type `cd ~/.ssh`
@@ -26,11 +26,11 @@
 
 ----
 
-## Testing your SSH key
+## Testing your SSH key with Windows
 
 - Create a new repository :
   - On your GitHub main page, that should be located here : `https://github.com/YourUserName`, click on **Repositories**.
-  - Click on **New** and give your new repository a name, say "My_first_repo". In the *Initialize this repository with:* section, select **Add a README file** and finally click on **Creat repository**.
+  - Click on **New** and give your new repository a name, say "My_first_repo". In the *Initialize this repository with:* section, select **Add a README file** and finally click on **Create repository**.
 - After that you should automatically be located on your new repository. Click on the green **Code** button and select **SSH**. Copy the link and go back to your Git BASH terminal.
 - Type `cd ..` to quit your `.ssh` directory.
 - Type `git clone` and then paste (after a *space*) the link you just copied (right-click and select **Paste**). It should look something like this : `git clone git@github.com:YourUserName/My_first_repo.git`. Press `Enter`. (Note : If you chose to put a passphrase, you are asked for it : `Enter passphrase for key '/d/Users/Vamelie/.ssh/id_rsa':` so type your passphrase and press `Enter`, otherwise you might see this `Are you sure you want to continue connecting (yes/no/[fingerprint])?` so just type `yes`).
