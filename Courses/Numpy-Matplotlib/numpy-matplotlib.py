@@ -643,6 +643,24 @@ print(M)
 M = np.arange(12).reshape(4, 3)  # F stands for Fortran convention
 print(M)
 
+# difference in time
+# %%
+import time
+# do stuff
+n_rows, n_col = 1000, 10000
+big_m = np.random.rand(n_rows, n_col)
+
+big_m_c = np.ascontiguousarray(big_m)
+t = time.time()
+for i in range(n_rows):
+        np.sum(big_m_c[i, :]**2)
+print(time.time() - t)
+
+big_m_f = np.asfortranarray(big_m)
+t = time.time()
+for i in range(n_rows):
+        np.sum(big_m_f[i, :]**2)
+print(time.time() - t)
 
 # %%
 
