@@ -640,44 +640,34 @@ M = np.arange(12).reshape(4, 3, order='F')  # F stands for Fortran convention
 print(M)
 M = np.arange(12).reshape(4, 3, order='C')  # F stands for C convention
 print(M)
-M = np.arange(12).reshape(4, 3)  # F stands for Fortran convention
+M = np.arange(12).reshape(4, 3)  # C order by default
 print(M)
 
 # difference in time
 # %%
 import time
 # do stuff
-n_rows, n_col = 1000, 10000
-big_m = np.random.rand(n_rows, n_col)
+n_rows, n_cols = 10000, 10000
+big_m = np.random.rand(n_rows, n_cols)
 
+# Variant 1: C order (lines)
 big_m_c = np.ascontiguousarray(big_m)
 t = time.time()
-for i in range(n_rows):
-        np.sum(big_m_c[i, :]**2)
-print(time.time() - t)
+for i in range(n_cols):
+        np.sum(big_m[:, i]**2)
+print("C:", time.time() - t)
 
+# Variant 2: Fortran order (columns)
 big_m_f = np.asfortranarray(big_m)
 t = time.time()
-for i in range(n_rows):
-        np.sum(big_m_f[i, :]**2)
-print(time.time() - t)
+for i in range(n_cols):
+        np.sum(big_m_f[:, i]**2)
+print("F:", time.time() - t)
 
 # %%
-
 A = np.array([1, 2, 3, 4, 50])
-
-
-# %%
-
 A[-1]  # last index
-
-# %%
-
 A[:-1]  # negative indexes
-
-
-# %%
-
 A[-3:]   # last 3 indexes
 
 
@@ -717,7 +707,7 @@ print(A[[0, 1, 3], :])
 print(A[:, [0, 1, 3]])
 
 
-# ### <font color='red'> EXERCISE : slicing </font>
+# ### <font color='red'> EXERCISE : slicing / vectorization </font>
 #
 # Create a $6 \times 6$ matrix where the integers from 1 to 36 are stored
 # (in column ordering / Fortran ordering).
@@ -728,9 +718,8 @@ print(A[:, [0, 1, 3]])
 print(np.transpose(np.arange(1, 37).reshape(6, 6)))
 print((np.arange(1, 37).reshape(6, 6)).T)
 
-
 # ### *fancy indexing*
-#
+
 # %%
 
 row_indices = [1, 2, 3]
@@ -747,11 +736,10 @@ print(A)
 
 
 # Using a binary mask:
-
 # %%
 
 B = np.arange(5)
-B
+print(B)
 
 
 # %%
@@ -768,17 +756,16 @@ B[row_mask]
 
 
 # %%
-
-# alternative
 a = np.array([1, 2, 3, 4, 5])
 print(a < 3)
-print(a[a > 3])
-print(a)
-
+# %%
+print(a[a <= 3])
 
 # %%
 
 print(A)
+# %%
+
 print(a < 3)
 print(A[:, a < 3])
 
@@ -795,9 +782,11 @@ x = np.arange(0, 10, 0.5)
 print(x)
 mask = (x > 5) * (x < 7.5)
 print(mask)
+y = (np.random.randn(len(x)))
+print(y)
 indices = np.where(mask)
-indices
-
+print(indices)
+print(y[indices])
 
 # %%
 
@@ -833,12 +822,12 @@ v1 + 2
 
 # %%
 
-plt.figure()
+plt.figure(figsize=(8,4))
 plt.subplot(1, 2, 1)
-plt.plot(v1 ** 2, 'g--', label=r'$y = x^2$')
+plt.plot(v1 ** 2, '--', color='blue', label=r'$y = x^2$')
 plt.legend(loc=0)
 plt.subplot(1, 2, 2)
-plt.plot(np.sqrt(v1), 'r*-', label=r'$y = \sqrt{x}$')
+plt.plot(np.sqrt(v1), '*-', color='red', label=r'$y = \sqrt{x}$')
 plt.legend(loc=2)
 plt.show()
 
@@ -856,7 +845,7 @@ print(A)
 # %%
 
 A * A  # element-wise multiplication
-
+print(A**2)
 
 # ### Matrix algebra
 #
@@ -872,35 +861,36 @@ print(np.dot(A, A))  # matrix / matrix multiplication
 print(A.dot(A))  # matrix / matrix multiplication
 print(A @ A)  # matrix / matrix multiplication
 print(A * A)  # element-wise matrix / matrix multiplication
+print(np.exp(A))
 
+# %%
+print(np.linalg.matrix_power(A, 3))
+print(A @ A @ A)
+
+# from scipy.linalg import expm
+# expm(A)
 
 # %%
 
 v1
-
-
-# %%
-
 A.dot(v1)  # matrix / vector multiplication
-
-
-# %%
-
 np.dot(v1, v1)  # vectors inner product
 
 
 # ### Transposition : Symmetric/anti-symmetric matrices
 
 # %%
-
+print(A)
 S1 = (A + A.T) / 2  # orthogonal projection of A onto symmetric matrices
+print(S1)
 
-
+S2 = (A + np.transpose(A))/2
+print(S2)
 # %%
 
 A1 = (A - A.T) / 2  # orthogonal projection of A onto anti-symmetric matrices
 print(A1)
-
+print(np.trace(A1))
 
 # ### Orthogonality for the trace scalar product
 #
@@ -909,7 +899,7 @@ print(A1)
 # %%
 
 print(A1 + S1)
-np.trace(S1.dot(A1))
+np.trace(S1 @ A1)  # inner product (fr: "produit scalaire")
 
 
 # %%
@@ -943,12 +933,13 @@ D = C.T.dot(C)  # idem multiply C^T by C : C^T C
 # ### <font color='red'> EXERCISE : *numpy* ninja </font>
 #
 # Without any loop (`for/while`)
-#  * <font color='red'> Create a $5 \times 4$ random (uniform) matrix `Mat`
+#  * <font color='red'> Create  `Mat`:
+# Mat = np.array([[n+m*10 for n in range(5)] for m in range(5)])
 #    </font>
 #  * <font color='red'> Replace every other column by its value minus the value
 # of the following column (except for the last one). More precisely,
 # starting from Mat = [C_1, C_2, C_3, C_4] (4 columns), one aims at creating
-# Mat = [C_1 - 2 C_2, C_2 - 2 C3, C_3 -2 C4, C_4]
+# NewMat = [C_1 - 2 C_2, C_2 - 2 C3, C_3 -2 C4, C_4]
 # </font>
 #  * <font color='red'> Replace the negative values by 0,
 # using a binary mask.</font>
@@ -956,16 +947,17 @@ D = C.T.dot(C)  # idem multiply C^T by C : C^T C
 # %%
 
 # Solution 1: for loops and columns operations
-Mat = np.random.rand(5, 4)
+Mat = np.array([[n+m*10 for n in range(4)] for m in range(5)])
 print(Mat)
-NewMat = np.zeros((5, 4))
-
+NewMat = np.copy(Mat)
+print("---------")
 for j in range(4-1):
     NewMat[:, j] = Mat[:, j] - 2 * Mat[:, j+1]
-    # TODO XXX
-
 print(NewMat)
-NewMat[NewMat < 0] = 0
+# %%
+print(np.eye(4))
+
+# NewMat[NewMat < 0] = 0
 print(NewMat)
 
 
@@ -973,9 +965,15 @@ print(NewMat)
 
 # Solution 2: Transvection matrices
 NewMat = Mat.copy()
-for j in range(4-1):
-    # TODO XXX
-    print(j)
+Mat2 = np.eye(4)
+# np.diag()
+print(np.diag(-2 * np.ones(3), k=-1) + np.eye(4))
+Mat2[1, 0] = -2
+Mat2[2, 1] = -2
+Mat2[3, 2] = -2
+# print(Mat2)
+# print(NewMat @ Mat2)  # [C_1 - 2*C_2, C_2, C_3, C_4]
+
 # See on your own: `inner`, `outer`, `cross`, `kron`, `tensordot`.
 
 # %%
@@ -1022,22 +1020,17 @@ np.mean(data[:, 2])
 # #### Variance and standard deviation
 
 # %%
-
 print(np.var(data[:, 2]), np.std(data[:, 2]))
-
-
-# %%
-
 # ddof : Delta Degrees of Freedom
 print(np.var(data[:, 2], ddof=1), np.std(data[:, 2], ddof=1))
 
 
 # ### <font color='red'> EXERCISE : Degrees of Freedom </font>
-# Explain the difference in behavior of the last two cells.
+# Explain the difference in behavior of the last cells.
 # See more on this theme and on Stein's theory here:
 # http://www.stat.cmu.edu/~larry/=sml/stein.pdf
 
-# #### min / max
+# #### min / max / sum / prod
 
 # %%
 
@@ -1045,36 +1038,17 @@ print(data[:, 2].min(), data[:, 2].max(),
       data[:, 2].sum(), data[:, 2].prod())
 
 
-# #### `sum`, `prod` and `trace`
-
-# %%
-
-d = np.arange(0, 10)
-d
-
-
-# %%
-
-# sums
-print(np.sum(d), d.sum())
-
-
-# %%
-
-# products
-np.prod(d+1)
-
-
 # %%
 
 # cumsum
-np.cumsum(d)
-
-
+print(data[:, 2])
+print(np.cumsum(data[:, 2]))
+print(np.cumsum(data[:, 2]) / np.arange(1, len(data[:, 2]) + 1))
+ 
 # %%
 
 # cumprod
-np.cumprod(d+1)
+np.cumprod(data[:, 2]+1)
 
 
 # %%
@@ -1089,8 +1063,19 @@ np.trace(data)
 #     \text{Wallis product}\quad \pi&= 2 \cdot \prod_{n=1}^{\infty}
 #     \left({\frac{4 n^{2}}{4 n^{2} - 1}}\right)
 # \end{align}
+# %%
+n = 1000
 
-
+# %%
+for i in range(n):
+    tab = np.arange(1, n+1)
+    tab2 = 4 * tab**2
+    wallis = 2 * np.prod(tab2 /(tab2-1))
+# plt.figure()
+# plt.plot(wallis, label='Wallis')
+# plt.plot(np.pi *np.ones(n), label='$\pi$')
+# plt.legend()
+# print(wallis[-1])
 # ### multi-dimensional computations
 #
 # Apply `min`, `max`, etc., row/column wise :
