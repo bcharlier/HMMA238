@@ -1066,11 +1066,10 @@ np.trace(data)
 # %%
 n = 1000
 
+tab = np.arange(1, n+1)
+tab2 = 4 * tab**2
 # %%
-for i in range(n):
-    tab = np.arange(1, n+1)
-    tab2 = 4 * tab**2
-    wallis = 2 * np.prod(tab2 /(tab2-1))
+wallis = 2 * np.cumprod(tab2 /(tab2-1))
 # plt.figure()
 # plt.plot(wallis, label='Wallis')
 # plt.plot(np.pi *np.ones(n), label='$\pi$')
