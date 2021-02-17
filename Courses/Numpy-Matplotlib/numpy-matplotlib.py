@@ -686,7 +686,7 @@ A[-3:]   # last 3 indexes
 # for $k=0, \dots,n-1$ (where $n$ is the length of A).
 # Remark: this is often used to perform derivatives approximations.
 # You can check your solution with the specific `numpy` function `np.diff`.
-# *slicing* works similarly for multi-dimensionnels *array*.
+# *slicing* works similarly for multi-dimensional *array*.
 
 # %%
 
@@ -787,7 +787,7 @@ print(A[:, a < 3])
 
 # #### `where`
 #
-# convert maks with `where`
+# convert mask with `where`
 
 # %%
 
@@ -1013,7 +1013,7 @@ np.mean(data[:, 2])
 # *Hint*:
 #
 # \begin{align}
-# \bar{x}_{n} & = \frac{1}{n} \sum_{i=1}^{n}x_i \\
+# \bar{x}_{n} & = \frac{1}{n} \sum_{i=1}^{n} x_i \\
 #             & = \frac{1}{n} \left( (n-1) \cdot \bar{x}_{n-1} + x_{n}\right)\\
 #             & = \frac{1}{n} \left(\sum_{i=1}^{n-1} x_i  + x_{n} \right)\\
 #             & = \frac{n-1}{n}  \cdot \bar{x}_{n-1}  + \frac{1}{n} x_{n}\\
