@@ -955,9 +955,6 @@ for j in range(4-1):
     NewMat[:, j] = Mat[:, j] - 2 * Mat[:, j+1]
 print(NewMat)
 # %%
-print(np.eye(4))
-
-# NewMat[NewMat < 0] = 0
 print(NewMat)
 
 
@@ -965,14 +962,6 @@ print(NewMat)
 
 # Solution 2: Transvection matrices
 NewMat = Mat.copy()
-Mat2 = np.eye(4)
-# np.diag()
-print(np.diag(-2 * np.ones(3), k=-1) + np.eye(4))
-Mat2[1, 0] = -2
-Mat2[2, 1] = -2
-Mat2[3, 2] = -2
-# print(Mat2)
-# print(NewMat @ Mat2)  # [C_1 - 2*C_2, C_2, C_3, C_4]
 
 # See on your own: `inner`, `outer`, `cross`, `kron`, `tensordot`.
 
@@ -1044,7 +1033,7 @@ print(data[:, 2].min(), data[:, 2].max(),
 print(data[:, 2])
 print(np.cumsum(data[:, 2]))
 print(np.cumsum(data[:, 2]) / np.arange(1, len(data[:, 2]) + 1))
- 
+
 # %%
 
 # cumprod
@@ -1058,7 +1047,8 @@ np.trace(data)
 
 
 # ### <font color='red'> EXERCISE : Wallis product (bis) </font>
-# Using `numpy`, and without any `for` loop, evaluate:
+# Using `numpy`, and without any `for` loop, visualize the quality of
+# approximation using $n$ instead of +\infty
 # \begin{align}
 #     \text{Wallis product}\quad \pi&= 2 \cdot \prod_{n=1}^{\infty}
 #     \left({\frac{4 n^{2}}{4 n^{2} - 1}}\right)
@@ -1066,15 +1056,6 @@ np.trace(data)
 # %%
 n = 1000
 
-tab = np.arange(1, n+1)
-tab2 = 4 * tab**2
-# %%
-wallis = 2 * np.cumprod(tab2 /(tab2-1))
-# plt.figure()
-# plt.plot(wallis, label='Wallis')
-# plt.plot(np.pi *np.ones(n), label='$\pi$')
-# plt.legend()
-# print(wallis[-1])
 # ### multi-dimensional computations
 #
 # Apply `min`, `max`, etc., row/column wise :
@@ -1082,26 +1063,13 @@ wallis = 2 * np.cumprod(tab2 /(tab2-1))
 # %%
 
 m = np.random.rand(3, 4)
-m
-
 
 # %%
 
-# max global
-m.max()
 
-
-# %%
-
-# max column wise
-m.max(axis=0)
-
-
-# %%
-
-# max row wise
-m.max(axis=1)
-
+m.max()  # max global
+m.max(axis=0)  # max column wise
+m.max(axis=1)  # max row wise
 
 # ## Copy et "deep copy"
 #
@@ -1110,15 +1078,8 @@ m.max(axis=1)
 # %%
 
 A = np.array([[0,  2], [3, 4]])
-A
-
-
-# %%
-
+print(A)
 B = A
-
-
-# %%
 
 # ATTENTION: change B impacts A
 B[0, 0] = 10
@@ -1133,14 +1094,9 @@ print(B is A)
 # %%
 
 B = A.copy()  # same as B = np.copy(A)
-
-
-# %%
-
 # now modifying B, A is not affected.
 B[0, 0] = -5
 print(B, A)
-
 
 # %%
 
@@ -1202,19 +1158,14 @@ B
 A  # B is now a copy A
 
 
-# ### Ajouter une nouvelle dimension avec `newaxis`
+# ### Add another dimension with `newaxis`
 #
-# Par exemple pour convertir un vecteur en une matrice ligne ou colonne :
+# For instance to convert a vector in a line/column matrice:
 
 # %%
 
 v = np.array([1, 2, 3])
-
-
-# %%
-
-np.shape(v)
-
+print(np.shape(v))
 
 # %%
 
@@ -1239,7 +1190,7 @@ v[np.newaxis, :].shape
 # matrices
 #
 
-# #### `repeat` et `tile`
+# #### `repeat` amd `tile`
 
 # %%
 
@@ -1495,5 +1446,3 @@ get_ipython().run_line_magic('pinfo2', 'np.linalg.norm')
 # * http://scipy.github.io/old-wiki/pages/Tentative_NumPy_Tutorial.html
 # * http://scipy-lectures.org/ - for advanced features (e.g., sparse matrices)
 # * http://scipy.org/NumPy_for_Matlab_Users - guide migrating MATLAB users
-
-# %%
