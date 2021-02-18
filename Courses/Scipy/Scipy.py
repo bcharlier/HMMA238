@@ -74,12 +74,14 @@ print("Integral =", val, ", Error =", abserr)
 def f(y, x):
     return x + y**2
 
+
 def gfun(x):
     return 1
 
 
 def hfun(x):
     return x
+
 
 print(dblquad(f, 1, 2, gfun, hfun))
 
@@ -93,10 +95,9 @@ print(dblquad(f, 1, 2, gfun, hfun))
 # `odeint` is simpler, we will only use that one here.
 #
 # Import:
-
+from scipy.integrate import odeint
 # %%
 
-from scipy.integrate import odeint
 
 # An ODE system can be written :
 #
@@ -156,9 +157,12 @@ def dx(x, t):
     """The right-hand side of the pendulum ODE."""
     x1, x2, x3, x4 = x[0], x[1], x[2], x[3]
 
-    dx1 = 6.0/(m*L**2) * (2 * x3 - 3 * np.cos(x1-x2) * x4)/(16 - 9 * np.cos(x1-x2)**2)
-    dx2 = 6.0/(m*L**2) * (8 * x4 - 3 * np.cos(x1-x2) * x3)/(16 - 9 * np.cos(x1-x2)**2)
-    dx3 = -0.5 * m * L**2 * (dx1 * dx2 * np.sin(x1-x2) + 3 * (g/L) * np.sin(x1))
+    dx1 = 6.0/(m*L**2) * (2 * x3 - 3 * np.cos(x1-x2) * x4) / \
+        (16 - 9 * np.cos(x1-x2)**2)
+    dx2 = 6.0/(m*L**2) * (8 * x4 - 3 * np.cos(x1-x2) * x3) / \
+        (16 - 9 * np.cos(x1-x2)**2)
+    dx3 = -0.5 * m * L**2 * \
+        (dx1 * dx2 * np.sin(x1-x2) + 3 * (g/L) * np.sin(x1))
     dx4 = -0.5 * m * L**2 * (-dx1 * dx2 * np.sin(x1-x2) + (g/L) * np.sin(x2))
 
     return [dx1, dx2, dx3, dx4]
@@ -179,6 +183,8 @@ print(x.shape)
 
 # %%
 # Display
+from celluloid import Camera
+
 fig, axes = plt.subplots(1, 2, figsize=(8, 4))
 axes[0].plot(t, x[:, 0], 'r', label="$\\theta_1$")
 axes[0].plot(t, x[:, 1], 'b', label="$\\theta_2$")
@@ -202,7 +208,7 @@ for i in range(len(t)-1):
     fig.canvas.flush_events()
     plt.pause(0.001)
 
-
+plt.show()
 # ### <font color='red'> EXERCISE : alpha and time </font>
 # Modify the code above so that on the right plot the older points in time are
 # more transparent than the new ones.
@@ -226,7 +232,7 @@ for i in range(len(t)-1):
 # %%s
 # A = np.array([[1, 0, 3], [4, 5, 12], [7, 8, 9]], dtype=np.float)
 A = np.random.randn(500, 500)
-b = np.ones((500,1))
+b = np.ones((500, 1))
 # A = np.array([[1, 0, 3], [4, 5, 12], [7, 8, 9]], dtype=np.float)
 # b = np.array([[1, 2, 3]], dtype=np.float).T
 # b = np.array([[1, 2, 3]], dtype=np.float).T
@@ -236,7 +242,6 @@ print(b)
 
 # %%
 
-from scipy import linalg
 x = linalg.solve(A, b)
 print(x)
 print(x.shape)
@@ -318,8 +323,7 @@ print(np.max(np.sum(np.abs(A), axis=1)))
 #
 # Doc : http://scipy-lectures.github.com/advanced/mathematical_optimization/index.html
 #
-
-from scipy import optimize  # Import
+from scipy import optimize
 
 # ### Find a (local!) minima;
 # %%
@@ -327,6 +331,7 @@ from scipy import optimize  # Import
 
 def f(x):
     return 4*x**3 + (x-2)**2 + x**4
+
 
 # %%
 x = np.linspace(-5, 3, 100)
@@ -366,6 +371,7 @@ omega_c = 3.0
 def f(omega):
     return np.tan(2*np.pi*omega) - omega_c / omega
 
+
 # %%
 x = np.linspace(1e-8, 3.2, 1000)
 y = f(x)
@@ -384,7 +390,8 @@ optimize.fsolve(f, np.linspace(0.001, 3, 20))
 np.unique(np.round(optimize.fsolve(f, np.linspace(0.2, 3, 20)), 3))
 
 # %%
-my_zeros = np.unique((optimize.fsolve(f, np.linspace(0.2, 3, 20)) * 1000).astype(int)) / 1000.
+my_zeros = np.unique(
+    (optimize.fsolve(f, np.linspace(0.2, 3, 20)) * 1000).astype(int)) / 1000.
 plt.figure()
 plt.plot(x, y, label='$f$')
 plt.plot([0, 3.3], [0, 0], 'k')
@@ -454,10 +461,10 @@ plt.show()
 # ## Interpolation
 
 # %%
-
 from scipy.interpolate import interp1d
 
 # %%
+
 
 def f(x):
     return np.sin(x)
@@ -480,7 +487,6 @@ y_interp2 = cubic_interpolation(x)
 
 # %%
 
-from scipy.interpolate import barycentric_interpolate, BarycentricInterpolator
 # BarycentricInterpolator??
 
 
@@ -504,6 +510,10 @@ img = misc.face()
 type(img), img.dtype, img.ndim, img.shape
 
 
+img = misc.face()
+type(img), img.dtype, img.ndim, img.shape
+
+
 # %%
 
 2**8  # uint8-> code sur 256 niveau.
@@ -511,7 +521,7 @@ type(img), img.dtype, img.ndim, img.shape
 
 # %%
 
-n_1 , n_2, n_3 = img.shape
+n_1, n_2, n_3 = img.shape
 np.unique(img)
 
 
@@ -530,13 +540,13 @@ fig.set_size_inches(9, 6.5)
 n_1, n_2, n_3 = img.shape
 
 ax[0, 0].imshow(img[:, :, 0], cmap=plt.cm.Reds)
-ax[0, 1].hist(img[:, :, 0].reshape(n_1 * n_2), np.arange(0,256))
+ax[0, 1].hist(img[:, :, 0].reshape(n_1 * n_2), np.arange(0, 256))
 
 ax[1, 0].imshow(img[:, :, 1], cmap=plt.cm.Greens)
-ax[1, 1].hist(img[:, :, 1].reshape(n_1 * n_2), np.arange(0,256))
+ax[1, 1].hist(img[:, :, 1].reshape(n_1 * n_2), np.arange(0, 256))
 
 ax[2, 0].imshow(img[:, :, 2], cmap=plt.cm.Blues)
-ax[2, 1].hist(img[:, :, 2].reshape(n_1 * n_2), np.arange(0,256))
+ax[2, 1].hist(img[:, :, 2].reshape(n_1 * n_2), np.arange(0, 256))
 
 plt.tight_layout()
 
@@ -614,12 +624,12 @@ plt.tight_layout()
 
 # colors levels
 img = (255 * plt.imread('https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/486px-Flag_of_Brazil.svg.png')).astype(np.int)
-img =img.copy()
+img = img.copy()
 plt.figure()
 
-find_white_green = img[:, :, 1] > 200 # center
+find_white_green = img[:, :, 1] > 200  # center
 find_light_green = (img[:, :, 1] <= 200)*(img[:, :, 1] > 50)  # center
-find_dark_green = img[:, :, 1] <= 50 # center
+find_dark_green = img[:, :, 1] <= 50  # center
 
 
 # red part
@@ -653,15 +663,13 @@ plt.show()
 # Help on FFT (in French): https://courspython.com/fft-introduction.html
 
 # %%
-
 from scipy import fftpack
-
 
 # Nous allons calculer les transformées de Fourier discrètes de fonctions spéciales:
 
 # %%
-
 from scipy.signal import gausspulse
+
 
 t = np.linspace(-1, 1, 1000)
 x = gausspulse(t, fc=20, bw=0.5)
@@ -669,7 +677,6 @@ x = gausspulse(t, fc=20, bw=0.5)
 #  Compute FFT
 F = fftpack.fft(x)
 
-from cmath import phase
 # calcul des fréquences en Hz si on suppose un échantillonage à 1000Hz
 freqs = fftpack.fftfreq(len(x), 1. / 1000.)
 fig, axes = plt.subplots(1, 2, figsize=(12, 4))
@@ -700,3 +707,5 @@ plt.show()
 # * https://github.com/scipy/scipy/ - The SciPy source code.
 # * http://scipy-lectures.github.io
 #
+
+# %%
