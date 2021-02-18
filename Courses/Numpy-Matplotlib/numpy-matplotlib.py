@@ -793,6 +793,27 @@ print(y[indices])
 print(x[indices])  # équivalent à x[mask]
 print(x[mask])
 
+# ## Use conditions and `arrays`
+#
+# `any`, `all` (not Annie Hall!)
+
+# %%
+
+if (M > 5).any():
+    print("at least one element of M is > 5.")
+else:
+    print("no element of M is > 5.")
+
+
+# %%
+
+if (M > 5).all():
+    print("all elements of M are > 5.")
+else:
+    print("there exist one element at least < 5.")
+
+
+
 
 # ## Linear algebra
 #
@@ -1080,7 +1101,7 @@ m.max(axis=1)  # max row wise
 A = np.array([[0,  2], [3, 4]])
 print(A)
 B = A
-
+# %%
 # ATTENTION: change B impacts A
 B[0, 0] = 10
 print(B)
@@ -1095,8 +1116,11 @@ print(B is A)
 
 B = A.copy()  # same as B = np.copy(A)
 # now modifying B, A is not affected.
+print(B is A)
 B[0, 0] = -5
-print(B, A)
+print(B)
+print(A)
+print(B is A)
 
 # %%
 
@@ -1143,7 +1167,7 @@ A
 # %%
 
 A = np.array([[0,  2], [3,  4]])
-B = A.flatten()
+B = A.flatten(order='F')
 print(A, B)
 
 
@@ -1254,10 +1278,10 @@ np.hstack((a, b.T))
 
 # %%
 
-v = np.array([1, 2, 3, 4])
+vector = np.array([1, 2, 3, 4])
 
-for element in v:
-    print(element)
+for coef in vector:
+    print(coef)
 
 
 # %%
@@ -1285,25 +1309,20 @@ for row_idx, row in enumerate(M):
 
 # %%
 M
-
-# ## Use conditions and `arrays`
-#
-# `any`, `all` (not Annie Hall!)
-
 # %%
+# Exercise : test time execution M**2 vs. loop
+n = 100
+m = 10
+M1 = np.ones((n, n))
+M2 = np.eye(m)
+# print(M1)
+# print(M2)
+M_test1 = np.kron(M1, M2)
+M_test2 = np.kron(M2, M1)
 
-if (M > 5).any():
-    print("at least one element of M is > 5.")
-else:
-    print("no element of M is > 5.")
+print(M_test1)
+print(M_test2)
 
-
-# %%
-
-if (M > 5).all():
-    print("all elements of M are > 5.")
-else:
-    print("there exist one element at least < 5.")
 
 
 # ## *Type casting*
@@ -1351,50 +1370,58 @@ x
 y
 
 
+# imshow : where it is starting.
 # %%
 
 plt.figure(figsize=(6, 6))
 
 plt.subplot(2, 2, 1)
 plt.imshow(x, origin='lower')
+plt.colorbar()
 
 plt.subplot(2, 2, 2)
 plt.imshow(y, origin='lower')
+plt.colorbar()
 
 plt.subplot(2, 2, 3)
 plt.imshow(x, origin='upper')
+plt.colorbar()
+
 
 plt.subplot(2, 2, 4)
 plt.imshow(y, origin='upper')
+plt.colorbar()
 
+# EXERCISE : share colorbar for all subplots.
 
 # %%
-
-xx, yy = np.mgrid[-50:50, -50:50]
-plt.figure(figsize=(3, 3))
-plt.imshow(np.angle(1j * yy + xx, deg=True).T,
-           extent=[-50, 50, -50, 50], origin='upper')
-plt.axis('on')
-plt.colorbar()
-plt.figure(figsize=(3, 3))
-plt.imshow(np.abs(xx + 1j * yy), extent=[-50, 50, -50, 50])
-plt.axis('on')
-plt.colorbar()
-plt.show()
-
-
-# %%
-
 from mpl_toolkits.mplot3d import Axes3D
 
 fig = plt.figure(figsize=(5, 4))
 ax = Axes3D(fig)
 X = np.arange(-4, 4, 0.2)
 Y = np.arange(-4, 4, 0.2)
-X, Y = np.meshgrid(X, Y)
-R = np.sqrt(X**2 + Y**2)
+XX, YY = np.meshgrid(X, Y)
+R = np.sqrt(XX**2 + YY**2)
 Z = np.sin(R)
-ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis')
+ax.plot_surface(XX, YY, Z, rstride=1, cstride=1, cmap='viridis')
+
+
+# %%
+
+xx, yy = np.mgrid[-50:50, -50:50]
+
+plt.figure(figsize=(3, 3))
+z = 1j * yy + xx
+plt.imshow(np.angle(z, deg=True).T,
+           extent=[-50, 50, -50, 50], origin='lower')
+plt.axis('on')
+plt.colorbar()
+plt.figure(figsize=(3, 3))
+plt.imshow(np.abs(z), extent=[-50, 50, -50, 50])
+plt.axis('on')
+plt.colorbar()
+plt.show()
 
 
 # %%

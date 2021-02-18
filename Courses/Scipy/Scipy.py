@@ -17,11 +17,10 @@
 #
 # Among others, SciPy deals with:
 #
-# * Special function ([scipy.special](http://docs.scipy.org/doc/scipy/reference/special.html))
 # * Integration ([scipy.integrate](http://docs.scipy.org/doc/scipy/reference/integrate.html))
 # * Optimization ([scipy.optimize](http://docs.scipy.org/doc/scipy/reference/optimize.html))
 # * Interpolation ([scipy.interpolate](http://docs.scipy.org/doc/scipy/reference/interpolate.html))
-# * Fourrier Transform ([scipy.fftpack](http://docs.scipy.org/doc/scipy/reference/fftpack.html))
+# * Fourier Transform ([scipy.fftpack](http://docs.scipy.org/doc/scipy/reference/fftpack.html))
 # * Signal Processing ([scipy.signal](http://docs.scipy.org/doc/scipy/reference/signal.html))
 # * Linear Algebra ([scipy.linalg](http://docs.scipy.org/doc/scipy/reference/linalg.html))
 # * *Sparse* matrices ([scipy.sparse](http://docs.scipy.org/doc/scipy/reference/sparse.html))
@@ -72,11 +71,8 @@ print("Integral =", val, ", Error =", abserr)
 
 # %%
 
-
-
 def f(y, x):
     return x + y**2
-
 
 def gfun(x):
     return 1
@@ -100,10 +96,7 @@ print(dblquad(f, 1, 2, gfun, hfun))
 
 # %%
 
-
-
 from scipy.integrate import odeint
-
 
 # An ODE system can be written :
 #
@@ -178,7 +171,7 @@ x0 = [np.pi/4, np.pi/2, 0, 0]
 
 # Discretize from 0 to 10 seconds
 t = np.linspace(0, 10, 200)
-
+n_point = len(t)
 # Solve
 x = odeint(dx, x0, t)
 print(x.shape)
@@ -187,23 +180,24 @@ print(x.shape)
 # %%
 # Display
 fig, axes = plt.subplots(1, 2, figsize=(8, 4))
-axes[0].plot(t, x[:, 0], 'r', label="theta1")
-axes[0].plot(t, x[:, 1], 'b', label="theta2")
+axes[0].plot(t, x[:, 0], 'r', label="$\\theta_1$")
+axes[0].plot(t, x[:, 1], 'b', label="$\\theta_2$")
 axes[0].set_title("Angular evolution")
-
+axes[0].legend(loc='upper right')
 
 x1 = + L * np.sin(x[:, 0])
 y1 = - L * np.cos(x[:, 0])
 x2 = x1 + L * np.sin(x[:, 1])
 y2 = y1 - L * np.cos(x[:, 1])
 
-# axes[1].plot(x1, y1, 'r', label="pendulum1")
+axes[1].plot(x1, y1, 'r', label="pendulum1")
 axes[1].set_ylim([-1, 0])
 axes[1].set_xlim([1, -1])
 axes[1].set_title("Space evolution")
+alphas = np.linspace(0, 1, n_point)
 for i in range(len(t)-1):
-    axes[1].plot(x2[i:i+2], y2[i:i+2], '-', color='blue', alpha=1)
-    axes[1].plot(x1[i], y1[i], '.', color='red', label="pendulum1", alpha=0.5)
+    axes[1].plot(x2[i:i+2], y2[i:i+2], '-', color='blue', alpha=alphas[i])
+    axes[1].plot(x1[i], y1[i], '.', color='red', label="pendulum1")
     fig.canvas.draw()
     fig.canvas.flush_events()
     plt.pause(0.001)
@@ -230,8 +224,13 @@ for i in range(len(t)-1):
 # for specified matrix $A$ and vector $b$.
 
 # %%s
-A = np.array([[1, 0, 3], [4, 5, 12], [7, 8, 9]], dtype=np.float)
-b = np.array([[1, 2, 3]], dtype=np.float).T
+# A = np.array([[1, 0, 3], [4, 5, 12], [7, 8, 9]], dtype=np.float)
+A = np.random.randn(500, 500)
+b = np.ones((500,1))
+# A = np.array([[1, 0, 3], [4, 5, 12], [7, 8, 9]], dtype=np.float)
+# b = np.array([[1, 2, 3]], dtype=np.float).T
+# b = np.array([[1, 2, 3]], dtype=np.float).T
+
 print(A)
 print(b)
 
@@ -246,13 +245,12 @@ print(b.shape)
 # %%
 
 # Check the result at given precision (different from ==)
-np.allclose(A @ x,b, atol=1e-18, rtol=1e-30)
-
+np.allclose(A @ x, b, atol=1e-14, rtol=1e-15)
 
 # **Remark**: NEVER (or you should really know why) invert a matrix.
 # **ALWAYS** solve linear systems instead!
 
-# #### Eigen values/vectors
+# #### Eigen values / vectors
 
 # $\displaystyle A v_n = \lambda_n v_n$
 #
@@ -263,9 +261,14 @@ np.allclose(A @ x,b, atol=1e-18, rtol=1e-30)
 # %%
 
 A = np.random.randn(3, 3)
+A = A + A.T
 evals, evecs = linalg.eig(A)
 print(evals, '\n ------\n', evecs)
 
+# V = [v_1, ... v_n] , columns = eigen vectors
+# A = V diag(s_1,...,s_n) V^T
+
+np.allclose(A, evecs @ np.diag(evals)@evecs.T)
 
 # ### <font color='red'> EXERCISE : Eigen values/vectors</font>
 #
@@ -279,9 +282,9 @@ print(evals, '\n ------\n', evecs)
 # this is more robust, and leverages the structures (you know they are real!)
 
 # %%
-A = A + A.T
 evals = linalg.eigvalsh(A)  # check evals, _ = linalg.eigh(A) also
 print(evals)
+print('----')
 print(linalg.eigh(A))
 
 # #### Matrix operations
@@ -300,12 +303,18 @@ print(linalg.norm(A, ord=np.inf))
 
 
 # ### <font color='red'> EXERCISE : Norms computation</font>
-# Check numerically what is the instruction  `linalg.norm(A, ord=np.inf)` really computing.
+# Check numerically what is the instruction  `linalg.norm(A, ord=np.inf)`
+# really computing.
 # Double check with the help, and a numerical test.
+# %%
+A = np.random.randn(3, 3)
+print(linalg.norm(A, ord=np.inf))
+
+print(np.max(np.sum(np.abs(A), axis=1)))
 
 # ## Optimization
 #
-# **Goal**: find functiions minima or maxima
+# **Goal**: find functions minima or maxima
 #
 # Doc : http://scipy-lectures.github.com/advanced/mathematical_optimization/index.html
 #

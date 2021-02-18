@@ -1,6 +1,6 @@
 # Project guidelines
 
-- Work by groups of 4/5 students, assigned at random (list TBA).
+- Work by groups of 4 students, assigned at random (list TBA).
 
 
 ## Timing
@@ -9,14 +9,13 @@
 - Due date (final project) : **Week 16 (TBA)**. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
 
 
-
-
 ## Elements expected /  Grading
 
 - The ultimate goal is to provide a Python module that can be imported with `pip` and containing your work.
-A description of the procedure will be needed (imagine you are addressing to a user not aware of your package). Last year project are available in the sub-folder `2020` and a good example of what we expect is <https://github.com/tanglef/chaoseverywhere>.
+A description of the procedure will be needed (imagine you are addressing to a user not aware of your package).
+Last year project are available in the sub-folder `2020` and a good example of what we expect is <https://github.com/tanglef/chaoseverywhere>.
 
-- The project is stored on a `github` repository.
+- The project must be stored on a `github` repository.
 
 - You have to choose a name for your project. Hereafter, it is denoted by `my_module_name`.
 
@@ -24,7 +23,7 @@ A description of the procedure will be needed (imagine you are addressing to a u
 
 ### Project structure
 
-- All the code will be placed in a sub-directory called `/my_module_name`.
+- All the code will be placed in a sub-directory called `/my_module_name` (choosing your module name accordingly).
 
 - A `jupyter notebook` file  will be put in a `/report` sub-directory synthesizing the most interesting results you found, showing images/movies/widgets of interest.
 
