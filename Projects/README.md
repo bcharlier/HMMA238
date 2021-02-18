@@ -21,6 +21,10 @@ Last year project are available in the sub-folder `2020` and a good example of w
 
 - It should contain all the aspects described below.
 
+### Science
+Solve (even partially) the problem raised in your project description.
+
+
 ### Project structure
 
 - All the code will be placed in a sub-directory called `/my_module_name` (choosing your module name accordingly).
