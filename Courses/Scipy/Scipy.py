@@ -340,7 +340,7 @@ plt.show()
 x_min = optimize.fmin_bfgs(f, x0=3)
 plt.figure()
 plt.plot(x, f(x))
-plt.plot(x_min, f(x_min),'o')
+plt.plot(x_min, f(x_min), 'o')
 plt.show()
 
 
@@ -349,7 +349,7 @@ plt.show()
 # Draw the points on the curves with 2 different colors : orange for the points leading to find the left local minima, and red for the points leading to the right local minima.
 #
 
-grid = np.linspace(-5,3,num=100)
+grid = np.linspace(-5, 3, num=100)
 x_gauche = optimize.fmin_bfgs(f, x0=-3, disp=False)[0]
 x_droite = optimize.fmin_bfgs(f, x0=3, disp=False)[0]
 print(x_droite, x_gauche)
@@ -374,7 +374,7 @@ x[mask] = y[mask] = np.nan  # remove vertical line when the function flips sign
 plt.figure()
 plt.plot(x, y)
 plt.plot([0, 3.3], [0, 0], 'k')
-plt.ylim(-5,5)
+plt.ylim(-5, 5)
 
 
 # %%
@@ -411,7 +411,7 @@ yn = y + 0.2*np.random.randn(len(x))  # noisy added
 
 # %%
 plt.figure()
-plt.plot(x, yn,'.')
+plt.plot(x, yn, '.')
 plt.plot(x, y, 'k', label='$f$')
 plt.legend()
 
@@ -439,14 +439,12 @@ plt.show()
 
 # %%
 
-
-
-x = np.linspace(0,1,10)
+x = np.linspace(0, 1, 10)
 y = np.sin(x * np.pi / 2.)
 line = np.polyfit(x, y, deg=10)
 plt.figure()
 plt.plot(x, y, '.', label='data')
-plt.plot(x, np.polyval(line,x), 'k--', label='polynomial approximation')
+plt.plot(x, np.polyval(line, x), 'k--', label='polynomial approximation')
 plt.legend()
 plt.show()
 # xx = np.linspace(-5,4,100)
@@ -457,14 +455,9 @@ plt.show()
 
 # %%
 
-
-
 from scipy.interpolate import interp1d
 
-
 # %%
-
-
 
 def f(x):
     return np.sin(x)
@@ -472,12 +465,10 @@ def f(x):
 
 # %%
 
-
-
 n = np.arange(0, 10)
 x = np.linspace(0, 9, 100)
 
-y_meas = f(n) + 0.1 * np.random.randn(len(n)) # ajout de bruit
+y_meas = f(n) + 0.1 * np.random.randn(len(n))  # ajout de bruit
 y_real = f(x)
 
 linear_interpolation = interp1d(n, y_meas)
@@ -489,15 +480,11 @@ y_interp2 = cubic_interpolation(x)
 
 # %%
 
-
-
 from scipy.interpolate import barycentric_interpolate, BarycentricInterpolator
 # BarycentricInterpolator??
 
 
 # %%
-
-
 
 plt.figure()
 plt.plot(n, y_meas, 'bs', label='noisy data')
@@ -512,8 +499,6 @@ plt.show()
 
 # %%
 
-
-
 from scipy import ndimage, misc
 img = misc.face()
 type(img), img.dtype, img.ndim, img.shape
@@ -521,22 +506,16 @@ type(img), img.dtype, img.ndim, img.shape
 
 # %%
 
-
-
 2**8  # uint8-> code sur 256 niveau.
 
 
 # %%
-
-
 
 n_1 , n_2, n_3 = img.shape
 np.unique(img)
 
 
 # %%
-
-
 
 plt.figure()
 plt.imshow(img)
@@ -546,11 +525,9 @@ plt.show()
 
 # %%
 
-
-
 fig, ax = plt.subplots(3, 2)
 fig.set_size_inches(9, 6.5)
-n_1 , n_2, n_3 = img.shape
+n_1, n_2, n_3 = img.shape
 
 ax[0, 0].imshow(img[:, :, 0], cmap=plt.cm.Reds)
 ax[0, 1].hist(img[:, :, 0].reshape(n_1 * n_2), np.arange(0,256))
@@ -566,17 +543,12 @@ plt.tight_layout()
 
 # %%
 
-
-
-print(img.flags)  #cannot edit...
+print(img.flags)  # cannot edit...
 img_compressed = img.copy()
 img_compressed.setflags(write=1)
-print(img_compressed.flags)  #can edit now
-
+print(img_compressed.flags)  # can edit now
 
 # %%
-
-
 
 img_compressed[img_compressed < 70] = 50
 img_compressed[(img_compressed >= 70) & (img_compressed < 110)] = 100
@@ -592,8 +564,6 @@ plt.show()
 
 # %%
 
-
-
 img_flou = ndimage.gaussian_filter(img, sigma=40)
 plt.figure()
 plt.imshow(img_flou, cmap=plt.cm.gray)
@@ -605,8 +575,6 @@ plt.show()
 
 # %%
 
-
-
 plt.figure()
 plt.imshow(np.mean(img, axis=2), cmap=plt.cm.gray)
 plt.show()
@@ -617,8 +585,6 @@ plt.show()
 
 # %%
 
-
-
 img = (255 * plt.imread('https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/486px-Flag_of_Brazil.svg.png')).astype(np.int)
 
 plt.figure()
@@ -627,8 +593,6 @@ plt.show()
 
 
 # %%
-
-
 
 fig, ax = plt.subplots(3, 2)
 fig.set_size_inches(9, 6.5)
@@ -648,15 +612,13 @@ plt.tight_layout()
 
 # %%
 
-
-
 # colors levels
 img = (255 * plt.imread('https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/486px-Flag_of_Brazil.svg.png')).astype(np.int)
 img =img.copy()
 plt.figure()
 
 find_white_green = img[:, :, 1] > 200 # center
-find_light_green = (img[:, :, 1] <=200)*(img[:, :, 1]>50)  # center
+find_light_green = (img[:, :, 1] <= 200)*(img[:, :, 1] > 50)  # center
 find_dark_green = img[:, :, 1] <= 50 # center
 
 
@@ -692,16 +654,12 @@ plt.show()
 
 # %%
 
-
-
 from scipy import fftpack
 
 
 # Nous allons calculer les transformées de Fourier discrètes de fonctions spéciales:
 
 # %%
-
-
 
 from scipy.signal import gausspulse
 
@@ -714,12 +672,12 @@ F = fftpack.fft(x)
 from cmath import phase
 # calcul des fréquences en Hz si on suppose un échantillonage à 1000Hz
 freqs = fftpack.fftfreq(len(x), 1. / 1000.)
-fig, axes = plt.subplots(1, 2, figsize=(12,4))
-axes[0].plot(t, x) # plot du signal
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+axes[0].plot(t, x)  # plot du signal
 axes[0].set_ylim([-2, 2])
 axes[0].set_xlabel('Time series (s)')
 
-axes[1].plot(freqs, np.abs(F)) # plot du module de la TFD
+axes[1].plot(freqs, np.abs(F))  # plot du module de la TFD
 axes[1].set_xlim([0, 200])
 axes[1].set_xlabel('Freq (Hz)')
 axes[1].set_ylabel('|FFT|')
