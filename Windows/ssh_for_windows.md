@@ -9,12 +9,13 @@
 
 - Open Git BASH
 - Type `cd ~/.ssh`
+  - If you get a "No such file or directory" error, it's because the folder `.ssh` does not exist on your computer. If so, then create it by taping `mkdir .ssh`. You can now change directory to it using `cd ~/.ssh`
 - Generate an SSH key :
-  - Type `ssh-keygen -t rsa -C "your.email@adress.com"` (with the email address associated to your GitHub account !!).
+  - Type `ssh-keygen -t rsa -C "your.email@adress.com"` (with the email address associated with your GitHub account !!).
   - You should see this : `Enter file in which to save the key (/d/Users/YourUserName/.ssh/id_rsa):`. You already are where you want to be so you can just press `Enter`.
   - You should then be asked for a passphrase : `Enter passphrase (empty for no passphrase):`. Just press `Enter`.
   - You are asked for your passphrase again : `Enter same passphrase again:`. Press `Enter` again. (Note : you can enter a password but If you do so, you will be asked for it any time you push something to GitHub). You just created both `id_rsa` and `id_rsa.pub` files.
-- Display the content of your `id_rsa.pub` file typing `less id_rsa.pub`. You see a continuum of creepy characters -it's normal. Select the content, exactly as it appears, with no extra spaces or lines, and right-click on it. Then click on `Copy`.
+- Display the content of your `id_rsa.pub` file typing `less id_rsa.pub`. You see a continuum of creepy characters -it's normal. Select the content, **exactly as it appears**, with no extra spaces or lines, and right-click on it. Then click on `Copy`.
 - Now go on to your GitHub account. In the upper-right corner of any page, click on your profile photo, then click on **Settings**.
 - In the user settings sidebar on the left, click on **SSH and GPG keys**.
 - Click on **New SSH key**.
@@ -27,6 +28,10 @@
 ----
 
 ## Testing your SSH key with Windows
+
+One quick way to test your ssh connection is described [here](https://docs.github.com/en/github/authenticating-to-github/testing-your-ssh-connection)
+
+You might also want to test your ssh key by actually creating a remote repository and interacting with it. If so, then you can follow these steps :
 
 - Create a new repository :
   - On your GitHub main page, that should be located here : `https://github.com/YourUserName`, click on **Repositories**.
