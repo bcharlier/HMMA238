@@ -820,7 +820,7 @@ print(l)
 print(k)
 ```
 
-On can mix types in a single list:
+One can mix types in a single list:
 
 ```python
 l = [1, 'a', 1.0, 1-1j]
@@ -883,7 +883,7 @@ print(l2)
 print(l2[::-1])
 ```
 
-**Warning:** l2.sort() works **in place** and outputs nothing, or rather `None`
+**Warning:** `l2.sort()` works **in place** and outputs nothing, or rather `None`
 
 
 #### Append, insert, modify and remove elements in a list
@@ -1022,7 +1022,7 @@ help(list)
 
 ### Tuples
 
- * *tuples*  are similar to lists but are immutable* : they cannot be modified once created (so they are close to `strings` in a way). They are often used as output of function (see below).
+ * *tuples*  are similar to lists but are *immutable* : they cannot be modified once created (so they are close to `strings` in a way). They are often used as output of function (see below).
  
  * You can create them with a command like  `(..., ..., ...)` or simply `..., ...`:
 
@@ -1202,7 +1202,7 @@ print("no more in the 'if' block")
 
 ### `for` loop
 
-** Note**: again use ":" at the end of line
+**Note**: again use ":" at the end of line
 
 
 ```python
@@ -1343,7 +1343,7 @@ for x in range(0, 5):
 
 print(ll)
 
-# And for  `caml` fluent users, a map point of view
+# And for `caml` fluent users, a map point of view
 print(map(lambda x: x ** 2, range(5)))
 ```
 
@@ -1478,7 +1478,7 @@ def myfunc(x, p=2, verbose=False):
     return x**p
 ```
 
-The parameter `verbose` can now be omitted:
+The parameters `verbose` and `p` can now be omitted:
 
 
 ```python
@@ -1523,7 +1523,7 @@ Transform this code in valid Python.
 
  * recall that the length of a list `l` is given by  `len(l)`
  * two lists can be concatenated with `l1 + l2`
- * `l.pop()` remove the last element of the list `l`
+ * `l.pop()` removes the last element of the list `l`
 
 **WARNING**: a list is mutable...
 
