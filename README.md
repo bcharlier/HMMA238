@@ -47,11 +47,11 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 7. BC : (10/02) [Some git again](Courses/Git/), [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Courses/Classes_n_Exceptions/), [Create a Python Module](Courses/Python-modules/)
 
-8. JS : (11/02) [`numpy` : casting, concatenation, `imshow`, `meshgrid`, casting, copy](Courses/Numpy-Matplotlib/);
+8. JS : (11/02) [`numpy` : casting, concatenation](Courses/Numpy-Matplotlib/);
 
-9. JS : (17/02) [`scipy`: EDO, Interpolation, Optimize](Courses/Scipy/)
+9. JS : (17/02) [`numpy` / `matplotlib`: `imshow`, `meshgrid`, copy](Courses/Numpy-Matplotlib/);
 
-10. JS : (18/02)
+10. JS : (18/02) [`scipy`: EDO, Interpolation, Optimize](Courses/Scipy/)
 
 11. BC : (03/03) [Create a Python Module](Courses/Python-modules/), [unit tests](Courses/Tests-CI/)
 
