@@ -4,7 +4,7 @@
 
 
 ## Timing
-- Mid-term project snapshot: Due date **Week 12**. This will include the creation of a ```github``` repository, a short description on how the work is split and a detailed work program for the project including how the task are attributed (coding).
+- **Mid-term** project snapshot: Due date **Week 12** (before Friday March 26, 23:59). This will include the creation of a ```github``` repository (README.md, etc.), a short description on how the work is split and a detailed work program for the project including how the task are attributed (coding).
 
 - Due date (final project) : **Week 16 (TBA)**. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
 
