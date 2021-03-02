@@ -6,7 +6,7 @@
 ## Timing
 - **Mid-term** project snapshot: Due date **Week 12** (before Friday March 26, 23:59). This will include the creation of a ```github``` repository (README.md, etc.), a short description on how the work is split and a detailed work program for the project including how the task are attributed (coding).
 
-- Due date (final project) : **Week 16 (TBA)**. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account).
+- Due date (final project) : **Week 16 (TBA)**. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account). The oral presentation should be recorded before Monday 19.
 
 
 ## Elements expected /  Grading
@@ -22,12 +22,12 @@
 |     |Readme Comments  Pep8|1               |
 |     |Unit Tests CI Deploy : wheel|2               |
 |     |Class (1 class min)|0.5             |
-|     |Reproductibiliy  Dataset loading|1               |
+|     |Reproducibility  Dataset loading|1               |
 |     |Graphical aspects : Widgets, film, 3D, etc.|2.5             |
 |     |Time efficiency Memory efficiency|1               |
 |     |Documentation |2.5             |
-|**Oral** |Beamer (structuration, ortho)|1.5             |
-|     |Clarity / Viving talk/ Rythm / Show |2               |
+|**Oral** |Beamer (structure, spelling)|1.5             |
+|     |Clarity / lively presentation / Rhythm / Show |2               |
 | **Total**| | 20|
 
 
@@ -53,7 +53,7 @@ Solve (even partially) the problem raised in your project description.
 
 - A `jupyter notebook` file  will be put in a `/report` sub-directory synthesizing the most interesting results you found, showing images/movies/widgets of interest.
 
-- A presentation (in an open source format: like beamer with tex or LibreOffice Impress) will be put in a `/beamer` directory. The later will be a short presentation of the work that will be orally presented during 15mn in front of a jury.
+- A presentation (in an open source format: like Beamer with TeX or LibreOffice Impress) will be put in a `/beamer` directory. The later will be a short presentation of the work that will be orally presented during 15mn in front of a jury.
 
 - A documentation (using `sphinx`) will be stored in a `/doc` sub-directory.
 
