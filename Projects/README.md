@@ -11,6 +11,28 @@
 
 ## Elements expected /  Grading
 
+
+### Summary
+
+|General |Details|Points (out of 20)|
+|-----|--------------|----------------|
+|**Mid-term**|Git / branches|2.5             |
+|     |Task affectation|1               |
+|**Core project : Code / Repo/ etc.**|Science Technical Problem Resolution|2.5             |
+|     |Readme Comments  Pep8|1               |
+|     |Unit Tests CI Deploy : wheel|2               |
+|     |Class (1 class min)|0.5             |
+|     |Reproductibiliy  Dataset loading|1               |
+|     |Graphical aspects : Widgets, film, 3D, etc.|2.5             |
+|     |Time efficiency Memory efficiency|1               |
+|     |Documentation |2.5             |
+|**Oral** |Beamer (structuration, ortho)|1.5             |
+|     |Clarity / Viving talk/ Rythm / Show |2               |
+| **Total**| | 20|
+
+
+### Details
+
 - The ultimate goal is to provide a Python module that can be imported with `pip` and containing your work.
 A description of the procedure will be needed (imagine you are addressing to a user not aware of your package).
 Last year project are available in the sub-folder `2020` and a good example of what we expect is <https://github.com/tanglef/chaoseverywhere>.
