@@ -632,7 +632,7 @@ find_dark_green = img[:, :, 1] <= 50
 img[:, :, 0][find_dark_green] = 255
 img[:, :, 1][find_dark_green] = 0
 img[:, :, 2][find_dark_green] = 0
-
+ center
 
 #  white part
 img[:, :, 0][find_white_green] = 255
