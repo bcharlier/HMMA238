@@ -106,7 +106,13 @@ It returns a sorted list of strings:
 >>> numpy.__dir__
 <function __dir__ at 0x7fe0a25e81e0>
 ```
-XXX TODO: explaining the 0x7fe0a25e81e0 might be helpful.
+The `0x7fe0a25e81e0` hexadecimal number is the `id` of the object:
+
+```python
+>>> hex(id(numpy.__dir__))
+0x7fe0a25e81e0
+```
+This is an integer (or long integer) which is guaranteed to be unique and constant for this object during its lifetime. Two objects with non-overlapping lifetimes may have the same id() value. (Implementation note: this is the address of the object.). See <https://docs.python.org/3/library/functions.html#id>
 
 To list every element in your symbol table simply call `dir()`.
 
@@ -152,14 +158,16 @@ Find the loader for a module, optionally within the specified path.
 >>> import importlib
 >>> spam_spec = importlib.util.find_spec("spam")
 >>> found = spam_spec is not None
+>>> found
+False
 ```
-XXX TODO: may be update before (does not output anything most likely.)
-now 
+Now 
 
 ```python
 >>> import numpy
->>> spam_spec = importlib.util.find_spec("numpy")
->>> spam_spec
+>>> numpy_spec = importlib.util.find_spec("numpy")
+>>> numpy_spec
+ModuleSpec(name='numpy', loader=<_frozen_importlib_external.SourceFileLoader object at 0x7fe6bd502460>, origin='/usr/lib/python3.9/site-packages/numpy/__init__.py', submodule_search_locations=['/usr/lib/python3.9/site-packages/numpy'])
 ```
 should return more information and where the loader is .
 
@@ -209,10 +217,13 @@ $ pip uninstall some-package-name
 $ pip search some-package-name
 ```
 
-**Exercise:**
+---
+### <font color='red'>Exercise : Create a bunch of files</font>
+
 
   1. Install the modules `download`, `setuptools`, `pandas`, `pygal` and `pygal_maps_fr`. Beware, you should use the option `--user` to force the installation in your home directory.
   2. List all the package in your venv using pip.
+---
 
 It is possible to install a **local** module with pip
 
@@ -259,7 +270,10 @@ packaging_tutorial/
 
 The top level directory is the root of our VCS repository `packaging_tutorial.git`. The sub-directory, `biketrauma`, is the actual Python module. XXX TODO : what is VCS here, is it VSCode?
 
-**Exercise:** We are going to create a new `python` module that can be used to visualize the bike dataset.
+---
+### <font color='red'>Exercise : Create a bunch of files</font>
+
+ We are going to create a new `python` module that can be used to visualize the bike dataset.
 
   1. Create a new folder `~/packaging_tutorial/` and initialize a git in it.
   2. Create a `.gitignore` file to ignore `__pycache__`, `.vscode` directories and files containing the string `egg-info` or `dist` in their name as well.  
@@ -273,6 +287,8 @@ The top level directory is the root of our VCS repository `packaging_tutorial.gi
   8. Commit and push into your repository.
 
 Read also: <https://packaging.python.org/guides/single-sourcing-package-version/>.
+
+---
 
 ### Sub-modules
 
@@ -292,18 +308,20 @@ The final directory structure of our module will look like:
       setup.py
       script.py
 ```
+---
+### <font color='red'>Exercise : Create a bunch of files</font>
 
-**Exercise:** Add some `python` files in the `modules_files` folder:
+Add some `python` files in the `modules_files` folder:
 
   1. Add some sub-folders to `biketrauma` called `io` (for input/output), `preprocess`, `vis` (for visualization). Copy the `script.py` into the root folder.
   2. Populate the `preprocess` sub-module with the `get_accident.py` file (XXX TODO: where is this get_accident.py located? link should be given here same for what is next.)
   3. Populate the `vis` sub-module with the `plot_location.py` file
   4. Populate the `io` sub-module with the file `Load_db.py` (it downloads the bike data-set). At the loading step your sub-module should create the variables
-
 ```python
 url_db = "https://www.data.gouv.fr/fr/datasets/r/ab84353b-498b-4ef5-9a02-a6403f2ead96"
 path_target = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "data", "bicycle_db.csv")
 ```
+----
 
 ### Adding additional files
 
@@ -315,7 +333,8 @@ from .vis.plot_location import plot_location
 from .preprocess.get_accident import get_accident
 ```
 
-**Exercise:**
+---
+### <font color='red'>Exercise : Create a bunch of files</font>
 
   1. Check that your module does work by launching the `script.py` script
   2. Create a file `format_date.py` in the `biketrauma.preprocess` module in which a function `format_date` format the date of the data-set in international format.
@@ -327,6 +346,7 @@ import biketrauma
 df = biketrauma.Load_db().save_as_df()
 df_nicely_formated = biketrauma.format_date(df)
 ```
+---
 
 ### Package the module with `setuptools`
 
@@ -373,15 +393,21 @@ $ pip freeze > requirements.txt
 ```
 Unfortunately, it may generate a way too large collection of packages dependencies. To get a sparser list, you can use `pipreqs`
 
-**Exercise:**
+---
+### <font color='red'>Exercise : Create a bunch of files</font>
+
 
 1. Create a minimal `requirements.txt` file with `pipreqs`. Add it to the `biketrauma` module.
+
+---
 
 ### Upload on PyPI
 
 `twine` is a utility for publishing Python packages on PyPI. We are going to use the test repository <https://test.pypi.org/>.
 
-**Exercise:**
+---
+### <font color='red'>Exercise : Create a bunch of files</font>
+
 
   1. Create an account on the PyPI test repository
 
@@ -407,6 +433,7 @@ password: ...
 ```bash
 $ twine upload dist/*
 ```
+---
 
 More documentation on using `twine` to upload packages to PyPI is in the [Python Packaging User Guide](https://packaging.python.org/tutorials/distributing-packages/https://packaging.python.org/tutorials/distributing-packages/).
 
