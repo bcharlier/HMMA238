@@ -351,8 +351,9 @@ plt.show()
 
 # ### <font color='red'> EXERCISE : Bassin of attraction</font>
 #
-# Draw the points on the curves with 2 different colors : orange for the points leading to find the left local minima, and red for the points leading to the right local minima.
-#
+# Draw the points on the curves with 2 different colors :
+# - orange for the points leading to find the left local minima
+# - red for the points leading to the right local minima.
 
 grid = np.linspace(-5, 3, num=100)
 x_gauche = optimize.fmin_bfgs(f, x0=-3, disp=False)[0]
@@ -442,7 +443,7 @@ plt.legend()
 plt.show()
 
 
-# Dans le cas de polynômes on peut le faire directement avec NumPy
+# For polynomial you can directly use `numpy`
 
 # %%
 
@@ -475,7 +476,7 @@ def f(x):
 n = np.arange(0, 10)
 x = np.linspace(0, 9, 100)
 
-y_meas = f(n) + 0.1 * np.random.randn(len(n))  # ajout de bruit
+y_meas = f(n) + 0.1 * np.random.randn(len(n))  # add noise
 y_real = f(x)
 
 linear_interpolation = interp1d(n, y_meas)
@@ -501,15 +502,11 @@ plt.legend(loc=3)
 plt.show()
 
 
-# ### ImagesCommençons par l'importer
+# ### Images
 
 # %%
 
 from scipy import ndimage, misc
-img = misc.face()
-type(img), img.dtype, img.ndim, img.shape
-
-
 img = misc.face()
 type(img), img.dtype, img.ndim, img.shape
 
@@ -526,7 +523,7 @@ np.unique(img)
 
 
 # %%
-
+# ### True image
 plt.figure()
 plt.imshow(img)
 plt.axis('off')
@@ -534,6 +531,7 @@ plt.show()
 
 
 # %%
+# ### RGB decomposition
 
 fig, ax = plt.subplots(3, 2)
 fig.set_size_inches(9, 6.5)
@@ -569,8 +567,16 @@ plt.imshow(img_compressed, cmap=plt.cm.gray)
 plt.axis('off')
 plt.show()
 
+### Convert a color image in grayscale
 
-# Ajout d'un flou
+# %%
+
+plt.figure()
+plt.imshow(np.mean(img, axis=2), cmap=plt.cm.gray)
+plt.show()
+
+
+# Blurring (fr: floutage)
 
 # %%
 
@@ -581,18 +587,9 @@ plt.axis('off')
 plt.show()
 
 
-# Conversion de l'image en niveaux de gris et affichage:
-
-# %%
-
-plt.figure()
-plt.imshow(np.mean(img, axis=2), cmap=plt.cm.gray)
-plt.show()
-
-
 # ### <font color='red'> EXERCISE : Color</font>
 # Change the color of the flag to make it frenchier (e.g. use blue, white, red)
-
+# or italianer (use red/white/green)
 # %%
 
 img = (255 * plt.imread('https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/486px-Flag_of_Brazil.svg.png')).astype(np.int)
@@ -627,10 +624,9 @@ img = (255 * plt.imread('https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Fl
 img = img.copy()
 plt.figure()
 
-find_white_green = img[:, :, 1] > 200  # center
-find_light_green = (img[:, :, 1] <= 200)*(img[:, :, 1] > 50)  # center
-find_dark_green = img[:, :, 1] <= 50  # center
-
+find_white_green = img[:, :, 1] > 200
+find_light_green = (img[:, :, 1] <= 200)*(img[:, :, 1] > 50)
+find_dark_green = img[:, :, 1] <= 50
 
 # red part
 img[:, :, 0][find_dark_green] = 255
@@ -652,55 +648,15 @@ plt.imshow(img)
 plt.show()
 
 
+# Italianer?
+# XXX TODO
+
 # # More for colors/ images:
 # http://josephsalmon.eu/enseignement/Montpellier/HLMA310/matplotlib_slides.pdf
 #
 
-# ## Discrete Fourrier Transform / Fast Fourier Transform (FFT)
-#
-# SciPy uses the library [FFTPACK](http://www.netlib.org/fftpack/) written in FORTRAN.
-#
-# Help on FFT (in French): https://courspython.com/fft-introduction.html
 
-# %%
-from scipy import fftpack
-
-# Nous allons calculer les transformées de Fourier discrètes de fonctions spéciales:
-
-# %%
-from scipy.signal import gausspulse
-
-
-t = np.linspace(-1, 1, 1000)
-x = gausspulse(t, fc=20, bw=0.5)
-
-#  Compute FFT
-F = fftpack.fft(x)
-
-# calcul des fréquences en Hz si on suppose un échantillonage à 1000Hz
-freqs = fftpack.fftfreq(len(x), 1. / 1000.)
-fig, axes = plt.subplots(1, 2, figsize=(12, 4))
-axes[0].plot(t, x)  # plot du signal
-axes[0].set_ylim([-2, 2])
-axes[0].set_xlabel('Time series (s)')
-
-axes[1].plot(freqs, np.abs(F))  # plot du module de la TFD
-axes[1].set_xlim([0, 200])
-axes[1].set_xlabel('Freq (Hz)')
-axes[1].set_ylabel('|FFT|')
-
-# mask = (freqs > 0) & (freqs < 200)
-
-plt.show()
-
-
-# ### <font color='red'> EXERCISE : FFT</font>
-#
-# Le signal est réel du coup la FFT est symétrique.
-#
-# Afficher la TFD restreinte aux fréquences positives et la TFD restreinte aux fréquences entre 0 et 200Hz.
-
-# ## Pour aller plus loin
+# ## Further lectures
 #
 # * http://www.scipy.org - The official web page for the SciPy project.
 # * http://docs.scipy.org/doc/scipy/reference/tutorial/index.html - A tutorial on how to get started using SciPy.
