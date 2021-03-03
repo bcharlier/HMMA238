@@ -79,7 +79,9 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 - A small challenge based on a real datasets. This will be a personal work, and includes an aesthetic part and prediction part.
 
-- Due date : **Week 13**.
+- Due date : 23:59 Thursday, April 1st.
+
+- More information on the challenge is available at [Challenge 2020-2021](Challenge/2020-2021)
 
 ### Tests (15% of the final grade)
 Three short tests of 15 min each (on Moodle). This will be a personal work.
