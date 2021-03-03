@@ -6,7 +6,7 @@ This lecture gives a short introduction to classes and exceptions used in Python
 
 Inspired from the work of:
 
-1. XXX TODO
+1. <https://fabienmaussion.info/scipro_ss2018/html/09-Exceptions.html>
 
 
 ## Objectives
@@ -17,7 +17,6 @@ During this session you will learn the very basics of:
 
 2. Handle exceptions / errors.
 
-    Resources: <https://fabienmaussion.info/scipro_ss2018/html/09-Exceptions.html>
 
 
 
