@@ -202,6 +202,9 @@ plt.tight_layout()
 df_titanic_raw.groupby(['Sex', 'Pclass'])[['Sex']].count()
 
 
+# More on groupby pandas-kungfu: cf. also pd.crosstab, etc.
+# https://pbpython.com/groupby-agg.html
+
 # %%
 
 # # Pandas: analyzing data with Python
