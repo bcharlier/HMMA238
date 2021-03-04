@@ -333,20 +333,50 @@ def f(x):
     return 4*x**3 + (x-2)**2 + x**4
 
 
+def mf(x):
+    return -(4*x**3 + (x-2)**2 + x**4)
+
+
+
 # %%
-x = np.linspace(-5, 3, 100)
+xs = np.linspace(-5, 3, 100)
 plt.figure()
-plt.plot(x, f(x))
+plt.plot(xs, f(xs))
 plt.show()
 
-
+#%%
+#
 # `fmin_bfgs` (see https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm)
 
-x_min = optimize.fmin_bfgs(f, x0=3)
+x_min = optimize.fmin_bfgs(f, x0=-4)
+x_max = optimize.fmin_bfgs(mf, x0=-2)
+x_min2 = optimize.fmin_bfgs(f, x0=2)
+
+
 plt.figure()
-plt.plot(x, f(x))
-plt.plot(x_min, f(x_min), 'o')
+plt.plot(xs, f(xs))
+plt.plot(x_min, f(x_min), 'o', markersize=10, color='orange')
+plt.plot(x_min2, f(x_min2), 'o', markersize=10, color='red')
+plt.plot(x_max, f(x_max), '|', markersize=20)
 plt.show()
+
+# %%
+x_argmins = np.zeros(xs.size)
+x = optimize.fmin_bfgs(f, x0=-4)
+mask = np.zeros(xs.size)
+
+# Correction: with loops
+plt.figure()
+plt.plot(xs, f(xs))
+for i in range(len(xs)):
+    x_argmins[i]=optimize.fmin_bfgs(f, x0=xs[i], disp=False)
+    if np.isclose(x_argmins[i], x_min)[0]:
+        plt.plot(xs[i], f(xs[i]),
+                 'o', markersize=10, color='orange')
+    else:
+        plt.plot(xs[i], f(xs[i]),
+                 'o', markersize=10, color='red')
+plt.plot(x_max, f(x_max), '|', markersize=50)
 
 
 # ### <font color='red'> EXERCISE : Bassin of attraction</font>
@@ -355,13 +385,7 @@ plt.show()
 # - orange for the points leading to find the left local minima
 # - red for the points leading to the right local minima.
 
-grid = np.linspace(-5, 3, num=100)
-x_gauche = optimize.fmin_bfgs(f, x0=-3, disp=False)[0]
-x_droite = optimize.fmin_bfgs(f, x0=3, disp=False)[0]
-print(x_droite, x_gauche)
-
-# XXX
-
+#%%
 
 # ### Find the zeros of a function
 #
@@ -377,8 +401,7 @@ def f(omega):
 x = np.linspace(1e-8, 3.2, 1000)
 y = f(x)
 mask = np.where(np.abs(y) > 50)
-x[mask] = y[mask] = np.nan  # remove vertical line when the function flips sign
-plt.figure()
+x[mask] = y[mask] = np.nan  # remove vertical line when the function flips sign 
 plt.plot(x, y)
 plt.plot([0, 3.3], [0, 0], 'k')
 plt.ylim(-5, 5)
@@ -580,7 +603,7 @@ plt.show()
 
 # %%
 
-img_flou = ndimage.gaussian_filter(img, sigma=40)
+img_flou = ndimage.gaussian_filter(img, sigma=2)
 plt.figure()
 plt.imshow(img_flou, cmap=plt.cm.gray)
 plt.axis('off')
@@ -619,11 +642,19 @@ plt.tight_layout()
 
 # %%
 
+# ### <font color='red'> EXERCISE : Make the Brazilian italianer</font>
+# (green white red)
+
+# XXX TODO
 # colors levels
+
+# %%
 img = (255 * plt.imread('https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/486px-Flag_of_Brazil.svg.png')).astype(np.int)
 img = img.copy()
 plt.figure()
+plt.imshow(img[:, :, 2], cmap=plt.cm.gray)
 
+# %%
 find_white_green = img[:, :, 1] > 200
 find_light_green = (img[:, :, 1] <= 200)*(img[:, :, 1] > 50)
 find_dark_green = img[:, :, 1] <= 50
@@ -632,7 +663,6 @@ find_dark_green = img[:, :, 1] <= 50
 img[:, :, 0][find_dark_green] = 255
 img[:, :, 1][find_dark_green] = 0
 img[:, :, 2][find_dark_green] = 0
- center
 
 #  white part
 img[:, :, 0][find_white_green] = 255
@@ -647,10 +677,6 @@ img[:, :, 2][find_light_green] = 255
 plt.imshow(img)
 plt.show()
 
-
-# Italianer?
-# XXX TODO
-
 # # More for colors/ images:
 # http://josephsalmon.eu/enseignement/Montpellier/HLMA310/matplotlib_slides.pdf
 #
@@ -663,5 +689,3 @@ plt.show()
 # * https://github.com/scipy/scipy/ - The SciPy source code.
 # * http://scipy-lectures.github.io
 #
-
-# %%

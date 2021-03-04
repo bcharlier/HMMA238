@@ -28,7 +28,7 @@ pd.options.display.max_rows = 8
 
 url = "http://josephsalmon.eu/enseignement/datasets/titanic.csv"
 path_target = "./titanic.csv"
-download(url, path_target, replace=False)  # if needed pip install download
+download(url, path_target, replace=False)  # if needed `pip install download`
 
 # df: data frame
 df_titanic_raw = pd.read_csv("titanic.csv")
@@ -38,8 +38,11 @@ df_titanic_raw = pd.read_csv("titanic.csv")
 
 df_titanic_raw.tail(n=3)
 
+# %%
+df_titanic_raw.head(n=5)
 
-# ## Missing values manquantes:
+
+# ## Missing values / manquantes:
 # simplest strategy (when you can): remove all NAs
 
 # %%
@@ -68,14 +71,14 @@ df_titanic.tail(3)
 df_titanic.describe()
 
 
-# ## Visualisation:
+# ## Visualization:
 
 # **Age repartition**
 
 # %%
 
 plt.figure(figsize=(5, 5))
-plt.hist(df_titanic['Age'], density=True, bins=50)
+plt.hist(df_titanic['Age'], density=True, bins=25)
 plt.xlabel('Age')
 plt.ylabel('Proportion')
 plt.title("Histogramme de l'âge des passagers")
@@ -85,7 +88,7 @@ plt.title("Histogramme de l'âge des passagers")
 
 plt.figure(figsize=(5, 5), num='jfpwje')
 # KDE: kernel density estimate from seaborn package
-ax = sns.kdeplot(df_titanic['Age'], shade=True, cut=0, bw=0.2)
+ax = sns.kdeplot(df_titanic['Age'], shade=True, cut=0, bw=0.1)  #bw: bandwith
 plt.xlabel('Proportion')
 plt.ylabel('Age')
 ax.legend().set_visible(False)
@@ -93,7 +96,7 @@ plt.title("Estimation de la densité de l'âge des passagers")
 plt.tight_layout()
 
 
-# ### <font color='red'> EXERCISE : density over histrogram </font>
+# ### <font color='red'> EXERCISE : density over histogram </font>
 # Plot the density estimate over the histogram
 
 # %%
@@ -103,7 +106,7 @@ plt.hist(df_titanic['Age'], density=True, bins=50)
 plt.xlabel('Age')
 plt.ylabel('Proportion')
 plt.title("Histogramme de l'âge des passagers")
-ax = sns.kdeplot(df_titanic['Age'], shade=True, cut=0, bw=0.2)
+ax = sns.kdeplot(df_titanic['Age'], shade=True, cut=0, bw=0.2,color='red')
 ax.legend().set_visible(False)
 plt.tight_layout()
 
@@ -112,14 +115,14 @@ plt.tight_layout()
 # Interactive interaction with codes and output is nowdays easier and easier
 # (see also Shiny app in R-software).
 # In python one can use for that `widgets` and the `interact` package.
-# We are going to visualise that on the simple KDE and histograms examples.
+# We are going to visualize that on the simple KDE and histograms examples.
 
 # %%
 
 def hist_explore(n_bins=24, alpha=0.25, density=False):
     fig, ax = plt.subplots(1, 1, figsize=(5, 5))
     ax.hist(df_titanic['Age'], density=density,
-            bins=n_bins, alpha=0.25)  # standardization
+            bins=n_bins, alpha=alpha)  # standardization
     plt.xlabel('Age')
     plt.ylabel('Density level')
     plt.title("Histogram for passengers' age")
@@ -146,7 +149,7 @@ def kde_explore(bw=5):
 
 # %%
 
-interact(kde_explore, bw=(0.001, 10, 0.1))
+interact(kde_explore, bw=(0.001, 2, 0.01))
 
 
 # ## `Groupby` function
@@ -180,16 +183,23 @@ plt.show()
 # Perform a similar analysis with the median for the price per class in pounds.
 
 # %%
+plt.figure()
+df_titanic.groupby('Pclass')['Fare'].aggregate(lambda x: x.median()).plot(kind='bar')
+plt.show()
 
 # ## Catplot, or a visual groupby
 
 # %%
 
-sns.catplot(x=df_titanic_raw.columns[2], y="Age",
-            hue="Sex", data=df_titanic_raw, kind="violin", legend=False)
+sns.catplot(x='Pclass', y="Age",
+            hue="Sex", data=df_titanic_raw, kind="box", legend=False)
 plt.title("Age par classe")
 plt.legend(loc=1)
 plt.tight_layout()
+
+# %%
+# Beware: large difference in sex ratio by class
+df_titanic_raw.groupby(['Sex', 'Pclass'])[['Sex']].count()
 
 
 # %%
