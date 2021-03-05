@@ -7,7 +7,7 @@ This lecture gives a short introduction to python coding.
 Inspired from the work of:
 
 1. A. Gramfort (alexandre.gramfort@inria.fr) <http://alexandre.gramfort.net/>
-2. J. R. Johansson (robert@riken.jp) <http://dml.riken.jp/~rob/>
+2. J. R. Johansson <https://jrjohansson.github.io/numericalpython.html> or <https://github.com/jrjohansson/scientific-python-lectures>
 3. P. Fuchs et P. Poulain <https://python.sdv.univ-paris-diderot.fr/>
 
 

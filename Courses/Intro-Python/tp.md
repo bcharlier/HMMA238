@@ -563,7 +563,7 @@ Toto said: "Hello! How's it going?"
 # TODO XXX
 ```
 
-See also string: `\t`, `\n`, etc.
+See also string: `\t` (tabulation), `\n` (chariot) , etc.
 ---
 
 
@@ -601,7 +601,7 @@ print(start)
 print(stop)
 ```
 
-**Remark:** especially for french word (containing é, è, à, ç, etc.), you should check which character encoding system is used. See: unicode, utf8, etc. at <http://sametmax.com/lencoding-en-python-une-bonne-fois-pour-toute/>
+**Remark:** especially for french word (containing é, è, à, ç, etc.), you should check which character encoding system is used. See: unicode, utf8, etc. at <http://sametmax.com/lencoding-en-python-une-bonne-fois-pour-toute/> (fr).
 
 It is possible to omit `start` or `stop`: in this case the default values are 0 or the length of the string respectively.
 
@@ -617,7 +617,7 @@ s[2:]  # from the third char. to the end
 
 
 ```python
-print(len(s[5:]))  # len: shortcut for 'length'
+print(len(s[5:]))  # len: short for 'length'
 print(len(s) - 5)
 ```
 
@@ -750,13 +750,18 @@ Print the real number $e=\exp(1)$ with 1, 10, 20 and 50 digits (one number by li
 
 ```python
 # TODO XXX
+for i in [1, 10, 20]:
+    print(f"{math.e:1.{i}f}")
 ```
 ---
 
 ```python
 # More advanced
-print("val = {0:1.15f},val2={1:1.15f}".format(a, b))
+print("val = {0:1.15f},val2={0:1.{2}f}".format(a, b, 4))
+
 ```
+
+New (XXX TODO): f-strings et <https://docs.python.org/3/reference/lexical_analysis.html#grammar-token-digit>
 
 ```python
 s = "The number {0:s} is approximately {1:1.111}"
@@ -815,7 +820,7 @@ print(l)
 print(k)
 ```
 
-On can mix types in a single list:
+One can mix types in a single list:
 
 ```python
 l = [1, 'a', 1.0, 1-1j]
@@ -878,25 +883,8 @@ print(l2)
 print(l2[::-1])
 ```
 
-**Warning:** l2.sort() works **in place** and outputs nothing, or rather `None`
+**Warning:** `l2.sort()` works **in place** and outputs nothing, or rather `None`
 
-
-```python
-l2 = ['e', 'a', "b"]
-out = l2.sort()
-print(out)
-print(l2)
-```
-
-To output a sorted copy (if you need to keep the original intact):
-
-
-```python
-out = sorted(l2)
-print(out)
-out2 = sorted(l2, reverse=True)
-print(out2)
-```
 
 #### Append, insert, modify and remove elements in a list
 
@@ -1034,7 +1022,7 @@ help(list)
 
 ### Tuples
 
- * *tuples*  are similar to lists but are immutable* : they cannot be modified once created (so they are close to `strings` in a way). They are often used as output of function (see below).
+ * *tuples*  are similar to lists but are *immutable* : they cannot be modified once created (so they are close to `strings` in a way). They are often used as output of function (see below).
  
  * You can create them with a command like  `(..., ..., ...)` or simply `..., ...`:
 
@@ -1065,23 +1053,25 @@ Yet, you will face an error if you type the following command:
 point[0] = 20
 ```
 
+Usage: mostly output of functions.
+
 ### Dictionary
 
-They are similar to your day-to-day dictionary, and use a system of *key* and *values*: the *key* is the name of the attribute, and the *value* describes the key.
+They are similar to your day-to-day dictionary, and use a system of *keys* and *values*: the *key* is the name of the attribute, and the *value* describes the key.
 
 The syntax for dictionaries is: `{key1 : value1, ...}`:
 
 
 ```python
 params_bracket = {"parameter1": 1.0,
-          "parameter2": 2.0,
-          "parameter3": 3.0}
+                  "parameter2": 2.0,
+                  "parameter3": 3.0}
 
 # Alternatively:
 
 params_dict = dict(parameter1=1.0,
-              parameter2=2.0,
-              parameter3=3.0)
+                   parameter2=2.0,
+                   parameter3=3.0)
 
 print(type(params_dict))
 print(params_dict)
@@ -1090,7 +1080,7 @@ print(params_dict)
 ```python
 print("p1 =", params_bracket["parameter1"])
 print("p2 =", params_bracket["parameter2"])
-print("p3 =", params_bracket["parameter3"])
+print("p3 =", params_dict["parameter3"])
 ```
 
 
@@ -1212,7 +1202,7 @@ print("no more in the 'if' block")
 
 ### `for` loop
 
-** Note**: again use ":" at the end of line
+**Note**: again use ":" at the end of line
 
 
 ```python
@@ -1282,13 +1272,14 @@ scores = [100, 15, 17, 28, 43]
   
 # printing players and scores 
 for pl, sc in zip(players, scores): 
-    print("Player :  {0: <10}     Score : {1: <10}".format(pl, sc))
+    print(f"Player :  {pl}     Score : {sc}")
 ```
 
 ---
 ### <font color='red'>Exercise : Align display</font>
 Can you make the previous loop display the score in an align way? This is a StackOverflow question!
 *Hint*: use '<'
+
 ---
 
 VERY often, when you iterate over a list (or a similar object) you also need to recover the index associated to its elements. In Python `enumerate` makes it easy to read:
@@ -1352,7 +1343,7 @@ for x in range(0, 5):
 
 print(ll)
 
-# And for  `caml` fluent users, a map point of view
+# And for `caml` fluent users, a map point of view
 print(map(lambda x: x ** 2, range(5)))
 ```
 
@@ -1393,7 +1384,7 @@ More details here:
 
 ## Functions
 
-A Python function is defined by starting with the keyword `def`, followd by the name of the function, the signature in between `()`, and `:` at the end of the line.
+A Python function is defined by starting with the keyword `def`, followed by the name of the function, the signature in between `()`, and `:` at the end of the line.
 
 **Examples:**
 
@@ -1487,7 +1478,7 @@ def myfunc(x, p=2, verbose=False):
     return x**p
 ```
 
-The parameter `verbose` can now be omitted:
+The parameters `verbose` and `p` can now be omitted:
 
 
 ```python
@@ -1514,7 +1505,7 @@ myfunc(p=3, verbose=True, x=7)
 ---
 ### <font color='red'>Exercise: *quicksort*</font>
 
-The [Wikipedia page](http://en.wikipedia.org/wiki/Quicksort)  of the *quicksort* algorithm provide the following code to sort a list:
+The [Wikipedia page](http://en.wikipedia.org/wiki/Quicksort)  of the *quicksort* algorithm provides the following code to sort a list:
 
     function quicksort('array')
        if length('array') <= 1
@@ -1532,7 +1523,7 @@ Transform this code in valid Python.
 
  * recall that the length of a list `l` is given by  `len(l)`
  * two lists can be concatenated with `l1 + l2`
- * `l.pop()` remove the last element of the list `l`
+ * `l.pop()` removes the last element of the list `l`
 
 **WARNING**: a list is mutable...
 

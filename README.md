@@ -8,6 +8,10 @@
 - Benjamin Charlier : benjamin.charlier@umontpellier.fr
 - Florent Bascou : florent.bascou@umontpellier.fr
 
+with the help of many students including:
+- Amelie Vernay
+- ...
+
 ## Web page
 
 <https://github.com/bcharlier/HMMA238>
@@ -17,7 +21,7 @@
 ## Prerequisite
 
 Students are expected to know basic notions of probabilities, optimization, linear algebra and statistics for this course.
-Some rudiments on coding is also expected (if, for, while, functions) but not mandatory. 
+Some rudiments on coding is also expected (if, for, while, functions) but not mandatory.
 
 ## Course description
 
@@ -37,29 +41,29 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 4. JS : (28/01) [Coding : algorithms, modules, basic types, functions, loops](Courses/Intro-Python/) [coding : list, dictionary, tuples, if statement and loops, exceptions](Courses/Intro-Python/)
 
-5. BC : (03/02) [hands on git](Courses/Git/), [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Courses/Intro-Python/)
+5. BC : (03/02) [hands on git](Courses/Git/)
 
 6. JS : (04/02) [`numpy` : basics on matrices (arrays), slicing, simple linear algebra, masking; `matplotlib`: first plots](Courses/Numpy-Matplotlib/)
 
-7. BC : (10/02) [Create a Python Module](Courses/Python-modules/)
+7. BC : (10/02) [Some git again](Courses/Git/), 
 
-8. JS : (11/02) [`numpy` : casting, concatenation, `imshow`, `meshgrid`, casting, copy](Courses/Numpy-Matplotlib/);  [`scipy`: EDO, Interpolation, Optimize](Courses/Scipy/)
+8. JS : (11/02) [`numpy` : casting, concatenation](Courses/Numpy-Matplotlib/);
 
-9. JS : (17/02) [`scipy`: Images/channel, FFT](Courses/Scipy/), [Pandas: missing data](Courses/Pandas/)
+9. JS : (17/02) [`numpy` / `matplotlib`: `imshow`, `meshgrid`, copy](Courses/Numpy-Matplotlib/);
 
-10. JS : (18/02) [Pandas: first steps](Courses/Pandas/)
+10. JS : (18/02) [`scipy`: EDO, Interpolation, Optimize](Courses/Scipy/)
 
-11. BC : (03/03) [Create a Python Module](Courses/Python-modules/), [unit tests](Courses/Tests-CI/)
+11. BC : (03/03) [classes (`__init__`, `__call__`, etc...), operator overloading, files handling](Courses/Classes_n_Exceptions/), [Create a Python Module](Courses/Python-modules/)
 
-12. JS : (04/03) [Pandas: more on that](Courses/Pandas/)
+12. JS : (04/03) [`scipy`: Images/channel](Courses/Scipy/), [Pandas: first steps / missing data](Courses/Pandas/)
 
-13. BC : (10/03) [Unit test](Courses/Tests-CI/)
+13. BC : (10/03) [Create a Python Module](Courses/Python-modules/), [unit tests](Courses/Tests-CI/)
 
 14. BC : (17/03) [Documentation with Sphinx](Docs/)
 
-15. JS : (18/03) [Sparse natrices, graphs and memory](Courses/TempsMemoire/)
+15. JS : (18/03) [Sparse matrices, graphs and memory](Courses/TempsMemoire/)
 
-16. BC : (31/03) pytorch? 
+16. BC : (31/03) pytorch?
 
 17. JS : (01/04) [Numba](Courses/Numba/)
 
@@ -73,15 +77,17 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 ### Challenge (25% of the final grade)
 
-- A small challenge based on a real datasets. This will be a personal work, and includes an aesthetic part and prediction part. 
+- A small challenge based on a real datasets. This will be a personal work, and includes an aesthetic part and prediction part.
 
-- Due date : **Week 13**.
+- Due date : 23:59 Thursday, April 1st.
+
+- More information on the challenge is available at [Challenge 2020-2021](Challenge/2020-2021)
 
 ### Tests (15% of the final grade)
 Three short tests of 15 min each (on Moodle). This will be a personal work.
 
 - Quiz 1 (**Week 6**)
-- Quiz 2 (**Week 9**)
+- Quiz 2 (**Week 10**)
 - Quiz 3 (**Week 12**)
 
 ### Project (60% of the final grade)
@@ -110,7 +116,7 @@ The resources for the course are available on the present `github` repository. A
 2013, (french)
 - (General/data science) Guttag, *Introduction to Computation and Programming*,
 2016
-    
+
     Associated videos: <http://jakevdp.githubio/blog/2017/03/03/reproducible-data-analysis-in-jupyter/>
 
 - (Code and style) Boswell et Foucher, *The Art of Readable Code*, 2011
