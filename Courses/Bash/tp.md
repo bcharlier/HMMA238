@@ -326,7 +326,7 @@ Please read the manual of `tail`, `head`, `cat`, `wc` and `split`
 
    1. Use the word count `wc` command to display the number of lines of `bicycle_db.csv`
    2. Display the 53 first line with the `head` command. Same with the 30 last lines (see `tail`)
-   3. Use the `split` command and its options `-d` `-l` and `--additional-suffix` to create files with a maximum number of lines of 10000 (hint you should get only 6 files) with names `bike01.csv`, ..., `bike06.csv`
+   3. Use the `split` command and its options `-d` `-l` and `--additional-suffix` to create files with a maximum number of lines of 10000 (e.g. :if the number of lines is 55379, you should get only 6 files with names `bike00.csv`, ..., `bike05.csv`)
 ----
 
 ### The `grep` command
