@@ -253,7 +253,7 @@ Python module/package names should generally follow the following constraints:
 - Underscore-separated or no word separators at all, and do not use hyphens (i.e., use _ not -).
 
 We are going to create a module called `biketrauma` to visualize the `bicycle_db` used in the the following lectures.
-XXX TODO (reconnect with where this is downloaded)
+The file is available at the following URL: <https://koumoul.com/s/data-fair/api/v1/datasets/accidents-velos/raw>.
 
 ### Module structure
 
