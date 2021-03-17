@@ -918,7 +918,8 @@ df_bikes
 # %%
 
 # Chargement des couleurs
-sns.set_palette("colorblind", n_colors=7)
+sns.set_palette("GnBu_d", n_colors=7)
+
 df_bikes['weekday'] = df_bikes.index.weekday  # Monday=0, Sunday=6
 
 accidents_week = df_bikes.groupby(['weekday', df_bikes.index.hour])[
@@ -971,7 +972,8 @@ axes.set_title(
 axes.set_xticks(np.arange(0, 24))
 axes.set_xticklabels(np.arange(0, 24), rotation=45)
 # axes.set_ylim(0, 90)
-axes.legend(labels=calendar.month_name[1:], loc='lower left', bbox_to_anchor=(1, 0.1))
+axes.legend(labels=calendar.month_name[1:], loc='lower left',
+            bbox_to_anchor=(1, 0.1))
 
 plt.tight_layout()
 
