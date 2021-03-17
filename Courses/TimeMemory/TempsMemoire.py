@@ -67,58 +67,6 @@ end = time.time()
 print("Temps passé pour exécuter la commande: {0:.5f} s.".format(end - start))
 
 
-# ## For more on profiling
-#
-# In Python `snakeviz` could help, see https://jiffyclub.github.io/snakeviz/
-#
-# In R, `profvis` is equivalent, see https://rstudio.github.io/profvis/
-
-# ## Debogage : package `pdb`
-# Insipiré du site: https://davidhamann.de/2017/04/22/debugging-jupyter-notebooks/
-# On va utiliser  `import pdb; pdb.set_trace()` pour rentrer dans un code et requêter les informations des valeurs. Enfin pour continuer le code entre `c` et la touche `enter`.
-#
-# On peut consulter aussi:
-# https://www.codementor.io/stevek/advanced-python-debugging-with-pdb-g56gvmpfa.
-
-# Une première manière de procéder est d'utiliser `pdb` et la commande `pdb.set_trace()` de ce package. Une invite de commande se lance alors quand on a un soucis, et on peut alors reprendre la main voir ce qu'il se passe.
-#
-# On pourra consulter les raccourcis clavier (e.g., touche c, touche j etc) ici: https://docs.python.org/3/library/pdb.html)
-
-# %%
-
-def illustrate_pdb(x):
-    answer = 42
-    import pdb; pdb.set_trace()
-    answer += x
-
-    return answer
-
-illustrate_pdb(12)
-
-
-# Une autre manière de procéder est d'allumer le debogueur `pdb`. Une invite de commande se lance alors quand on a un soucis, et on peut alors reprendre la main voir ce qu'il se passe.
-
-# %%
-
-get_ipython().run_line_magic('pdb', '')
-
-
-# %%
-
-def blobl_func(x):
-    answer = 0
-    for i in range(x,-1,-1):
-        print(i)
-        answer += 1 / i
-
-    return answer
-
-
-# %%
-
-blobl_func(4)
-
-
 # # Matrices creuses, graphes et mémoire
 #
 # L'intérêt des matrices creuses est de pouvoir manipuler des matrices, potentiellement énormes, mais qui ont un nombre de coefficients non nuls très petit devant les nombres d'entrées de la matrice, par exemple moins de 1%.
@@ -457,3 +405,58 @@ df = geopandas.read_file(geopandas.datasets.get_path('nybb'))
 ax = df.plot(figsize=(10, 10), alpha=0.5, edgecolor='k')
 plt.show()
 
+
+
+# ## For more on profiling
+#
+# In Python `snakeviz` could help, see https://jiffyclub.github.io/snakeviz/
+#
+# In R, `profvis` is equivalent, see https://rstudio.github.io/profvis/
+
+# ## Debugging : package `pdb`
+# inspired by
+# https://davidhamann.de/2017/04/22/debugging-jupyter-notebooks/
+# Let us use
+# `import pdb; pdb.set_trace()`
+# to enter a code and inspect it.
+# Push the key `c` and then `enter` to go next.
+#
+# See also:
+# https://www.codementor.io/stevek/advanced-python-debugging-with-pdb-g56gvmpfa.
+
+# Une première manière de procéder est d'utiliser `pdb` et la commande `pdb.set_trace()` de ce package. Une invite de commande se lance alors quand on a un soucis, et on peut alors reprendre la main voir ce qu'il se passe.
+#
+# On pourra consulter les raccourcis clavier (e.g., touche c, touche j etc) ici: https://docs.python.org/3/library/pdb.html)
+
+# %%
+
+def illustrate_pdb(x):
+    answer = 42
+    import pdb; pdb.set_trace()
+    answer += x
+    return answer
+
+illustrate_pdb(12)
+
+
+# Une autre manière de procéder est d'allumer le debogueur `pdb`. Une invite de commande se lance alors quand on a un soucis, et on peut alors reprendre la main voir ce qu'il se passe.
+
+# %%
+
+get_ipython().run_line_magic('pdb', '')
+
+
+# %%
+
+def blobl_func(x):
+    answer = 0
+    for i in range(x,-1,-1):
+        print(i)
+        answer += 1 / i
+
+    return answer
+
+
+# %%
+
+blobl_func(4)
