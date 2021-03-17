@@ -57,13 +57,13 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 12. JS : (04/03) [`scipy`: Images/channel](Courses/Scipy/), [Pandas: first steps / missing data](Courses/Pandas/)
 
-13. BC : (10/03) [Create a Python Module](Courses/Python-modules/), [unit tests](Courses/Tests-CI/)
-
-14. BC : (17/03) [Documentation with Sphinx](Docs/)
+13. BC : (10/03) [Create a Python Module](Courses/Python-modules/
+                                          )
+14. BC : (17/03) [unit tests](Courses/Tests-CI/)
 
 15. JS : (18/03) [Sparse matrices, graphs and memory](Courses/TimeMemory/)
 
-16. BC : (31/03) pytorch?
+16. BC : (31/03) [Documentation with Sphinx](Docs/)
 
 17. JS : (01/04) [Numba](Courses/Numba/)
 
