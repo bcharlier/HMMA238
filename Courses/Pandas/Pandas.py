@@ -641,8 +641,7 @@ plt.xlabel("Year")
 # Load colors
 sns.set_palette("GnBu_d", n_colors=7)
 polution_ts['weekday'] = polution_ts.index.weekday  # Monday=0, Sunday=6
-
-# polution_ts['weekend'] = polution_ts['weekday'].isin([5, 6])
+polution_ts['weekend'] = polution_ts['weekday'].isin([5, 6])
 
 # days = ['Lundi', 'Mardi', 'Mercredi',
 #         'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
@@ -684,17 +683,16 @@ axes[1].legend(labels=days, loc='lower left', bbox_to_anchor=(1, 0.1))
 
 plt.tight_layout()
 
-
 # %%
-
-# XXX TODO quid des saisons?
+# XXX TODO Could you provide a an analysis by ?
 
 
 # %%
 
 import calendar
 polution_ts['month'] = polution_ts.index.month  # Janvier=0, .... Decembre=11
-polution_ts['month'] = polution_ts['month'].apply(lambda x: calendar.month_abbr[x])
+polution_ts['month'] = polution_ts['month'].apply(lambda x:
+                                                  calendar.month_abbr[x])
 polution_ts.head()
 
 
@@ -709,7 +707,6 @@ polution_month_03 = polution_ts.groupby(['month', polution_ts.index.hour])[
 
 
 # %%
-
 sns.set_palette("GnBu_d", n_colors=12)
 
 fig, axes = plt.subplots(2, 1, figsize=(7, 7), sharex=True)
@@ -732,23 +729,23 @@ axes[1].set_xticklabels(np.arange(0, 24), rotation=45)
 axes[1].set_ylim(0, 90)
 axes[0].legend().set_visible(False)
 # ax.legend()
-axes[1].legend(labels=calendar.month_name[1:], loc='lower left', bbox_to_anchor=(1, 0.1))
+axes[1].legend(labels=calendar.month_name[1:], loc='lower left',
+               bbox_to_anchor=(1, 0.1))
 
 plt.tight_layout()
 
 
-# # Your turn: explore the bike accident dataset
-#
+# # Third example (your turn: explore the bike accident dataset on you own)
 # https://www.data.gouv.fr/fr/datasets/accidents-de-velo-en-france/
 #
-# Possible visualisation
+# Possible visualization
 # https://koumoul.com/en/datasets/accidents-velos
 
 # %%
 
 url = "https://koumoul.com/s/data-fair/api/v1/datasets/accidents-velos/raw"
 path_target = "./bicycle_db.csv"
-download(url, path_target, replace=False)
+download(url, path_target, replace=True)
 
 
 # %%
@@ -800,7 +797,7 @@ df_bikes.iloc[400:402]
 # %%
 
 # remove missing hours cases by np.nan
-df_bikes['heure']=df_bikes['heure'].replace('', np.nan)
+df_bikes['heure'] = df_bikes['heure'].replace('', np.nan)
 df_bikes.iloc[400:402]
 
 
@@ -835,7 +832,7 @@ time_improved = pd.to_datetime(df_bikes['date'] +
 # %%
 
 df_bikes['Time'] = time_improved
-df_bikes.set_index('Time',inplace=True)
+df_bikes.set_index('Time', inplace=True)
 # remove useles columns
 del df_bikes['heure']
 del df_bikes['date']
@@ -848,38 +845,47 @@ df_bikes.info()
 
 # %%
 
-df_bikes_partial = df_bikes[['gravite accident', 'existence securite', 'age', 'sexe']]
-df_bikes_partial['existence securite'] = df_bikes_partial['existence securite'].replace(np.nan, "Inconnu")
-df_bikes_partial.dropna(inplace=True)
+df_bike2 = df_bikes[['gravite accident', 'existence securite',
+                             'age', 'sexe']]
+df_bike2['existence securite'] = df_bike2['existence securite'].replace(np.nan, "Inconnu")
+df_bike2.dropna(inplace=True)
 
 
 # ### <font color='red'> EXERCISE : Is the helmet saving your life?  </font>
-# Peform an analysis so that you can check the benefit or not of wearing helmet to save your life.
-# Beware preprocessing needed to use `pd.crosstab`,  `pivot_table` to avoid issues.
+# Peform an analysis so that you can check the benefit or not of wearing
+# helmet to save your life.
+# Beware preprocessing needed to use `pd.crosstab`,  `pivot_table` to avoid
+# issues.
 
 # %%
 
-group = df_bikes_partial.pivot_table(columns='existence securite',index=['gravite accident','sexe'], aggfunc={'age': 'count'}, margins=True)
+group = df_bike2.pivot_table(columns='existence securite',
+                             index=['gravite accident', 'sexe'],
+                             aggfunc={'age': 'count'}, margins=True)
 group
 
 
 # %%
 
 # pd.crosstab?
-pd.crosstab(df_bikes_partial['existence securite'], df_bikes_partial['gravite accident'], normalize='index') *100
+pd.crosstab(df_bike2['existence securite'],
+            df_bike2['gravite accident'], normalize='index') * 100
 
 
 # %%
 
-pd.crosstab(df_bikes_partial['existence securite'], df_bikes_partial['gravite accident'], values = df_bikes_partial['age'], aggfunc='count', normalize='index') *100
+pd.crosstab(df_bike2['existence securite'],
+            df_bike2['gravite accident'], values=df_bike2['age'],
+            aggfunc='count', normalize='index') * 100
 
 
-# ### <font color='red'> EXERCISE : Are men and women dying equally on a bike?  </font>
-# Peform an analysis to check any difference between men and woman survival on a bike?
+# ### <font color='red'> EXERCISE :
+# Are men and women dying equally on a bike?  </font>
+# Peform an analysis to check differences between men and woman survival ?
 
 # %%
 
-idx_dead = df_bikes['gravite accident']=='3 - Tué'
+idx_dead = df_bikes['gravite accident'] == '3 - Tué'
 df_deads = df_bikes[idx_dead]
 df_gravite = df_deads.groupby('sexe').size() / idx_dead.sum()
 df_gravite
@@ -892,11 +898,14 @@ df_bikes.groupby('sexe').size()  / df_bikes.shape[0]
 
 # %%
 
-pd.crosstab(df_bikes_partial['sexe'], df_bikes_partial['gravite accident'], values = df_bikes_partial['age'], aggfunc='count', normalize='columns',margins=True)*100
+pd.crosstab(df_bike2['sexe'],
+            df_bike2['gravite accident'],
+            values=df_bike2['age'], aggfunc='count',
+            normalize='columns', margins=True) * 100
 
 
 # ### To conclude:
-# some information on the level of bike practice by men/women is missing... though
+# Note: information on the level of bike practice by men/women is missing...
 
 # ### <font color='red'> EXERCISE : Accident during the week?  </font>
 # Peform an analysis to check when the accidents are occuring during the week.
@@ -911,9 +920,6 @@ df_bikes
 # Chargement des couleurs
 sns.set_palette("colorblind", n_colors=7)
 df_bikes['weekday'] = df_bikes.index.weekday  # Monday=0, Sunday=6
-
-days = ['Lundi', 'Mardi', 'Mercredi',
-        'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
 
 accidents_week = df_bikes.groupby(['weekday', df_bikes.index.hour])[
     'sexe'].count().unstack(level=0)
@@ -930,7 +936,7 @@ axes.set_xticks(np.arange(0, 24))
 axes.set_xticklabels(np.arange(0, 24), rotation=45)
 # axes.set_ylim(0, 6)
 axes.legend(labels=days, loc='lower left', bbox_to_anchor=(1, 0.1))
-
+plt.legend()
 plt.tight_layout()
 
 
@@ -945,8 +951,6 @@ df_bikes.groupby(['weekday', df_bikes.index.hour])[
 
 # %%
 
-
-import calendar
 df_bikes['month'] = df_bikes.index.month  # Janvier=0, .... Decembre=11
 df_bikes['month'] = df_bikes['month'].apply(lambda x: calendar.month_abbr[x])
 df_bikes.head()
@@ -977,7 +981,7 @@ plt.tight_layout()
 
 # %%
 
-import pygal  
+import pygal
 # First install if needed for maps:
 # pip install pygal
 # andpip install pygal_maps_frpip install pygal_maps_fr
@@ -1030,3 +1034,5 @@ gd.dropna(inplace=True)   # anoying NA due to 1 vs 01 in datasets
 fr_chart.add('Accidents', gd.to_dict())
 fr_chart.render_in_browser()
 # fr_chart.render_to_file('./chatr.svg')  # Write the chart in a specified file
+
+# %%
