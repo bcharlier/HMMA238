@@ -9,5 +9,5 @@ class Load_db:
   
   @staticmethod
   def save_as_df():
-    df_bikes = pd.read_csv(path_target, na_values="", low_memory=False, converters={'data': str, 'heure': str})
+    df_bikes = pd.read_csv(path_target, na_values="", low_memory=False, converters={'date': str, 'heure': str})
     return df_bikes
