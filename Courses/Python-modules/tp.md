@@ -41,7 +41,7 @@ Their names are usually prefixed and suffixed by the symbol `__`, e.g.,
 
 ### ... or a module could be a directory
 
-You can also import a full directory (containing many `python` files stored in sub-folder).
+You can also import a full directory (containing many `python` files stored in sub-folder). Python looks for a folder located in `sys.path` list. 
 You have already imported the `numpy` module, for numerical analysis with `python`:
 
 ```python
@@ -232,7 +232,7 @@ $ pip install /path/to/my/local/module
 ```
 
 where `/path/to/my/local/module` is the path to the module.
-But if some change occurs in the `/path/to/my/local/module` folder, the module will not be reloaded.
+But if some changes occur in the `/path/to/my/local/module` folder, the module will not be reloaded.
 This might be annoying during the development stage.
 To force `python` to reload the module at each change call, consider the `-e` option:
 
@@ -268,7 +268,7 @@ packaging_tutorial/
     .gitignore
 ```
 
-The top level directory is the root of our VCS repository `packaging_tutorial.git`. The sub-directory, `biketrauma`, is the actual Python module. XXX TODO : what is VCS here, is it VSCode?
+The top level directory is the root of our Version Control System (e.g. git) repository `packaging_tutorial.git`. The sub-directory, `biketrauma`, is the actual Python module.
 
 ---
 ### <font color='red'>Exercise : Create a bunch of files</font>
@@ -278,11 +278,10 @@ The top level directory is the root of our VCS repository `packaging_tutorial.gi
   1. Create a new folder `~/packaging_tutorial/` and initialize a git in it.
   2. Create a `.gitignore` file to ignore `__pycache__`, `.vscode` directories and files containing the string `egg-info` or `dist` in their name as well.  
   3. Push your work into a new repository on your github.
-  4. Create an empty sub-folder `~/packaging_tutorial/biketrauma/data` locally on your computer/session.
-  How to add it to git? 
-  XXX TODO: question unanswered
   5. Create a sub-folder `~/packaging_tutorial/biketrauma`. This is where our `python` module will be stored.
   6. Create a `~/packaging_tutorial/biketrauma/__init__.py` file where a string `__version__` defined at `0.0.1`.
+  4. Create an empty sub-folder `~/packaging_tutorial/biketrauma/data` locally on your computer/session.
+  How to add it to git?  (Hint: `.gitkeep`)
   7. Create **an empty** `~/packaging_tutorial/setup.py` file.
   8. Commit and push into your repository.
 
