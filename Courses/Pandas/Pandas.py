@@ -5,7 +5,8 @@
 #
 # ***
 # > __Auteur__: Joseph Salmon
-# > <joseph.salmon@umontpellier.fr> , adapted from the notebook by Joris Van den Bossche:
+# > <joseph.salmon@umontpellier.fr> ,
+# adapted from the notebook by Joris Van den Bossche:
 # https://github.com/jorisvandenbossche/pandas-tutorial/blob/master/01-pandas_introduction.ipynb
 
 # <a id="intro"> </a>
@@ -50,8 +51,8 @@ df_titanic_raw.head(n=5)
 df_titanic = df_titanic_raw.dropna()
 df_titanic.tail(3)
 
-
-# # Description: see also https://biostat.app.vumc.org/wiki/pub/Main/DataSets/titanic3info.txt
+# Description: see also
+#  https://biostat.app.vumc.org/wiki/pub/Main/DataSets/titanic3info.txt
 
 # survival: 	Survival 	0 = No, 1 = Yes
 # pclass: 	Ticket class 	1 = 1st, 2 = 2nd, 3 = 3rd
@@ -81,18 +82,18 @@ plt.figure(figsize=(5, 5))
 plt.hist(df_titanic['Age'], density=True, bins=25)
 plt.xlabel('Age')
 plt.ylabel('Proportion')
-plt.title("Histogramme de l'âge des passagers")
+plt.title("Passager age histogram")
 
 
 # %%
 
 plt.figure(figsize=(5, 5), num='jfpwje')
 # KDE: kernel density estimate from seaborn package
-ax = sns.kdeplot(df_titanic['Age'], shade=True, cut=0, bw=0.1)  #bw: bandwith
+ax = sns.kdeplot(df_titanic['Age'], shade=True, cut=0, bw=0.1)  # bw: bandwith
 plt.xlabel('Proportion')
 plt.ylabel('Age')
 ax.legend().set_visible(False)
-plt.title("Estimation de la densité de l'âge des passagers")
+plt.title("Passager age kernel denisty estimate")
 plt.tight_layout()
 
 
@@ -105,8 +106,9 @@ plt.figure(figsize=(5, 5))
 plt.hist(df_titanic['Age'], density=True, bins=50)
 plt.xlabel('Age')
 plt.ylabel('Proportion')
-plt.title("Histogramme de l'âge des passagers")
-ax = sns.kdeplot(df_titanic['Age'], shade=True, cut=0, bw=0.2,color='red')
+plt.title("Passager age histogram")
+
+ax = sns.kdeplot(df_titanic['Age'], shade=True, cut=0, bw=0.2, color='red')
 ax.legend().set_visible(False)
 plt.tight_layout()
 
@@ -170,7 +172,8 @@ df_titanic.columns
 # %%
 
 plt.figure()
-df_titanic.groupby('Pclass')['Survived'].aggregate(lambda x: x.mean()).plot(kind='bar')
+df_titanic.groupby('Pclass')['Survived'].aggregate(lambda x:
+                                                   x.mean()).plot(kind='bar')
 plt.xlabel('Classe')
 plt.ylabel('Taux de survie')
 plt.title('Taux de survie par classe')
@@ -184,7 +187,8 @@ plt.show()
 
 # %%
 plt.figure()
-df_titanic.groupby('Pclass')['Fare'].aggregate(lambda x: x.median()).plot(kind='bar')
+df_titanic.groupby('Pclass')['Fare'].aggregate(lambda x:
+                                               x.median()).plot(kind='bar')
 plt.show()
 
 # ## Catplot, or a visual groupby
@@ -200,10 +204,18 @@ plt.tight_layout()
 # %%
 # Beware: large difference in sex ratio by class
 df_titanic_raw.groupby(['Sex', 'Pclass'])[['Sex']].count()
+df_titanic_raw.groupby(['Sex'])[['Sex']].count()
 
 
 # More on groupby pandas-kungfu: cf. also pd.crosstab, etc.
 # https://pbpython.com/groupby-agg.html
+
+# %% pd.crosstab?
+pd.crosstab(df_titanic_raw['Sex'],
+            df_titanic_raw['Pclass'],
+            values=df_titanic_raw['Sex'],
+            aggfunc='count',
+            normalize=True)
 
 # %%
 
@@ -236,16 +248,19 @@ df_titanic_raw.groupby(['Sex', 'Pclass'])[['Sex']].count()
 #
 # **ATTENTION / LIMITS:**
 #
-# Pandas is good for working with heterogeneous data and 1D/2D tables, but not all data types fit into these structures!
+# Pandas is good for working with heterogeneous data and 1D/2D tables,
+# but not all data types fit into these structures!
 #
 # Counter-examples:
 # - When working with **array** data (e.g. images): use *numpy*.
-# - For labeled multidimensional data (e.g. climate data): see [xarray](http://xarray.pydata.org/en/stable/)
+# - For labeled multidimensional data (e.g. climate data):
+# see [xarray](http://xarray.pydata.org/en/stable/)
 
 # # Data structures in pandas: DataFrame and Series
-
-# A DataFrame is a tabular data structure (a multi-dimensional object that can contain labeled data) composed of rows and columns, similar to a spreadsheet, a database table, or R's data.frame object. You can think of it as several Series objects sharing the same index.
-
+# A DataFrame is a tabular data structure (a multi-dimensional object that
+# can contain labeled data) composed of rows and columns, similar
+# to a spreadsheet, a database table, or R's data.frame object.
+# You can think of it as several Series objects sharing the same index.
 
 # %%
 
@@ -267,14 +282,11 @@ df_titanic.columns
 pd.options.display.max_rows = 12
 df_titanic.dtypes
 
-
 # %%
-
+# Useful info on the dataset (especially missing values !)
 df_titanic.info()
 
-
 # %%
-
 # Check that cabin is mostly missing, also the age
 df_titanic_raw.info()
 
@@ -286,7 +298,8 @@ array_titanic
 
 
 # ### <font color='red'> EXERCISE : dropna</font>
-# Perform the following operation: remove the columns Cabin, and then remove the rows with missing age.
+# Perform the following operation: remove the columns Cabin from the raw
+# dataset, and then remove the rows with missing age.
 #
 # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html
 #
@@ -296,69 +309,59 @@ array_titanic
 # XXX TODO
 
 # %%
+# 1D dataset : Series (a column of a DataFrame)
 
-
-
-
-# # Données uni-dimensionel : Series (une colonne d'un DataFrame)
-
-# Une Series est un support de base pour les données étiquetées unidimensionnelles.
+# A Series is a labelled 1D column of a kind.
 
 # %%
 
 fare = df_titanic['Fare']
-
 
 # %%
 
 fare
 
 
-# ## Attributs de l'objet *Series*: indices et valeurs
+# ## Attributes *Series*: indices and values
 
 # %%
 
 fare.values[:10]
 
 
-# %%
-
-fare[6] # existe mais fare[0] provoque une erreur, car on l'a enlevé du dataFrame, comme valeur manquante.
-
-
-# Contrairement au tableau *numpy*, cet index peut être autre chose qu'un entier:
+# Contrarily to *numpy* arrays, you can index with other thing that integers:
 
 # %%
 
-df_titanic = df_titanic.set_index('Name')
-df_titanic
-
+df_titanic_raw = df_titanic_raw.set_index('Name')  # you can only do it once !!
+# %%
+df_titanic_raw
 
 # %%
-
-age = df_titanic['Age']
+age = df_titanic_raw['Age']
 age['Behr, Mr. Karl Howell']
-
 
 # %%
 
 age.mean()
 
-
 # %%
 
-df_titanic[age <2]
+df_titanic_raw[age < 2]
 
 
 # %%
+# Counting values for categorical variables
 
-df_titanic_raw['Embarked'].value_counts()
+df_titanic_raw['Embarked'].value_counts(normalize=True, sort=True,
+                                        ascending=False)
 
 
 # %%
 
 pd.options.display.max_rows = 70
-df_titanic[df_titanic['Embarked']=='C']  # Les passagers montés à Cherbourg n'ont pas des noms gaulois...
+df_titanic[df_titanic['Embarked'] == 'C']
+# Comments: passagers from Cherbourg are not all Gallic...
 
 
 # %%
@@ -380,16 +383,14 @@ df_titanic['Survived'].mean()
 
 # %%
 
-# XXX TODO
 
-# %%
-
+# See also the command:
 df_titanic_raw.groupby(['Sex']).mean()
 
 
 # # Data import et export
 #
-# Pandas supports nativement une large gamme de formats d'entrée / sortie:
+# Pandas supports many formats:
 # - CSV, text
 # - SQL database
 # - Excel
@@ -418,48 +419,45 @@ df_titanic_raw.head()
 
 
 # %%
+# Pandas pairs well with seaborn:
 
 sns.set_palette("colorblind")
-sns.catplot(x='Pclass',y='Age',hue='Survived',data=df_titanic_raw, kind="violin")
+sns.catplot(x='Pclass', y='Age', hue='Survived', data=df_titanic_raw,
+            kind="violin")
+
+
+# Access values by line/columns etc.
+
+# iloc
+df_titanic_raw.iloc[0:2, 1:8]
+
+# loc
+
+# %%
+
+df_titanic_raw.loc['Bonnell, Miss. Elizabeth', 'Fare']
 
 
 # %%
 
-df_titanic_raw.columns
-
-
-# # iloc
-
-# %%
-
-df_titanic.iloc[0:2,1:8]
-
-
-# # loc
-
-# %%
-
-df_titanic.loc['Bonnell, Miss. Elizabeth', 'Fare']
+df_titanic_raw.loc['Bonnell, Miss. Elizabeth']
 
 
 # %%
 
-df_titanic.loc['Bonnell, Miss. Elizabeth']
+df_titanic_raw.loc['Bonnell, Miss. Elizabeth', 'Survived']
+df_titanic_raw.loc['Bonnell, Miss. Elizabeth', 'Survived'] = 0
 
 
 # %%
 
-df_titanic.loc['Bonnell, Miss. Elizabeth','Survived']= 100
+df_titanic_raw.loc['Bonnell, Miss. Elizabeth']
 
 
 # %%
 
-df_titanic.loc['Bonnell, Miss. Elizabeth']
-
-
-# %%
-
-df_titanic.loc['Bonnell, Miss. Elizabeth','Survived']= 1  # On remet la valeur comme avant
+# set back the original value
+df_titanic_raw.loc['Bonnell, Miss. Elizabeth', 'Survived'] = 1
 
 
 # # group-by:
@@ -471,20 +469,20 @@ df_titanic.groupby('Sex').mean()
 
 # %%
 
-df_titanic_raw.groupby('Sex').mean()['Pclass']  # attention ici on prend toutes les données, meme les manquantes...
+df_titanic_raw.groupby('Sex').mean()['Pclass']
 
 
 # %%
 
-df_titanic['AgeClass'] = pd.cut(df_titanic['Age'], bins=np.arange(0,90,10)) # créer des classes / découpes.
-
-
-# %%
-
+# creates binned values
+# .
+df_titanic['AgeClass'] = pd.cut(df_titanic['Age'], bins=np.arange(0, 90, 10))
 df_titanic['AgeClass']
 
 
-# # Cas 2:  air quality in Paris.
+###############################################################################
+
+# # Second Case study: air quality in Paris.
 # (Source: Airparif)
 #
 
@@ -497,10 +495,13 @@ download(url, path_target, replace=False)
 
 # %%
 
-get_ipython().system('head -26 ./20080421_20160927-PA13_auto.csv')
+!head -26 ./20080421_20160927-PA13_auto.csv
+
+# Alternatively :
+# get_ipython().system('head -26 ./20080421_20160927-PA13_auto.csv')
 
 
-# # Traitement des données temporelles et dates:
+# # Times series help:
 # https://jakevdp.github.io/PythonDataScienceHandbook/03.11-working-with-time-series.html
 
 # %%
@@ -522,7 +523,8 @@ polution_df.head(12)
 #
 # What is the meaning of "na_values="n/d" above?
 #
-# Note that an alternative can be obtained with the command `polution_df.replace('n/d', np.nan, inplace=True)`
+# Note that an alternative can be obtained with the command
+# `polution_df.replace('n/d', np.nan, inplace=True)`
 #
 
 # %%
@@ -530,21 +532,29 @@ polution_df.head(12)
 # check types
 polution_df.dtypes
 
+# check all
+polution_df.info()
 
-# For more info on the object nature (inherited from numpy), see https://stackoverflow.com/questions/21018654/strings-in-a-dataframe-but-dtype-is-object
+# For more info on the object nature (inherited from numpy), see
+# https://stackoverflow.com/questions/21018654/strings-in-a-dataframe-but-dtype-is-object
 
 # ### First issue non conventional hours
 
 # %%
-
 # start by changing to integer type (e.g. int8)
 polution_df['heure'] = polution_df['heure'].astype(np.int8)
+polution_df['heure']
 
+# %%
 # no data is from 1 to 24... not conventional so let's make it from 0 to 23
 polution_df['heure'] = polution_df['heure'] - 1
+polution_df['heure']
 
+
+# %%
 # and back to strings:
 polution_df['heure'] = polution_df['heure'].astype('str')
+polution_df['heure']
 
 
 # ### Time processing
@@ -559,16 +569,12 @@ time_improved = pd.to_datetime(polution_df['date'] +
                                format='%d/%m/%Y %H:%M')
 
 # Where d = day, m=month, Y=year, H=hour, M=minutes
+time_improved
 
 
 # %%
 
 polution_df['date'] + ' ' + polution_df['heure'] + ':00'
-
-
-# %%
-
-time_improved
 
 
 # %%
@@ -588,7 +594,7 @@ polution_df
 
 # %%
 
-# visualize the data set
+# visualize the data set now that the time is well formated:
 polution_ts = polution_df.set_index(['DateTime'])
 polution_ts = polution_ts.sort_index()
 polution_ts.head(12)
@@ -615,59 +621,41 @@ plt.show()
 
 
 # ### <font color='red'> EXERCISE : worst of the day  </font>
-# Provide the same plots as before, but with dayly best and worst on the same figures (use different colors)
+# Provide the same plots as before, but with dayly best and worst on the same
+# figures (and use different color and/or style)
 
 # %%
 
-fig, axes = plt.subplots(2, 1, figsize=(10, 6), sharex=True)
+# ### Is the polution getting better along the years or not?
 
-axes[0].plot(polution_ts['O3'].resample('d').min(), label="O2(min)")
-axes[0].plot(polution_ts['O3'].resample('d').max(), label="O2(max)")
-axes[0].set_title("Ozone polution: daily min/max in Paris")
-axes[0].set_ylabel("Concentration (µg/m³)")
-axes[0].legend(loc=1)
-axes[1].plot(polution_ts['NO2'].resample('d').min(), label="NO2(min)")
-axes[1].plot(polution_ts['NO2'].resample('d').max(), label="NO2(max)")
-
-axes[1].set_title("Nitrogen polution: daily min/max in Paris")
-axes[1].set_ylabel("Concentration (µg/m³)")
-axes[1].legend(loc=1)
-
-plt.show()
-
-
-# ### Is the polution getting better along the year?
-
-# %%
-
-ax = polution_ts['2008':].resample('A').mean().plot(figsize=(4,4))  # échantillone par année (A pour Annual)
-plt.ylim(0,50)
-plt.title("Evolution de la pollution: \n moyenne annuelle sur Paris")
+ax = polution_ts['2008':].resample('A').mean().plot(figsize=(4, 4))
+# Sample by year (A pour Annual)
+plt.ylim(0, 50)
+plt.title("Pollution evolution: \n yearly average in Paris")
 plt.ylabel("Concentration (µg/m³)")
-plt.xlabel("Années")
+plt.xlabel("Year")
 
 
 # %%
 
-# Chargement des couleurs
+# Load colors
 sns.set_palette("GnBu_d", n_colors=7)
 polution_ts['weekday'] = polution_ts.index.weekday  # Monday=0, Sunday=6
 
 # polution_ts['weekend'] = polution_ts['weekday'].isin([5, 6])
 
-days = ['Lundi', 'Mardi', 'Mercredi',
-        'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
+# days = ['Lundi', 'Mardi', 'Mercredi',
+#         'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
+
+days = ['Monday', 'Tuesday', 'Wednesday',
+        'Thursday', 'Friday', 'Saturday', 'Sunday']
+
 
 polution_week_no2 = polution_ts.groupby(['weekday', polution_ts.index.hour])[
     'NO2'].mean().unstack(level=0)
 polution_week_03 = polution_ts.groupby(['weekday', polution_ts.index.hour])[
     'O3'].mean().unstack(level=0)
 plt.show()
-
-
-# %%
-
-
 
 
 # %%
