@@ -1,7 +1,7 @@
 # Project guidelines
 
-- Work by groups of 4 students, assigned at random (list TBA).
-
+- Work by groups of 4 students, assigned at random (list on the Moodle website).
+- Nature of the project for the year 2020-2021 : [here](2021/)
 
 ## Timing
 - **Mid-term** project snapshot: Due date **Week 12** (before Friday March 26, 23:59). This will include the creation of a ```github``` repository (README.md, etc.), a short description on how the work is split and a detailed work program for the project including how the task are attributed (coding).

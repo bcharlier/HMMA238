@@ -45,7 +45,7 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 6. JS : (04/02) [`numpy` : basics on matrices (arrays), slicing, simple linear algebra, masking; `matplotlib`: first plots](Courses/Numpy-Matplotlib/)
 
-7. BC : (10/02) [Some git again](Courses/Git/), 
+7. BC : (10/02) [Some git again](Courses/Git/),
 
 8. JS : (11/02) [`numpy` : casting, concatenation](Courses/Numpy-Matplotlib/);
 
@@ -61,7 +61,7 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 14. BC : (17/03) [Documentation with Sphinx](Docs/)
 
-15. JS : (18/03) [Sparse matrices, graphs and memory](Courses/TempsMemoire/)
+15. JS : (18/03) [Sparse matrices, graphs and memory](Courses/TimeMemory/)
 
 16. BC : (31/03) pytorch?
 
@@ -79,7 +79,9 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 - A small challenge based on a real datasets. This will be a personal work, and includes an aesthetic part and prediction part.
 
-- Due date : **Week 13**.
+- Due date : 23:59 Thursday, April 1st.
+
+- More information on the challenge is available at [Challenge 2020-2021](Challenge/2020-2021)
 
 ### Tests (15% of the final grade)
 Three short tests of 15 min each (on Moodle). This will be a personal work.

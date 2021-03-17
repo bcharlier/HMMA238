@@ -47,7 +47,7 @@ p1 = Point(x=0, y=0)  # call __init__ ;
 print(p1.x)
 print(p1.y)
 print("{0}".format(p1))  # call __str__
-p1()
+p1
 ```
 
 
