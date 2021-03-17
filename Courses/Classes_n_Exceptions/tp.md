@@ -117,11 +117,11 @@ print(q1 == q2)
 print(q1 + q2)
 
 # should display
-# The density function is: exp(-(x - 0)^2 / (2*1^2)) / sqrt(2 * pi 1^2)
-# The density function is: exp(-(x - 1)^2 / (2*2^2)) / sqrt(2 * pi 2^2)
+# The density function is: exp(-(x - 0)^2 / (2*1^2)) / sqrt(2 * pi * 1^2)
+# The density function is: exp(-(x - 1)^2 / (2*2^2)) / sqrt(2 * pi * 2^2)
 # True
 # False
-# The density function is: exp(-(x - 1)^2 / (2*2.6457513110645907^2)) / sqrt(2 * pi 2.6457513110645907^2)
+# The density function is: exp(-(x - 1)^2 / (2 * 2.23606797749979^2)) / sqrt(2 * pi * 2.23606797749979^2)
 ```
 ---
 
@@ -280,7 +280,7 @@ print(os.path.expanduser(os.path.join('~', 'work', 'src')))
 ---
 ### <font color='red'>Exercise : Create a bunch of files</font>
 
-Write a simple script that creates, in the sub-directory `scripts`, the following text files: `myDb_0.txt`, `myDb_001.txt`, `myDb_002.txt`, ..., `myDb_049.txt`. The `i`-th file should contains a single line with the average of the `i` first digits of pi.
+Write a simple script that creates, in the sub-directory `scripts`, the following text files: `myDb_000.txt`, `myDb_001.txt`, `myDb_002.txt`, ..., `myDb_049.txt`. The `i`-th file should contains a single line with the average of the `i` first digits of pi.
 
 
 **Hint**: you can check what the following command does 
