@@ -25,28 +25,29 @@ n = 1000
 val = 5.4
 
 
+print('fill')
 # %%
 %timeit a = np.empty(n); a.fill(val)
 # get_ipython().run_line_magic('timeit', 'a = np.empty(n); a.fill(val)')
 
 
+print('empty')
 # %%
-
 %timeit a = np.empty(n); a[:] = val
 
 
+print('full')
 # %%
-
 %timeit a = np.full((n,), val)
 
 
+print('ones')
 # %%
-
 %timeit a = np.ones(n) * val
 
 
+print('repeat')
 # %%
-
 %timeit a = np.repeat(val, n)
 
 
@@ -67,9 +68,10 @@ end = time.time()
 print("Temps passé pour exécuter la commande: {0:.5f} s.".format(end - start))
 
 
-# # Matrices creuses, graphes et mémoire
+# # Sparse matrices, graphs and memory
 #
-# L'intérêt des matrices creuses est de pouvoir manipuler des matrices, potentiellement énormes, mais qui ont un nombre de coefficients non nuls très petit devant les nombres d'entrées de la matrice, par exemple moins de 1%.
+# Sparse matrices are useful to to handle potentially huge matrices,
+# that have only few non zero coefficients.
 #
 # http://scipy-lectures.org/advanced/scipy_sparse/introduction.html#why-sparse-matrices
 #
@@ -79,17 +81,21 @@ print("Temps passé pour exécuter la commande: {0:.5f} s.".format(end - start))
 #
 # **Examples**:
 #
-# - natural language processing: we encode the presence of a word from a dictionary (let's say the set of French words) and we put 0 / 1 in case of absence / presence of a word.
-# - the discretization of a physical system where very distant influences are set to zero (e.g. heat diffusion, fluid mechanics, electro/magnetism, etc.)
-# - graphs: graphs are naturally represented by adjacency or incidence matrices (cf. below), and therefore beyond the graphs, maps!
+# - natural language processing: we encode the presence of a word from a
+#   dictionary (let's say the set of French words) and we put 0 / 1 in case of
+#   absence / presence of a word.
+# - One-hot encoding, used to represent categorical data as sparse binary
+#   vectors.
+# - the discretization of a physical system where very distant influences are
+#   set to zero (e.g. heat diffusion, fluid mechanics, electro/magnetism, etc.)
+# - graphs: graphs are naturally represented by adjacency or incidence
+#   matrices (cf. below), and therefore beyond the graphs, maps!
 
 # %%
 
 from scipy.sparse import isspmatrix
 
-
 # %%
-
 # Testing when a matrix is sparse or not:
 nx, ny = (50, 20)
 x = np.linspace(0, 1, nx)
@@ -97,18 +103,51 @@ y = np.linspace(0, 1, ny)
 xv, yv = np.meshgrid(x, y, sparse=True)
 # print(xv)
 print(yv)
-isspmatrix(yv)
+print(f'Q: Is the matrix yv is sparse?\nA: {isspmatrix(yv)}')
+
 x = np.arange(-5, 5, 0.1)
 y = np.arange(-5, 5, 0.1)
 xx, yy = np.meshgrid(x, y, sparse=True)
 z = np.sin(xx**2 + yy**2) / (xx**2 + yy**2)
-h = plt.contourf(x,y,z)
+h = plt.contourf(x, y, z)
 plt.show()
+
+
+
+# Most common formats:
+# https://docs.scipy.org/doc/scipy/reference/sparse.html#module-scipy.sparse
+# - coo_matrix(arg1[, shape, dtype, copy]):
+#   A sparse matrix in COOrdinate format.
+# - csc_matrix(arg1[, shape, dtype, copy]):
+#   Compressed Sparse Column matrix
+# - csr_matrix(arg1[, shape, dtype, copy]):
+#   Compressed Sparse Row matrix
+
+# %%
+from scipy import sparse
+
+Id = sparse.eye(3)
+print(Id.toarray())
+print(f'Q: Is the matrix Id is sparse?\nA: {isspmatrix(Id)}')
+
+n1 = 29
+n2 = 29
+mat_rnd = sparse.rand(n1, n2, density=0.25, format="csr",
+                      random_state=42)
+print(mat_rnd.toarray())
+print(f'Q: Is the matrix mat_rnd is sparse?\nA: {isspmatrix(mat_rnd)}')
+
+
+# matrix vector product
+v = np.random.rand(n2)
+mat_rnd.dot(v)
+
 
 
 # ## Graphs and sparsity
 #
-# Un cadre classique d'application des matrices creuses est le cadre des graphes: bien que le nombre de noeuds puissent être énorme, chaque noeud d'un graphe n'est en général pas relié à tous ses voisins. Si on représente un graphe par sa matrice d'adjacence:
+# Un cadre classique d'application des matrices creuses est le cadre des
+# graphes: bien que le nombre de noeuds puissent être énorme, chaque noeud d'un graphe n'est en général pas relié à tous ses voisins. Si on représente un graphe par sa matrice d'adjacence:
 
 # ## Définition: *matrice d'adjacence*:
 # Supposons que $G=(V,E)$ est un graphe, où $\left|V\right|=n$.
@@ -120,6 +159,14 @@ plt.show()
 #         0 & \mbox{sinon.}
 # \end{array}\right.$$
 #
+
+
+# ### <font color='red'> EXERCISE : Create a linear model that can hand sparse
+# matrices and intercept </font>
+
+
+
+
 
 # %%
 
@@ -193,7 +240,7 @@ plt.axis('off')
 plt.show()
 
 
-# ### Possible visualisation with Javascript... not so stable...
+# ### Possible visualisation with Javascript... not so stable, can be skipped.
 
 # %%
 
@@ -260,7 +307,6 @@ get_ipython().run_cell_magic('HTML', '', "\n<iframe height=400px width=100% src=
 
 import folium
 
-
 # %%
 
 map_osm = folium.Map(location=[43.610769, 3.876716])
@@ -268,14 +314,15 @@ map_osm = folium.Map(location=[43.610769, 3.876716])
 
 # %%
 
-map_osm.add_child(folium.RegularPolygonMarker(location=[43.610769, 3.876716], fill_color='#132b5e', radius=5))
+map_osm.add_child(folium.RegularPolygonMarker(location=[43.610769, 3.876716],
+                  fill_color='#132b5e', radius=5))
 map_osm
 
 
 # %%
 
 import osmnx as ox
-ox.utils.config(use_cache=True) # caching large download
+ox.utils.config(use_cache=True)  # caching large download
 ox.__version__
 
 
