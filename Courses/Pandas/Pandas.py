@@ -31,6 +31,7 @@ url = "http://josephsalmon.eu/enseignement/datasets/titanic.csv"
 path_target = "./titanic.csv"
 download(url, path_target, replace=False)  # if needed `pip install download`
 
+# %%
 # df: data frame
 df_titanic_raw = pd.read_csv("titanic.csv")
 
@@ -132,6 +133,8 @@ def hist_explore(n_bins=24, alpha=0.25, density=False):
     plt.show()
 
 
+## todo CORRECT THE DENSITY OPTION.
+
 # %%
 
 interact(hist_explore, n_bins=(1, 50, 1), alpha=(0, 1, 0.1), density=False)
@@ -196,7 +199,7 @@ plt.show()
 # %%
 
 sns.catplot(x='Pclass', y="Age",
-            hue="Sex", data=df_titanic_raw, kind="box", legend=False)
+            hue="Sex", data=df_titanic_raw, kind="swarm", legend=False)
 plt.title("Age par classe")
 plt.legend(loc=1)
 plt.tight_layout()
@@ -215,7 +218,7 @@ pd.crosstab(df_titanic_raw['Sex'],
             df_titanic_raw['Pclass'],
             values=df_titanic_raw['Sex'],
             aggfunc='count',
-            normalize=True)
+            normalize=False)
 
 # %%
 
@@ -282,6 +285,7 @@ df_titanic.columns
 pd.options.display.max_rows = 12
 df_titanic.dtypes
 
+df_titanic['Name'].astype(str)
 # %%
 # Useful info on the dataset (especially missing values !)
 df_titanic.info()
@@ -293,6 +297,8 @@ df_titanic_raw.info()
 
 # %%
 
+# Extract numpy array, useful for using packages on top of pandas
+# (e.g., sklearn)
 array_titanic = df_titanic.values  # associated numpy array
 array_titanic
 
