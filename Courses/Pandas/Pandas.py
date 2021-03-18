@@ -52,6 +52,17 @@ df_titanic_raw.head(n=5)
 df_titanic = df_titanic_raw.dropna()
 df_titanic.tail(3)
 
+
+# %%
+# Useful info on the dataset (especially missing values !)
+df_titanic.info()
+
+# %%
+# Check that cabin is mostly missing, also the age
+df_titanic_raw.info()
+
+
+
 # Description: see also
 #  https://biostat.app.vumc.org/wiki/pub/Main/DataSets/titanic3info.txt
 
@@ -286,15 +297,6 @@ pd.options.display.max_rows = 12
 df_titanic.dtypes
 
 df_titanic['Name'].astype(str)
-# %%
-# Useful info on the dataset (especially missing values !)
-df_titanic.info()
-
-# %%
-# Check that cabin is mostly missing, also the age
-df_titanic_raw.info()
-
-
 # %%
 
 # Extract numpy array, useful for using packages on top of pandas
