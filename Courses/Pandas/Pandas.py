@@ -356,10 +356,13 @@ age.mean()
 df_titanic_raw[age < 2]
 
 
+df_titanic_raw = df_titanic_raw.reset_index()  # come back to original index
+
+
 # %%
 # Counting values for categorical variables
 
-df_titanic_raw['Embarked'].value_counts(normalize=True, sort=True,
+df_titanic_raw['Embarked'].value_counts(normalize=False, sort=True,
                                         ascending=False)
 
 
@@ -410,7 +413,10 @@ df_titanic_raw.groupby(['Sex']).mean()
 # %%
 
 # pd.read_csv?
+# http://josephsalmon.eu/enseignement/datasets/babies23.data
 
+pd.read_csv('babies23.data', skiprows=38, sep='\s+')
+# pd.read_csv?
 
 # # Exploration
 
@@ -441,6 +447,10 @@ df_titanic_raw.iloc[0:2, 1:8]
 
 # %%
 
+# with original index:
+# df_titanic_raw.loc[128]
+
+# with naming indexing 
 df_titanic_raw.loc['Bonnell, Miss. Elizabeth', 'Fare']
 
 
@@ -490,7 +500,6 @@ df_titanic['AgeClass']
 
 # # Second Case study: air quality in Paris.
 # (Source: Airparif)
-#
 
 # %%
 
@@ -519,8 +528,8 @@ polution_df = pd.read_csv('20080421_20160927-PA13_auto.csv', sep=';',
 
 
 # %%
-
-polution_df.head(12)
+pd.options.display.max_rows = 30
+polution_df.head(25)
 
 
 # ## Preprocess the data
@@ -602,7 +611,7 @@ polution_df
 
 # visualize the data set now that the time is well formated:
 polution_ts = polution_df.set_index(['DateTime'])
-polution_ts = polution_ts.sort_index()
+polution_ts = polution_ts.sort_index(ascending=True)
 polution_ts.head(12)
 
 
@@ -612,14 +621,38 @@ polution_ts.describe()
 
 
 # %%
+# raw version
+# sns.color_palette("colorblind")
+# cmap = sns.light_palette("Navy", as_cmap=True)
 
 fig, axes = plt.subplots(2, 1, figsize=(6, 6), sharex=True)
 
-axes[0].plot(polution_ts['O3'].resample('d').mean())
+axes[0].plot(polution_ts['O3'])
 axes[0].set_title("Ozone polution: daily average in Paris")
 axes[0].set_ylabel("Concentration (µg/m³)")
 
-axes[1].plot(polution_ts['NO2'].resample('d').mean())
+axes[1].plot(polution_ts['NO2'])
+axes[1].set_title("Nitrogen polution: daily average in Paris")
+axes[1].set_ylabel("Concentration (µg/m³)")
+
+plt.show()
+
+# %%
+fig, axes = plt.subplots(2, 1, figsize=(10, 5), sharex=True)
+
+# axes[0].plot(polution_ts['O3'].resample('d').mean(), '-')
+axes[0].plot(polution_ts['O3'].resample('d').max(), '--')
+axes[0].plot(polution_ts['O3'].resample('d').min(),'-.')
+
+
+axes[0].set_title("Ozone polution: daily average in Paris")
+axes[0].set_ylabel("Concentration (µg/m³)")
+
+# axes[1].plot(polution_ts['NO2'].resample('d').mean())
+# axes[1].plot(polution_ts['NO2'].resample('d').mean())
+axes[1].plot(polution_ts['NO2'].resample('d').max(),  '--')
+axes[1].plot(polution_ts['NO2'].resample('d').min(),  '-.')
+
 axes[1].set_title("Nitrogen polution: daily average in Paris")
 axes[1].set_ylabel("Concentration (µg/m³)")
 
@@ -634,8 +667,8 @@ plt.show()
 
 # ### Is the polution getting better along the years or not?
 
-ax = polution_ts['2008':].resample('A').mean().plot(figsize=(4, 4))
-# Sample by year (A pour Annual)
+ax = polution_ts['2008':].resample('Y').mean().plot(figsize=(4, 4))
+# Sample by year (A pour Annual) or Y for Year
 plt.ylim(0, 50)
 plt.title("Pollution evolution: \n yearly average in Paris")
 plt.ylabel("Concentration (µg/m³)")
@@ -689,8 +722,6 @@ axes[1].legend(labels=days, loc='lower left', bbox_to_anchor=(1, 0.1))
 
 plt.tight_layout()
 
-# %%
-# XXX TODO Could you provide a an analysis by ?
 
 
 # %%
@@ -704,7 +735,7 @@ polution_ts.head()
 
 # %%
 
-days = []
+# days = []
 
 polution_month_no2 = polution_ts.groupby(['month', polution_ts.index.hour])[
     'NO2'].mean().unstack(level=0)
@@ -713,9 +744,9 @@ polution_month_03 = polution_ts.groupby(['month', polution_ts.index.hour])[
 
 
 # %%
-sns.set_palette("GnBu_d", n_colors=12)
+sns.set_palette("Paired", n_colors=12)
 
-fig, axes = plt.subplots(2, 1, figsize=(7, 7), sharex=True)
+fig, axes = plt.subplots(2, 1, figsize=(10, 7), sharex=True)
 
 polution_month_no2.plot(ax=axes[0])
 axes[0].set_ylabel("Concentration (µg/m³)")

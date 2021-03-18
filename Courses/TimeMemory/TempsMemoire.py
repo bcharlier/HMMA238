@@ -59,8 +59,6 @@ print('repeat')
 
 # %%
 
-import time
-
 start = time.time()
 a = np.ones(n) * val
 end = time.time()
@@ -142,31 +140,28 @@ print(f'Q: Is the matrix mat_rnd is sparse?\nA: {isspmatrix(mat_rnd)}')
 v = np.random.rand(n2)
 mat_rnd.dot(v)
 
-
-
 # ## Graphs and sparsity
 #
-# Un cadre classique d'application des matrices creuses est le cadre des
-# graphes: bien que le nombre de noeuds puissent être énorme, chaque noeud d'un graphe n'est en général pas relié à tous ses voisins. Si on représente un graphe par sa matrice d'adjacence:
+# A classical framework for the application of sparse matrices is with
+# graphs: although the number of nodes can be huge, each node of a graph is
+# in general not connected to all nodes. If we represent a graph by
+# its adjacency matrix:
 
-# ## Définition: *matrice d'adjacence*:
-# Supposons que $G=(V,E)$ est un graphe, où $\left|V\right|=n$.
-# Supposons que les sommets de $G$ sont numérotés arbitrairement $v_1,\ldots,v_n$.
-# La matrice d'adjacence $A$ de $G$ est la matrice $n \times n$ de terme général:
+# ## Definition: *adjacency matrix*:
+# Suppose that $G=(V,E)$ is a graph, where $\left|V\right|=n$.
+# Suppose that the vertices of $G$ are arbitrarily numbered $v_1,\ldots,v_n$.
+# The adjacency matrix $A$ of $G$ is the matrix $n \times n$ of general term:
 #
 # $$a_{ij}=\left\{\begin{array}{rl}
-# 	1 & \mbox{si } (v_i,v_j) \in E \\
-#         0 & \mbox{sinon.}
+# 	1 & \mbox{if } (v_i,v_j) \in E \\
+#         0 & \mbox{o.w.}
 # \end{array}\right.$$
 #
 
-
-# ### <font color='red'> EXERCISE : Create a linear model that can hand sparse
-# matrices and intercept </font>
-
-
-
-
+# ### <font color='red'> EXERCISE : Create a linear model that can
+# handle sparse matrices, in particular how would you do the usual
+# pre-processing step of standardizing the columns of the design matrix?
+# </font>
 
 # %%
 
@@ -202,21 +197,22 @@ print(A.todense())
 
 nx.shortest_path(G, 'A', 'D', weight='weight')
 
-
-# ## Définition : *matrice d'incidence*
-# Soit $G = (V,E)$ un graphe (non-orienté) à $n$ sommets, $V = [1,\dots,n] $, et $p$ arrêtes, $E = [1,\dots,p]$.
-# Le graphe peut être représenté par sa matrice d'incidence arrête-sommet $D^\top \in \mathbb{R}^{p \times n}$ défini par
+# ## Definition : *incidence matrice*
+# Let $G = (V,E)$ be a (non-oriented) graph with $n$ vertices,
+# $V = [1,\dots,n]$, and $p$ edges, $E = [1,\dots,p]$.
+# The graph can be represented by its vertex-edge incidence matrix
+# $D^\top \in \mathbb{R}^{p \times n}$ defined by
 # \begin{equation}
 #   (D^\top)_{e,v} =
 #   \begin{cases}
-#     + 1, & \text{si } v = \min(i,j) \\
-#     -1, & \text{si } v = \max(i,j) \\
+#     + 1, & \text{if } v = \min(i,j)
+#     -1, & \text{si } v = \max(i,j) \
 #     0, & \text{sinon}
 #   \end{cases}\enspace,
 # \end{equation}
-# où $e = \{i,j\}$.
+# where $e = $i,j$.
 
-# ## Définition : *matrice d'incidence*
+# ## Definition : *Laplacian matrix*
 #
 # The matrix $L=D D^\top$ is the so-called graph Laplacian of $G$
 #
