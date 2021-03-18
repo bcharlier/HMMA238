@@ -163,6 +163,12 @@ mat_rnd.dot(v)
 # pre-processing step of standardizing the columns of the design matrix?
 # </font>
 
+# Usage depends on the nature and structure of the data:
+# - `csc_matrix` is more efficient for `slicing` by column
+# - `csr_matrix` is more efficient for the row case.
+
+
+
 # %%
 
 import networkx as nx
@@ -260,7 +266,6 @@ from IPython.display import HTML
 
 get_ipython().run_cell_magic('HTML', '', "\n<iframe height=400px width=100% src='force.html'></iframe>")
 
-
 # # Graphe et cartes planaires:
 # Open Street Map interfaced with Networkx, using  the package `osmnx`:
 #
@@ -280,7 +285,8 @@ get_ipython().run_cell_magic('HTML', '', "\n<iframe height=400px width=100% src=
 #
 #
 #
-# For Windows users there might be some trouble with installing the `fiona` package, see:
+# For Windows users there might be some trouble with installing the
+# `fiona` package, see:
 # https://stackoverflow.com/questions/54734667/error-installing-geopandas-a-gdal-api-version-must-be-specified-in-anaconda
 # and
 # https://jingwen-z.github.io/how-to-install-python-module-fiona-on-windows-os/
@@ -338,7 +344,7 @@ print(G.number_of_edges())
 print(G.number_of_nodes())
 
 
-# # Visualisation d'un chemin le plus court entre deux points.
+# # Visualize shorthest path between two points.
 
 # %%
 
@@ -351,7 +357,8 @@ destination_node = ox.get_nearest_node(G, destination)
 
 print(origin)
 print(destination)
-route = nx.shortest_path(G, origin_node, destination_node)  #XXX double check if weights are taken into account.
+route = nx.shortest_path(G, origin_node, destination_node)
+# XXX double check if weights are taken into account.
 
 
 # %%
@@ -361,7 +368,8 @@ ox.plot_graph_route(G, route)
 
 # %%
 
-ox.plot_route_folium(G, route, route_width=2, route_color='#AA1111')  # adapté de : https://blog.ouseful.info/2018/06/29/working-with-openstreetmap-roads-data-using-osmnx/
+ox.plot_route_folium(G, route, route_width=2, route_color='#AA1111')
+# Adapted from : https://blog.ouseful.info/2018/06/29/working-with-openstreetmap-roads-data-using-osmnx/
 
 
 # %%
@@ -394,21 +402,18 @@ print(isspmatrix(D))
 D
 
 
-# **Alterntively**: you can uncomment the following line, and check that the size of a similar matrix, with non-sparse format would be
+# **Alternatively**: you can uncomment the following line,
+# and check that the size of a similar matrix, with non-sparse
+# format would be.
 #
 # ```>>> Size of full matrix with zeros: 1677.47  MB```
 
 # %%
 
-# # Creation d'une matrice de meme taille
+# # Creation a matrix of similar size.
 # # BEWARE CREATE HUGE MATRIX:
 # M = np.random.randn(G.number_of_nodes(), G.number_of_nodes())
 # print('Size of full matrix with zeros: {0:3.2f}  MB'.format(M.nbytes/(1024**2)))
-
-
-# %%
-
-
 
 
 # ## Sparsité du graphe
@@ -418,26 +423,13 @@ D
 print("Il a {0:.2} % d'arrêtes utlile pour représenter le graphe de la ville de Montpellier".format(100 * G.number_of_edges() / G.number_of_nodes() ** 2))
 
 
-# ### Remarques : divers type de matrices creuses:
-#
-# 1. bsr_matrix: Block Sparse Row matrix
-# 1. coo_matrix: COOrdinate format matrix
-# 1. csc_matrix: Compressed Sparse Column matrix
-# 1. csr_matrix: Compressed Sparse Row matrix
-# 1. dia_matrix: Sparse matrix with DIAgonal storage
-# 1. dok_matrix: Dictionary Of Keys based sparse matrix.
-# 1. lil_matrix: Row-based linked list sparse matrix
-#
-#
-# Selon la nature et la structure des données, `csc_matrix` est plus efficace pour le `slicing` par colonne, alors que csr_matrix est plus efficace pour le cas ligne.
-
-# # Pour aller plus loin sur la visualisation de graphes géographiques:
+# %%
+# To go further on the visualization of geographical graphs:
 #
 # 1. https://geoffboeing.com/2016/11/osmnx-python-street-networks/
 # 1. https://automating-gis-processes.github.io/2017/lessons/L7/network-analysis.html
 # 1. https://automating-gis-processes.github.io/2018/
 
-# %%
 
 import geopandas
 
