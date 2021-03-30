@@ -63,7 +63,7 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
 
 15. JS : (18/03) [Sparse matrices, graphs and memory](Courses/TimeMemory/)
 
-16. BC : (31/03) [Documentation with Sphinx](Docs/)
+16. BC : (31/03) [Documentation with Sphinx](Courses/Docs/)
 
 17. JS : (01/04) [Numba](Courses/Numba/)
 
