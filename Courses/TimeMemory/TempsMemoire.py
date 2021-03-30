@@ -152,10 +152,13 @@ mat_rnd.dot(v)
 # Suppose that the vertices of $G$ are arbitrarily numbered $v_1,\ldots,v_n$.
 # The adjacency matrix $A$ of $G$ is the matrix $n \times n$ of general term:
 #
-# $$a_{ij}=\left\{\begin{array}{rl}
-# 	1 & \mbox{if } (v_i,v_j) \in E \\
+# $$a_{ij}=
+# \left\{
+#     \begin{array}{rl}
+# 	      1 & \mbox{if } (v_i,v_j) \in E \\
 #         0 & \mbox{o.w.}
-# \end{array}\right.$$
+#      \end{array}
+# \right.$$
 #
 
 # ### <font color='red'> EXERCISE : Create a linear model that can
@@ -242,7 +245,7 @@ plt.axis('off')
 plt.show()
 
 
-# ### Possible visualisation with Javascript... not so stable, can be skipped.
+# ### Possible visualization with Javascript... not so stable, can be skipped.
 
 # %%
 
