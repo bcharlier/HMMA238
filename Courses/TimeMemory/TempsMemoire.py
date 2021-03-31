@@ -155,8 +155,8 @@ mat_rnd.dot(v)
 # $$a_{ij}=
 # \left\{
 #     \begin{array}{rl}
-# 	      1 & \mbox{if } (v_i,v_j) \in E \\
-#         0 & \mbox{o.w.}
+# 	      1 & \text{if } (v_i,v_j) \in E \\
+#         0 & \text{o.w.}
 #      \end{array}
 # \right.$$
 #
