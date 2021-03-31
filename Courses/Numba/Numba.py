@@ -322,4 +322,72 @@ print("Elapsed (after compilation) = %s" % (end - start))
 
 # ### For  more on numba:
 # 
+
+
+
 # Parallelization: https://numba.pydata.org/numba-doc/dev/user/parallel.html
+
+# In addition to being able to compile your code in low-level language,
+# Numba allows you to parallelize your loops, which can be useful in case
+# you do Monte Carlo.
+
+# We simply take the previous code allowing to compute an estimate of pie,
+# to which we add the option parralel = True on one hand and we replace range
+# by prange on the other hand.
+
+@njit(parallel=True)
+def monte_carlo_pi_parrallel(n_samples=1000):
+    acc = 0
+    for sample in prange(n_samples):
+        vec = np.random.rand(2)
+        if np.linalg.norm(vec) < 1.:
+            acc += 1
+    return 4.0 * acc / n_samples 
+
+# DO NOT REPORT THIS... COMPILATION TIME IS INCLUDED IN THE EXECUTION TIME!
+
+# compilation
+monte_carlo_pi_parrallel(n_samples=10**2)
+
+# NOW THE FUNCTION IS COMPILED, RE-TIME IT EXECUTING FROM CACHE
+start = time.time()
+monte_carlo_pi(n_samples=10**7)
+end = time.time()
+print("Elapsed without parallelization = %s" % (end - start))
+
+start = time.time()
+monte_carlo_pi_parrallel(n_samples=10**7)
+end = time.time()
+print("Elapsed with parallelization = %s" % (end - start))
+
+
+# For Numba to compile your code in low-level language, you must use functions
+# that the package takes into account. For example, many functions of Numpy are
+# supported:
+#  https://numba.pydata.org/numba-doc/dev/reference/numpysupported.html
+
+# Write a function using Numba to test if an element 'i' belongs to an array.
+# The result should be similar to the following example:
+i = 10
+array = np.arange(11)
+i in array
+
+
+# Prediction of a logistic model:
+
+# First, you will write a function to generate a classification dataset
+# dependent on a single predictor variable without intercept. Thus, the
+# function takes as input x and its coefficients and will return a variable
+# to predict y. To generate the noise, we can use a function that predicts 0
+# or 1 to add to the signal. The coefficients equal to 2 will be modified
+# to be 1.
+
+# You will take care to measure computing time for each of these functions!
+
+# Then, you will write a function (using Numba) allowing to predict a logistic
+# model already learned (we will use sklearn for the learning, the previous
+# function not working for scalars). We will check that our function finds the
+# same results as the predict_proba function of sklearn.
+
+# We will finish by making a graph to show the evolution of the prediction
+# curve as a function of the value of x.
