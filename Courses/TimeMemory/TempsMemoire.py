@@ -328,7 +328,7 @@ get_ipython().run_cell_magic('HTML', '', "\n<iframe height=400px width=100% src=
 # * Install all packages required up to `fiona`.
 # * `conda install -c conda-forge geopandas`
 # * say yes to everything
-# * Once done,  launch `pip install osmnx==0.10`
+# * Once done,  launch `pip install osmnx==1.0.1`
 #
 # You will also need to install the package `folium`
 
@@ -373,8 +373,8 @@ ox.plot_graph(G)
 # %%
 
 # https://blog.ouseful.info/2018/06/29/working-with-openstreetmap-roads-data-using-osmnx/
-origin = ox.utils.geocode('Place Eugène Bataillon, Montpellier, France')
-destination = ox.utils.geocode('Maison du Lez, Montpellier, France')
+origin = ox.geocoder.geocode('Place Eugène Bataillon, Montpellier, France')
+destination = ox.geocoder.geocode('Maison du Lez, Montpellier, France')
 
 origin_node = ox.get_nearest_node(G, origin)
 destination_node = ox.get_nearest_node(G, destination)
