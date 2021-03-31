@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Efficacité en temps, mémoire et matrices sparse
+# # Time and memory efficiency
 #
 # ***
 # > __Auteur__: Joseph Salmon <joseph.salmon@umontpellier.fr>
@@ -186,25 +186,38 @@ nx.__version__
 
 G = nx.Graph()
 G.add_edge('A', 'B', weight=4)
-G.add_edge('B', 'D', weight=2)
 G.add_edge('A', 'C', weight=3)
+G.add_edge('B', 'D', weight=2)
 G.add_edge('C', 'D', weight=4)
 G.add_edge('D', 'A', weight=2)
 
-nx.draw_networkx(G, with_labels=True)
+my_seed = 44
+nx.draw_networkx(G, with_labels=True,
+                 pos=nx.spring_layout(G, seed=my_seed))
+
+labels = nx.get_edge_attributes(G, "weight")
+nx.draw_networkx_edge_labels(G,
+                             pos=nx.spring_layout(G, seed=my_seed),
+                             edge_labels=labels)
+nx.draw_networkx_edges(G, pos=nx.spring_layout(G, seed=my_seed),
+                       width=list(labels.values()))
 plt.axis('off')
 plt.show()
 
+# Exercise: edges
+# 1) show edges weights on the graph
+# 2) change the edge width to be proportional to the edge weights
 
 # %%
 
 A = nx.adjacency_matrix(G)
+print(isspmatrix(A))
 print(A.todense())
 
 
 # %%
 
-nx.shortest_path(G, 'A', 'D', weight='weight')
+nx.shortest_path(G, 'C', 'B', weight='weight')
 
 # ## Definition : *incidence matrice*
 # Let $G = (V,E)$ be a (non-oriented) graph with $n$ vertices,
@@ -229,6 +242,7 @@ nx.shortest_path(G, 'A', 'D', weight='weight')
 # %%
 
 D = nx.incidence_matrix(G, oriented=True).T
+print(isspmatrix(D))
 print(D.todense())
 
 
@@ -244,6 +258,16 @@ nx.draw_networkx(g, ax=ax)
 plt.axis('off')
 plt.show()
 
+
+# %%
+fig, ax = plt.subplots()
+
+A = nx.adjacency_matrix(g).T
+
+print(A.todense())
+ax = plt.spy(A)
+
+print((g.number_of_edges() / g.number_of_nodes()**2) * 100)
 
 # ### Possible visualization with Javascript... not so stable, can be skipped.
 
@@ -269,8 +293,8 @@ from IPython.display import HTML
 
 get_ipython().run_cell_magic('HTML', '', "\n<iframe height=400px width=100% src='force.html'></iframe>")
 
-# # Graphe et cartes planaires:
-# Open Street Map interfaced with Networkx, using  the package `osmnx`:
+# # Planars braphs and maps :
+# Open Street Map interfaced with Networkx, using the package `osmnx`:
 #
 # !!! Known bug:
 #
@@ -335,16 +359,13 @@ ox.__version__
 
 G = ox.graph_from_place('Montpellier, France', network_type='bike')
 
+# %%
+print(f"nb edges: {G.number_of_edges()}")
+print(f"nb nodes: {G.number_of_nodes()}")
 
 # %%
 
 ox.plot_graph(G)
-
-
-# %%
-
-print(G.number_of_edges())
-print(G.number_of_nodes())
 
 
 # # Visualize shorthest path between two points.
@@ -443,8 +464,6 @@ df = geopandas.read_file(geopandas.datasets.get_path('nybb'))
 ax = df.plot(figsize=(10, 10), alpha=0.5, edgecolor='k')
 plt.show()
 
-
-
 # ## For more on profiling
 #
 # In Python `snakeviz` could help, see https://jiffyclub.github.io/snakeviz/
@@ -462,22 +481,40 @@ plt.show()
 # See also:
 # https://www.codementor.io/stevek/advanced-python-debugging-with-pdb-g56gvmpfa.
 
-# Une première manière de procéder est d'utiliser `pdb` et la commande `pdb.set_trace()` de ce package. Une invite de commande se lance alors quand on a un soucis, et on peut alors reprendre la main voir ce qu'il se passe.
-#
-# On pourra consulter les raccourcis clavier (e.g., touche c, touche j etc) ici: https://docs.python.org/3/library/pdb.html)
+# A first recommendation is to use the Python debugger in your IDE.
+# For VScode: see for instance https://www.youtube.com/watch?v=w8QHoVam1-I
 
+
+# A possibility for pure Python or IPython is to use the `pdb` package and the
+# command `pdb.set_trace()`.
+# A command prompt launches when an error is met, and you can check the current
+# status of the environnement.
+#
+# Useful shortcuts are available (e.g., touche c, touche j etc.) here:
+# https://docs.python.org/3/library/pdb.html)
 # %%
 
+def function_debile(x):
+    answer = 42
+    answer += x
+    return answer
+
+
+function_debile(12)
+
+
+# %%
 def illustrate_pdb(x):
     answer = 42
     import pdb; pdb.set_trace()
     answer += x
     return answer
 
+
 illustrate_pdb(12)
 
 
-# Une autre manière de procéder est d'allumer le debogueur `pdb`. Une invite de commande se lance alors quand on a un soucis, et on peut alors reprendre la main voir ce qu'il se passe.
+#  `pdb`. Une invite de commande se lance alors quand on a un soucis, et on peut alors reprendre la main voir ce qu'il se passe.
 
 # %%
 
@@ -488,7 +525,7 @@ get_ipython().run_line_magic('pdb', '')
 
 def blobl_func(x):
     answer = 0
-    for i in range(x,-1,-1):
+    for i in range(x, -1, -1):
         print(i)
         answer += 1 / i
 
@@ -496,5 +533,4 @@ def blobl_func(x):
 
 
 # %%
-
 blobl_func(4)

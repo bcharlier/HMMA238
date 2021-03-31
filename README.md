@@ -8,7 +8,7 @@
 - Benjamin Charlier : benjamin.charlier@umontpellier.fr
 - Florent Bascou : florent.bascou@umontpellier.fr
 
-with the help of many students including:
+with the help of some students including:
 - Amelie Vernay
 - ...
 
