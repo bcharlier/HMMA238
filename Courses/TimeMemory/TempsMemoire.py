@@ -11,6 +11,8 @@
 import time
 import numpy as np
 import matplotlib.pyplot as plt
+import networkx as nx
+
 
 
 # ## Time / computation: usage of `%timeit`
@@ -170,11 +172,6 @@ mat_rnd.dot(v)
 # - `csc_matrix` is more efficient for `slicing` by column
 # - `csr_matrix` is more efficient for the row case.
 
-
-
-# %%
-
-import networkx as nx
 
 
 # %%
@@ -417,20 +414,23 @@ D = nx.incidence_matrix(G, oriented=True).T
 
 # %%
 
-print('Size of full matrix with zeros: {0:3.2f}  MB'.format(D.data.nbytes/(1024**2)))
+mem = np.prod(D.shape) * element.data.nbytes / (1024**2)
+print('Size of full matrix with zeros: {0:3.2f}  MB'.format(mem))
 
+print('Size of sparse matrix: {0:3.2f}  MB'.format(D.data.nbytes/(1024**2) ))
+
+element = np.zeros(1, dtype=float)
+print('Ratio  of full matrix size / sparse: {0:3.2f}%'.format(100 * D.data.nbytes / (1024**2 * mem)))
 
 # %%
 
 print(isspmatrix(D))
-D
-
 
 # **Alternatively**: you can uncomment the following line,
 # and check that the size of a similar matrix, with non-sparse
 # format would be.
 #
-# ```>>> Size of full matrix with zeros: 1677.47  MB```
+# ```>>> Size of full matrix with zeros: 4 gB```
 
 # %%
 
