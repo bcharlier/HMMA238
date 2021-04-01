@@ -14,7 +14,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import time
-from numba import jit
+from numba import jit, njit, prange
 import matplotlib.animation as animation
 get_ipython().run_line_magic('matplotlib', 'inline')
 from IPython.display import HTML
@@ -155,18 +155,29 @@ def monte_carlo_pi(n_samples=1000):
             acc += 1
     return 4.0 * acc / n_samples
 
+@jit(nopython=True)
+def monte_carlo_pi_bis(n_samples=1000):
+    acc = 0
+    for sample in range(n_samples):
+        vec = np.random.rand(2)
+        if np.linalg.norm(vec) < 1.:
+            acc += 1
+    return acc
 
+
+n_samples = 1000000
+pi_approx = monte_carlo_pi_bis(n_samples=n_samples)
 # %%
 # DO NOT REPORT THIS... COMPILATION TIME IS INCLUDED IN THE EXECUTION TIME!
-n_samples = 1000000
 start = time.time()
-monte_carlo_pi(n_samples=n_samples)
+n_samples = 1000000
+pi_approx = monte_carlo_pi(n_samples=n_samples)
 end = time.time()
 print("Elapsed (with compilation) = %s" % (end - start))
 
 # NOW THE FUNCTION IS COMPILED, RE-TIME IT EXECUTING FROM CACHE
 start = time.time()
-monte_carlo_pi(n_samples=n_samples)
+pi_approx = monte_carlo_pi(n_samples=n_samples)
 end = time.time()
 print("Elapsed (after compilation) = %s" % (end - start))
 
@@ -232,20 +243,30 @@ print((t1 - t2) / t2 * 100)
 
 # %%
 
-
 n_samples = 1000
 n_features = 500
 n_iterations = 2000
+
+# OLS: of y and X
 
 X = np.random.randn(n_samples, n_features)
 y = np.random.randn(n_samples)
 y[n_samples // 2:] = 0
 
-w = np.zeros(n_features)  # init = 0
+
+# init = 0
+w = np.zeros(n_features)
 
 
 # %%
 
+# Function objective for OLS:
+# min \|y - X w \|^2 / 2 := f(w)
+
+# f(w) =  < y - Xw ; y - Xw>/2 = (y - Xw)^\top (y - Xw)/2
+# f(w) = w^\top X^\top Xw / 2  - (X^\top y)^\top w
+# \nabla f(w) = X^\top X w - X^\top y
+# in Python : (X.T.dot(X.dot(w) - y)
 
 @jit(nopython=True)
 # Function is compiled and runs in machine code
@@ -268,57 +289,6 @@ end = time.time()
 print("Elapsed (after compilation) = %s" % (end - start))
 
 
-# # Example 4: Logistic regression
-
-# %%
-
-y = np.random.randint(2, size=n_samples)*2 - 1
-print(y)
-w = np.zeros(n_features)  # init = 0
-
-
-# %%
-
-
-def logistic_regression_no_jit(y, X, w, iterations=1000):
-    for i in range(iterations):
-        w -= np.dot(((1.0 / (1.0 + np.exp(-y * np.dot(X, w))) - 1.0) * y), X)
-    return w
-
-
-# %%
-
-
-start = time.time()
-logistic_regression_no_jit(y, X, w, iterations=n_iterations )
-end = time.time()
-print("Elapsed (with compilation) = %s" % (end - start))
-
-
-# %%
-
-
-@jit(nopython=True)
-def logistic_regression(y, X, w, iterations=1000):
-    for i in range(iterations):
-        w -= np.dot(((1.0 / (1.0 + np.exp(-y * np.dot(X, w))) - 1.0) * y), X)
-    return w
-
-
-# %%
-
-
-# DO NOT REPORT THIS... COMPILATION TIME IS INCLUDED IN THE EXECUTION TIME!
-start = time.time()
-logistic_regression(y, X, w, iterations=n_iterations)
-end = time.time()
-print("Elapsed (with compilation) = %s" % (end - start))
-
-# NOW THE FUNCTION IS COMPILED, RE-TIME IT EXECUTING FROM CACHE
-start = time.time()
-logistic_regression(y, X, w, iterations=n_iterations)
-end = time.time()
-print("Elapsed (after compilation) = %s" % (end - start))
 
 
 # ### For  more on numba:
@@ -329,13 +299,13 @@ print("Elapsed (after compilation) = %s" % (end - start))
 # Parallelization: https://numba.pydata.org/numba-doc/dev/user/parallel.html
 
 # In addition to being able to compile your code in low-level language,
-# Numba allows you to parallelize your loops, which can be useful in case
-# you do Monte Carlo.
+# Numba allows you to parallelize your loops, which can be useful in case you do Monte Carlo.
 
 # We simply take the previous code allowing to compute an estimate of pie,
 # to which we add the option parralel = True on one hand and we replace range
 # by prange on the other hand.
 
+# %%
 @njit(parallel=True)
 def monte_carlo_pi_parrallel(n_samples=1000):
     acc = 0
@@ -367,12 +337,70 @@ print("Elapsed with parallelization = %s" % (end - start))
 # supported:
 #  https://numba.pydata.org/numba-doc/dev/reference/numpysupported.html
 
+
+
+
+# %%
+# # Example 4: Logistic regression
+
+# %%
+# n_samples = 100
+# n_features = 20
+y = np.random.randint(2, size=n_samples)*2 - 1
+print(y)
+w = np.zeros(n_features)  # init = 0
+
+
+# %%
+
+def logistic_regression_no_jit(y, X, w, iterations=1000):
+    for i in range(iterations):
+        w -= np.dot(((1.0 / (1.0 + np.exp(-y * np.dot(X, w))) - 1.0) * y), X)
+    return w
+
+
+# %%
+
+
+start = time.time()
+w = logistic_regression_no_jit(y, X, w, iterations=n_iterations )
+end = time.time()
+print("Elapsed (with compilation) = %s" % (end - start))
+
+
+# %%
+
+@jit(nopython=True)
+def logistic_regression(y, X, w, iterations=1000):
+    for i in range(iterations):
+        w -= np.dot(((1.0 / (1.0 + np.exp(-y * np.dot(X, w))) - 1.0) * y), X)
+    return w
+
+
+# %%
+
+
+# DO NOT REPORT THIS... COMPILATION TIME IS INCLUDED IN THE EXECUTION TIME!
+start = time.time()
+logistic_regression(y, X, w, iterations=n_iterations)
+end = time.time()
+print("Elapsed (with compilation) = %s" % (end - start))
+
+# NOW THE FUNCTION IS COMPILED, RE-TIME IT EXECUTING FROM CACHE
+start = time.time()
+logistic_regression(y, X, w, iterations=n_iterations)
+end = time.time()
+print("Elapsed (after compilation) = %s" % (end - start))
+
+
+# %%
+
+
 # Write a function using Numba to test if an element 'i' belongs to an array.
 # The result should be similar to the following example:
 i = 10
 array = np.arange(11)
 i in array
-
 
 # Prediction of a logistic model:
 
@@ -392,3 +420,33 @@ i in array
 
 # We will finish by making a graph to show the evolution of the prediction
 # curve as a function of the value of x.
+
+
+
+@njit(parallel=False)
+def do_sum_parallel(A):
+    # each thread can accumulate its own partial sum, and then a cross
+    # thread reduction is performed to obtain the result to return
+    n = len(A)
+    acc = 0.
+    for i in prange(n):
+        acc += np.sqrt(A[i])
+    return acc
+
+@njit(parallel=True, fastmath=True)
+def do_sum_parallel_fast(A):
+    n = len(A)
+    acc = 0.
+    for i in prange(n):
+        acc += np.sqrt(A[i])
+    return acc
+
+A = np.random.randn(10000)
+# %%
+
+%%time
+do_sum_parallel(A)
+# %%
+%%time
+do_sum_parallel_fast(A)
+# %%
