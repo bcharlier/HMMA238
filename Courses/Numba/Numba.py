@@ -37,6 +37,7 @@ ax.set_aspect('equal')
 ax.set_xlim([0, 1])
 ax.set_ylim([0, 1])
 targeted = 0
+
 n_samples = 101
 lst = np.zeros(n_samples)
 coordinates = []
@@ -49,7 +50,7 @@ for sample in range(1, n_samples):
     else:
         plt.plot(vec[0], vec[1], 'xr', markersize=5)
     coordinates.append(vec)
-    ax.set_title('Ratio of points over all draws: {0}/{1}={2}'.format(targeted, sample, targeted/sample))
+    ax.set_title('4 x Ratio of points over all draws: 4 x {0}/{1}={2}'.format(targeted, sample, 4  *targeted/sample))
 plt.show()
 
 
@@ -123,13 +124,16 @@ def update(frame):
 
 ani = animation.FuncAnimation(fig, update, frames=n_samples, interval=150,
                               init_func=init, blit=True)
-# plt.show()
+Writer = animation.writers['ffmpeg']
+writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+ani.save('pi.mp4', writer=writer)
+plt.show()
 
 
 # %%
 
-
-HTML(ani.to_html5_video())  # Need ffmpeg installed on your machine
+from IPython.display import Video
+Video("pi.mp4")  # Need ffmpeg installed on your machine
 
 
 # %%
@@ -142,28 +146,27 @@ np.pi/4
 # %%
 
 
-@jit(nopython=True) 
+@jit(nopython=True)
 def monte_carlo_pi(n_samples=1000):
     acc = 0
     for sample in range(n_samples):
         vec = np.random.rand(2)
         if np.linalg.norm(vec) < 1.:
             acc += 1
-    return 4.0 * acc / n_samples 
+    return 4.0 * acc / n_samples
 
 
 # %%
-
-
 # DO NOT REPORT THIS... COMPILATION TIME IS INCLUDED IN THE EXECUTION TIME!
+n_samples = 1000000
 start = time.time()
-monte_carlo_pi(n_samples=10000000)
+monte_carlo_pi(n_samples=n_samples)
 end = time.time()
 print("Elapsed (with compilation) = %s" % (end - start))
 
 # NOW THE FUNCTION IS COMPILED, RE-TIME IT EXECUTING FROM CACHE
 start = time.time()
-monte_carlo_pi(n_samples=1000)
+monte_carlo_pi(n_samples=n_samples)
 end = time.time()
 print("Elapsed (after compilation) = %s" % (end - start))
 
@@ -172,11 +175,10 @@ print("Elapsed (after compilation) = %s" % (end - start))
 
 # %%
 
-
-def go_slow(a):  # Function is compiled and runs in machine code
+def go_slow(A):  # Function is compiled and runs in machine code
     trace = 0
-    for i in range(a.shape[0]):
-        trace += a[i, i]
+    for i in range(A.shape[0]):
+        trace += A[i, i]
     return trace
 
 
