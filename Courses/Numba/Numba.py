@@ -8,7 +8,7 @@
 # 
 # https://numba.pydata.org/ see also https://numba.pydata.org/numba-doc/dev/user/jit.html
 
-# In[ ]:
+# %%
 
 
 import numpy as np
@@ -26,7 +26,7 @@ from IPython.display import HTML
 # The underlying idea of this function is to approximate $\pi$ using a simple procedure:
 # generate points uniformly at random in the set $[0,1] \times [0,1]$. Keep only the points whose Euclidean norm is smaller than 1. The ratio of points in this area w.r.t. the total number of points is the ratio between the area of this region and the one of $[0,1] \times [0,1]$. It is easy to check that this ratio is $\pi/4$
 
-# In[ ]:
+# %%
 
 
 fig = plt.figure(figsize=(8,8))
@@ -53,7 +53,7 @@ for sample in range(1, n_samples):
 plt.show()
 
 
-# In[ ]:
+# %%
 
 
 
@@ -126,20 +126,20 @@ ani = animation.FuncAnimation(fig, update, frames=n_samples, interval=150,
 # plt.show()
 
 
-# In[ ]:
+# %%
 
 
 HTML(ani.to_html5_video())  # Need ffmpeg installed on your machine
 
 
-# In[ ]:
+# %%
 
 
 # Reminder: orange area is:
 np.pi/4
 
 
-# In[ ]:
+# %%
 
 
 @jit(nopython=True) 
@@ -152,7 +152,7 @@ def monte_carlo_pi(n_samples=1000):
     return 4.0 * acc / n_samples 
 
 
-# In[ ]:
+# %%
 
 
 # DO NOT REPORT THIS... COMPILATION TIME IS INCLUDED IN THE EXECUTION TIME!
@@ -170,7 +170,7 @@ print("Elapsed (after compilation) = %s" % (end - start))
 
 # # Example 2: matrix function (without using numpy)
 
-# In[ ]:
+# %%
 
 
 def go_slow(a):  # Function is compiled and runs in machine code
@@ -228,7 +228,7 @@ print((t1 - t2) / t2 * 100)
 
 # # Example 3: Gradient descent with / without numba
 
-# In[ ]:
+# %%
 
 
 n_samples = 1000
@@ -242,7 +242,7 @@ y[n_samples // 2:] = 0
 w = np.zeros(n_features)  # init = 0
 
 
-# In[ ]:
+# %%
 
 
 @jit(nopython=True)
@@ -268,15 +268,14 @@ print("Elapsed (after compilation) = %s" % (end - start))
 
 # # Example 4: Logistic regression
 
-# In[ ]:
+# %%
 
-
-y = np.random.randint(2, size=n_samples) *2 -1
+y = np.random.randint(2, size=n_samples)*2 - 1
 print(y)
 w = np.zeros(n_features)  # init = 0
 
 
-# In[ ]:
+# %%
 
 
 def logistic_regression_no_jit(y, X, w, iterations=1000):
@@ -285,7 +284,7 @@ def logistic_regression_no_jit(y, X, w, iterations=1000):
     return w
 
 
-# In[ ]:
+# %%
 
 
 start = time.time()
@@ -294,7 +293,7 @@ end = time.time()
 print("Elapsed (with compilation) = %s" % (end - start))
 
 
-# In[ ]:
+# %%
 
 
 @jit(nopython=True)
@@ -304,7 +303,7 @@ def logistic_regression(y, X, w, iterations=1000):
     return w
 
 
-# In[ ]:
+# %%
 
 
 # DO NOT REPORT THIS... COMPILATION TIME IS INCLUDED IN THE EXECUTION TIME!

@@ -290,7 +290,7 @@ from IPython.display import HTML
 
 get_ipython().run_cell_magic('HTML', '', "\n<iframe height=400px width=100% src='force.html'></iframe>")
 
-# # Planars braphs and maps :
+# # Planars graphs and maps :
 # Open Street Map interfaced with Networkx, using the package `osmnx`:
 #
 # !!! Known bug:
