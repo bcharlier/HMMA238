@@ -50,7 +50,7 @@ for sample in range(1, n_samples):
     else:
         plt.plot(vec[0], vec[1], 'xr', markersize=5)
     coordinates.append(vec)
-    ax.set_title('4 x Ratio of points over all draws: 4 x {0}/{1}={2}'.format(targeted, sample, 4  *targeted/sample))
+    ax.set_title('4 x Ratio of points over all draws: 4 x {0}/{1}={2}'.format(targeted, sample, 4 *targeted/sample))
 plt.show()
 
 
@@ -213,19 +213,19 @@ for n_samples in all_n_samples:
     go_fast(x)
     end = time.time()
     t0.append(end - start)
-    print("Elapsed (with compilation) = %s" % (end - start))
+    print(f"Elapsed (with compilation)  = {end - start:.2E}")
     # COMPILATION IS NOT INCLUDED, RUN FROM CACHE
     start = time.time()
     go_fast(x)
     end = time.time()
     t1.append(end - start)
-    print("Elapsed (after compilation) = %s" % (end - start))
+    print(f"Elapsed (after compilation) = {end - start:.2E}")
     # VANILLA PYTHON
     start = time.time()
     go_slow(x)
     end = time.time()
     t2.append(end - start)
-    print("Elapsed (vanilla) = %s" % (end - start))
+    print(f"Elapsed (vanilla version)   = {end - start:.2E}")
 
 
 t0 = np.array(t0)
@@ -273,74 +273,166 @@ w = np.zeros(n_features)
 def gradient(X, y, w, step_size=0.01,  max_iter=1000):
     """Gradient descent with constant step size."""
     for k in range(max_iter):
-        w -=  step_size * (X.T.dot(X.dot(w) - y))
+        w -= step_size * (X.T.dot(X.dot(w) - y))
     return w
 
 # DO NOT REPORT THIS... COMPILATION TIME IS INCLUDED IN THE EXECUTION TIME!
+
+
 start = time.time()
 gradient(X, y, w)
 end = time.time()
-print("Elapsed (with compilation) = %s" % (end - start))
+print(f"Elapsed (with compilation)  = {end - start:.2E}")
 
 # NOW THE FUNCTION IS COMPILED, RE-TIME IT EXECUTING FROM CACHE
 start = time.time()
 gradient(X, y, w)
 end = time.time()
-print("Elapsed (after compilation) = %s" % (end - start))
-
-
+print(f"Elapsed (after compilation) = {end - start:.2E}")
 
 
 # ### For  more on numba:
-# 
-
-
 
 # Parallelization: https://numba.pydata.org/numba-doc/dev/user/parallel.html
 
 # In addition to being able to compile your code in low-level language,
-# Numba allows you to parallelize your loops, which can be useful in case you do Monte Carlo.
+# Numba allows you to parallelize your loops, which can be useful in case you
+# compute Monte Carlo simulations.
 
 # We simply take the previous code allowing to compute an estimate of pie,
-# to which we add the option parralel = True on one hand and we replace range
-# by prange on the other hand.
+# to which we add the option parallel = True on one hand and we replace `range`
+# by `prange` on the other hand.
 
 # %%
+
+from numba import njit, prange
+
+A = np.arange(100000)
+
 @njit(parallel=True)
-def monte_carlo_pi_parrallel(n_samples=1000):
+def prange_test(A):
+    s = 0
+    # Without "parallel=True" in the jit-decorator
+    # the prange statement is equivalent to range
+    for i in prange(A.shape[0]):
+        s += A[i]
+    return s
+
+
+def range_test(A):
+    s = 0
+    # Without "parallel=True" in the jit-decorator
+    # the prange statement is equivalent to range
+    for i in range(A.shape[0]):
+        s += A[i]
+    return s
+
+
+# %%
+
+print("prange_test:")
+start = time.time()
+range_test(A)
+end = time.time()
+print(f"Elapsed (without parallel)                   = {end - start:.2E}")
+
+start = time.time()
+prange_test(A)
+end = time.time()
+print(f"Elapsed (with parallel + compilation)        = {end - start:.2E}")
+
+start = time.time()
+prange_test(A)
+end = time.time()
+print(f"Elapsed (with parallel without compilation)  = {end - start:.2E}")
+
+
+
+
+# %%
+
+def monte_carlo_pi(n_samples=1000):
+    acc = 0
+    for sample in range(n_samples):
+        vec = np.random.rand(2)
+        if np.linalg.norm(vec) < 1.:
+            acc += 1
+    return 4.0 * acc / n_samples
+
+
+@jit(nopython=True)
+def monte_carlo_pi_jit(n_samples=1000):
+    acc = 0
+    for sample in range(n_samples):
+        vec = np.random.rand(2)
+        if np.linalg.norm(vec) < 1.:
+            acc += 1
+    return 4.0 * acc / n_samples
+
+
+@njit(parallel=True)
+def monte_carlo_pi_parallel(n_samples=1000):
     acc = 0
     for sample in prange(n_samples):
         vec = np.random.rand(2)
         if np.linalg.norm(vec) < 1.:
             acc += 1
-    return 4.0 * acc / n_samples 
-
-# DO NOT REPORT THIS... COMPILATION TIME IS INCLUDED IN THE EXECUTION TIME!
-
-# compilation
-monte_carlo_pi_parrallel(n_samples=10**2)
-
-# NOW THE FUNCTION IS COMPILED, RE-TIME IT EXECUTING FROM CACHE
-start = time.time()
-monte_carlo_pi(n_samples=10**7)
-end = time.time()
-print("Elapsed without parallelization = %s" % (end - start))
-
-start = time.time()
-monte_carlo_pi_parrallel(n_samples=10**7)
-end = time.time()
-print("Elapsed with parallelization = %s" % (end - start))
+    return 4.0 * acc / n_samples
 
 
-# For Numba to compile your code in low-level language, you must use functions
-# that the package takes into account. For example, many functions of Numpy are
-# supported:
-#  https://numba.pydata.org/numba-doc/dev/reference/numpysupported.html
-
-
+@njit(parallel=True)
+def monte_carlo_pi_parallel_new(n_samples=1000):
+    acc = 0
+    list_accepted = np.zeros(n_samples)
+    for i in prange(n_samples):
+        vec = np.random.rand(2)
+        if np.linalg.norm(vec) < 1.:
+            list_accepted[i] = 1
+    return np.sum(list_accepted)
 
 
 # %%
+
+
+n_samples = 1_000_000
+
+# With naive parallel approach
+start = time.time()
+monte_carlo_pi_parallel(n_samples)
+end = time.time()
+print(f"Elapsed (with parallel + compilation)           = {end - start:.2E}")
+
+start = time.time()
+monte_carlo_pi_parallel(n_samples)
+end = time.time()
+print(f"Elapsed (with parallel without compilation)     = {end - start:.2E}")
+
+# With naive better approach
+start = time.time()
+monte_carlo_pi_parallel_new(n_samples)
+end = time.time()
+print(f"Elapsed (with parallel new + compilation)       = {end - start:.2E}")
+
+start = time.time()
+monte_carlo_pi_parallel_new(n_samples)
+end = time.time()
+print(f"Elapsed (with parallel new without compilation) = {end - start:.2E}")
+
+# jit numba
+start = time.time()
+monte_carlo_pi_jit(n_samples)
+end = time.time()
+print(f"Elapsed (with jit/numba)                        = {end - start:.2E}")
+
+
+# Naive vanilla
+start = time.time()
+monte_carlo_pi(n_samples)
+end = time.time()
+print(f"Elapsed (vanilla)                               = {end - start:.2E}")
+
+
+ # %%
 # # Example 4: Logistic regression
 
 # %%
@@ -365,7 +457,7 @@ def logistic_regression_no_jit(y, X, w, iterations=1000):
 start = time.time()
 w = logistic_regression_no_jit(y, X, w, iterations=n_iterations )
 end = time.time()
-print("Elapsed (with compilation) = %s" % (end - start))
+print(f"Elapsed (with compilation)  = {end - start:.2E}")
 
 
 # %%
@@ -384,13 +476,13 @@ def logistic_regression(y, X, w, iterations=1000):
 start = time.time()
 logistic_regression(y, X, w, iterations=n_iterations)
 end = time.time()
-print("Elapsed (with compilation) = %s" % (end - start))
+print(f"Elapsed (with compilation)  = {end - start:.2E}")
 
 # NOW THE FUNCTION IS COMPILED, RE-TIME IT EXECUTING FROM CACHE
 start = time.time()
 logistic_regression(y, X, w, iterations=n_iterations)
 end = time.time()
-print("Elapsed (after compilation) = %s" % (end - start))
+print(f"Elapsed (after compilation) = {end - start:.2E}")
 
 
 # %%
