@@ -27,3 +27,7 @@ You will provide a hyperlink pointing to a **single file** that can be opened on
 Some inspiration could be found here [https://twitter.com/TotemAlbert1er/status/1363829767208906755](https://twitter.com/TotemAlbert1er/status/1363829767208906755) if needed.
 
 The link of the visualization part must be provided in the framacalc file (cf. moodle of the course).
+
+### Result
+
+[<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/Albert1er.jpeg?sanitize=true" height="200">](https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/Albert1er.jpeg)
