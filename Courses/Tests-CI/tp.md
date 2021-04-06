@@ -30,10 +30,12 @@ Many coding languages come with their own test framework.
 In python, we will focus on [`pytest`](http://doc.pytest.org).
 It is simple though powerful. `pytest` searches for all `test*.py` files and runs all `test*` methods found. It outputs a nice errors report.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Install `pytest` with `pip` using the user scheme (`--user` option)
 2. Test if the command `pytest` is in your PATH (depending on your configuration you will have to add `~/.local/bin` in PATH)
+----
 
 ### Example
 
@@ -67,11 +69,14 @@ To run these tests:
 $ pytest test_inc.py
 ```
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
+
 
 1. Correct the `test_inc2` test.
 2. Determine the syntax to run any test in a directory.
 3. Determine the syntax to run only the test called `test_inc1`.
+----
 
 ## Code coverage
 
@@ -109,7 +114,7 @@ def test_inc():
 then
 
 ```bash
-$ pytest --cov inc_cov
+$ pytest inc_cov --cov 
 =============================== test session starts ===============================
 platform linux -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
 rootdir: /home/bcharlier/enseignement/HMMA238/HMMA238/Tests-CI
@@ -138,7 +143,8 @@ for details.
 
 The documentation can be found at <https://pytest-cov.readthedocs.io/en/latest/>. Source for this text: <https://en.wikipedia.org/wiki/Code_coverage>.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Install the `pytest`'s coverage plugin.
 2. Load the `biketrauma` package you can download at <https://github.com/HMMA238-2020/biketrauma/>
@@ -174,6 +180,7 @@ biketrauma/vis/plot_location.py             6      4    33%
 -----------------------------------------------------------
 TOTAL                                      52      4    92%
 ```
+----
 
 ## Continuous integration
 
@@ -236,6 +243,8 @@ Setting up a CI is rather easy. It is sufficient to add a single text file `.git
 2. Custom the `workflows` file depending on your needs. Beware: getting a correct configuration file is sometime tedious with CI system...
 3. You can add a `badge` showing the result of CI to the end-user directly in your Readme.md
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Setup a CI with github on `biketrauma`
+----

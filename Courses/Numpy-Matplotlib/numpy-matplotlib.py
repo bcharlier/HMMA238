@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 # coding: utf-8
 
 # # `numpy`  multi-dim arrays) and `matplotlib` (visualization 2D / 3D)
@@ -21,7 +22,7 @@
 # It provides powerful data structures for the manipulation of more general
 # vectors, matrices and tensors.
 # * `numpy` is written in `C` and `Fortran` hence its high performance when
-# calculations are vectorized, i.e. formulated as vector/matrix operations.
+# calculations are vectorized, i.e., formulated as vector/matrix operations.
 
 # * `matplotlib` is a powerful module for generating 2D and 3D graphics.
 # * syntax very close to Matlab
@@ -70,20 +71,20 @@ print(type(v))
 
 x = np.array([0, 1, 2, 3])
 
-fig = plt.figure()
+fig = plt.figure(figsize=(5,2))
 plt.plot(x, v, 'rv--', label='v(x)')
 # r for red, v for triangle, -- for dash line
-plt.legend(loc='lower right')
+plt.legend(loc='upper left')
 plt.xlabel('x')
 plt.ylabel('v')
 
 plt.title('Mon titre')
 
 plt.xlim([-1, 4])
-plt.ylim([0, 5])
+plt.ylim([-10, 5])
 
 plt.show()  # to force the display
-# fig.savefig('toto.svg')  # uncomment to save on disk
+fig.savefig('toto.pdf')  # uncomment to save on disk
 
 
 # ###  Create matrices / 2-d `numpy` arrays from a list of lists
@@ -91,7 +92,7 @@ plt.show()  # to force the display
 # %%
 M = np.array([[1, 2], [3, 4]])
 print(M)
-print(M[0, 1])
+print(M[1, 1])
 
 # The objects `v` and `M` are of type `ndarray` (the `numpy` standard format)
 
@@ -164,8 +165,8 @@ a.dtype
 # %%
 
 a = np.array([1, 2, 3], dtype=np.int64)
-b = np.array([2, 2, 3], dtype=np.int64)
-b = b.astype(float)
+b = np.array([0, 1, 1], dtype=np.int64)
+b = b.astype(bool)
 print(a / b)
 
 
@@ -193,7 +194,7 @@ M
 # %%
 
 # Create a simple interval
-x = np.arange(0, 10, 2)  # arguments: start, stop, step
+x = np.arange(0, 9, 2)  # arguments: start, stop, step
 x
 
 
@@ -223,15 +224,6 @@ fig = plt.figure(figsize=(5, 5))
 plt.plot(xx, np.sin(xx))
 plt.show()
 
-
-# %%
-
-print(np.logspace(0, 10, 10, base=np.e))
-
-
-# ### <font color='red'> EXERCISE : log/exp </font>
-# What is the value 3.03777 corresponding to ?
-
 # %%
 
 logarray = np.logspace(1, 1000, 3)
@@ -240,12 +232,18 @@ np.log(logarray)
 
 # %%
 
-(np.logspace(1, 3, num=3))
+(np.logspace(1, 10, num=10, base=2))
 
 
 # %%
 
 np.logspace?
+# %%
+
+print(np.logspace(0, 10, num=10, base=np.e))
+
+# ### <font color='red'> EXERCISE : log/exp </font>
+# What is the value 3.03777 corresponding to ?
 
 # #### `diag`
 
@@ -271,11 +269,10 @@ my_diag = np.array([0, 0, 0])
 print(my_diag.shape)
 print(M.shape)
 np.diag(my_diag)
-np.fill_diagonal(M, my_diag)
+np.fill_diagonal(, my_diag)
 print(M)
 
 
-# #### `diag`
 #
 # This function also extract the diagonal value of an *array* :
 
@@ -287,7 +284,7 @@ print(np.diag(A))
 
 # %%
 
-np.diag(A, -1)
+np.diag(A, k=-3)
 
 
 # #### `zeros`, `ones` and  `full`
@@ -300,9 +297,10 @@ print(np.zeros((3,), dtype=int).dtype)
 
 # %%
 
-zero_mat_float = np.zeros((3, 4, 6))
+zero_mat_float = np.zeros((2, 3, 5))
 
 print(zero_mat_float.dtype)
+print(zero_mat_float)
 zero_mat_float.shape
 zero_mat_float[1, :, :]
 
@@ -338,6 +336,8 @@ np.random.rand(5, 5)
 np.random.randn(5, 5)  # n stands for normal here
 
 
+# Rem: cf. scipy.stats for more on random generators
+
 # #### Random seed
 # It is often useful to "fix" the way the randomness is generated:
 # https://fr.wikipedia.org/wiki/Graine_al%C3%A9atoire
@@ -353,24 +353,42 @@ np.random.rand(12)
 # %%
 
 np.random.seed(seed=33)
-np.random.rand(12)
+print(np.random.rand(12))
+print(np.random.rand(12))
+print(np.random.rand(12))
 
+# %%
+np.random.seed(seed=33)
+print(np.random.rand(12))
+
+np.random.seed(seed=33)
+print(np.random.rand(12))
+
+np.random.seed(seed=33)
+print(np.random.rand(12))
 
 # #### Histograms for random samples
 
 # %%
 
-a = np.random.randn(10000)
+a = np.random.normal(loc=0.0, scale=1., size=(10000,))
+b = np.random.normal(loc=0.0, scale=10., size=(10000,))  # scale =  std
+
 plt.figure(figsize=(5, 2))
-plt.subplot(1, 2, 1)
-plt.hist(a, bins=40, density=False)
-plt.title('Histogram (Sample size)')
+
+plt.subplot(1, 3, 1)
+plt.hist(a, bins=40, density=True)
+plt.title('Histogram \n (Sample size)')
 plt.ylabel('Sample size')
 
-plt.subplot(1, 2, 2)
+plt.subplot(1, 3, 2)
+plt.hist(10 * a, bins=40, density=True)
+plt.title('Histogram \n (Density)')
+plt.ylabel('Density')
 
-plt.hist(a + 10, bins=40, density=True)
-plt.title('Histogram (Density)')
+plt.subplot(1, 3, 3)
+plt.hist(b, bins=40, density=True)
+plt.title('Histogram \n (Density)')
 plt.ylabel('Density')
 
 plt.tight_layout()  # avoid axes display issues...matplotlib might be tricky
@@ -396,9 +414,20 @@ axes[1].set_title('Histogram (Density)')
 
 plt.tight_layout()
 
+# %%
+fig, axes = plt.subplots(1, 2, sharey='row')
+
+axes[0].hist(a, bins=40, density=True)
+axes[0].set_ylabel('Sample size')
+axes[0].set_title('Histogram (Sample size)')
+
+axes[1].hist(a + 10, bins=40, density=False)
+axes[1].set_title('Histogram (Density)')
+
+plt.tight_layout()
+
 
 # ##  Input/Output files
-
 
 # ### `numpy` default/recommended storing format  (`.npy`)
 #
@@ -424,10 +453,6 @@ np.savetxt("random-matrix.csv", M)
 
 
 # %%
-effectifs
-Effectifs
-Effectifs
-effectifs
 !pwd  # check the new file in your folder
 !ls
 # to read from a txt file: `numpy.genfromtxt`,
@@ -437,19 +462,15 @@ effectifs
 MM = np.genfromtxt('random-matrix.csv')  # create an array from a csv file
 print(MM)
 
-effectifs
-Effectifs
-Effectifs
-effectifs
 # *Remark*: you might loose some precision when doing the storage,
 # if not careful.
-
 
 
 # %%
 
 N = np.load("random-matrix.npy")
-N
+print(N)
+
 
 # ## Other properties of `numpy` *arrays*
 
@@ -619,26 +640,34 @@ M = np.arange(12).reshape(4, 3, order='F')  # F stands for Fortran convention
 print(M)
 M = np.arange(12).reshape(4, 3, order='C')  # F stands for C convention
 print(M)
+M = np.arange(12).reshape(4, 3)  # C order by default
+print(M)
 
+# difference in time
+# %%
+import time
+# do stuff
+n_rows, n_cols = 10000, 10000
+big_m = np.random.rand(n_rows, n_cols)
 
-# Negative indexes :
+# Variant 1: C order (lines)
+big_m_c = np.ascontiguousarray(big_m)
+t = time.time()
+for i in range(n_cols):
+        np.sum(big_m[:, i]**2)
+print("C:", time.time() - t)
+
+# Variant 2: Fortran order (columns)
+big_m_f = np.asfortranarray(big_m)
+t = time.time()
+for i in range(n_cols):
+        np.sum(big_m_f[:, i]**2)
+print("F:", time.time() - t)
 
 # %%
-
-A = np.array([1, 2, 3, 4, 5])
-
-
-# %%
-
+A = np.array([1, 2, 3, 4, 50])
 A[-1]  # last index
-
-# %%
-
-A[:-1]
-
-
-# %%
-
+A[:-1]  # negative indexes
 A[-3:]   # last 3 indexes
 
 
@@ -646,9 +675,8 @@ A[-3:]   # last 3 indexes
 # Compute the finite differencing of $A$, i.e., the vector $A[k+1]-A[k]$
 # for $k=0, \dots,n-1$ (where $n$ is the length of A).
 # Remark: this is often used to perform derivatives approximations.
-
-# *slicing* works similarly for multi-dimensionnels *array*.
 # You can check your solution with the specific `numpy` function `np.diff`.
+# *slicing* works similarly for multi-dimensional *array*.
 
 # %%
 
@@ -679,7 +707,7 @@ print(A[[0, 1, 3], :])
 print(A[:, [0, 1, 3]])
 
 
-# ### <font color='red'> EXERCISE : slicing </font>
+# ### <font color='red'> EXERCISE : slicing / vectorization </font>
 #
 # Create a $6 \times 6$ matrix where the integers from 1 to 36 are stored
 # (in column ordering / Fortran ordering).
@@ -690,9 +718,8 @@ print(A[:, [0, 1, 3]])
 print(np.transpose(np.arange(1, 37).reshape(6, 6)))
 print((np.arange(1, 37).reshape(6, 6)).T)
 
-
 # ### *fancy indexing*
-#
+
 # %%
 
 row_indices = [1, 2, 3]
@@ -709,11 +736,10 @@ print(A)
 
 
 # Using a binary mask:
-
 # %%
 
 B = np.arange(5)
-B
+print(B)
 
 
 # %%
@@ -730,17 +756,16 @@ B[row_mask]
 
 
 # %%
-
-# alternative
 a = np.array([1, 2, 3, 4, 5])
 print(a < 3)
-print(a[a > 3])
-print(a)
-
+# %%
+print(a[a <= 3])
 
 # %%
 
 print(A)
+# %%
+
 print(a < 3)
 print(A[:, a < 3])
 
@@ -749,7 +774,7 @@ print(A[:, a < 3])
 
 # #### `where`
 #
-# convert maks with `where`
+# convert mask with `where`
 
 # %%
 
@@ -757,14 +782,37 @@ x = np.arange(0, 10, 0.5)
 print(x)
 mask = (x > 5) * (x < 7.5)
 print(mask)
+y = (np.random.randn(len(x)))
+print(y)
 indices = np.where(mask)
-indices
-
+print(indices)
+print(y[indices])
 
 # %%
 
 print(x[indices])  # équivalent à x[mask]
 print(x[mask])
+
+# ## Use conditions and `arrays`
+#
+# `any`, `all` (not Annie Hall!)
+
+# %%
+
+if (M > 5).any():
+    print("at least one element of M is > 5.")
+else:
+    print("no element of M is > 5.")
+
+
+# %%
+
+if (M > 5).all():
+    print("all elements of M are > 5.")
+else:
+    print("there exist one element at least < 5.")
+
+
 
 
 # ## Linear algebra
@@ -795,12 +843,12 @@ v1 + 2
 
 # %%
 
-plt.figure()
+plt.figure(figsize=(8,4))
 plt.subplot(1, 2, 1)
-plt.plot(v1 ** 2, 'g--', label=r'$y = x^2$')
+plt.plot(v1 ** 2, '--', color='blue', label=r'$y = x^2$')
 plt.legend(loc=0)
 plt.subplot(1, 2, 2)
-plt.plot(np.sqrt(v1), 'r*-', label=r'$y = \sqrt{x}$')
+plt.plot(np.sqrt(v1), '*-', color='red', label=r'$y = \sqrt{x}$')
 plt.legend(loc=2)
 plt.show()
 
@@ -818,7 +866,7 @@ print(A)
 # %%
 
 A * A  # element-wise multiplication
-
+print(A**2)
 
 # ### Matrix algebra
 #
@@ -834,35 +882,36 @@ print(np.dot(A, A))  # matrix / matrix multiplication
 print(A.dot(A))  # matrix / matrix multiplication
 print(A @ A)  # matrix / matrix multiplication
 print(A * A)  # element-wise matrix / matrix multiplication
+print(np.exp(A))
 
+# %%
+print(np.linalg.matrix_power(A, 3))
+print(A @ A @ A)
+
+# from scipy.linalg import expm
+# expm(A)
 
 # %%
 
 v1
-
-
-# %%
-
 A.dot(v1)  # matrix / vector multiplication
-
-
-# %%
-
 np.dot(v1, v1)  # vectors inner product
 
 
 # ### Transposition : Symmetric/anti-symmetric matrices
 
 # %%
-
+print(A)
 S1 = (A + A.T) / 2  # orthogonal projection of A onto symmetric matrices
+print(S1)
 
-
+S2 = (A + np.transpose(A))/2
+print(S2)
 # %%
 
 A1 = (A - A.T) / 2  # orthogonal projection of A onto anti-symmetric matrices
 print(A1)
-
+print(np.trace(A1))
 
 # ### Orthogonality for the trace scalar product
 #
@@ -871,7 +920,7 @@ print(A1)
 # %%
 
 print(A1 + S1)
-np.trace(S1.dot(A1))
+np.trace(S1 @ A1)  # inner product (fr: "produit scalaire")
 
 
 # %%
@@ -905,12 +954,13 @@ D = C.T.dot(C)  # idem multiply C^T by C : C^T C
 # ### <font color='red'> EXERCISE : *numpy* ninja </font>
 #
 # Without any loop (`for/while`)
-#  * <font color='red'> Create a $5 \times 4$ random (uniform) matrix `Mat`
+#  * <font color='red'> Create  `Mat`:
+# Mat = np.array([[n+m*10 for n in range(5)] for m in range(5)])
 #    </font>
 #  * <font color='red'> Replace every other column by its value minus the value
 # of the following column (except for the last one). More precisely,
 # starting from Mat = [C_1, C_2, C_3, C_4] (4 columns), one aims at creating
-# Mat = [C_1 - 2 C_2, C_2 - 2 C3, C_3 -2 C4, C_4]
+# NewMat = [C_1 - 2 C_2, C_2 - 2 C3, C_3 -2 C4, C_4]
 # </font>
 #  * <font color='red'> Replace the negative values by 0,
 # using a binary mask.</font>
@@ -918,16 +968,14 @@ D = C.T.dot(C)  # idem multiply C^T by C : C^T C
 # %%
 
 # Solution 1: for loops and columns operations
-Mat = np.random.rand(5, 4)
+Mat = np.array([[n+m*10 for n in range(4)] for m in range(5)])
 print(Mat)
-NewMat = np.zeros((5, 4))
-
+NewMat = np.copy(Mat)
+print("---------")
 for j in range(4-1):
     NewMat[:, j] = Mat[:, j] - 2 * Mat[:, j+1]
-    # TODO XXX
-
 print(NewMat)
-NewMat[NewMat < 0] = 0
+# %%
 print(NewMat)
 
 
@@ -935,9 +983,7 @@ print(NewMat)
 
 # Solution 2: Transvection matrices
 NewMat = Mat.copy()
-for j in range(4-1):
-    # TODO XXX
-    print(j)
+
 # See on your own: `inner`, `outer`, `cross`, `kron`, `tensordot`.
 
 # %%
@@ -975,7 +1021,7 @@ np.mean(data[:, 2])
 # *Hint*:
 #
 # \begin{align}
-# \bar{x}_{n} & = \frac{1}{n} \sum_{i=1}^{n}x_i \\
+# \bar{x}_{n} & = \frac{1}{n} \sum_{i=1}^{n} x_i \\
 #             & = \frac{1}{n} \left( (n-1) \cdot \bar{x}_{n-1} + x_{n}\right)\\
 #             & = \frac{1}{n} \left(\sum_{i=1}^{n-1} x_i  + x_{n} \right)\\
 #             & = \frac{n-1}{n}  \cdot \bar{x}_{n-1}  + \frac{1}{n} x_{n}\\
@@ -984,22 +1030,17 @@ np.mean(data[:, 2])
 # #### Variance and standard deviation
 
 # %%
-
 print(np.var(data[:, 2]), np.std(data[:, 2]))
-
-
-# %%
-
 # ddof : Delta Degrees of Freedom
 print(np.var(data[:, 2], ddof=1), np.std(data[:, 2], ddof=1))
 
 
 # ### <font color='red'> EXERCISE : Degrees of Freedom </font>
-# Explain the difference in behavior of the last two cells.
+# Explain the difference in behavior of the last cells.
 # See more on this theme and on Stein's theory here:
 # http://www.stat.cmu.edu/~larry/=sml/stein.pdf
 
-# #### min / max
+# #### min / max / sum / prod
 
 # %%
 
@@ -1007,36 +1048,17 @@ print(data[:, 2].min(), data[:, 2].max(),
       data[:, 2].sum(), data[:, 2].prod())
 
 
-# #### `sum`, `prod` and `trace`
-
-# %%
-
-d = np.arange(0, 10)
-d
-
-
-# %%
-
-# sums
-print(np.sum(d), d.sum())
-
-
-# %%
-
-# products
-np.prod(d+1)
-
-
 # %%
 
 # cumsum
-np.cumsum(d)
-
+print(data[:, 2])
+print(np.cumsum(data[:, 2]))
+print(np.cumsum(data[:, 2]) / np.arange(1, len(data[:, 2]) + 1))
 
 # %%
 
 # cumprod
-np.cumprod(d+1)
+np.cumprod(data[:, 2]+1)
 
 
 # %%
@@ -1046,12 +1068,14 @@ np.trace(data)
 
 
 # ### <font color='red'> EXERCISE : Wallis product (bis) </font>
-# Using `numpy`, and without any `for` loop, evaluate:
+# Using `numpy`, and without any `for` loop, visualize the quality of
+# approximation using $n$ instead of +\infty
 # \begin{align}
 #     \text{Wallis product}\quad \pi&= 2 \cdot \prod_{n=1}^{\infty}
 #     \left({\frac{4 n^{2}}{4 n^{2} - 1}}\right)
 # \end{align}
-
+# %%
+n = 1000
 
 # ### multi-dimensional computations
 #
@@ -1060,26 +1084,13 @@ np.trace(data)
 # %%
 
 m = np.random.rand(3, 4)
-m
-
 
 # %%
 
-# max global
-m.max()
 
-
-# %%
-
-# max column wise
-m.max(axis=0)
-
-
-# %%
-
-# max row wise
-m.max(axis=1)
-
+m.max()  # max global
+m.max(axis=0)  # max column wise
+m.max(axis=1)  # max row wise
 
 # ## Copy et "deep copy"
 #
@@ -1088,16 +1099,9 @@ m.max(axis=1)
 # %%
 
 A = np.array([[0,  2], [3, 4]])
-A
-
-
-# %%
-
+print(A)
 B = A
-
-
 # %%
-
 # ATTENTION: change B impacts A
 B[0, 0] = 10
 print(B)
@@ -1111,14 +1115,12 @@ print(B is A)
 # %%
 
 B = A.copy()  # same as B = np.copy(A)
-
-
-# %%
-
 # now modifying B, A is not affected.
+print(B is A)
 B[0, 0] = -5
-print(B, A)
-
+print(B)
+print(A)
+print(B is A)
 
 # %%
 
@@ -1165,7 +1167,7 @@ A
 # %%
 
 A = np.array([[0,  2], [3,  4]])
-B = A.flatten()
+B = A.flatten(order='F')
 print(A, B)
 
 
@@ -1180,19 +1182,14 @@ B
 A  # B is now a copy A
 
 
-# ### Ajouter une nouvelle dimension avec `newaxis`
+# ### Add another dimension with `newaxis`
 #
-# Par exemple pour convertir un vecteur en une matrice ligne ou colonne :
+# For instance to convert a vector in a line/column matrice:
 
 # %%
 
 v = np.array([1, 2, 3])
-
-
-# %%
-
-np.shape(v)
-
+print(np.shape(v))
 
 # %%
 
@@ -1217,7 +1214,7 @@ v[np.newaxis, :].shape
 # matrices
 #
 
-# #### `repeat` et `tile`
+# #### `repeat` amd `tile`
 
 # %%
 
@@ -1281,10 +1278,10 @@ np.hstack((a, b.T))
 
 # %%
 
-v = np.array([1, 2, 3, 4])
+vector = np.array([1, 2, 3, 4])
 
-for element in v:
-    print(element)
+for coef in vector:
+    print(coef)
 
 
 # %%
@@ -1312,25 +1309,20 @@ for row_idx, row in enumerate(M):
 
 # %%
 M
-
-# ## Use conditions and `arrays`
-#
-# `any`, `all` (not Annie Hall!)
-
 # %%
+# Exercise : test time execution M**2 vs. loop
+n = 100
+m = 10
+M1 = np.ones((n, n))
+M2 = np.eye(m)
+# print(M1)
+# print(M2)
+M_test1 = np.kron(M1, M2)
+M_test2 = np.kron(M2, M1)
 
-if (M > 5).any():
-    print("at least one element of M is > 5.")
-else:
-    print("no element of M is > 5.")
+print(M_test1)
+print(M_test2)
 
-
-# %%
-
-if (M > 5).all():
-    print("all elements of M are > 5.")
-else:
-    print("there exist one element at least < 5.")
 
 
 # ## *Type casting*
@@ -1378,50 +1370,58 @@ x
 y
 
 
+# imshow : where it is starting.
 # %%
 
 plt.figure(figsize=(6, 6))
 
 plt.subplot(2, 2, 1)
 plt.imshow(x, origin='lower')
+plt.colorbar()
 
 plt.subplot(2, 2, 2)
 plt.imshow(y, origin='lower')
+plt.colorbar()
 
 plt.subplot(2, 2, 3)
 plt.imshow(x, origin='upper')
+plt.colorbar()
+
 
 plt.subplot(2, 2, 4)
 plt.imshow(y, origin='upper')
+plt.colorbar()
 
+# EXERCISE : share colorbar for all subplots.
 
 # %%
-
-xx, yy = np.mgrid[-50:50, -50:50]
-plt.figure(figsize=(3, 3))
-plt.imshow(np.angle(1j * yy + xx, deg=True).T,
-           extent=[-50, 50, -50, 50], origin='upper')
-plt.axis('on')
-plt.colorbar()
-plt.figure(figsize=(3, 3))
-plt.imshow(np.abs(xx + 1j * yy), extent=[-50, 50, -50, 50])
-plt.axis('on')
-plt.colorbar()
-plt.show()
-
-
-# %%
-
 from mpl_toolkits.mplot3d import Axes3D
 
 fig = plt.figure(figsize=(5, 4))
 ax = Axes3D(fig)
 X = np.arange(-4, 4, 0.2)
 Y = np.arange(-4, 4, 0.2)
-X, Y = np.meshgrid(X, Y)
-R = np.sqrt(X**2 + Y**2)
+XX, YY = np.meshgrid(X, Y)
+R = np.sqrt(XX**2 + YY**2)
 Z = np.sin(R)
-ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis')
+ax.plot_surface(XX, YY, Z, rstride=1, cstride=1, cmap='viridis')
+
+
+# %%
+
+xx, yy = np.mgrid[-50:50, -50:50]
+
+plt.figure(figsize=(3, 3))
+z = 1j * yy + xx
+plt.imshow(np.angle(z, deg=True).T,
+           extent=[-50, 50, -50, 50], origin='lower')
+plt.axis('on')
+plt.colorbar()
+plt.figure(figsize=(3, 3))
+plt.imshow(np.abs(z), extent=[-50, 50, -50, 50])
+plt.axis('on')
+plt.colorbar()
+plt.show()
 
 
 # %%
@@ -1473,5 +1473,3 @@ get_ipython().run_line_magic('pinfo2', 'np.linalg.norm')
 # * http://scipy.github.io/old-wiki/pages/Tentative_NumPy_Tutorial.html
 # * http://scipy-lectures.org/ - for advanced features (e.g., sparse matrices)
 # * http://scipy.org/NumPy_for_Matlab_Users - guide migrating MATLAB users
-
-# %%

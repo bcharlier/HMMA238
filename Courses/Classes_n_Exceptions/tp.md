@@ -7,18 +7,19 @@
  * Class: structure that represent an object, its properties, and all the operations one can apply to it.
 
 In Python a class contains *attributes* (variables) and *methods* (functions).
-It is defined similarly to a function, with replacing the `def` keyword by `class`.
-Usually a class contains some class methods(functions inside the class).
+It is defined similarly to a function, with replacing the `def` keyword by `class`. The name of a class should be CapWords (or CamelCase -- so named because of the bumpy look of its letters). Usually a class contains some class methods (functions inside the class).
 
-* The first argument of a method must be `self`:  it is a mandatory element.
-This `self` object is for self reference .
-* Some method names have a specific meaning, for instance : 
-   * `__init__`:  name of the method invoked when creating the object
+* The first argument of a (non `static`) method is usually called `self`:  it is a mandatory element. This `self` argument is for self reference.
+
+* Some method names have a specific meaning, for instance: 
+   * `__init__`:  name of the method invoked when creating the object (instantiation)
+   * `__call__`: method invoked when calling the object
    * `__str__` : method invoked when a class has a representation as a string, e.g., for when passing it to the `print` function
    * see <http://docs.python.org/3/reference/datamodel.html#special-method-names> for more special names
 
 ### Example
 
+Let us define a simple object:
 
 ```python
 class Point(object):
@@ -46,7 +47,7 @@ p1 = Point(x=0, y=0)  # call __init__ ;
 print(p1.x)
 print(p1.y)
 print("{0}".format(p1))  # call __str__
-p1()
+p1
 ```
 
 
@@ -69,7 +70,7 @@ print(p1)
 print(p2)
 ```
 
-About __call__: my_class(arg1, arg2, ...) is a shorthand for my_class.__call__(arg1, arg2, ...)
+About `__call__`: `my_class(arg1, arg2, ...)` is a shorthand for `my_class.__call__(arg1, arg2, ...)`
 ```python
 class Sum: 
     def __init__(self): 
@@ -91,8 +92,9 @@ ans(10, 20)
 
  * A method of a class is able to modify the state of a particular instance.
  This does not alter the other instantiations of the class.
- * Methods that do not depend on a particular instantiation can be decorated with the @staticmethod keyword.
+ * Methods that do not depend on a particular instantiation can be decorated with the `@staticmethod` keyword. Such method **do not** have their first arg referring to `self`...
 
+---
 ### <font color='red'>Exercise : Gaussian class </font>
 
 Implement a class `Gaussian` with attributes `mean` and `std` with a method 
@@ -115,14 +117,22 @@ print(q1 == q2)
 print(q1 + q2)
 
 # should display
-# The density function is: exp(-(x - 0)^2 / (2*1^2)) / sqrt(2 * pi 1^2)
-# The density function is: exp(-(x - 1)^2 / (2*2^2)) / sqrt(2 * pi 2^2)
+# The density function is: exp(-(x - 0)^2 / (2*1^2)) / sqrt(2 * pi * 1^2)
+# The density function is: exp(-(x - 1)^2 / (2*2^2)) / sqrt(2 * pi * 2^2)
 # True
 # False
-# The density function is: exp(-(x - 1)^2 / (2*2.6457513110645907^2)) / sqrt(2 * pi 2.6457513110645907^2)
+# The density function is: exp(-(x - 1)^2 / (2 * 2.23606797749979^2)) / sqrt(2 * pi * 2.23606797749979^2)
 ```
+---
+
+### Inheritance
+
+Classes can inherit methods from other classes. See e.g.
+
+<https://github.com/scikit-learn/scikit-learn/blob/95119c13a/sklearn/linear_model/_base.py#L391>
 
 ## Exceptions
+
 Sources: see https://fabienmaussion.info/scipro_ss2018/html/09-Exceptions.html
  * In Python errors are handled through `Exceptions`
  * An error throw an `Exception` interrupting the normal code execution
@@ -270,7 +280,7 @@ print(os.path.expanduser(os.path.join('~', 'work', 'src')))
 ---
 ### <font color='red'>Exercise : Create a bunch of files</font>
 
-Write a simple script that creates, in the sub-directory `scripts`, the following text files: `myDb_0.txt`, `myDb_001.txt`, `myDb_002.txt`, ..., `myDb_049.txt`. The `i`-th file should contains a single line with the average of the `i` first digits of pi.
+Write a simple script that creates, in the sub-directory `scripts`, the following text files: `myDb_000.txt`, `myDb_001.txt`, `myDb_002.txt`, ..., `myDb_049.txt`. The `i`-th file should contains a single line with the average of the `i` first digits of pi.
 
 
 **Hint**: you can check what the following command does 

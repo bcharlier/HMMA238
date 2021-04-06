@@ -7,8 +7,8 @@
 - only .5 point is given for a contribution,
 - only the first contribution proposed on a theme is rewarded (no point given for followers!),
 - documented pull-requests (PR) are expected : details are expected to help judging what the proposition improves/corrects,
-- for typos at least 5 corrections are expected to receive .5 point. The corrections should be gathered in **single PR**.
-- each student can only get 1 point maximum through bonuses.
+- for typos at least 5 corrections are expected to receive .5 point. The corrections should be gathered in a **single PR**.
+- each student can only get 1 point (maximum) through bonuses.
 
 
 ## Pull Request (PR)
@@ -20,7 +20,7 @@ The principle is the following
 ![plot](fork.png)
 
 - Go to on your Github account and find the HMMA238 repository. In what follows you should substitute my_github_id by your github identification; in the screenshots the examples are with **my_github_id=josephsalmon** and they should be adapted according to yours.
-The url is hence https://github.com/my_github_id/HMMA238 
+The url is hence <https://github.com/my_github_id/HMMA238>.
 
 - Get the cloning repository by clicking the "clone" button and choose either the `https` or `ssh` protocol (the later being recommended to avoid typing your password at each git pull/push):  ![plot](github_clone.png) .
 
