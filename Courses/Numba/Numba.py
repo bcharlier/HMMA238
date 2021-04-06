@@ -495,23 +495,66 @@ array = np.arange(11)
 i in array
 
 # Prediction of a logistic model:
+# In the linear model course, you sought to establish the 'best' possible
+# linear relationship between a set of explanatory variables
+# (the design matrix X) and a real variable to be predicted y.
+# So you have to look for the best beta such as : y ≈ X beta
+# In this exercise, we propose to study logistic regression, which is the
+# "equivalent" of the linear model for classification.
+# We place ourselves here in the case where the variable to predict y has
+# only 2 modalities: 0 or 1.
+# Thus, we will no longer try to predict a real value but a probability of
+# belonging to a class.
+# For example, we will try to predict the probability that a new sample belongs
+# to class 1.
+# The probability of belonging to class 0 is thus obtained by subtraction.
+# To obtain this probability, we will use the function
+# 'logit' : logit(p) = ln(p / (1-p)) where p is the probability of belonging
+# to a class.
+# Thus, for class 1, we would have:
+# logit(P(y=1|X=x)) = ln(P(y=1|X=x) / (1-P(y=1|X=x)))
+# = ln(P(y=1|X=x) / (P(y=0|X=x)))
+# = X beta
 
-# First, you will write a function to generate a classification dataset
-# dependent on a single predictor variable without intercept. Thus, the
-# function takes as input x and its coefficients and will return a variable
-# to predict y. To generate the noise, we can use a function that predicts 0
-# or 1 to add to the signal. The coefficients equal to 2 will be modified
-# to be 1.
+# Finally : logit(P(y=1|X=x)) = X beta
+# The objective is then to use the inverse of the logit function, to express
+# the probability according to the product X beta.
+# Inverse funtion is given by : exp(x)/(1+exp(x)), such that
+# exp(logit(p))/(1+exp(logit(p))) = p.
+# Hence, we get the following relation:
+# P(y=1|X=x) = exp(X beta)/(1+exp(X beta))
 
-# You will take care to measure computing time for each of these functions!
+# Your first goal will then be to write a python function coding the inverse
+# of the logit : exp(x)/(1+exp(x)).
+# You will write it without Numba in a first time and with in a second time.
+# We will call this function inv_logit
 
-# Then, you will write a function (using Numba) allowing to predict a logistic
-# model already learned (we will use sklearn for the learning, the previous
-# function not working for scalars). We will check that our function finds the
-# same results as the predict_proba function of sklearn.
+# Your second objective will then be to create a function to generate a
+# logistic regression dataset from one explanatory variable X and a beta
+# coefficient.
+# You will add a noise epsilon from a function of your choice from
+# `numpy.random`.
+# Mathematically, your function should simply generate y such that:
+# y = exp(X beta + epsilon)/(1+exp(X beta + epsilon))
+# Take aware to round the result to be sure to get result in {0, 1} and not
+# in [0, 1].
+# As previously, write first a version without Numba.
+# We will call thisfunction make_classification.
 
-# We will finish by making a graph to show the evolution of the prediction
-# curve as a function of the value of x.
+# Next, you will write a function to predict the membership of the two classes
+# for a new sample : predict (without and with Numba).
+
+# Once these 3 functions are written, you generate a data set using the
+# make_classification function.
+# For example, you can do: X_train = np.random.normal(loc=0, scale=5, size=100)
+# So that y_train = make_classification(X_train, your_coef)
+# Finally, we will use the logistic_regression function written before to
+# estimate the beta coefficient from X_train and y_train. (Remember to reshape
+# X_train so that it is a 2D-array).
+# This will allow us to predict the probability of belonging to each class for
+# a new sample: X_test = np.random.normal(loc=0, scale=5, size=100).
+# To finish, you will then make a graph of the evolution of the probabilities
+# according to X_test (think of sorting by ascending order X_test.)
 
 
 
