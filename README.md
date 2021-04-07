@@ -61,13 +61,15 @@ Beyond `pandas` ninja skills, we will also introduce modern practices for coders
                                           )
 14. BC : (17/03) [unit tests](Courses/Tests-CI/)
 
-15. JS : (18/03) [Sparse matrices, graphs and memory](Courses/TimeMemory/)
+15. JS : (18/03) [Sparse matrices,](Courses/TimeMemory/)
 
-16. BC : (31/03) [Documentation with Sphinx](Courses/Docs/)
+16. JS : (31/03) [graphs and memory](Courses/TimeMemory/)
 
-17. JS : (01/04) [Numba](Courses/Numba/)
+17. JS : (01/04) [Numba, parallelism](Courses/Numba/)
 
-18. JS : (08/04) [Statsmodels](Courses/Statsmodels/)
+18. BC : (07/04) [Documentation with Sphinx](Courses/Docs/)
+
+19. JS : (08/04) [Statsmodels](Courses/Statsmodels/)
 
 19. JS-BC : (19/04) Oral examination
 
