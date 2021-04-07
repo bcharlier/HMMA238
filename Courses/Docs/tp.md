@@ -153,7 +153,7 @@ There is also an automatic API documentation (API: Application Programming Inter
 ----
 ### <font color='red'>Exercise:</font>
 
-Set up the documentation for `biketrauma`
+Set up the documentation for [`biketrauma`](https://github.com/HMMA238-2020/biketrauma) python module.
 
 1. Install the sphinx package with `pip`
 2. Create a `doc` folder and `cd` into it
