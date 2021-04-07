@@ -6,9 +6,7 @@
 
 Sphinx is an  extension of [reStructuredText](https://docutils.sourceforge.io/rst.html). reStructuredText (`.RST`, `.ReST`, or `.reST`) is a file format for textual data used primarily in the Python programming language community for technical documentation, and similar to the Mardkown format (`.md`) you are currently reading.
 
-It is part of the [`Docutils`](https://docutils.sourceforge.io/) project of the Python Doc-SIG (Documentation Special Interest Group), aimed at creating a set of tools for Python similar to Javadoc for Java or Plain Old Documentation (pod) for Perl.
-
-XXX TODO: R tools also to be mentioned.
+It is part of the [`Docutils`](https://docutils.sourceforge.io/) project of the Python Doc-SIG (Documentation Special Interest Group), aimed at creating a set of tools for Python similar to `Javadoc` for Java or `Plain Old Documentation` (pod) for Perl or [`vignette`](https://r-pkgs.org/vignettes.html) for R.
 
 `Docutils` can extract comments and information from Python programs, and format them into various forms of program documentation.
 
@@ -152,11 +150,15 @@ Answer each question asked.
 Be sure to say **yes** to the `autodoc` extension, as we will use this later.
 There is also an automatic API documentation (API: Application Programming Interface) generator called `sphinx-apidoc`; see [`sphinx-apidoc`](http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html) for details.
 
-**Exercise:** Set up the documentation for `biketrauma`
+----
+### <font color='red'>Exercise:</font>
+
+Set up the documentation for `biketrauma`
 
 1. Install the sphinx package with `pip`
 2. Create a `doc` folder and `cd` into it
 3. Launch `sphinx-quickstart`.
+----
 
 ## Defining documentation structure
 
@@ -187,14 +189,15 @@ You add documents listing them in the content of the directive:
 This is exactly how the `toctree` for this documentation looks.
 The documents to include are given as document names, which in short means that you leave off the file name extension and use forward slashes (/) as directory separators.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Update the `index.rst`: by adding an image located at <https://aenkg.info/img/a167ed14c4655893357e586ec3d6704f.jpg> just below the title of the page
 2. Install the `read_the_doc` theme as explained [here](https://sphinx-rtd-theme.readthedocs.io/en/stable/installing.html#via-python-package). Interested people can read <http://www.sphinx-doc.org/en/stable/theming.html>.
 3. Create the corresponding directory and files in order to add: 
      - An `Installation` section with few sentences and code snippet that explain how to install `biketrauma`
      - A `Documentation` section with subsections `io` and `visu` each one containing a title and few lines of text.
-
+----
 ## Building the doc
 
 During the configuration of Sphinx, a text file called `MakeFile` has been created: in software development, `Make` is a build automation tool that automatically builds executable programs and libraries from source code by reading files called `Makefiles` which specify how to derive the target program. 
@@ -213,10 +216,12 @@ $ firefox _build/html/index.html
 
 N.B.: there is also a [sphinx-build](http://www.sphinx-doc.org/en/stable/man/sphinx-build.html) tool that can help you to build without make.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. list all the `target` defined in the `Makefiles`
 2. Build your doc and visualize it with a navigator
+----
 
 ## API doc (autodoc)
 
@@ -241,10 +246,12 @@ You can also document whole classes or even modules automatically, using member 
 
 `autodoc` needs to import your modules in order to extract the docstrings. Therefore, you must add the appropriate path to `sys.path` in your `conf.py`.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Write a docstring for the class `biketrauma.io.Load_db` and the function `plot_location`
 2. Integrate these documentations in a section called `API` in the sphinx toctree.
+----
 
 ## Sphinx-Gallery
 
@@ -269,10 +276,12 @@ sphinx_gallery_conf = {
 
 A list of the possible keys can be found here <https://sphinx-gallery.github.io/stable/configuration.html>.
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Install the sphinx-gallery extension with pip.
 2. Update the `conf.py` of the `biketrauma` package with the dictionary containing the configuration of the sphinx-gallery.
+----
 
 ### Structure your examples files
 
@@ -297,7 +306,8 @@ However, you can change this to include other packages, see for instance Image s
 
 
 **Warning:** with default options, Sphinx-Gallery only execute the script files with a filename starting by `plot_`.
-**Warning:**  Sphinx-Gallery is looking for `README.txt` or `README.rst` files in every folders containing examples.
+
+**Warning:**  Sphinx-Gallery expect finding a `README.txt` (or `README.rst`) file in every folders containing examples.
 
 ### Include examples in your toctree
 
@@ -313,6 +323,8 @@ For instance you can add those lines in the `index.rst`
 
 to add a section containing all the examples. 
 
-**Exercise:**
+----
+### <font color='red'>Exercise:</font>
 
 1. Transform the `script.py` examples into an auto build example.
+----
