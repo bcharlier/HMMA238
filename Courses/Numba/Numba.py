@@ -347,6 +347,10 @@ end = time.time()
 print(f"Elapsed (with parallel without compilation)  = {end - start:.2E}")
 
 
+start = time.time()
+np.sum(A)
+end = time.time()
+print(f"Elapsed (numpy)                              = {end - start:.2E}")
 
 
 # %%
@@ -370,7 +374,7 @@ def monte_carlo_pi_jit(n_samples=1000):
     return 4.0 * acc / n_samples
 
 
-@njit(parallel=True)
+@njit(parallel=False)
 def monte_carlo_pi_parallel(n_samples=1000):
     acc = 0
     for sample in prange(n_samples):
@@ -380,56 +384,60 @@ def monte_carlo_pi_parallel(n_samples=1000):
     return 4.0 * acc / n_samples
 
 
-@njit(parallel=True)
-def monte_carlo_pi_parallel_new(n_samples=1000):
+# @njit(parallel=True)
+# def monte_carlo_pi_parallel_new(n_samples=1000):
+#     list_accepted = np.empty(n_samples)
+#     for i in prange(n_samples):
+#         vec = np.random.rand(2)
+#         if np.linalg.norm(vec) < 1.:
+#             list_accepted[i] = 1
+#         else:
+#             list_accepted[i] = 0
+#     print(list_accepted)
+#     return 4.0 * np.sum(list_accepted) / n_samples
+
+# Parallel version
+
+import random
+
+@jit(nopython=True, parallel=True)
+def monte_carlo_pi_parallel_new(nsamples):
     acc = 0
-    list_accepted = np.zeros(n_samples)
-    for i in prange(n_samples):
-        vec = np.random.rand(2)
-        if np.linalg.norm(vec) < 1.:
-            list_accepted[i] = 1
-    return np.sum(list_accepted)
-
-
+    # Only change is here
+    for i in prange(nsamples):
+        x = random.random()
+        y = random.random()
+        if (x**2 + y**2) < 1.0:
+            acc += 1
+    return 4.0 * acc / nsamples
 # %%
 
 
 n_samples = 1_000_000
 
 # With naive parallel approach
-start = time.time()
-monte_carlo_pi_parallel(n_samples)
-end = time.time()
-print(f"Elapsed (with parallel + compilation)           = {end - start:.2E}")
+print(f"Elapsed (with parallel + compilation)          : ")
+%time print(monte_carlo_pi_parallel(n_samples))
 
-start = time.time()
-monte_carlo_pi_parallel(n_samples)
-end = time.time()
-print(f"Elapsed (with parallel without compilation)     = {end - start:.2E}")
+%time print(monte_carlo_pi_parallel(n_samples))
+print(f"Elapsed (with parallel without compilation)    : ")
 
 # With naive better approach
-start = time.time()
-monte_carlo_pi_parallel_new(n_samples)
-end = time.time()
-print(f"Elapsed (with parallel new + compilation)       = {end - start:.2E}")
+%time print(monte_carlo_pi_parallel_new(n_samples))
+print(f"Elapsed (with parallel new + compilation)      : ")
 
-start = time.time()
-monte_carlo_pi_parallel_new(n_samples)
-end = time.time()
-print(f"Elapsed (with parallel new without compilation) = {end - start:.2E}")
+%time print(monte_carlo_pi_parallel_new(n_samples))
+print(f"Elapsed (with parallel new without compilation): ")
 
 # jit numba
-start = time.time()
-monte_carlo_pi_jit(n_samples)
-end = time.time()
-print(f"Elapsed (with jit/numba)                        = {end - start:.2E}")
-
+%time print(monte_carlo_pi_jit(n_samples))
+print(f"Elapsed (with jit/numba)                       : ")
 
 # Naive vanilla
-start = time.time()
-monte_carlo_pi(n_samples)
-end = time.time()
-print(f"Elapsed (vanilla)                               = {end - start:.2E}")
+%time print(monte_carlo_pi(n_samples))
+
+print(f"Elapsed (vanilla)                              : ")
+
 
 
  # %%
@@ -455,7 +463,7 @@ def logistic_regression_no_jit(y, X, w, iterations=1000):
 
 
 start = time.time()
-w = logistic_regression_no_jit(y, X, w, iterations=n_iterations )
+w = logistic_regression_no_jit(y, X, w, iterations=n_iterations)
 end = time.time()
 print(f"Elapsed (with compilation)  = {end - start:.2E}")
 
