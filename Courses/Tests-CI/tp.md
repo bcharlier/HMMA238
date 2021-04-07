@@ -35,6 +35,18 @@ It is simple though powerful. `pytest` searches for all `test*.py` files and run
 
 1. Install `pytest` with `pip` using the user scheme (`--user` option)
 2. Test if the command `pytest` is in your PATH (depending on your configuration you will have to add `~/.local/bin` in PATH)
+
+Get the path to `pytest` binary
+```python
+>>> import pytest
+>>> pytest.__path__
+/path/to/pytest
+```
+then, in a terminal
+```bash
+$ export PATH=$PATH:/path/to/pytest
+$ pytest --help
+```
 ----
 
 ### Example
