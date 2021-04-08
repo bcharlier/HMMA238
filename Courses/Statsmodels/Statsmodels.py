@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Linear models: statsmodels, sklearn et sympy
+# # Linear models: statsmodels, sklearn and sympy
 # 
 # ***
 # > __Auteur__: Joseph Salmon
@@ -38,7 +38,7 @@ download(url, path_target, replace=False)
 # %%
 
 
-df_arbres = pd.read_csv("arbres.txt",sep=' ')
+df_arbres = pd.read_csv("arbres.txt", sep=' ')
 df_arbres.columns
 
 
@@ -74,7 +74,7 @@ plt.figure()
 plt.scatter(df_arbres['aire'], df_arbres['vol'], label='Données')
 plt.xlabel('Aire')
 plt.ylabel('Volume')
-plt.plot(df_out, results.predict(df_out), '--', label='OLS')
+plt.plot(df_out, results.prdf_outedict(df_out), '--', label='OLS')
 plt.xlim(xlim)
 plt.ylim(ylim)
 
