@@ -419,24 +419,24 @@ n_samples = 1_000_000
 print(f"Elapsed (with parallel + compilation)          : ")
 %time print(monte_carlo_pi_parallel(n_samples))
 
-%time print(monte_carlo_pi_parallel(n_samples))
 print(f"Elapsed (with parallel without compilation)    : ")
+%time print(monte_carlo_pi_parallel(n_samples))
 
 # With naive better approach
-%time print(monte_carlo_pi_parallel_new(n_samples))
 print(f"Elapsed (with parallel new + compilation)      : ")
-
 %time print(monte_carlo_pi_parallel_new(n_samples))
+
 print(f"Elapsed (with parallel new without compilation): ")
+%time print(monte_carlo_pi_parallel_new(n_samples))
 
 # jit numba
-%time print(monte_carlo_pi_jit(n_samples))
 print(f"Elapsed (with jit/numba)                       : ")
+%time print(monte_carlo_pi_jit(n_samples))
 
 # Naive vanilla
+print(f"Elapsed (vanilla)                              : ")
 %time print(monte_carlo_pi(n_samples))
 
-print(f"Elapsed (vanilla)                              : ")
 
 
 
