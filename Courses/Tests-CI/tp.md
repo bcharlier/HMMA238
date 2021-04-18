@@ -61,7 +61,7 @@ def inc2(x):
     return x + 2
 ```
 
-Thence, the content of `test_sample.py` is
+Thence, the content of `test_inc.py` is
 
 ```python
 from inc import inc1, inc2
@@ -126,7 +126,7 @@ def test_inc():
 then
 
 ```bash
-$ pytest inc_cov --cov 
+$ pytest inc_cov --cov
 =============================== test session starts ===============================
 platform linux -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
 rootdir: /home/bcharlier/enseignement/HMMA238/HMMA238/Tests-CI
