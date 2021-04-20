@@ -27,8 +27,7 @@
 
 ## Visualization part
 
-- Make the visual part self-contained. What is displayed should be crystal
-- clear.
+- Make the visual part self-contained. What is displayed should be crystal clear.
 - Image resolution: not too small, otherwise details are lost, or it is ugly.
 - jittering (to avoid!)
 - Add the time information otherwise your visualization is useless:
@@ -39,14 +38,8 @@
 
 ### Interesting solutions
 
-- https://giphy.com/gifs/wrdRBkkA3CbaL37GD9 / https://github.com/otmanejb/challenge-/blob/main/Visualization/visualization.ipynb
- (simple yet original: display a bit weak though, color and legend to improve)
-
-- https://poncheele.github.io/Prediction_velo/
-
-- https://rawcdn.githack.com/mohamedfattouhy/Challenge_bike/b31c12cfbe272a823c3e4c574c6dc161f30c9728/map.html
- (nice interactivity)
-
+- [<img src="https://mohamedfattouhy" height="300">](https://rawcdn.githack.com/mohamedfattouhy/Challenge_bike/b31c12cfbe272a823c3e4c574c6dc161f30c9728/map.html)
+ 
 - https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif
  (nice time evolution)
 
@@ -60,3 +53,6 @@
 - https://github.com/chloesrcb/bike_challenge
 
 - https://amelievernay.pythonanywhere.com
+
+- https://giphy.com/gifs/wrdRBkkA3CbaL37GD9 / https://github.com/otmanejb/challenge-/blob/main/Visualization/visualization.ipynb
+ (simple yet original: display a bit weak though, color and legend to improve)
