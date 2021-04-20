@@ -6,7 +6,7 @@
 ## Timing
 - **Mid-term** project snapshot: Due date **Week 12** (before Friday March 26, 23:59). This will include the creation of a ```github``` repository (README.md, etc.), a short description on how the work is split and a detailed work program for the project including how the task are attributed (coding).
 
-- Due date (final project) : **Week 16 (TBA)**. The ```github``` repository should be completed before this date (nothing pushed later will be taken into account). The oral presentation should be recorded before Monday 19.
+- Due date (final project) : **Week 16 (TBA)**. The ```github``` repository should be completed before Sunday 25 (23:59). Nothing pushed after the deadline will be taken into account. The oral presentation (video shorter than 20mn) should also be recorded before the deadline.
 
 
 ## Elements expected /  Grading
