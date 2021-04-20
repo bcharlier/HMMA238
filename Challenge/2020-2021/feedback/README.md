@@ -55,7 +55,7 @@
 
 - Bouthayna Hayou,  source: https://github.com/B-hayou/Challenge2021
 
-[<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/bouthayna_hayou.png?sanitize=true" height="300">](https://bhayou.pythonanywhere.com)
+[<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/bouthayna_hayou.jpeg?sanitize=true" height="300">](https://bhayou.pythonanywhere.com)
 
 - Chloé Serre-Combe, source: https://github.com/chloesrcb/bike_challenge
 
