@@ -35,5 +35,28 @@
   date / hour, etc.
 - Explain / add legend: what is the unit for your disks size?
 - Don't use **RED / GREEN** (10% of men are colorblind)
+- Using open resources was a bonus!
 
+### Interesting solutions
 
+- https://giphy.com/gifs/wrdRBkkA3CbaL37GD9 / https://github.com/otmanejb/challenge-/blob/main/Visualization/visualization.ipynb
+ (simple yet original: display a bit weak though, color and legend to improve)
+
+- https://poncheele.github.io/Prediction_velo/
+
+- https://rawcdn.githack.com/mohamedfattouhy/Challenge_bike/b31c12cfbe272a823c3e4c574c6dc161f30c9728/map.html
+ (nice interactivity)
+
+- https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif
+ (nice time evolution)
+
+- https://github.com/Assiab2707/packaging_challenge_brda
+ (nice time evolution, can you improve using Amelie's work for minutes prediction)
+
+- https://github.com/lllinares/challengebike238/blob/master/montmap.html
+
+- https://bhayou.pythonanywhere.com
+
+- https://github.com/chloesrcb/bike_challenge
+
+- https://amelievernay.pythonanywhere.com
