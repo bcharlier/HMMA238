@@ -52,14 +52,16 @@
 
 
 - Bouthayna Hayou,  source: https://github.com/B-hayou/Challenge2021
-  
-    [<img src="https://raw.github.com/Challenge2021/master/Dashboard.jpeg?sanitize=true" height="300">](https://bhayou.pythonanywhere.com)
 
-https://github.com/chloesrcb/bike_challenge
+    [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/bouthayna_hayou.png?sanitize=true" height="300">](https://bhayou.pythonanywhere.com)
 
-- https://amelievernay.pythonanywhere.com
+- Chloé Serre-Combe, source: https://github.com/chloesrcb/bike_challenge
+  [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/chloe_serre-combe.png?sanitize=true" height="300">](https://mybinder.org/v2/gh/chloesrcb/bike_challenge/main?filepath=Visualization%2Fwidget.ipynb)
 
-- https://giphy.com/gifs/wrdRBkkA3CbaL37GD9 / https://github.com/otmanejb/challenge-/blob/main/Visualization/visualization.ipynb
- (simple yet original: display a bit weak though, color and legend to improve)
+- Amélie Vernay, source: https://github.com/AmelieVernay/MtpBikeViz
+  [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/amelie_vernay.png?sanitize=true" height="300">](https://amelievernay.pythonanywhere.com)
 
-- Laurent Linares, source : https://github.com/lllinares/challengebike238/blob/master/montmap.html
+- Otmane Jabbar, source:  https://github.com/otmanejb/challenge-/blob/main/Visualization/visualization.ipynb
+
+  [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/otmane_jabbar.png?sanitize=true" height="300">](https://giphy.com/gifs/wrdRBkkA3CbaL37GD9/)
+
