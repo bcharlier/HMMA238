@@ -51,13 +51,15 @@
   [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/assia_berrandou.png?sanitize=true" height="300">](https://assiab2707.github.io/packaging_challenge_brda/)
 
 
-- https://github.com/lllinares/challengebike238/blob/master/montmap.html
+- Bouthayna Hayou,  source: https://github.com/B-hayou/Challenge2021
+  
+    [<img src="https://raw.github.com/Challenge2021/master/Dashboard.jpeg?sanitize=true" height="300">](https://bhayou.pythonanywhere.com)
 
-- https://bhayou.pythonanywhere.com
-
-- https://github.com/chloesrcb/bike_challenge
+https://github.com/chloesrcb/bike_challenge
 
 - https://amelievernay.pythonanywhere.com
 
 - https://giphy.com/gifs/wrdRBkkA3CbaL37GD9 / https://github.com/otmanejb/challenge-/blob/main/Visualization/visualization.ipynb
  (simple yet original: display a bit weak though, color and legend to improve)
+
+- Laurent Linares, source : https://github.com/lllinares/challengebike238/blob/master/montmap.html
