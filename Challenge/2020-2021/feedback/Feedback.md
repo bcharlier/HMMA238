@@ -1,4 +1,6 @@
 # Feedback --- Most common errors/ issues
+
+
 - get more data
 - respect guidelines (less than 2 pages, means 4 is bad!)
 - spellchecker, ALWAYS!
@@ -6,7 +8,17 @@
 - the bike project was short (try to make it one file if possible)
 - do not duplicate code (after copy pasting 3 times the same, stop and think!)
 - PEP8 of course (linter: flake8, etc.)!
+- Excel was forbidden by the way, it was a course on Python !
+
+## Statistical issues
+
+- subsampling only the time stamps between 00:00 and 09:00 would lead to a downward bias, since by doing so you have very few data point around 09:00, while this is a rush hour (so many bikes around that time).
 - train/test is tricky on dates. Read https://scikit-learn.org/stable/modules/cross_validation.html#time-series-split for instance, to master nested versions.
 - testing the prediction on your own test/train sets would have been important to avoid being confident in your own predictions.
-- Excel was forbidden by the way, it was a course on Python !
-- Merge the two datasets from the challenge (code will be posted)
+
+- Merge the two datasets from the challenge (code will be posted), this would provide additional insight...
+
+
+## TeX tips:
+
+- Use \varepsilon for random variables / \epsilon for small quantities.
