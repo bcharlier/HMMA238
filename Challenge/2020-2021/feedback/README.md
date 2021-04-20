@@ -43,7 +43,9 @@
  [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/mohamedfattouhy.png?sanitize=true" height="300">](https://rawcdn.githack.com/mohamedfattouhy/Challenge_bike/b31c12cfbe272a823c3e4c574c6dc161f30c9728/map.html)
 
 
-- Nathan Esteve, source : [<img src="https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif?sanitize=true" height="300">](https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif)
+- Nathan Esteve, source : https://github.com/Nathanesteve/Challenge_prediction
+
+   [<img src="https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif?sanitize=true" height="300">](https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif)
 
 
 - Assia Berrandou, source : https://github.com/Assiab2707/packaging_challenge_brda
@@ -64,4 +66,3 @@
 - Otmane Jabbar, source:  https://github.com/otmanejb/challenge-/blob/main/Visualization/visualization.ipynb
 
   [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/otmane_jabbar.png?sanitize=true" height="300">](https://giphy.com/gifs/wrdRBkkA3CbaL37GD9/)
-
