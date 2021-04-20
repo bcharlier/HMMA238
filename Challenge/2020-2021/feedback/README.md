@@ -45,24 +45,26 @@
 
 - Nathan Esteve, source : https://github.com/Nathanesteve/Challenge_prediction
 
-   [<img src="https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif?sanitize=true" height="300">](https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif)
+[<img src="https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif?sanitize=true" height="300">](https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif)
 
 
 - Assia Berrandou, source : https://github.com/Assiab2707/packaging_challenge_brda
 
-  [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/assia_berrandou.png?sanitize=true" height="300">](https://assiab2707.github.io/packaging_challenge_brda/)
+[<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/assia_berrandou.png?sanitize=true" height="300">](https://assiab2707.github.io/packaging_challenge_brda/)
 
 
 - Bouthayna Hayou,  source: https://github.com/B-hayou/Challenge2021
 
-    [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/bouthayna_hayou.png?sanitize=true" height="300">](https://bhayou.pythonanywhere.com)
+[<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/bouthayna_hayou.png?sanitize=true" height="300">](https://bhayou.pythonanywhere.com)
 
 - Chloé Serre-Combe, source: https://github.com/chloesrcb/bike_challenge
-  [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/chloe_serre-combe.png?sanitize=true" height="300">](https://mybinder.org/v2/gh/chloesrcb/bike_challenge/main?filepath=Visualization%2Fwidget.ipynb)
+
+[<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/chloe_serre-combe.png?sanitize=true" height="300">](https://mybinder.org/v2/gh/chloesrcb/bike_challenge/main?filepath=Visualization%2Fwidget.ipynb)
 
 - Amélie Vernay, source: https://github.com/AmelieVernay/MtpBikeViz
-  [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/amelie_vernay.png?sanitize=true" height="300">](https://amelievernay.pythonanywhere.com)
+
+[<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/amelie_vernay.png?sanitize=true" height="300">](https://amelievernay.pythonanywhere.com)
 
 - Otmane Jabbar, source:  https://github.com/otmanejb/challenge-/blob/main/Visualization/visualization.ipynb
 
-  [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/otmane_jabbar.png?sanitize=true" height="300">](https://giphy.com/gifs/wrdRBkkA3CbaL37GD9/)
+[<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/otmane_jabbar.png?sanitize=true" height="300">](https://giphy.com/gifs/wrdRBkkA3CbaL37GD9/)
