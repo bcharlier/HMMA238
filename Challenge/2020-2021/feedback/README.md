@@ -38,13 +38,18 @@
 
 ### Interesting solutions
 
-- [<img src="https://mohamedfattouhy" height="300">](https://rawcdn.githack.com/mohamedfattouhy/Challenge_bike/b31c12cfbe272a823c3e4c574c6dc161f30c9728/map.html)
+- Mohamed Fattouhy, source: https://github.com/mohamedfattouhy/Challenge_bike
  
-- https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif
- (nice time evolution)
+ [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/mohamedfattouhy.png?sanitize=true" height="300">](https://rawcdn.githack.com/mohamedfattouhy/Challenge_bike/b31c12cfbe272a823c3e4c574c6dc161f30c9728/map.html)
 
-- https://github.com/Assiab2707/packaging_challenge_brda
- (nice time evolution, can you improve using Amelie's work for minutes prediction)
+
+- Nathan Esteve, source : [<img src="https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif?sanitize=true" height="300">](https://github.com/Nathanesteve/Challenge_prediction/blob/main/Gif/Montpellier_cycliste.gif)
+
+
+- Assia Berrandou, source : https://github.com/Assiab2707/packaging_challenge_brda
+
+  [<img src="https://raw.github.com/bcharlier/HMMA238/master/Challenge/2020-2021/feedback/assia_berrandou.png?sanitize=true" height="300">](https://assiab2707.github.io/packaging_challenge_brda/)
+
 
 - https://github.com/lllinares/challengebike238/blob/master/montmap.html
 
